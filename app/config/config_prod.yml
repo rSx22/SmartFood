@@ -1,0 +1,7 @@
+doctrine:
+  host: localhost
+  dbname: newprojDB
+  user: root
+  password: root
+  driver: pdo_mysql
+  port: 3306

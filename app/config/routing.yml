@@ -1,0 +1,5 @@
+user_list:
+  controller: Controller\UserController:listUserAction
+
+user:
+  controller: Controller\UserController:showUserAction

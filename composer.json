@@ -1,6 +1,22 @@
 {
-    "minimum-stability": "dev",
-    "require": {
-        "silex/silex": "1.0.*"
+  "name": "ProjectName",
+  "description": "Your Project",
+  "autoload": {
+    "psr-0": {"": [
+      "src/"
+    ]}
+  },
+  "require": {
+    "doctrine/dbal": "<2.5",
+    "symfony/yaml": "2.6.*",
+    "components/jquery": "2.1.*",
+    "twitter/bootstrap": "3.3.*",
+    "twig/twig": "2.0.*@dev"
+  },
+  "repositories": [
+    {
+      "type": "composer",
+      "url": "http://packages.zendframework.com/"
     }
+  ]
 }
