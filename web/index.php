@@ -45,17 +45,24 @@ $request['query'] = &$_GET;
 //$response can be an object
 $response = $controller->$action_name($request);
 
-
 /**
  * Use Twig !
  */
+
+
+}
+
 $loader = new Twig_Loader_Filesystem('../src/View/user');
 $twig = new Twig_Environment($loader, array(
-    'cache' => '../src/View/user',
+    'cache' => '../app/cache/twig',
 ));	
-$template = $twig->loadTemplate($response['view']);
-echo $template->render(array('users' => $response['users']));
 
-
-
+if(isset($response['view'])){
+	$template = $twig->loadTemplate($response['view']);
+	//unset($response['view']);
+	echo $template->render($response)
+	;
+}else{
+	$template = $twig->loadTemplate('index.html.twig');
+	echo $template->render(array());
 }

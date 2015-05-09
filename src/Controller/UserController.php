@@ -8,10 +8,7 @@
 
 namespace Controller;
 
-
-use Doctrine\DBAL\Connection;
-use Doctrine\DBAL\Configuration;
-use Symfony\Component\Yaml\Parser;
+use Doctrine\DBAL\Query;
 /**
  * Class UserController
  *
@@ -19,45 +16,22 @@ use Symfony\Component\Yaml\Parser;
  *
  * @package Website\Controller
  */
-class UserController {
+class UserController extends AbstractBaseController {
 
-    /**
-     * Recup all users and print it
-     *
-     * @return array
-     */
     public function listUserAction($request) {
         //Use Doctrine DBAL here
-        $yaml = new Parser();
-        $users = '';
-        $params = $yaml->parse(file_get_contents('../app/config/config_prod.yml'));
 
-        try {
-              $conn = \Doctrine\DBAL\DriverManager::getConnection($params['doctrine']);
-        } catch (Exception $e) {
-
-            var_dump($e->getMessage());
-            die;
-        }
-
-
+        $conn = AbstractBaseController::createConn();
         $queryBuilder = $conn->createQueryBuilder();
-
 
 
         $queryBuilder
             ->select('name')
-            ->from('user', 'alias')
+            ->from('users', 'u')
         ;
 
         $dbex = $conn->query($queryBuilder);
         $users = $dbex->fetchAll();
-
-
-
-
-
-
 
         //you can return a Response object
         return [
@@ -67,21 +41,35 @@ class UserController {
     }
 
 
-    /**
-     * swho one user thanks to his id : &id=...
-     *
-     * @return array
-     */
+
     public function showUserAction($request) {
         //Use Doctrine DBAL here
+        if ( isset($request['request']['id']) ){
+            $id = $request['request']['id'];
+            $conn = AbstractBaseController::createConn();
+            $queryBuilder = $conn->createQueryBuilder();
 
-        $user = '';
 
-        //you can return a Response object
-        return [
-            'view' => 'WebSite/View/user/showUser.html.twig', // should be Twig : 'WebSite/View/user/listUser.html.twig'
-            'user' => $user
-        ];
+
+            $queryBuilder
+                ->select('name')
+                ->from('users', 'alias')
+                ->where('id = ?')
+            ;
+            $dbex = $conn->prepare($queryBuilder);
+            $dbex->bindValue(1, $id);
+            $dbex->execute();
+            $user = $dbex->fetch();
+
+            //you can return a Response object
+            return [
+                'view' => 'showUser.html.twig', // should be Twig : 'WebSite/View/user/listUser.html.twig'
+                'user' => array(
+                                'id' =>$id,
+                                'name' =>$user['name'] 
+                                )
+            ];
+        }else{return ['view' => 'form_showUser.html.twig'];}
     }
 
     /**
@@ -90,25 +78,38 @@ class UserController {
     public function addUser($request) {
         //Use Doctrine DBAL here
 
-
-        if ($request['request']) { //if POST
+        if( isset( $request['request']['name']) && isset ($request['request']['password']) ) { //if POST
             //handle form with DBAL
             //...
+            $conn = AbstractBaseController::createConn();
+            $queryBuilder = $conn->createQueryBuilder();
+            $user = array(
+                        'name' => $request['request']['name'],
+                        'password' => $request['request']['password']
+                        )
+            ;
+            $qb = 'INSERT INTO `users` (`name`, `password`) VALUES (?,?)';
+            $dbex = $conn->prepare($qb);
+            $dbex->bindValue(1, $user['name']);
+            $dbex->bindValue(2, $user['password']);
+            $dbex->execute();
+
 
             //Redirect to show
             //you should return a RedirectResponse object
+            //return [
+            //    'redirect_to' => 'http://.......',// => manage it in index.php !! URL should be generate by Routing functions thanks to routing config
+
+            //];
+        
+
+            //you should return a Response object
             return [
-                'redirect_to' => 'http://.......',// => manage it in index.php !! URL should be generate by Routing functions thanks to routing config
-
+                'view' => 'addUser.html.twig',// => create the file
+                'user' => $user
             ];
+        }else {return ['view' => 'form_addUser.html.twig'];
         }
-
-
-        //you should return a Response object
-        return [
-            'view' => 'WebSite/View/user/addUser.html.php',// => create the file
-            'user' => $user
-        ];
     }
 
 

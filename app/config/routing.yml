@@ -3,3 +3,6 @@ user_list:
 
 user:
   controller: Controller\UserController:showUserAction
+
+adduser:
+  controller: Controller\UserController:addUser
