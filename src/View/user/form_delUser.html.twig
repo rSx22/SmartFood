@@ -1,10 +1,10 @@
 {% extends 'index.html.twig' %}
 {% block body %}
-<div>select user to search
+<div>write user u want to delete
 </div>
 <div style="border:1px solid; width:300px;">
-	<form method="POST" action="index.php?p=user"> 
-		<input type="number" name="id" min="0">
+	<form method="POST" action="index.php?p=deluser"> 
+		Name user to del: <input type="text" name="name"><br>
 		<input type="submit">
 	</form>
 </div>

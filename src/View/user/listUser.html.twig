@@ -1,5 +1,9 @@
-{% for key, user in users %}
-<p>
-    HII ALL USERINDB : {{user.name}}
-</p>
-{% endfor %}
+{% extends 'index.html.twig' %}
+{% block body %}
+	HII ALL USERINDB :<br>
+	{% for key, user in users %}
+
+     {{user.name}}<br>
+	
+	{% endfor %}
+{% endblock %}

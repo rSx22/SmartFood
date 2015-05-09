@@ -6,3 +6,12 @@ user:
 
 adduser:
   controller: Controller\UserController:addUser
+
+deluser:
+  controller: Controller\UserController:deleteUser
+
+loguser:
+  controller: Controller\UserController:logUser
+
+logout:
+  controller: Controller\UserController:logOut

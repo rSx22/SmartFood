@@ -7,23 +7,36 @@ class __TwigTemplate_58dfbcfd451481b11e23d9be0e31cd7b304a53ba4ca49e3dee190ffa47f
     {
         parent::__construct($env);
 
-        $this->parent = false;
-
+        // line 1
+        $this->parent = $this->loadTemplate("form_showUser.html.twig", "showUser.html.twig", 1);
         $this->blocks = [
+            'notif' => [$this, 'block_notif'],
         ];
+    }
+
+    protected function doGetParent(array $context)
+    {
+        return "form_showUser.html.twig";
     }
 
     protected function doDisplay(array $context, array $blocks = [])
     {
-        // line 1
-        echo "<p>
+        $this->parent->display($context, array_merge($this->blocks, $blocks));
+    }
+
+    // line 2
+    public function block_notif($context, array $blocks = array())
+    {
+        // line 3
+        echo "<div>
     HII USER WITH ID : ";
-        // line 2
+        // line 4
         echo twig_escape_filter($this->env, $this->getAttribute((isset($context["user"]) ? $context["user"] : null), "id", []), "html", null, true);
         echo " = ";
         echo twig_escape_filter($this->env, $this->getAttribute((isset($context["user"]) ? $context["user"] : null), "name", []), "html", null, true);
         echo "
-</p>";
+</div>
+";
     }
 
     public function getTemplateName()
@@ -38,6 +51,6 @@ class __TwigTemplate_58dfbcfd451481b11e23d9be0e31cd7b304a53ba4ca49e3dee190ffa47f
 
     public function getDebugInfo()
     {
-        return array (  22 => 2,  19 => 1,);
+        return array (  34 => 4,  31 => 3,  28 => 2,  11 => 1,);
     }
 }

@@ -59,7 +59,7 @@ $twig = new Twig_Environment($loader, array(
 
 if(isset($response['view'])){
 	$template = $twig->loadTemplate($response['view']);
-	//unset($response['view']);
+	unset($response['view']);
 	echo $template->render($response)
 	;
 }else{

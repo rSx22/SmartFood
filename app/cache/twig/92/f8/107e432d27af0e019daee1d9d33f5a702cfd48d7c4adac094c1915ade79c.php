@@ -1,14 +1,14 @@
 <?php
 
-/* form_showUser.html.twig */
-class __TwigTemplate_36c74560db949054d84c43a339b0cd94c2a10d6c5023a3f10c73db492182fe1c extends Twig_Template
+/* form_delUser.html.twig */
+class __TwigTemplate_92f8107e432d27af0e019daee1d9d33f5a702cfd48d7c4adac094c1915ade79c extends Twig_Template
 {
     public function __construct(Twig_Environment $env)
     {
         parent::__construct($env);
 
         // line 1
-        $this->parent = $this->loadTemplate("index.html.twig", "form_showUser.html.twig", 1);
+        $this->parent = $this->loadTemplate("index.html.twig", "form_delUser.html.twig", 1);
         $this->blocks = [
             'body' => [$this, 'block_body'],
         ];
@@ -28,11 +28,11 @@ class __TwigTemplate_36c74560db949054d84c43a339b0cd94c2a10d6c5023a3f10c73db49218
     public function block_body($context, array $blocks = array())
     {
         // line 3
-        echo "<div>select user to search
+        echo "<div>write user u want to delete
 </div>
 <div style=\"border:1px solid; width:300px;\">
-\t<form method=\"POST\" action=\"index.php?p=user\"> 
-\t\t<input type=\"number\" name=\"id\" min=\"0\">
+\t<form method=\"POST\" action=\"index.php?p=deluser\"> 
+\t\tName user to del: <input type=\"text\" name=\"name\"><br>
 \t\t<input type=\"submit\">
 \t</form>
 </div>
@@ -41,7 +41,7 @@ class __TwigTemplate_36c74560db949054d84c43a339b0cd94c2a10d6c5023a3f10c73db49218
 
     public function getTemplateName()
     {
-        return "form_showUser.html.twig";
+        return "form_delUser.html.twig";
     }
 
     public function isTraitable()
