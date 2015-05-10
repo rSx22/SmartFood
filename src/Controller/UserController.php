@@ -5,31 +5,18 @@ namespace Controller;
 ini_set('error_reporting', E_ALL);
 
 session_start();
-
-use Doctrine\DBAL\Query;
-use Controller\validator;
-/**
- * Class UserController
- *
- * Controller of all User actions
- *
- * @package Website\Controller
- */
+ 
+use Model\User;
+ 
 class UserController extends AbstractBaseController {
 
     public function listUserAction($request) {
         //create connection from parent AbstractBaseController
         $conn = AbstractBaseController::createConn();
 
-        $queryBuilder = $conn->createQueryBuilder(); // call query builder
-        $queryBuilder
-            ->select('name')
-            ->from('users', 'u')
-        ;//mysql function by querybuilder 2.5 in project -> no insert() method
 
-        $dbex = $conn->query($queryBuilder);
-        $users = $dbex->fetchAll();
-
+        $userModel = new User($conn); // new Model for accessing db
+        $users = $userModel->getAllUsers();
         //you can return a Response object
         return [
             'view' => 'listUser.html.twig', // should be Twig : 'WebSite/View/user/listUser.html.twig'
@@ -41,27 +28,22 @@ class UserController extends AbstractBaseController {
         if ( isset($request['request']['id']) ){ //chk for id from post else input's view
             $id = $request['request']['id'];
             $conn = AbstractBaseController::createConn();
-            $queryBuilder = $conn->createQueryBuilder();
-
-
-
-            $queryBuilder
-                ->select('name')
-                ->from('users', 'alias')
-                ->where('id = ?')
-            ;
-            $dbex = $conn->prepare($queryBuilder);
-            $dbex->bindValue(1, $id); // bin value ? => $id
-            $dbex->execute();
-            $user = $dbex->fetch();
+            $userModel = new User($conn); // new Model for accessing db
+            $user = $userModel->getUserById($id);
             if( isset($user['name'])){
                 return  [
                             'view' => 'notify.html.twig',
                             'user' => $user['name'],
                             'methode' => 'showUser',
-                            'message' => 'User : '.$user['name'].' registered with id : '.$request['request']['id'].' Table users'
+                            'message' => 'User : '.$user['name'].' registered with id : '.$id.' Table users'
                         ];
-            }
+            }else{ return  [
+                            'view' => 'notify.html.twig',
+                            'user' => $user['name'],
+                            'methode' => 'showUser',
+                            'message' => 'No User registered with id : '.$id.' Table users'
+                        ];
+                }
         }else{return ['view' => 'form_showUser.html.twig'];}
     }
 
@@ -78,20 +60,15 @@ class UserController extends AbstractBaseController {
                 ;
                 if($stringVal->strBetween($user['name'], '6', '12' )) {
                     if($stringVal->strBetween($user['password'], '6', '12' )){
-                        $conn = AbstractBaseController::createConn();
-                        $queryBuilder = $conn->createQueryBuilder();
 
-                        $qb = 'SELECT EXISTS(SELECT * FROM users WHERE name =  ?) as userExist'; //Check in db with name  return 0/1.
-                        $dbex = $conn->prepare($qb);
-                        $dbex->bindValue(1, $user['name']);
-                        $dbex->execute();
-                        $resultQuery = $dbex->fetch();
-                        if( $resultQuery['userExist'] == '0'){ //then we can create it
-                            $query = 'INSERT INTO `users` (`name`, `password`) VALUES (?,?)';
-                            $dbexec = $conn->prepare($query);
-                            $dbexec->bindValue(1, $user['name']);
-                            $dbexec->bindValue(2, $user['password']);
-                            $dbexec->execute(); 
+                        $conn = AbstractBaseController::createConn();
+                        $userModel = new User($conn); // new Model for accessing db
+                        $userExist = $userModel->chkUserByName($user['name']); 
+
+                        if( $userExist == '0'){ //then we can create it
+                            
+                            $userAdd = $userModel->addUser($user['name'], $user['password']); 
+                            
                             return [
                             'view' => 'notify.html.twig',
                             'user' => $user['name'],
@@ -125,28 +102,17 @@ class UserController extends AbstractBaseController {
                     ];
                 }
             }
-        
 
-
-    /**
-     * Delete User and redirect on listUser after
-     */
     public function deleteUser($request) {
         //check request content else show input view
         if(isset($request['request']['name']) ) { 
+
             $user =  $request['request']['name'];
             $conn = AbstractBaseController::createConn();
-            $queryBuilder = $conn->createQueryBuilder();
-            $qb = 'SELECT EXISTS(SELECT * FROM users WHERE name =  ?) as userExist'; //Check in db with name  return 0/1.
-            $dbex = $conn->prepare($qb);
-            $dbex->bindValue(1, $user); // bind value ? => $user
-            $dbex->execute();
-            $resultQuery = $dbex->fetch(); //fetch 0/1 if user already exist
-            if( $resultQuery['userExist'] >= 1){ 
-                $qb = 'DELETE FROM `users` WHERE name = ?';
-                $dbex = $conn->prepare($qb);
-                $dbex->bindValue(1, $user);
-                $dbex->execute();
+            $userModel = new User($conn); // new Model for accessing db
+            $userExist = $userModel->chkUserByName($user); //chk in db if user exist
+            if( $userExist >= 1){ 
+                $userDel= $userModel->delUser($user); // if exist delete it
                 return [
                     'view' => 'notify.html.twig',
                     'user' => $user,
@@ -172,22 +138,17 @@ class UserController extends AbstractBaseController {
         if( isset( $request['request']['name']) && isset ($request['request']['password']) ) { //if POST
             //handle form with DBAL
             //...
+
             $conn = AbstractBaseController::createConn();
-            $queryBuilder = $conn->createQueryBuilder();
+            $userModel = new User($conn); // new Model for accessing db
             $user = array(
                         'name' => $request['request']['name'],
                         'password' => $request['request']['password']
                         )
             ;
+            $userExist = $userModel->chkUserByNameAndPassword($user['name'], $user['password']);
 
-
-            $qb = 'SELECT EXISTS(SELECT * FROM users WHERE name =  ? AND password = ?) as userExist'; //Check in db with name and password, return 0/1.
-            $dbex = $conn->prepare($qb);
-            $dbex->bindValue(1, $user['name']);
-            $dbex->bindValue(2, $user['password']);
-            $dbex->execute();
-            $resultQuery = $dbex->fetch();
-            if( $resultQuery['userExist'] == 1){
+            if( $userExist == '1'){
                 $_SESSION['username'] = $user['name'];
                 return [
                 'view' => 'notify.html.twig',

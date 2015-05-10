@@ -9,6 +9,8 @@
  use Symfony\Component\Yaml\Parser;
 
 
+$loader = require __DIR__ . '/../vendor/autoload.php';
+$loader->add('Model\\', __DIR__.'/src/Model');
 
 
  $yaml = new Parser();
@@ -55,7 +57,9 @@ $response = $controller->$action_name($request);
 $loader = new Twig_Loader_Filesystem('../src/View/user');
 $twig = new Twig_Environment($loader, array(
     'cache' => '../app/cache/twig',
+    'debug' => true,
 ));	
+$twig->addExtension(new Twig_Extension_Debug());
 
 if(isset($response['view'])){
 	$template = $twig->loadTemplate($response['view']);

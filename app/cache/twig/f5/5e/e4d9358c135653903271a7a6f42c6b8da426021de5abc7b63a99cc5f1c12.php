@@ -28,7 +28,7 @@ class __TwigTemplate_f55ee4d9358c135653903271a7a6f42c6b8da426021de5abc7b63a99cc5
     public function block_body($context, array $blocks = array())
     {
         // line 3
-        echo "\tHII ALL USERINDB :<br>
+        echo "\tList of users in DB :<br>
 \t";
         // line 4
         $context['_parent'] = $context;

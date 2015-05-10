@@ -2,17 +2,20 @@
   "name": "ProjectName",
   "description": "Your Project",
   "autoload": {
-    "psr-0": {"": [
-      "src/"
-    ]}
+        "classmap": [
+            "src/"
+        ],
+        "psr-4": {
+            "Controller\\": "src/Controller",
+            "Model\\": "src/Model"
+        }
   },
   "require": {
     "doctrine/dbal": "<2.5",
     "symfony/yaml": "2.6.*",
     "components/jquery": "2.1.*",
     "twitter/bootstrap": "3.3.*",
-    "twig/twig": "2.0.*@dev",
-    "zendframework/zend-session": "2.3.*"
+    "twig/twig": "2.0.*@dev"
   },
   "repositories": [
     {
