@@ -1,14 +1,13 @@
-<?php
-/**
- * Created by PhpStorm.
- * User: nico
- * Date: 23/04/2015
- * Time: 23:45
- */
+<?php 
 
 namespace Controller;
+    //affiche les erreurs
+ini_set('error_reporting', E_ALL);
+
+session_start();
 
 use Doctrine\DBAL\Query;
+use Controller\validator;
 /**
  * Class UserController
  *
@@ -19,16 +18,14 @@ use Doctrine\DBAL\Query;
 class UserController extends AbstractBaseController {
 
     public function listUserAction($request) {
-        //Use Doctrine DBAL here
-
+        //create connection from parent AbstractBaseController
         $conn = AbstractBaseController::createConn();
-        $queryBuilder = $conn->createQueryBuilder();
 
-
+        $queryBuilder = $conn->createQueryBuilder(); // call query builder
         $queryBuilder
             ->select('name')
             ->from('users', 'u')
-        ;
+        ;//mysql function by querybuilder 2.5 in project -> no insert() method
 
         $dbex = $conn->query($queryBuilder);
         $users = $dbex->fetchAll();
@@ -37,14 +34,11 @@ class UserController extends AbstractBaseController {
         return [
             'view' => 'listUser.html.twig', // should be Twig : 'WebSite/View/user/listUser.html.twig'
             'users' => $users
-        ];
+        ]; //return views and views parameter
     }
 
-
-
     public function showUserAction($request) {
-        //Use Doctrine DBAL here
-        if ( isset($request['request']['id']) ){
+        if ( isset($request['request']['id']) ){ //chk for id from post else input's view
             $id = $request['request']['id'];
             $conn = AbstractBaseController::createConn();
             $queryBuilder = $conn->createQueryBuilder();
@@ -57,18 +51,17 @@ class UserController extends AbstractBaseController {
                 ->where('id = ?')
             ;
             $dbex = $conn->prepare($queryBuilder);
-            $dbex->bindValue(1, $id);
+            $dbex->bindValue(1, $id); // bin value ? => $id
             $dbex->execute();
             $user = $dbex->fetch();
-
-            //you can return a Response object
-            return [
-                'view' => 'showUser.html.twig', // should be Twig : 'WebSite/View/user/listUser.html.twig'
-                'user' => array(
-                                'id' =>$id,
-                                'name' =>$user['name']  
-                                )
-            ];
+            if( isset($user['name'])){
+                return  [
+                            'view' => 'notify.html.twig',
+                            'user' => $user['name'],
+                            'methode' => 'showUser',
+                            'message' => 'User : '.$user['name'].' registered with id : '.$request['request']['id'].' Table users'
+                        ];
+            }
         }else{return ['view' => 'form_showUser.html.twig'];}
     }
 
@@ -76,104 +69,100 @@ class UserController extends AbstractBaseController {
      * Add User and redirect on listUser after
      */
     public function addUser($request) {
-        //Use Doctrine DBAL here
+        $stringVal = new validator\stringValidator();
+            if( isset( $request['request']['name']) && isset ($request['request']['password']) ) { 
+                $user = array(
+                            'name' => $request['request']['name'],
+                            'password' => $request['request']['password']
+                            )
+                ;
+                if($stringVal->strBetween($user['name'], '6', '12' )) {
+                    if($stringVal->strBetween($user['password'], '6', '12' )){
+                        $conn = AbstractBaseController::createConn();
+                        $queryBuilder = $conn->createQueryBuilder();
 
-        if( isset( $request['request']['name']) && isset ($request['request']['password']) ) { //if POST
-            //handle form with DBAL
-            //...
-            $conn = AbstractBaseController::createConn();
-            $queryBuilder = $conn->createQueryBuilder();
-            $user = array(
-                        'name' => $request['request']['name'],
-                        'password' => $request['request']['password']
-                        )
-            ;
+                        $qb = 'SELECT EXISTS(SELECT * FROM users WHERE name =  ?) as userExist'; //Check in db with name  return 0/1.
+                        $dbex = $conn->prepare($qb);
+                        $dbex->bindValue(1, $user['name']);
+                        $dbex->execute();
+                        $resultQuery = $dbex->fetch();
+                        if( $resultQuery['userExist'] == '0'){ //then we can create it
+                            $query = 'INSERT INTO `users` (`name`, `password`) VALUES (?,?)';
+                            $dbexec = $conn->prepare($query);
+                            $dbexec->bindValue(1, $user['name']);
+                            $dbexec->bindValue(2, $user['password']);
+                            $dbexec->execute(); 
+                            return [
+                            'view' => 'notify.html.twig',
+                            'user' => $user['name'],
+                            'methode' => 'addUser',
+                            'message' => 'User : '.$user['name'].' registered Table users'
+                        ];
+                        }else{return [
+                            'view' => 'notify.html.twig',
+                            'user' => $user['name'],
+                            'methode' => 'addUser',
+                            'message' => 'User : '.$user['name'].' already exist Table users'
+                            ];
+                            }
+                        }else{return [
+                            'view' => 'notify.html.twig',
+                            'user' => $user['name'],
+                            'methode' => 'addUser',
+                            'message' => 'Password too short (6 char. min.) or too long (12 char. max.) Table users'
+                        ];
 
-            $qb = 'SELECT EXISTS(SELECT * FROM users WHERE name =  ?) as userExist'; //Check in db with name  return 0/1.
-            $dbex = $conn->prepare($qb);
-            $dbex->bindValue(1, $user['name']);
-            $dbex->execute();
-            $resultQuery = $dbex->fetch();
-            if( $resultQuery['userExist'] == '0'){ //then we can create it
-                $query = 'INSERT INTO `users` (`name`, `password`) VALUES (?,?)';
-                $dbexec = $conn->prepare($query);
-                $dbexec->bindValue(1, $user['name']);
-                $dbexec->bindValue(2, $user['password']);
-                $dbexec->execute(); 
-
-                return [
-                   'view' => 'addUser.html.twig',// => create the file
-                    'user' => $user
-                ];
-            }else{return ['view' => 'errorUserExist.html.twig',
-                      'user' => $user['name']
-                      ];
+                        }
+                    }else{ return [
+                        'view' => 'notify.html.twig',
+                        'user' => $user['name'],
+                        'methode' => 'addUser',
+                        'message' => 'User : '.$user['name'].' too short (6 char. min.) or too long (12 char. max.) Table users'
+                    ];
+                    }
+                }else{ return [
+                        'view' => 'form_addUser.html.twig'
+                    ];
+                }
             }
-
-            //Redirect to show
-            //you should return a RedirectResponse object
-            //return [
-            //    'redirect_to' => 'http://.......',// => manage it in index.php !! URL should be generate by Routing functions thanks to routing config
-
-            //];
         
-
-            //you should return a Response object
-           
-        }else {return ['view' => 'form_addUser.html.twig'];
-        }
-    }
 
 
     /**
      * Delete User and redirect on listUser after
      */
     public function deleteUser($request) {
-        //Use Doctrine DBAL here
-
-        if( isset( $request['request']['name']) ) { //if POST
-            //handle form with DBAL
-            //...
+        //check request content else show input view
+        if(isset($request['request']['name']) ) { 
+            $user =  $request['request']['name'];
             $conn = AbstractBaseController::createConn();
             $queryBuilder = $conn->createQueryBuilder();
-
-            $user =  $request['request']['name'];
-
             $qb = 'SELECT EXISTS(SELECT * FROM users WHERE name =  ?) as userExist'; //Check in db with name  return 0/1.
             $dbex = $conn->prepare($qb);
-            $dbex->bindValue(1, $user);
+            $dbex->bindValue(1, $user); // bind value ? => $user
             $dbex->execute();
-            $resultQuery = $dbex->fetch();
-            if( $resultQuery['userExist'] < 'O'){ 
-
+            $resultQuery = $dbex->fetch(); //fetch 0/1 if user already exist
+            if( $resultQuery['userExist'] >= 1){ 
                 $qb = 'DELETE FROM `users` WHERE name = ?';
                 $dbex = $conn->prepare($qb);
                 $dbex->bindValue(1, $user);
                 $dbex->execute();
                 return [
-                    'view' => 'delUser.html.twig',
-                    'user' => $user
+                    'view' => 'notify.html.twig',
+                    'user' => $user,
+                    'methode' => 'delUser',
+                    'message' => 'User : '.$user.' deleted Table users'
                 ];
             }else{ return [
-                    'view' => 'errorUserNotExist.html.twig',
-                    'user' => $user
+                'view' => 'notify.html.twig',
+                'user' => $user,
+                'methode' => 'delUser',
+                'message' => 'Username : '.$user.' dont exist Table users'
+                
                 ];
             }
-
-            //Redirect to show
-            //you should return a RedirectResponse object
-            //return [
-            //    'redirect_to' => 'http://.......',// => manage it in index.php !! URL should be generate by Routing functions thanks to routing config
-
-            //];
-        
-
-            //you should return a Response object
-            
         }else {return ['view' => 'form_delUser.html.twig']; // 
         }
-
-
     }
 
     /**
@@ -199,26 +188,20 @@ class UserController extends AbstractBaseController {
             $dbex->execute();
             $resultQuery = $dbex->fetch();
             if( $resultQuery['userExist'] == 1){
-                $_SESSION['user'] = $user;
+                $_SESSION['username'] = $user['name'];
                 return [
-                    'view' => 'logUser.html.twig',// => create the file
-                    'user' => $user['name']
+                'view' => 'notify.html.twig',
+                'user' => $user['name'],
+                'methode' => 'logUser',
+                'message' => 'Logged in :)'
                 ];
-            }else {return['view' => 'errorLoggingUser.html.twig',
-                          'user' => $user['name']
-                          ];
-                  }//return other view for wrong logging
-
-            //Redirect to show
-            //you should return a RedirectResponse object
-            //return [
-            //    'redirect_to' => 'http://.......',// => manage it in index.php !! URL should be generate by Routing functions thanks to routing config
-
-            //];
-        
-
-            //you should return a Response object
-            
+            }else {return [
+                'view' => 'notify.html.twig',
+                'user' => $user['name'],
+                'methode' => 'logUser',
+                'message' => 'Username '.$user['name'].' dont exist Table users'
+                ];
+                }//return other view for wrong logging 
         }else {return ['view' => 'form_logUser.html.twig'];}
     }
 

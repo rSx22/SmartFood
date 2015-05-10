@@ -1,0 +1,24 @@
+{% if methode == "logUser" %}
+
+    {% include 'form_logUser.html.twig' %}
+
+{% elseif methode == "delUser" %}
+
+    {% include 'form_delUser.html.twig'  %}
+
+{% elseif methode == "addUser" %}
+
+    {% include 'form_addUser.html.twig'  %}
+
+{% elseif methode == "showUser" %}
+
+    {% include 'form_showUser.html.twig'  %}
+
+
+{% endif %}
+
+
+
+{% block notif %}
+{{user}} : {{ message }}
+{% endblock %}

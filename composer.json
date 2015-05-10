@@ -11,7 +11,8 @@
     "symfony/yaml": "2.6.*",
     "components/jquery": "2.1.*",
     "twitter/bootstrap": "3.3.*",
-    "twig/twig": "2.0.*@dev"
+    "twig/twig": "2.0.*@dev",
+    "zendframework/zend-session": "2.3.*"
   },
   "repositories": [
     {

@@ -1,4 +1,5 @@
 <?php
+
 namespace Controller;
 
 use Symfony\Component\Yaml\Parser;
@@ -19,5 +20,12 @@ abstract class AbstractBaseController {
         }
       	return $conn;
     }
+    public function getGlobals() {//try for retrieve them in twig
+    if( isset($_SESSION ) ){
+        return array(
+            'session'   => $_SESSION,
+        ) ;
+    }else{return array();}
+}
 
 }

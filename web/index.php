@@ -60,9 +60,15 @@ $twig = new Twig_Environment($loader, array(
 if(isset($response['view'])){
 	$template = $twig->loadTemplate($response['view']);
 	unset($response['view']);
-	echo $template->render($response)
-	;
+	if(isset($_SESSION['username'])){
+		$response['session'] = $_SESSION['username'];
+		echo $template->render($response);
+	}else{
+		echo $template->render($response);
+	}
 }else{
 	$template = $twig->loadTemplate('index.html.twig');
-	echo $template->render(array());
+	if( isset( $response )){
+		echo $template->render($response);
+	}else{echo $template->render(array());}
 }

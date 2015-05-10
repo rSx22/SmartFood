@@ -32,7 +32,9 @@ class __TwigTemplate_fdb5ee4e6c30400fc3ccaa0a55d6d4a25fd7fdd894f162f4dc80af82577
         // line 6
         $this->displayBlock('sidebar', $context, $blocks);
         // line 14
-        echo "\t
+        echo "\t<div>User:";
+        echo twig_escape_filter($this->env, (isset($context["session"]) ? $context["session"] : null), "html", null, true);
+        echo "</div>
 \t<div id=\"content\">
             ";
         // line 16
@@ -44,7 +46,8 @@ class __TwigTemplate_fdb5ee4e6c30400fc3ccaa0a55d6d4a25fd7fdd894f162f4dc80af82577
         // line 19
         $this->displayBlock('notif', $context, $blocks);
         // line 20
-        echo "    </div>";
+        echo "    </div>
+";
     }
 
     // line 4
@@ -81,8 +84,13 @@ class __TwigTemplate_fdb5ee4e6c30400fc3ccaa0a55d6d4a25fd7fdd894f162f4dc80af82577
         return "index.html.twig";
     }
 
+    public function isTraitable()
+    {
+        return false;
+    }
+
     public function getDebugInfo()
     {
-        return array (  75 => 19,  70 => 16,  60 => 7,  57 => 6,  51 => 4,  47 => 20,  45 => 19,  41 => 17,  39 => 16,  35 => 14,  33 => 6,  28 => 4,  23 => 1,);
+        return array (  78 => 19,  73 => 16,  63 => 7,  60 => 6,  54 => 4,  49 => 20,  47 => 19,  43 => 17,  41 => 16,  35 => 14,  33 => 6,  28 => 4,  23 => 1,);
     }
 }
