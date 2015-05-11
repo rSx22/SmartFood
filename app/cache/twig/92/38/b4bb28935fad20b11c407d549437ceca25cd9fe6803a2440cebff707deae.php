@@ -1,14 +1,14 @@
 <?php
 
-/* user/listUser.html.twig */
-class __TwigTemplate_f55ee4d9358c135653903271a7a6f42c6b8da426021de5abc7b63a99cc5f1c12 extends Twig_Template
+/* product/listProducts.html.twig */
+class __TwigTemplate_9238b4bb28935fad20b11c407d549437ceca25cd9fe6803a2440cebff707deae extends Twig_Template
 {
     public function __construct(Twig_Environment $env)
     {
         parent::__construct($env);
 
         // line 1
-        $this->parent = $this->loadTemplate("index.html.twig", "user/listUser.html.twig", 1);
+        $this->parent = $this->loadTemplate("index.html.twig", "product/listProducts.html.twig", 1);
         $this->blocks = [
             'body' => [$this, 'block_body'],
         ];
@@ -28,29 +28,26 @@ class __TwigTemplate_f55ee4d9358c135653903271a7a6f42c6b8da426021de5abc7b63a99cc5
     public function block_body($context, array $blocks = array())
     {
         // line 3
-        echo "\tList of users in DB :<br>
+        echo "\tList of products in DB :<br>
 \t";
         // line 4
         $context['_parent'] = $context;
-        $context['_seq'] = twig_ensure_traversable((isset($context["users"]) ? $context["users"] : null));
-        foreach ($context['_seq'] as $context["key"] => $context["user"]) {
+        $context['_seq'] = twig_ensure_traversable((isset($context["products"]) ? $context["products"] : null));
+        foreach ($context['_seq'] as $context["key"] => $context["product"]) {
             // line 5
-            echo "
-     ";
-            // line 6
-            echo twig_escape_filter($this->env, $this->getAttribute($context["user"], "name", []), "html", null, true);
+            echo "     ";
+            echo twig_escape_filter($this->env, $this->getAttribute($context["product"], "name", []), "html", null, true);
             echo "<br>
-\t
 \t";
         }
         $_parent = $context['_parent'];
-        unset($context['_seq'], $context['_iterated'], $context['key'], $context['user'], $context['_parent'], $context['loop']);
+        unset($context['_seq'], $context['_iterated'], $context['key'], $context['product'], $context['_parent'], $context['loop']);
         $context = array_intersect_key($context, $_parent) + $_parent;
     }
 
     public function getTemplateName()
     {
-        return "user/listUser.html.twig";
+        return "product/listProducts.html.twig";
     }
 
     public function isTraitable()
@@ -60,6 +57,6 @@ class __TwigTemplate_f55ee4d9358c135653903271a7a6f42c6b8da426021de5abc7b63a99cc5
 
     public function getDebugInfo()
     {
-        return array (  41 => 6,  38 => 5,  34 => 4,  31 => 3,  28 => 2,  11 => 1,);
+        return array (  38 => 5,  34 => 4,  31 => 3,  28 => 2,  11 => 1,);
     }
 }

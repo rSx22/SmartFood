@@ -1,8 +1,9 @@
-{% include 'index.html.twig' %}
+{% extends 'index.html.twig' %}
 {% block body %}
-<div>Add user</div>
+<div>login
+</div>
 <div style="border:1px solid; width:300px;">
-	<form method="POST" action="index.php?p=add_user"> 
+	<form method="POST" action="index.php?p=loguser"> 
 		Name : <input type="text" name="name"><br>
 		Password : <input type="password" name="password"><br>
 		<input type="submit">

@@ -7,10 +7,9 @@
  require __DIR__ . '/../vendor/autoload.php';
  
  use Symfony\Component\Yaml\Parser;
+ use Controller\Validator;
 
 
-$loader = require __DIR__ . '/../vendor/autoload.php';
-$loader->add('Model\\', __DIR__.'/src/Model');
 
 
  $yaml = new Parser();
@@ -18,35 +17,38 @@ $loader->add('Model\\', __DIR__.'/src/Model');
  $routes = $yaml->parse(file_get_contents('../app/config/routing.yml'));
 
 
- if(isset($_GET['p'])){
- $current_route = $routes[$_GET['p']]['controller'];
+if(isset($_GET['p'])){
 
- $route_table = explode(":", $current_route );
+	$arrayVal = new Validator\arrayValidator();
 
-/**
- * Use Yaml components for load a config routing, $routes is in yaml app/config/routing.yml :
- *
- * Url will be /index.php?p=route_name
- *
- *
- */
+	if ( $arrayVal->keyExist($routes,$_GET['p']) ){
+		$current_route = $routes[$_GET['p']]['controller'];
+		 $route_table = explode(":", $current_route );
 
-//ControllerClassName, end name is ...Controller
-$controller_class = $route_table[0];
+		/**
+		 * Use Yaml components for load a config routing, $routes is in yaml app/config/routing.yml :
+		 *
+		 * Url will be /index.php?p=route_name
+		 *
+		 *
+		 */
 
-//ActionName, end name is ...Action
-$action_name = $route_table[1];
+		//ControllerClassName, end name is ...Controller
+		$controller_class = $route_table[0];
 
-$controller = new $controller_class();
+		//ActionName, end name is ...Action
+		$action_name = $route_table[1];
 
-//$Request can by an object
-$request['request'] = &$_POST;
-$request['query'] = &$_GET;
-//...
+		$controller = new $controller_class();
 
-//$response can be an object
-$response = $controller->$action_name($request);
+		//$Request can by an object
+		$request['request'] = &$_POST;
+		$request['query'] = &$_GET;
+		//...
 
+		//$response can be an object
+		$response = $controller->$action_name($request);
+	}
 /**
  * Use Twig !
  */
@@ -54,7 +56,7 @@ $response = $controller->$action_name($request);
 
 }
 
-$loader = new Twig_Loader_Filesystem('../src/View/user');
+$loader = new Twig_Loader_Filesystem('../src/View/');
 $twig = new Twig_Environment($loader, array(
     'cache' => '../app/cache/twig',
     'debug' => true,

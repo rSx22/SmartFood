@@ -1,24 +1,23 @@
 {% if methode == "logUser" %}
 
-    {% include 'form_logUser.html.twig' %}
+    {% include 'user/form_logUser.html.twig' %}
 
 {% elseif methode == "delUser" %}
 
-    {% include 'form_delUser.html.twig'  %}
+    {% include 'user/form_delUser.html.twig'  %}
 
 {% elseif methode == "addUser" %}
 
-    {% include 'form_addUser.html.twig'  %}
+    {% include 'user/form_addUser.html.twig'  %}
 
 {% elseif methode == "showUser" %}
 
-    {% include 'form_showUser.html.twig'  %}
-
+    {% include 'user/form_showUser.html.twig'  %}
 
 {% endif %}
 
 
 
 {% block notif %}
-{{user}} : {{ message }}
+{{ message }}
 {% endblock %}

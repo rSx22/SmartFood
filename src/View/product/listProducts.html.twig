@@ -1,0 +1,7 @@
+{% extends 'index.html.twig' %}
+{% block body %}
+	List of products in DB :<br>
+	{% for key, product in products %}
+     {{product.name}}<br>
+	{% endfor %}
+{% endblock %}

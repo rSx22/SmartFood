@@ -1,0 +1,17 @@
+{% if methode == "addProduct" %}
+
+    {% include 'product/form_addProduct.html.twig'  %}
+
+{% elseif methode == "showProduct" %}
+
+    {% include 'product/form_showProduct.html.twig'  %}
+
+{% elseif methode == "delProduct" %}
+
+    {% include 'product/form_delProduct.html.twig'  %}
+
+{% endif %}
+
+{% block notif %}
+{{ message }}
+{% endblock %}

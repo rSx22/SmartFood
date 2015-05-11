@@ -1,6 +1,6 @@
 <?php
 
-namespace Controller\validator;
+namespace Controller\Validator;
 
 class arrayValidator extends integerValidator{
 
@@ -94,6 +94,7 @@ class arrayValidator extends integerValidator{
     	public static function putFirst($array, $vars){
 		if (is_array($array) and is_array($vars)) {
 			array_unshift($array, $vars);
+
 			return $array;
 		}else{
 			return FALSE;
@@ -107,4 +108,16 @@ class arrayValidator extends integerValidator{
 			return FALSE;
 		}
  	}
+ 	public function in_array_r($needle, $haystack, $strict = false) {
+	    foreach ($haystack as $item) {
+	        if (($strict ? $item === $needle : $item == $needle) || (is_array($item) && $this->in_array_r($needle, $item, $strict))) {
+	            return true;
+	        }
+	    }
+	    return false;
+	}
+
+
+
+
 }

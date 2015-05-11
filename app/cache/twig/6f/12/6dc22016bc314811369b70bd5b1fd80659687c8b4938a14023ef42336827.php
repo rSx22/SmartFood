@@ -1,7 +1,7 @@
 <?php
 
-/* user/form_addUser.html.twig */
-class __TwigTemplate_829b3950d11ec838b95502629f23f743c0a98c980953c3960289132736124a3c extends Twig_Template
+/* product/form_addProduct.html.twig */
+class __TwigTemplate_6f126dc22016bc314811369b70bd5b1fd80659687c8b4938a14023ef42336827 extends Twig_Template
 {
     public function __construct(Twig_Environment $env)
     {
@@ -17,7 +17,7 @@ class __TwigTemplate_829b3950d11ec838b95502629f23f743c0a98c980953c39602891327361
     protected function doDisplay(array $context, array $blocks = [])
     {
         // line 1
-        $this->loadTemplate("index.html.twig", "user/form_addUser.html.twig", 1)->display($context);
+        $this->loadTemplate("index.html.twig", "product/form_addProduct.html.twig", 1)->display($context);
         // line 2
         $this->displayBlock('body', $context, $blocks);
     }
@@ -25,11 +25,12 @@ class __TwigTemplate_829b3950d11ec838b95502629f23f743c0a98c980953c39602891327361
     public function block_body($context, array $blocks = array())
     {
         // line 3
-        echo "<div>Add user</div>
+        echo "<div>Add product</div>
 <div style=\"border:1px solid; width:300px;\">
-\t<form method=\"POST\" action=\"index.php?p=add_user\"> 
+\t<form method=\"POST\" action=\"index.php?p=add_product\"> 
 \t\tName : <input type=\"text\" name=\"name\"><br>
-\t\tPassword : <input type=\"password\" name=\"password\"><br>
+\t\tPrice : <input type=\"text\" name=\"price\"><br>
+\t\tNumber of Kcal : <input type=\"number\" name=\"cal\"><br>
 \t\t<input type=\"submit\">
 \t</form>
 </div>
@@ -38,7 +39,7 @@ class __TwigTemplate_829b3950d11ec838b95502629f23f743c0a98c980953c39602891327361
 
     public function getTemplateName()
     {
-        return "user/form_addUser.html.twig";
+        return "product/form_addProduct.html.twig";
     }
 
     public function isTraitable()

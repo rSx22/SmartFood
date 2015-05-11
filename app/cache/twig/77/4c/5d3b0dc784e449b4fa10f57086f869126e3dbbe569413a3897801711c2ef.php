@@ -1,7 +1,7 @@
 <?php
 
 /* index.html.twig */
-class __TwigTemplate_fdb5ee4e6c30400fc3ccaa0a55d6d4a25fd7fdd894f162f4dc80af82577f9bdc extends Twig_Template
+class __TwigTemplate_774c5d3b0dc784e449b4fa10f57086f869126e3dbbe569413a3897801711c2ef extends Twig_Template
 {
     public function __construct(Twig_Environment $env)
     {
@@ -31,21 +31,21 @@ class __TwigTemplate_fdb5ee4e6c30400fc3ccaa0a55d6d4a25fd7fdd894f162f4dc80af82577
 \t";
         // line 6
         $this->displayBlock('sidebar', $context, $blocks);
-        // line 14
+        // line 19
         echo "\t<div>User:";
         echo twig_escape_filter($this->env, (isset($context["session"]) ? $context["session"] : null), "html", null, true);
         echo "</div>
 \t<div id=\"content\">
             ";
-        // line 16
+        // line 21
         $this->displayBlock('body', $context, $blocks);
-        // line 17
+        // line 22
         echo "    </div>
 \t<div id=\"notif\">
             ";
-        // line 19
+        // line 24
         $this->displayBlock('notif', $context, $blocks);
-        // line 20
+        // line 25
         echo "    </div>
 ";
     }
@@ -61,20 +61,25 @@ class __TwigTemplate_fdb5ee4e6c30400fc3ccaa0a55d6d4a25fd7fdd894f162f4dc80af82577
     {
         // line 7
         echo "\t\t<a href =\"http://localhost:8888/newproject/web/index.php?p=user\">show user</a><br>
-\t\t<a href =\"http://localhost:8888/newproject/web/index.php?p=user_list\">List user in users</a><br>
-\t\t<a href =\"http://localhost:8888/newproject/web/index.php?p=adduser \">Form for add user in users</a><br>
-\t\t<a href =\"http://localhost:8888/newproject/web/index.php?p=deluser \">Form for del user in users</a><br>
-\t\t<a href =\"http://localhost:8888/newproject/web/index.php?p=loguser \">Form for log user in users</a><br>
-\t\t<a href =\"http://localhost:8888/newproject/web/index.php?p=logout \">Clic for logout. q+</a><br>
+\t\t<a href =\"http://localhost:8888/newproject/web/index.php?p=users_list\">List user in users</a><br>
+\t\t<a href =\"http://localhost:8888/newproject/web/index.php?p=add_user \">Form for add user in users</a><br>
+\t\t<a href =\"http://localhost:8888/newproject/web/index.php?p=del_user \">Form for del user in users</a><br>
+\t\t<a href =\"http://localhost:8888/newproject/web/index.php?p=log_user \">Form for log user in users</a><br>
+\t\t<a href =\"http://localhost:8888/newproject/web/index.php?p=logout \">Clic for logout. q+</a><br><br>
+
+\t\t<a href =\"http://localhost:8888/newproject/web/index.php?p=products_list\">list products</a><br>
+\t\t<a href =\"http://localhost:8888/newproject/web/index.php?p=product\">show product</a><br>
+\t\t<a href =\"http://localhost:8888/newproject/web/index.php?p=add_product\">add product</a><br>
+\t\t<a href =\"http://localhost:8888/newproject/web/index.php?p=del_product\">del product</a><br>
 \t";
     }
 
-    // line 16
+    // line 21
     public function block_body($context, array $blocks = array())
     {
     }
 
-    // line 19
+    // line 24
     public function block_notif($context, array $blocks = array())
     {
     }
@@ -91,6 +96,6 @@ class __TwigTemplate_fdb5ee4e6c30400fc3ccaa0a55d6d4a25fd7fdd894f162f4dc80af82577
 
     public function getDebugInfo()
     {
-        return array (  78 => 19,  73 => 16,  63 => 7,  60 => 6,  54 => 4,  49 => 20,  47 => 19,  43 => 17,  41 => 16,  35 => 14,  33 => 6,  28 => 4,  23 => 1,);
+        return array (  83 => 24,  78 => 21,  63 => 7,  60 => 6,  54 => 4,  49 => 25,  47 => 24,  43 => 22,  41 => 21,  35 => 19,  33 => 6,  28 => 4,  23 => 1,);
     }
 }

@@ -1,17 +1,29 @@
-user_list:
-  controller: Controller\UserController:listUserAction
+users_list:
+  controller: Controller\UserController:listUsersAction
 
 user:
   controller: Controller\UserController:showUserAction
 
-adduser:
+add_user:
   controller: Controller\UserController:addUser
 
-deluser:
+del_user:
   controller: Controller\UserController:deleteUser
 
-loguser:
+log_user:
   controller: Controller\UserController:logUser
 
 logout:
   controller: Controller\UserController:logOut
+
+products_list:
+  controller: Controller\ProductController:listProductsAction
+
+product:
+  controller: Controller\ProductController:showProductAction
+
+add_product:
+  controller: Controller\ProductController:addProduct
+
+del_product:
+  controller: Controller\ProductController:deleteProduct

@@ -10,7 +10,7 @@ use Model\User;
  
 class UserController extends AbstractBaseController {
 
-    public function listUserAction($request) {
+    public function listUsersAction($request) {
         //create connection from parent AbstractBaseController
         $conn = AbstractBaseController::createConn();
 
@@ -19,7 +19,7 @@ class UserController extends AbstractBaseController {
         $users = $userModel->getAllUsers();
         //you can return a Response object
         return [
-            'view' => 'listUser.html.twig', // should be Twig : 'WebSite/View/user/listUser.html.twig'
+            'view' => 'user/listUser.html.twig', // should be Twig : 'WebSite/View/user/listUser.html.twig'
             'users' => $users
         ]; //return views and views parameter
     }
@@ -32,26 +32,26 @@ class UserController extends AbstractBaseController {
             $user = $userModel->getUserById($id);
             if( isset($user['name'])){
                 return  [
-                            'view' => 'notify.html.twig',
+                            'view' => 'user/notify.html.twig',
                             'user' => $user['name'],
                             'methode' => 'showUser',
                             'message' => 'User : '.$user['name'].' registered with id : '.$id.' Table users'
                         ];
             }else{ return  [
-                            'view' => 'notify.html.twig',
+                            'view' => 'user/notify.html.twig',
                             'user' => $user['name'],
                             'methode' => 'showUser',
                             'message' => 'No User registered with id : '.$id.' Table users'
                         ];
                 }
-        }else{return ['view' => 'form_showUser.html.twig'];}
+        }else{return ['view' => 'user/form_showUser.html.twig'];}
     }
 
     /**
      * Add User and redirect on listUser after
      */
     public function addUser($request) {
-        $stringVal = new validator\stringValidator();
+        $stringVal = new Validator\stringValidator();
             if( isset( $request['request']['name']) && isset ($request['request']['password']) ) { 
                 $user = array(
                             'name' => $request['request']['name'],
@@ -70,20 +70,20 @@ class UserController extends AbstractBaseController {
                             $userAdd = $userModel->addUser($user['name'], $user['password']); 
                             
                             return [
-                            'view' => 'notify.html.twig',
+                            'view' => 'user/notify.html.twig',
                             'user' => $user['name'],
                             'methode' => 'addUser',
                             'message' => 'User : '.$user['name'].' registered Table users'
                         ];
                         }else{return [
-                            'view' => 'notify.html.twig',
+                            'view' => 'user/notify.html.twig',
                             'user' => $user['name'],
                             'methode' => 'addUser',
                             'message' => 'User : '.$user['name'].' already exist Table users'
                             ];
                             }
                         }else{return [
-                            'view' => 'notify.html.twig',
+                            'view' => 'user/notify.html.twig',
                             'user' => $user['name'],
                             'methode' => 'addUser',
                             'message' => 'Password too short (6 char. min.) or too long (12 char. max.) Table users'
@@ -91,14 +91,14 @@ class UserController extends AbstractBaseController {
 
                         }
                     }else{ return [
-                        'view' => 'notify.html.twig',
+                        'view' => 'user/notify.html.twig',
                         'user' => $user['name'],
                         'methode' => 'addUser',
                         'message' => 'User : '.$user['name'].' too short (6 char. min.) or too long (12 char. max.) Table users'
                     ];
                     }
                 }else{ return [
-                        'view' => 'form_addUser.html.twig'
+                        'view' => 'user/form_addUser.html.twig'
                     ];
                 }
             }
@@ -114,20 +114,20 @@ class UserController extends AbstractBaseController {
             if( $userExist >= 1){ 
                 $userDel= $userModel->delUser($user); // if exist delete it
                 return [
-                    'view' => 'notify.html.twig',
+                    'view' => 'user/notify.html.twig',
                     'user' => $user,
                     'methode' => 'delUser',
                     'message' => 'User : '.$user.' deleted Table users'
                 ];
             }else{ return [
-                'view' => 'notify.html.twig',
+                'view' => 'user/notify.html.twig',
                 'user' => $user,
                 'methode' => 'delUser',
                 'message' => 'Username : '.$user.' dont exist Table users'
                 
                 ];
             }
-        }else {return ['view' => 'form_delUser.html.twig']; // 
+        }else {return ['view' => 'user/form_delUser.html.twig']; // 
         }
     }
 
@@ -151,19 +151,19 @@ class UserController extends AbstractBaseController {
             if( $userExist == '1'){
                 $_SESSION['username'] = $user['name'];
                 return [
-                'view' => 'notify.html.twig',
+                'view' => 'user/notify.html.twig',
                 'user' => $user['name'],
                 'methode' => 'logUser',
                 'message' => 'Logged in :)'
                 ];
             }else {return [
-                'view' => 'notify.html.twig',
+                'view' => 'user/notify.html.twig',
                 'user' => $user['name'],
                 'methode' => 'logUser',
-                'message' => 'Username '.$user['name'].' dont exist Table users'
+                'message' => 'Username '.$user['name'].' dont exist or password is wrong Table users'
                 ];
                 }//return other view for wrong logging 
-        }else {return ['view' => 'form_logUser.html.twig'];}
+        }else {return ['view' => 'user/form_logUser.html.twig'];}
     }
 
 
@@ -181,6 +181,6 @@ class UserController extends AbstractBaseController {
 
         // Finalement, on détruit la session.
         @session_destroy(); //  <--------------->
-        return ['view' => 'form_logUser.html.twig'];
+        return ['view' => 'user/form_logUser.html.twig'];
     }
 }

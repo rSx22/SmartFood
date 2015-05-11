@@ -35,4 +35,11 @@ class stringValidator {
 	 public static function noWhiteSpace($str1){
 	 	return (str_replace(" ", "", $str1) == $str1);
 	 }
+	 public static function isPrice($price){ // Might be worth doing first
+	if($price =~ '^\d+(,\d{1,2})?$^') {
+   			return true;
+		}else{
+		   return false;// Unkewl, fail
+		}
+}
 }
