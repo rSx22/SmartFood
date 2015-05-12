@@ -1,0 +1,25 @@
+{% include 'index.html.twig' %}
+{% block body %}
+<div>Add user</div>
+<div style="border:1px solid; width:300px;">
+	<form method="POST" action="index.php?p=add_userinfo"> 
+		Email : <input type="text" name="email"><br>
+		Adress : <input type="text" name="address"><br>
+		City : <input type="text" name="city"><br>
+		Country : <input type="text" name="country"><br>
+		Phone Number : <input type="text" name="phone_number"><br>
+		Age : <input type="number" name="age"><br>
+		Gender :
+
+				<div class="onoffswitch">
+    			<input type="checkbox" name="malefemaleswitch" class="onoffswitch-checkbox" id="myonoffswitch" checked>
+    			<label class="onoffswitch-label" for="myonoffswitch">
+        		<span class="onoffswitch-inner"></span>
+        		<span class="onoffswitch-switch"></span>
+    			</label>
+				</div>
+		<input type="submit">
+	</form>
+</div>
+{% endblock %}
+{% include 'user/form_addAvatar.html.twig' %}

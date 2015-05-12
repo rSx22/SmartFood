@@ -7,24 +7,21 @@ class __TwigTemplate_f1b61d2d0e488fb74bcf2822eac3a8ce9c0495cb9bb0b529abe01e05e3f
     {
         parent::__construct($env);
 
-        // line 1
-        $this->parent = $this->loadTemplate("index.html.twig", "user/form_logUser.html.twig", 1);
+        $this->parent = false;
+
         $this->blocks = [
             'body' => [$this, 'block_body'],
         ];
     }
 
-    protected function doGetParent(array $context)
-    {
-        return "index.html.twig";
-    }
-
     protected function doDisplay(array $context, array $blocks = [])
     {
-        $this->parent->display($context, array_merge($this->blocks, $blocks));
+        // line 1
+        $this->loadTemplate("index.html.twig", "user/form_logUser.html.twig", 1)->display($context);
+        // line 2
+        $this->displayBlock('body', $context, $blocks);
     }
 
-    // line 2
     public function block_body($context, array $blocks = array())
     {
         // line 3
@@ -52,6 +49,6 @@ class __TwigTemplate_f1b61d2d0e488fb74bcf2822eac3a8ce9c0495cb9bb0b529abe01e05e3f
 
     public function getDebugInfo()
     {
-        return array (  31 => 3,  28 => 2,  11 => 1,);
+        return array (  28 => 3,  22 => 2,  20 => 1,);
     }
 }

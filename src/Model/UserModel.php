@@ -62,6 +62,23 @@ class User
         $dbexec->bindValue(2, $password);
         $dbexec->execute(); 
     }
+
+    public function addInfo($var, $arg, $user){
+        $query = 'UPDATE users SET '.$var.'="'.$arg.'" WHERE name= "'.$user.' " ';
+        $dbexec = $this->conn->prepare($query);
+        $dbexec->bindValue(1, $arg);
+        $dbexec->execute(); 
+
+    }
+        public function getInfo($user){
+        $query = 'SELECT * FROM users WHERE name="'.$user.' "';
+        $dbexec = $this->conn->prepare($query);
+        $dbexec->bindValue(1, $user);
+        $dbexec->execute(); 
+        $resultQuery = $dbexec->fetch();
+        return $resultQuery;
+
+    }
     
     public function delUser($name){
         $qb = 'DELETE FROM `users` WHERE name = ?';

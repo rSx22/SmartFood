@@ -41,7 +41,7 @@ class Product
     }
 
     public function addProduct($name, $price ,$cal = null){
-            $query = 'INSERT INTO `products` (`name`, `price`, `cal`) VALUES (?,?,?)';
+            $query = 'INSERT INTO `products` (`name`, `price`, `kcal_ind`) VALUES (?,?,?)';
             $dbexec = $this->conn->prepare($query);
             $dbexec->bindValue(1, $name);
             $dbexec->bindValue(2, $price);
@@ -49,6 +49,16 @@ class Product
             $dbexec->execute(); 
 
     }
+
+    public function addProductInfo($var, $arg, $product){
+        $query = 'UPDATE products SET '.$var.'="'.$arg.'" WHERE name= "'.$product.' " ';
+        var_dump($query);
+        $dbexec = $this->conn->prepare($query);
+        $dbexec->bindValue(1, $arg);
+        $dbexec->execute(); 
+
+    }
+
     public function deleteProduct($name){
             $qb = 'DELETE FROM `products` WHERE name = ?';
             $dbex = $this->conn->prepare($qb);

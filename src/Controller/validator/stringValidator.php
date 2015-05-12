@@ -1,6 +1,6 @@
 <?php
 
-namespace Controller\validator;
+namespace Controller\Validator;
 
 class stringValidator {
 

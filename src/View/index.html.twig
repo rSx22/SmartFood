@@ -1,25 +1,38 @@
 <!DOCTYPE html>
 	<meta http-equiv="content-type" content="text/html; charset=utf-8" />
-	
-<title>{% block title %}Test Application{% endblock %}</title>
-<h1> WELCOME GOLEFOY </h1><br>
-	{% block sidebar %}
-		<a href ="http://localhost:8888/newproject/web/index.php?p=user">show user</a><br>
-		<a href ="http://localhost:8888/newproject/web/index.php?p=users_list">List user in users</a><br>
-		<a href ="http://localhost:8888/newproject/web/index.php?p=add_user ">Form for add user in users</a><br>
-		<a href ="http://localhost:8888/newproject/web/index.php?p=del_user ">Form for del user in users</a><br>
-		<a href ="http://localhost:8888/newproject/web/index.php?p=log_user ">Form for log user in users</a><br>
-		<a href ="http://localhost:8888/newproject/web/index.php?p=logout ">Clic for logout. q+</a><br><br>
+	<link rel="stylesheet" type="text/css" href="./../web/css/style_index.css">
+	<title>{% block title %}Test Application{% endblock %}</title>
+	<body>
+		<h1> WELCOME GOLEFOY </h1><br>
+		{% block sidebar %}
+			<a href ="http://localhost:8888/newproject/web/index.php?p=user">show user</a><br>
+			<a href ="http://localhost:8888/newproject/web/index.php?p=users_list">List user in users</a><br>
+			<a href ="http://localhost:8888/newproject/web/index.php?p=add_user ">Form for add user in users</a><br>
+			<a href ="http://localhost:8888/newproject/web/index.php?p=add_userinfo ">Form for add user info</a><br>
+			<a href ="http://localhost:8888/newproject/web/index.php?p=add_avatar ">Form for add user avatar</a><br>
+			<a href ="http://localhost:8888/newproject/web/index.php?p=del_user ">Form for del user in users</a><br>
+			<a href ="http://localhost:8888/newproject/web/index.php?p=log_user ">Form for log user in users</a><br>
+			<a href ="http://localhost:8888/newproject/web/index.php?p=logout ">Clic for logout. q+</a><br><br>
 
-		<a href ="http://localhost:8888/newproject/web/index.php?p=products_list">list products</a><br>
-		<a href ="http://localhost:8888/newproject/web/index.php?p=product">show product</a><br>
-		<a href ="http://localhost:8888/newproject/web/index.php?p=add_product">add product</a><br>
-		<a href ="http://localhost:8888/newproject/web/index.php?p=del_product">del product</a><br>
-	{% endblock %}
-	<div>User:{{ session }}</div>
-	<div id="content">
-            {% block body %}{% endblock %}
-    </div>
-	<div id="notif">
-            {% block notif %}{% endblock %}
-    </div>
+			<a href ="http://localhost:8888/newproject/web/index.php?p=products_list">list products</a><br>
+			<a href ="http://localhost:8888/newproject/web/index.php?p=product">show product</a><br>
+			<a href ="http://localhost:8888/newproject/web/index.php?p=add_product">add product</a><br>
+			<a href ="http://localhost:8888/newproject/web/index.php?p=del_product">del product</a><br>
+		{% endblock %}
+		{{dump(session)}}
+		<div>User:{{ session.user }} 
+		{% if session.path!= null %}
+		 <img src="./../../newproject/web/{{session.path}}" style="width:80px;height:80px;"> 
+		 {% endif %}
+		</div>
+		<div id="content">
+	            {% block body %}{% endblock %}
+	    </div>
+		<div id="notif">
+	            {% block notif %}{% endblock %}
+	    </div>
+	    <div id="confirm">
+	            {% block confirm %}{% endblock %}
+	    </div>
+	</body>
+

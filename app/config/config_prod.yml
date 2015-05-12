@@ -1,6 +1,6 @@
 doctrine:
   host: localhost
-  dbname: newprojDB
+  dbname: myDB
   user: root
   password: root
   driver: pdo_mysql

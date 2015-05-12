@@ -7,6 +7,7 @@ ini_set('error_reporting', E_ALL);
 session_start();
  
 use Model\User;
+use Controller\Validator;
  
 class UserController extends AbstractBaseController {
 
@@ -51,15 +52,14 @@ class UserController extends AbstractBaseController {
      * Add User and redirect on listUser after
      */
     public function addUser($request) {
-        $stringVal = new Validator\stringValidator();
             if( isset( $request['request']['name']) && isset ($request['request']['password']) ) { 
                 $user = array(
                             'name' => $request['request']['name'],
                             'password' => $request['request']['password']
                             )
                 ;
-                if($stringVal->strBetween($user['name'], '6', '12' )) {
-                    if($stringVal->strBetween($user['password'], '6', '12' )){
+                if(Validator\stringValidator::strBetween($user['name'], '6', '12' )) {
+                    if(Validator\stringValidator::strBetween($user['password'], '6', '12' )){
 
                         $conn = AbstractBaseController::createConn();
                         $userModel = new User($conn); // new Model for accessing db
@@ -102,6 +102,98 @@ class UserController extends AbstractBaseController {
                     ];
                 }
             }
+    public function addUserInfo($request) {
+        //$stringVal = new stringValidator();
+            if(isset($request['request']['confirmswitch'])) {
+                $this->addAvatar($request);
+            }
+            if( isset( $request['request']['email']) ) { 
+                $user = array(
+                            'email_address' => '',
+                            'gender' => '',
+                            'city' => '',
+                            'country' => '',
+                            'phone_number' => '',
+                            'address' => '',
+                            'age' => '',
+                            )
+                ;
+                var_dump($request['request']);
+                var_dump(Validator\integerValidator::between($user['age'], 0 , 100 ));
+                switch (true) {
+                    case (isset($request['request']['email']) && (preg_match('/^([\w-]+(?:\.[\w-]+)*)@((?:[\w-]+\.)*\w[\w-]{0,66})\.([a-z]{2,6}(?:\.[a-z]{2})?)$/i', $request['request']['email']))): 
+                        $user['email_address'] = $request['request']['email'];
+                        
+                    case isset($request['request']['city']) :
+                        $user['city'] = $request['request']['city'];
+
+                    case isset($request['request']['address']) : 
+                        $user['address'] = $request['request']['address'];
+
+                    case isset($request['request']['country']) : 
+                        $user['country'] = $request['request']['country'];
+
+                    case (isset($request['request']['phone_number']) && (preg_match('/^(1\s*[-\/\.]?)?(\((\d{3})\)|(\d{3}))\s*[-\/\.]?\s*(\d{3})\s*[-\/\.]?\s*(\d{4})\s*(([xX]|[eE][xX][tT])\.?\s*(\d+))*$', $request['request']['phone'] ))) : 
+                        $user['phone_number'] = $request['request']['phone_number'];    
+                        
+                    case isset($request['request']['age']) : 
+                        $user['age'] = $request['request']['age'];
+
+                } 
+                if(isset($request['request']['malefemaleswitch'])){
+                    $user['gender'] = 'male';
+                }
+                elseif(!array_key_exists('malefemaleswitch', $request['request'])){
+                    $user['gender'] = 'female';
+                }
+                $conn = AbstractBaseController::createConn();
+                $userModel = new User($conn); // new Model for accessing db
+
+                if(isset($_SESSION['username'])){
+                    $userExist = $userModel->chkUserByName($_SESSION['username']); //cheqk if user logged still exist in db for updatee info
+                
+                    if( $userExist == '1'){ //then we can update info
+                        $userinfo = $userModel->getInfo($_SESSION['username']);
+                        $_SESSION['path']=$userinfo['path_avatar'];
+                        foreach ($user as $key => $value) {
+                            if($value!==''){
+                                $userAdd = $userModel->addinfo($key, $value, $_SESSION['username']); 
+                            }
+                        }
+               
+                        return [
+                        'view' => 'user/notify.html.twig',
+                        //'user' => $user['name'],
+                        'methode' => 'addUserInfo',
+                        'path' => $userinfo['path_avatar'],
+                        //'message' => 'User : '.$user['name'].' registered Table users'
+                    ];
+                    }else{return [
+                        'view' => 'user/notify.html.twig',
+                        //'user' => $user['name'],
+                        'methode' => 'addUserInfo',
+                        //'message' => 'User : '.$user['name'].' already exist Table users'
+                        ];
+                        }
+                    }else{return [
+                        'view' => 'user/notify.html.twig',
+                        //'user' => $user['name'],
+                        'methode' => 'addUserInfo',
+                        'message' => 'Not logged in, cant add info' 
+                        ];
+                    }
+            
+            }else{if(isset($_SESSION['username'])){
+            if((file_exists($_SERVER["DOCUMENT_ROOT"].'/newproject/web/images/avatar/'.$_SESSION['username'].".jpg")) ){
+            $exist = true;
+        }}else{$exist = false;}
+             return [
+                    'view' => 'user/form_addUserInfo.html.twig',
+                    'confirm' => $exist,
+                    'methode' => 'addUserInfo'
+                ];
+            }
+        }
 
     public function deleteUser($request) {
         //check request content else show input view
@@ -150,11 +242,15 @@ class UserController extends AbstractBaseController {
 
             if( $userExist == '1'){
                 $_SESSION['username'] = $user['name'];
+
+                $userinfo = $userModel->getInfo($user['name']);
+                $_SESSION['path']=$userinfo['path_avatar'];
                 return [
                 'view' => 'user/notify.html.twig',
                 'user' => $user['name'],
                 'methode' => 'logUser',
-                'message' => 'Logged in :)'
+                'message' => 'Logged in :)',
+                'path' => $userinfo['path_avatar'],
                 ];
             }else {return [
                 'view' => 'user/notify.html.twig',
@@ -183,4 +279,98 @@ class UserController extends AbstractBaseController {
         @session_destroy(); //  <--------------->
         return ['view' => 'user/form_logUser.html.twig'];
     }
+
+
+    function addAvatar($request)
+    {
+        if (isset($_FILES['avatar'])) {
+            if(isset($_SESSION['username'])){
+                $fichier = $_FILES['avatar']['name'];
+                if((pathinfo($fichier, PATHINFO_EXTENSION) == 'jpeg') or (pathinfo($fichier, PATHINFO_EXTENSION) == 'bmp') or (pathinfo($fichier, PATHINFO_EXTENSION) == 'jpg') or (pathinfo($fichier, PATHINFO_EXTENSION) == 'png')){
+                    if((isset($request['request']['confirmswitch'])) or !file_exists($_SERVER["DOCUMENT_ROOT"].'/newproject/web/images/avatar/'.$_SESSION['username'].".jpg")  ) {
+                            $upload = move_uploaded_file($_FILES['avatar']['tmp_name'], $_SERVER["DOCUMENT_ROOT"]."/newproject/web/images/avatar/".$_SESSION['username'].'.'.pathinfo($fichier, PATHINFO_EXTENSION));
+                            }
+                        if (!empty($fichier['error']) ){     
+                                switch ($fichier['error']){     
+                                   case 'UPLOAD_ERR_INI_SIZE':   
+                                   return [
+                                        'view' => 'user/notify.html.twig',
+                                        'upload' => 'false',
+                                        'methode' => 'addAvatar',
+                                        'message' => 'File too big for server'
+                                        ];     
+                                   break;     
+                                   case 'UPLOAD_ERR_FORM_SIZE': // UPLOAD_ERR_FORM_SIZE     
+                                   return [
+                                        'view' => 'user/notify.html.twig',
+                                        'upload' => 'false',
+                                        'methode' => 'addAvatar',
+                                        'message' => 'File too big for an avatar !' // size bigge than limit in form
+                                        ];
+                                   break;     
+                                   case 'UPLOAD_ERR_PARTIAL': // UPLOAD_ERR_PARTIAL     
+                                   return [
+                                        'view' => 'user/notify.html.twig',
+                                        'upload' => 'false',
+                                        'methode' => 'addAvatar',
+                                        'message' => 'Avatar upload failed while uploading '
+                                        ];    
+                                   break;     
+                                   case 'UPLOAD_ERR_NO_FILE': // UPLOAD_ERR_NO_FILE     
+                                   return [
+                                        'view' => 'user/notify.html.twig',
+                                        'upload' => 'false',
+                                        'methode' => 'addAvatar',
+                                        'message' => 'Avatar cant be empty of null size'
+                                        ];
+                                   break;     
+                                }    
+                        }else {    
+                                $conn = AbstractBaseController::createConn();
+                                $userModel = new User($conn); // new Model for accessing db
+                                $avatarAdd = $userModel->addinfo('path_avatar', 'images/avatar/'.$_SESSION['username'].'.'.pathinfo($fichier, PATHINFO_EXTENSION), $_SESSION['username']); 
+                                $userinfo = $userModel->getInfo($_SESSION['username']);
+                                $_SESSION['path']=$userinfo['path_avatar'];
+                                return [
+                                    'view' => 'user/notify.html.twig',
+                                    'upload' => 'false',
+                                    'methode' => 'addAvatar',
+                                    'message' => 'Avatar uploaded !',
+                                    'path' => $userinfo['path_avatar'],
+                                    ];
+                        }  
+                    
+                }else{return [
+                        'view' => 'user/notify.html.twig',
+                        'upload' => 'false',
+                        'methode' => 'addAvatar',
+                        'message' => 'Bad extension/Not an image'
+                        ];
+
+                }
+            }else{
+                return [
+                    'view' => 'user/notify.html.twig',
+                    'upload' => 'false',
+                    'methode' => 'addAvatar',
+                    'message' => 'Not logged in :"/'
+                    ];
+            }
+        }else{if(isset($_SESSION['username'])){
+            if((file_exists($_SERVER["DOCUMENT_ROOT"].'/newproject/web/images/avatar/'.$_SESSION['username'].".jpg")) ){
+            $exist = true;
+        }}else{$exist = false;}
+            return ['view' => 'user/form_addAvatar.html.twig',
+            'methode' => 'addAvatar',
+            'confirm' => $exist,];
+        }
+    }
+
+
+    function upload($path)
+    {
+
+    }
+
+
 }

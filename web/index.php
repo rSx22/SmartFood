@@ -19,9 +19,9 @@
 
 if(isset($_GET['p'])){
 
-	$arrayVal = new Validator\arrayValidator();
+	//$arrayVal = new Validator\arrayValidator();
 
-	if ( $arrayVal->keyExist($routes,$_GET['p']) ){
+	if ( Validator\arrayValidator::keyExist($routes,$_GET['p']) ){
 		$current_route = $routes[$_GET['p']]['controller'];
 		 $route_table = explode(":", $current_route );
 
@@ -67,7 +67,8 @@ if(isset($response['view'])){
 	$template = $twig->loadTemplate($response['view']);
 	unset($response['view']);
 	if(isset($_SESSION['username'])){
-		$response['session'] = $_SESSION['username'];
+		$response['session']['user'] = $_SESSION['username'];
+		$response['session']['path'] = $_SESSION['path'];
 		echo $template->render($response);
 	}else{
 		echo $template->render($response);

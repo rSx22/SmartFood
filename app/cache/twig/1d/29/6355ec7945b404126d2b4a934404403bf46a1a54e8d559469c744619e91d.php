@@ -56,19 +56,39 @@ class __TwigTemplate_1d296355ec7945b404126d2b4a934404403bf46a1a54e8d559469c74461
             // line 16
             echo "
 ";
+        } elseif ((        // line 17
+(isset($context["methode"]) ? $context["methode"] : null) == "addUserInfo")) {
+            // line 18
+            echo "
+    ";
+            // line 19
+            $this->loadTemplate("user/form_addUserInfo.html.twig", "user/notify.html.twig", 19)->display($context);
+            // line 20
+            echo "
+";
+        } elseif ((        // line 21
+(isset($context["methode"]) ? $context["methode"] : null) == "addAvatar")) {
+            // line 22
+            echo "
+    ";
+            // line 23
+            $this->loadTemplate("user/form_addAvatar.html.twig", "user/notify.html.twig", 23)->display($context);
+            // line 24
+            echo "
+";
         }
-        // line 18
+        // line 26
         echo "
 
 
 ";
-        // line 21
+        // line 29
         $this->displayBlock('notif', $context, $blocks);
     }
 
     public function block_notif($context, array $blocks = array())
     {
-        // line 22
+        // line 30
         echo twig_escape_filter($this->env, (isset($context["message"]) ? $context["message"] : null), "html", null, true);
         echo "
 ";
@@ -86,6 +106,6 @@ class __TwigTemplate_1d296355ec7945b404126d2b4a934404403bf46a1a54e8d559469c74461
 
     public function getDebugInfo()
     {
-        return array (  72 => 22,  66 => 21,  61 => 18,  57 => 16,  55 => 15,  52 => 14,  50 => 13,  47 => 12,  45 => 11,  42 => 10,  40 => 9,  37 => 8,  35 => 7,  32 => 6,  30 => 5,  27 => 4,  25 => 3,  22 => 2,  20 => 1,);
+        return array (  92 => 30,  86 => 29,  81 => 26,  77 => 24,  75 => 23,  72 => 22,  70 => 21,  67 => 20,  65 => 19,  62 => 18,  60 => 17,  57 => 16,  55 => 15,  52 => 14,  50 => 13,  47 => 12,  45 => 11,  42 => 10,  40 => 9,  37 => 8,  35 => 7,  32 => 6,  30 => 5,  27 => 4,  25 => 3,  22 => 2,  20 => 1,);
     }
 }

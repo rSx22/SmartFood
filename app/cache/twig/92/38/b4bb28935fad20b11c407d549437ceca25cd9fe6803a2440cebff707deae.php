@@ -7,24 +7,21 @@ class __TwigTemplate_9238b4bb28935fad20b11c407d549437ceca25cd9fe6803a2440cebff70
     {
         parent::__construct($env);
 
-        // line 1
-        $this->parent = $this->loadTemplate("index.html.twig", "product/listProducts.html.twig", 1);
+        $this->parent = false;
+
         $this->blocks = [
             'body' => [$this, 'block_body'],
         ];
     }
 
-    protected function doGetParent(array $context)
-    {
-        return "index.html.twig";
-    }
-
     protected function doDisplay(array $context, array $blocks = [])
     {
-        $this->parent->display($context, array_merge($this->blocks, $blocks));
+        // line 1
+        $this->loadTemplate("index.html.twig", "product/listProducts.html.twig", 1)->display($context);
+        // line 2
+        $this->displayBlock('body', $context, $blocks);
     }
 
-    // line 2
     public function block_body($context, array $blocks = array())
     {
         // line 3
@@ -57,6 +54,6 @@ class __TwigTemplate_9238b4bb28935fad20b11c407d549437ceca25cd9fe6803a2440cebff70
 
     public function getDebugInfo()
     {
-        return array (  38 => 5,  34 => 4,  31 => 3,  28 => 2,  11 => 1,);
+        return array (  35 => 5,  31 => 4,  28 => 3,  22 => 2,  20 => 1,);
     }
 }

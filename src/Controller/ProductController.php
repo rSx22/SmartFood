@@ -50,20 +50,17 @@ class ProductController extends AbstractBaseController {
      * Add product and redirect on listproduct after
      */
     public function addProduct($request) {
-        $stringVal = new Validator\stringValidator();
-        $arrayVal = new Validator\arrayValidator();
             if( isset( $request['request']['name']) && isset ($request['request']['price']) ) { 
                 $product = array(
                             'name' => $request['request']['name'],
                             'price' => $request['request']['price'],
-                            'cal' => array()
+                            'cal' => '',
                             )
                 ;
-                var_dump($product);
-                if($stringVal->strBetween($product['name'], '1', '15' )) {
-                    if($stringVal->isPrice($product['price'])){
+                if(Validator\stringValidator::strBetween($product['name'], '1', '15' )) {
+                    if(Validator\stringValidator::isPrice($product['price'])){
                         if( isset( $request['request']['cal'])){
-                            if($stringVal->strBetween( $request['request']['cal'], '1', '4' )){
+                            if(Validator\stringValidator::strBetween( $request['request']['cal'], '1', '4' )){
                                 $product['cal'] = $request['request']['cal'];
                             }else{return [
                             'view' => 'product/notify.html.twig',

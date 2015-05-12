@@ -1,0 +1,41 @@
+{% if methode == "addAvatar" %}
+
+    {% include 'index.html.twig'  %}
+
+{% endif %}
+
+{% block body %}
+<div>Add your Avatar picture</div>
+<div style="border:1px solid; width:300px;">
+
+	{% if methode == "addAvatar" %}
+
+    	<form method="POST" action="index.php?p=add_avatar" enctype="multipart/form-data">  
+    {% elseif methode =="addUserInfo" %}
+    	<form method="POST" action="index.php?p=add_userinfo" enctype="multipart/form-data"> 
+	{% endif %}
+   
+	<input type="hidden" name="MAX_FILE_SIZE" value="2097152"">    
+		Avatar : <input type="file" name="avatar"><br>
+		
+
+</div>
+{% if confirm == "true" %}
+ 
+<div>You already have an avatar, want to remplace it ?</div>
+	<div class="confirmswitch">
+		<input type="checkbox" name="confirmswitch" class="confirmswitch-checkbox" id="myconfirmswitch" checked>
+		<label class="confirmswitch-label" for="myconfirmswitch">
+		<span class="confirmswitch-inner"></span>
+		<span class="confirmswitch-switch"></span>
+		</label>
+	</div>
+	<input type="submit" value="valider">
+
+{% else %}
+<input type="submit" value="valider">
+</form>
+</div>
+{% endif %}
+	</form>
+{% endblock %}

@@ -1,0 +1,24 @@
+{% if methode == "addAvatar" %}
+
+    {% include 'user/form_addAvatar.html.twig'  %}
+
+{% else %}
+
+
+{% endif %}
+
+
+{% block confirm %}
+<form method="POST" action="index.php?p=add_avatar"> 
+
+	<div class="confirmswitch">
+		<input type="checkbox" name="confirmswitch" class="confirmswitch-checkbox" id="myconfirmswitch" checked>
+		<label class="confirmswitch-label" for="myconfirmswitch">
+		<span class="confirmswitch-inner"></span>
+		<span class="confirmswitch-switch"></span>
+		</label>
+	</div>
+	<input type="submit" value="valider">
+</form>
+{{ message }}
+{% endblock %}

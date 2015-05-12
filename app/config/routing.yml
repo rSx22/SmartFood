@@ -7,6 +7,12 @@ user:
 add_user:
   controller: Controller\UserController:addUser
 
+add_userinfo:
+  controller: Controller\UserController:addUserInfo
+
+add_avatar:
+  controller: Controller\UserController:addAvatar
+
 del_user:
   controller: Controller\UserController:deleteUser
 
@@ -27,3 +33,6 @@ add_product:
 
 del_product:
   controller: Controller\ProductController:deleteProduct
+
+confirm:
+  controller: Controller\UserController:confirm
