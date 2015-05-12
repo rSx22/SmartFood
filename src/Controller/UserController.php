@@ -359,7 +359,7 @@ class UserController extends AbstractBaseController {
         }else{if(isset($_SESSION['username'])){
             if((file_exists($_SERVER["DOCUMENT_ROOT"].'/newproject/web/images/avatar/'.$_SESSION['username'].".jpg")) ){
             $exist = true;
-        }}else{$exist = false;}
+        }else{$exist=false;}}else{$exist = false;}
             return ['view' => 'user/form_addAvatar.html.twig',
             'methode' => 'addAvatar',
             'confirm' => $exist,];
