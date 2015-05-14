@@ -82,7 +82,7 @@ class __TwigTemplate_0e656b81dd8e19317561918599e15a99290356f257ef7f9b7c069292a97
 \t      <a href =\"http://localhost:8888/newproject/web/index.php?p=del_item&id=";
             // line 21
             echo twig_escape_filter($this->env, $context["key"], "html", null, true);
-            echo "\">remove from card</a><br> 
+            echo "\">lower quantite from card</a><br> 
 \t     </div>
 \t";
         }

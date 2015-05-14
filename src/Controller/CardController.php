@@ -14,9 +14,7 @@ class CardController extends AbstractBaseController {
             $conn = AbstractBaseController::createConn();
             $productModel = new product($conn); //init model\ProductModel
             if(isset($_SESSION['productid']) && !isset($request['query']['id'])) {  
-               $_SESSION['product'] = $productModel->getProductById($_SESSION['productid']); //get id via Model
-
-               
+               $_SESSION['product'] = $productModel->getProductById($_SESSION['productid']); //get product by id via Model
                 if(isset($request['request']['nbrproduct'])){ 
                     if(!empty($_SESSION['card'][$_SESSION['product']['id']]['quantite']) ){ //if item exist in card add quantite choosen to quantite in card /else create item in card
                         $_SESSION['card'][$_SESSION['product']['id']]['quantite'] = $_SESSION['card'][$_SESSION['product']['id']]['quantite'] + $request['request']['nbrproduct'];
@@ -39,10 +37,12 @@ class CardController extends AbstractBaseController {
                         ];
             }else{ //when i ask the addToCard funct i have no quantite then i show the product view and ask quantite to user
                     $_SESSION['productid'] = $request['query']['id'];
+                    $product = $productModel->getProductById($_SESSION['productid']); //get product by id via Model
                 
                 return [
                     'view' => 'product/product_page.html.twig',
                     'methode' => 'showProductPage',
+                    'product' => $product,
                     ];
 
             }
@@ -135,10 +135,12 @@ class CardController extends AbstractBaseController {
             }else{
 
                     $_SESSION['productid'] = $request['query']['id'];
+                    $product = $productModel->getProductById($_SESSION['productid']); //get product by id via Model
                 
                 return [
                     'view' => 'product/product_page.html.twig',
                     'methode' => 'showDelProductPage',
+                    'product' => $product,
                     ];
 
             }
