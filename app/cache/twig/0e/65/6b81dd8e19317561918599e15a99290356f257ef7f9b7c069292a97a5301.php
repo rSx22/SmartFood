@@ -43,7 +43,9 @@ class __TwigTemplate_0e656b81dd8e19317561918599e15a99290356f257ef7f9b7c069292a97
             // line 9
             if (($this->getAttribute($context["product"], "path_image", []) != null)) {
                 // line 10
-                echo "\t\t\t<img src=\"./../../newproject/web/";
+                echo "\t\t\t<img src=\"";
+                echo twig_escape_filter($this->env, (isset($context["url_path"]) ? $context["url_path"] : null), "html", null, true);
+                echo "/newproject/web/";
                 echo twig_escape_filter($this->env, $this->getAttribute($context["product"], "path_image", []), "html", null, true);
                 echo "\" style=\"width:80px;height:80px;\"> 
 \t\t";
@@ -71,16 +73,22 @@ class __TwigTemplate_0e656b81dd8e19317561918599e15a99290356f257ef7f9b7c069292a97
             }
             // line 18
             echo "\t     <br>
-\t     <a href =\"http://localhost:8888/newproject/web/index.php?p=addtocard&id=";
+\t     <a href =\"";
             // line 19
+            echo twig_escape_filter($this->env, (isset($context["url_path"]) ? $context["url_path"] : null), "html", null, true);
+            echo "/newproject/web/index.php?p=addtocard&id=";
             echo twig_escape_filter($this->env, $context["key"], "html", null, true);
             echo "\">add more to card</a><br> 
-\t     <a href =\"http://localhost:8888/newproject/web/index.php?p=removeincard&id=";
+\t     <a href =\"";
             // line 20
+            echo twig_escape_filter($this->env, (isset($context["url_path"]) ? $context["url_path"] : null), "html", null, true);
+            echo "/newproject/web/index.php?p=removeincard&id=";
             echo twig_escape_filter($this->env, $context["key"], "html", null, true);
             echo "\">remove from card</a><br> 
-\t      <a href =\"http://localhost:8888/newproject/web/index.php?p=del_item&id=";
+\t      <a href =\"";
             // line 21
+            echo twig_escape_filter($this->env, (isset($context["url_path"]) ? $context["url_path"] : null), "html", null, true);
+            echo "/newproject/web/index.php?p=del_item&id=";
             echo twig_escape_filter($this->env, $context["key"], "html", null, true);
             echo "\">lower quantite from card</a><br> 
 \t     </div>
@@ -108,6 +116,6 @@ class __TwigTemplate_0e656b81dd8e19317561918599e15a99290356f257ef7f9b7c069292a97
 
     public function getDebugInfo()
     {
-        return array (  93 => 24,  84 => 21,  80 => 20,  76 => 19,  73 => 18,  67 => 16,  61 => 14,  59 => 13,  52 => 12,  46 => 10,  44 => 9,  41 => 8,  37 => 7,  31 => 4,  28 => 3,  22 => 2,  20 => 1,);
+        return array (  101 => 24,  90 => 21,  84 => 20,  78 => 19,  75 => 18,  69 => 16,  63 => 14,  61 => 13,  54 => 12,  46 => 10,  44 => 9,  41 => 8,  37 => 7,  31 => 4,  28 => 3,  22 => 2,  20 => 1,);
     }
 }

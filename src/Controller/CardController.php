@@ -119,8 +119,6 @@ class CardController extends AbstractBaseController {
                 if(isset($request['request']['nbrproduct'])){ 
                     if(!empty($_SESSION['card'][$_SESSION['product']['id']]['quantite']) ){
                         $_SESSION['card'][$_SESSION['product']['id']]['quantite'] = $_SESSION['card'][$_SESSION['product']['id']]['quantite'] - $request['request']['nbrproduct'];
-                    var_dump($_SESSION['card'][$_SESSION['product']['id']]['quantite'],$_SESSION['card']);
-
                     }
                 }
                 $tot = $this->setTotalCardPrice();
@@ -129,7 +127,7 @@ class CardController extends AbstractBaseController {
                         'view' => 'card/listCard.html.twig',
                         'products' => $_SESSION['card'],
                         'methode' => 'addedToCard',
-                        'message' => 'Product added to card'
+                        'message' => 'Product removed from card'
                         
                         ];
             }else{

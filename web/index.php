@@ -73,6 +73,7 @@ if(isset($response['view'])){							//if i've got a response from controller the
 	if(isset($_SESSION['username'])){					//for user to see his profil name and profil picture if session is set
 		$response['session']['user'] = $_SESSION['username'];
 		$response['session']['path'] = $_SESSION['path'];
+		$reponse['url_path'] = "http://".$_SERVER['HTTP_HOST'].$_SERVER['REQUEST_URI']; 
 	}
 	echo $template->render($response); 					//attach response array of var of the controller to the view, then used in view as {{array.var}}
 	
@@ -81,6 +82,7 @@ if(isset($response['view'])){							//if i've got a response from controller the
 	if(isset($_SESSION['username'])){					//I still want my username and picture to be displayed
 			$response['session']['user'] = $_SESSION['username'];
 			$response['session']['path'] = $_SESSION['path'];
+			$reponse['url_path'] = "http://".$_SERVER['HTTP_HOST'];
 	}
 	if( isset( $response )){
 		echo $template->render($response);

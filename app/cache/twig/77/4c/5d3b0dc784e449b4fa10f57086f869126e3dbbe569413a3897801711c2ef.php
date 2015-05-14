@@ -45,9 +45,13 @@ class __TwigTemplate_774c5d3b0dc784e449b4fa10f57086f869126e3dbbe569413a389780171
         // line 25
         if (($this->getAttribute((isset($context["session"]) ? $context["session"] : null), "path", []) != null)) {
             // line 26
-            echo "\t\t <img src=\"./../../newproject/web/";
+            echo "\t\t <img src=\"";
+            echo twig_escape_filter($this->env, (isset($context["url_path"]) ? $context["url_path"] : null), "html", null, true);
+            echo "/newproject/web/";
             echo twig_escape_filter($this->env, $this->getAttribute((isset($context["session"]) ? $context["session"] : null), "path", []), "html", null, true);
-            echo "\" style=\"width:80px;height:80px;\"> <a href =\"http://localhost:8888/newproject/web/index.php?p=card_list\">list products in your card</a><br>
+            echo "\" style=\"width:80px;height:80px;\"> <a href =\"";
+            echo twig_escape_filter($this->env, (isset($context["url_path"]) ? $context["url_path"] : null), "html", null, true);
+            echo "/newproject/web/index.php?p=card_list\">list products in your card</a><br>
 
 \t\t ";
         }
@@ -86,19 +90,54 @@ class __TwigTemplate_774c5d3b0dc784e449b4fa10f57086f869126e3dbbe569413a389780171
     public function block_sidebar($context, array $blocks = array())
     {
         // line 8
-        echo "\t\t\t<a href =\"http://localhost:8888/newproject/web/index.php?p=user\">show user</a><br>
-\t\t\t<a href =\"http://localhost:8888/newproject/web/index.php?p=users_list\">List user in users</a><br>
-\t\t\t<a href =\"http://localhost:8888/newproject/web/index.php?p=add_user \">Form for add user in users</a><br>
-\t\t\t<a href =\"http://localhost:8888/newproject/web/index.php?p=add_userinfo \">Form for add user info</a><br>
-\t\t\t<a href =\"http://localhost:8888/newproject/web/index.php?p=add_avatar \">Form for add user avatar</a><br>
-\t\t\t<a href =\"http://localhost:8888/newproject/web/index.php?p=del_user \">Form for del user in users</a><br>
-\t\t\t<a href =\"http://localhost:8888/newproject/web/index.php?p=log_user \">Form for log user in users</a><br>
-\t\t\t<a href =\"http://localhost:8888/newproject/web/index.php?p=logout \">Clic for logout. q+</a><br><br>
+        echo "\t\t\t<a href =\"";
+        echo twig_escape_filter($this->env, (isset($context["url_path"]) ? $context["url_path"] : null), "html", null, true);
+        echo "/newproject/web/index.php?p=user\">show user</a><br>
+\t\t\t<a href =\"";
+        // line 9
+        echo twig_escape_filter($this->env, (isset($context["url_path"]) ? $context["url_path"] : null), "html", null, true);
+        echo "/newproject/web/index.php?p=users_list\">List user in users</a><br>
+\t\t\t<a href =\"";
+        // line 10
+        echo twig_escape_filter($this->env, (isset($context["url_path"]) ? $context["url_path"] : null), "html", null, true);
+        echo "/newproject/web/index.php?p=add_user \">Form for add user in users</a><br>
+\t\t\t<a href =\"";
+        // line 11
+        echo twig_escape_filter($this->env, (isset($context["url_path"]) ? $context["url_path"] : null), "html", null, true);
+        echo "/newproject/web/index.php?p=add_userinfo \">Form for add user info</a><br>
+\t\t\t<a href =\"";
+        // line 12
+        echo twig_escape_filter($this->env, (isset($context["url_path"]) ? $context["url_path"] : null), "html", null, true);
+        echo "/newproject/web/index.php?p=add_avatar \">Form for add user avatar</a><br>
+\t\t\t<a href =\"";
+        // line 13
+        echo twig_escape_filter($this->env, (isset($context["url_path"]) ? $context["url_path"] : null), "html", null, true);
+        echo "/newproject/web/index.php?p=del_user \">Form for del user in users</a><br>
+\t\t\t<a href =\"";
+        // line 14
+        echo twig_escape_filter($this->env, (isset($context["url_path"]) ? $context["url_path"] : null), "html", null, true);
+        echo "/newproject/web/index.php?p=log_user \">Form for log user in users</a><br>
+\t\t\t<a href =\"";
+        // line 15
+        echo twig_escape_filter($this->env, (isset($context["url_path"]) ? $context["url_path"] : null), "html", null, true);
+        echo "/newproject/web/index.php?p=logout \">Clic for logout. q+</a><br><br>
 
-\t\t\t<a href =\"http://localhost:8888/newproject/web/index.php?p=products_list\">list products</a><br>
-\t\t\t<a href =\"http://localhost:8888/newproject/web/index.php?p=product\">show product</a><br>
-\t\t\t<a href =\"http://localhost:8888/newproject/web/index.php?p=add_product\">add product</a><br>
-\t\t\t<a href =\"http://localhost:8888/newproject/web/index.php?p=del_product\">del product</a><br>
+\t\t\t<a href =\"";
+        // line 17
+        echo twig_escape_filter($this->env, (isset($context["url_path"]) ? $context["url_path"] : null), "html", null, true);
+        echo "/newproject/web/index.php?p=products_list\">list products</a><br>
+\t\t\t<a href =\"";
+        // line 18
+        echo twig_escape_filter($this->env, (isset($context["url_path"]) ? $context["url_path"] : null), "html", null, true);
+        echo "/newproject/web/index.php?p=product\">show product</a><br>
+\t\t\t<a href =\"";
+        // line 19
+        echo twig_escape_filter($this->env, (isset($context["url_path"]) ? $context["url_path"] : null), "html", null, true);
+        echo "/newproject/web/index.php?p=add_product\">add product</a><br>
+\t\t\t<a href =\"";
+        // line 20
+        echo twig_escape_filter($this->env, (isset($context["url_path"]) ? $context["url_path"] : null), "html", null, true);
+        echo "/newproject/web/index.php?p=del_product\">del product</a><br>
 
 \t\t";
     }
@@ -130,6 +169,6 @@ class __TwigTemplate_774c5d3b0dc784e449b4fa10f57086f869126e3dbbe569413a389780171
 
     public function getDebugInfo()
     {
-        return array (  117 => 37,  112 => 34,  107 => 31,  89 => 8,  86 => 7,  80 => 4,  73 => 38,  71 => 37,  67 => 35,  65 => 34,  61 => 32,  59 => 31,  55 => 29,  48 => 26,  46 => 25,  42 => 24,  37 => 23,  35 => 7,  29 => 4,  24 => 1,);
+        return array (  156 => 37,  151 => 34,  146 => 31,  139 => 20,  135 => 19,  131 => 18,  127 => 17,  122 => 15,  118 => 14,  114 => 13,  110 => 12,  106 => 11,  102 => 10,  98 => 9,  93 => 8,  90 => 7,  84 => 4,  77 => 38,  75 => 37,  71 => 35,  69 => 34,  65 => 32,  63 => 31,  59 => 29,  48 => 26,  46 => 25,  42 => 24,  37 => 23,  35 => 7,  29 => 4,  24 => 1,);
     }
 }

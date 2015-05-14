@@ -27,7 +27,7 @@ class ProductController extends AbstractBaseController {
             $product = $productModel->getProductInfo($search);
             if( isset($product['name'])){
                 return  [
-                            'view' => 'product/notify.html.twig',
+                            'view' => 'product/product_page.html.twig',
                             'product' => $product,
                             'methode' => 'showProduct',
                             'message' => $product['name'].' actually in DB with ID : '.$product['id'].' Table products'

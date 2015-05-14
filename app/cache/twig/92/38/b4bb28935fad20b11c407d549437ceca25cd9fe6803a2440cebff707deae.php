@@ -37,7 +37,9 @@ class __TwigTemplate_9238b4bb28935fad20b11c407d549437ceca25cd9fe6803a2440cebff70
             // line 6
             if (($this->getAttribute($context["product"], "path_image", []) != null)) {
                 // line 7
-                echo "\t<img src=\"./../../newproject/web/";
+                echo "\t<img src=\"";
+                echo twig_escape_filter($this->env, (isset($context["url_path"]) ? $context["url_path"] : null), "html", null, true);
+                echo "/newproject/web/";
                 echo twig_escape_filter($this->env, $this->getAttribute($context["product"], "path_image", []), "html", null, true);
                 echo "\" style=\"width:80px;height:80px;\"> 
 \t";
@@ -53,7 +55,9 @@ class __TwigTemplate_9238b4bb28935fad20b11c407d549437ceca25cd9fe6803a2440cebff70
      ";
             // line 10
             echo twig_escape_filter($this->env, $this->getAttribute($context["product"], "description", []), "html", null, true);
-            echo "<a href =\"http://localhost:8888/newproject/web/index.php?p=addtocard&id=";
+            echo "<a href =\"";
+            echo twig_escape_filter($this->env, (isset($context["url_path"]) ? $context["url_path"] : null), "html", null, true);
+            echo "/newproject/web/index.php?p=addtocard&id=";
             echo twig_escape_filter($this->env, $this->getAttribute($context["product"], "id", []), "html", null, true);
             echo "\">add to card</a><br> 
      </div>
@@ -81,6 +85,6 @@ class __TwigTemplate_9238b4bb28935fad20b11c407d549437ceca25cd9fe6803a2440cebff70
 
     public function getDebugInfo()
     {
-        return array (  66 => 13,  55 => 10,  46 => 9,  40 => 7,  38 => 6,  35 => 5,  31 => 4,  28 => 3,  22 => 2,  20 => 1,);
+        return array (  70 => 13,  57 => 10,  48 => 9,  40 => 7,  38 => 6,  35 => 5,  31 => 4,  28 => 3,  22 => 2,  20 => 1,);
     }
 }

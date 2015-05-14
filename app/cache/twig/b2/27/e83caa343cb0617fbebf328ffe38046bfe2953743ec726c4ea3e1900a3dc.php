@@ -48,7 +48,9 @@ class __TwigTemplate_b227e83caa343cb0617fbebf328ffe38046bfe2953743ec726c4ea3e190
         // line 10
         if (($this->getAttribute((isset($context["product"]) ? $context["product"] : null), "path_image", []) != null)) {
             // line 11
-            echo "\t\t <img src=\"./../../newproject/web/";
+            echo "\t\t <img src=\"";
+            echo twig_escape_filter($this->env, (isset($context["url_path"]) ? $context["url_path"] : null), "html", null, true);
+            echo "/newproject/web/";
             echo twig_escape_filter($this->env, $this->getAttribute((isset($context["product"]) ? $context["product"] : null), "path_image", []), "html", null, true);
             echo "\" style=\"width:80px;height:80px;\"> 
 \t";
@@ -96,6 +98,6 @@ class __TwigTemplate_b227e83caa343cb0617fbebf328ffe38046bfe2953743ec726c4ea3e190
 
     public function getDebugInfo()
     {
-        return array (  82 => 30,  73 => 23,  71 => 22,  63 => 16,  61 => 15,  57 => 13,  51 => 11,  49 => 10,  44 => 8,  40 => 7,  36 => 6,  32 => 5,  28 => 3,  22 => 2,  20 => 1,);
+        return array (  84 => 30,  75 => 23,  73 => 22,  65 => 16,  63 => 15,  59 => 13,  51 => 11,  49 => 10,  44 => 8,  40 => 7,  36 => 6,  32 => 5,  28 => 3,  22 => 2,  20 => 1,);
     }
 }
