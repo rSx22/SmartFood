@@ -60,25 +60,25 @@ if(isset($_GET['p'])){
 
 }
 
-$loader = new Twig_Loader_Filesystem('../src/View/');
-$twig = new Twig_Environment($loader, array(
-    'cache' => '../app/cache/twig',
-    'debug' => true,
+$loader = new Twig_Loader_Filesystem('../src/View/');	//load view folder (from root)
+$twig = new Twig_Environment($loader, array(			
+    'cache' => '../app/cache/twig',						//params for twig cache folder
+    'debug' => true,									//and debug on (' {{dump(ma_var)}} ') in twig
 ));	
-$twig->addExtension(new Twig_Extension_Debug());
-if(isset($response['view'])){
-	$template = $twig->loadTemplate($response['view']);
-	unset($response['view']);
-	if(isset($_SESSION['username'])){
+$twig->addExtension(new Twig_Extension_Debug());		//for debug to work
+
+if(isset($response['view'])){							//if i've got a response from controller then i show view asked from it
+	$template = $twig->loadTemplate($response['view']); // load view
+	unset($response['view']);							//unset unused view
+	if(isset($_SESSION['username'])){					//for user to see his profil name and profil picture if session is set
 		$response['session']['user'] = $_SESSION['username'];
 		$response['session']['path'] = $_SESSION['path'];
-		echo $template->render($response);
-	}else{
-		echo $template->render($response);
 	}
+	echo $template->render($response); 					//attach response array of var of the controller to the view, then used in view as {{array.var}}
+	
 }else{
-	$template = $twig->loadTemplate('index.html.twig');
-	if(isset($_SESSION['username'])){
+	$template = $twig->loadTemplate('index.html.twig');	//else i got not response from controller then ->index
+	if(isset($_SESSION['username'])){					//I still want my username and picture to be displayed
 			$response['session']['user'] = $_SESSION['username'];
 			$response['session']['path'] = $_SESSION['path'];
 	}

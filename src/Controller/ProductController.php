@@ -14,7 +14,7 @@ class ProductController extends AbstractBaseController {
         $products = $productModel->getAllProducts();
         //you can return a Response object
         return [
-            'view' => 'product/listProducts.html.twig', // should be Twig : 'WebSite/View/product/listproduct.html.twig'
+            'view' => 'product/listProducts.html.twig', 
             'products' => $products
         ]; //return views and views parameter
     }
@@ -41,9 +41,6 @@ class ProductController extends AbstractBaseController {
         }else{return ['view' => 'product/form_showProduct.html.twig'];}
     }
 
-    /**
-     * Add product and redirect on listproduct after
-     */
     public function addProduct($request) {
             if( isset( $request['request']['name']) && isset ($request['request']['price']) ) { 
                 $product = array(
@@ -54,8 +51,8 @@ class ProductController extends AbstractBaseController {
                             'path_image' => '',
                             )
                 ;
-                if(Validator\stringValidator::strBetween($product['name'], '1', '15' )) {
-                    if(Validator\stringValidator::isPrice($product['price'])){
+                if(Validator\stringValidator::strBetween($product['name'], '1', '15' )) { //chk if the string is btw 1,15
+                    if(Validator\stringValidator::isPrice($product['price'])){ //chk  with price regex
                         if( isset( $request['request']['cal'])){
                             if(Validator\stringValidator::strBetween( $request['request']['cal'], '1', '4' )){
                                 $product['cal'] = $request['request']['cal'];
@@ -72,7 +69,7 @@ class ProductController extends AbstractBaseController {
 
                         $conn = AbstractBaseController::createConn();
                         $productModel = new product($conn); // new Model for accessing db
-                        $productExist = $productModel->chkproductByName($product['name']);
+                        $productExist = $productModel->chkproductByName($product['name']);//chk if product already exist in db
                         if( $productExist == '0'){ //then we can create it
                             $productAdd = $productModel->addproduct($product['name'], $product['price'], $product['cal'],$product['desc']); 
                            
@@ -114,15 +111,14 @@ class ProductController extends AbstractBaseController {
                         'message' => 'product : '.$product['name'].' too short (1 char. min.) or too long (15 char. max.) Table products'
                     ];
                     }
-                }else{ return [
+                }else{ return [ // inputs not set, i show view with them ( user & password input)
                         'view' => 'product/form_addProduct.html.twig'
                     ];
                 }
             }
 
     public function deleteproduct($request) {
-        //check request content else show input view
-        if(isset($request['request']['name']) ) { 
+        if(isset($request['request']['name']) ) { //check request content else show input view
 
             $product =  $request['request']['name'];
             $conn = AbstractBaseController::createConn();
@@ -144,7 +140,7 @@ class ProductController extends AbstractBaseController {
                 
                 ];
             }
-        }else {return ['view' => 'product/form_delProduct.html.twig']; // 
+        }else {return ['view' => 'product/form_delProduct.html.twig']; // //input not set i show view with it
         }
     }
 

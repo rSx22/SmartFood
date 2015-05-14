@@ -25,36 +25,41 @@ class __TwigTemplate_b227e83caa343cb0617fbebf328ffe38046bfe2953743ec726c4ea3e190
     public function block_body($context, array $blocks = array())
     {
         // line 3
-        if (((isset($context["methode"]) ? $context["methode"] : null) == "showProductPage")) {
-            // line 4
-            echo "
+        echo "
+
     <div>Nom : ";
-            // line 5
-            echo twig_escape_filter($this->env, $this->getAttribute((isset($context["product"]) ? $context["product"] : null), "name", []), "html", null, true);
-            echo "</div>
+        // line 5
+        echo twig_escape_filter($this->env, $this->getAttribute((isset($context["product"]) ? $context["product"] : null), "name", []), "html", null, true);
+        echo "</div>
     <div>Price : ";
-            // line 6
-            echo twig_escape_filter($this->env, $this->getAttribute((isset($context["product"]) ? $context["product"] : null), "price", []), "html", null, true);
-            echo "</div>
+        // line 6
+        echo twig_escape_filter($this->env, $this->getAttribute((isset($context["product"]) ? $context["product"] : null), "price", []), "html", null, true);
+        echo "</div>
     <div>Description : ";
-            // line 7
-            echo twig_escape_filter($this->env, $this->getAttribute((isset($context["product"]) ? $context["product"] : null), "description", []), "html", null, true);
-            echo "</div>
+        // line 7
+        echo twig_escape_filter($this->env, $this->getAttribute((isset($context["product"]) ? $context["product"] : null), "description", []), "html", null, true);
+        echo "</div>
     <div>Indice Calorique : ";
-            // line 8
-            echo twig_escape_filter($this->env, $this->getAttribute((isset($context["product"]) ? $context["product"] : null), "kcal_ind", []), "html", null, true);
-            echo "</div>
+        // line 8
+        echo twig_escape_filter($this->env, $this->getAttribute((isset($context["product"]) ? $context["product"] : null), "kcal_ind", []), "html", null, true);
+        echo "</div>
 
     ";
-            // line 10
-            if (($this->getAttribute((isset($context["product"]) ? $context["product"] : null), "path_image", []) != null)) {
-                // line 11
-                echo "\t\t <img src=\"./../../newproject/web/";
-                echo twig_escape_filter($this->env, $this->getAttribute((isset($context["product"]) ? $context["product"] : null), "path_image", []), "html", null, true);
-                echo "\" style=\"width:80px;height:80px;\"> 
+        // line 10
+        if (($this->getAttribute((isset($context["product"]) ? $context["product"] : null), "path_image", []) != null)) {
+            // line 11
+            echo "\t\t <img src=\"./../../newproject/web/";
+            echo twig_escape_filter($this->env, $this->getAttribute((isset($context["product"]) ? $context["product"] : null), "path_image", []), "html", null, true);
+            echo "\" style=\"width:80px;height:80px;\"> 
 \t";
-            }
-            // line 13
+        }
+        // line 13
+        echo "
+
+";
+        // line 15
+        if (((isset($context["methode"]) ? $context["methode"] : null) == "showProductPage")) {
+            // line 16
             echo "
 \t<form method=\"POST\" action=\"index.php?p=addtocard\"> 
 \tHow much<input type=\"number\" name=\"nbrproduct\">
@@ -62,8 +67,18 @@ class __TwigTemplate_b227e83caa343cb0617fbebf328ffe38046bfe2953743ec726c4ea3e190
 \t</form>
 
 ";
+        } elseif ((        // line 22
+(isset($context["methode"]) ? $context["methode"] : null) == "showDelProductPage")) {
+            // line 23
+            echo "
+\t<form method=\"POST\" action=\"index.php?p=del_item\"> 
+\tHow much<input type=\"number\" name=\"nbrproduct\">
+\t<input type=\"submit\" value=\"remove from card\">
+\t</form>
+
+";
         }
-        // line 20
+        // line 30
         echo twig_escape_filter($this->env, (isset($context["message"]) ? $context["message"] : null), "html", null, true);
         echo "
 ";
@@ -81,6 +96,6 @@ class __TwigTemplate_b227e83caa343cb0617fbebf328ffe38046bfe2953743ec726c4ea3e190
 
     public function getDebugInfo()
     {
-        return array (  67 => 20,  58 => 13,  52 => 11,  50 => 10,  45 => 8,  41 => 7,  37 => 6,  33 => 5,  30 => 4,  28 => 3,  22 => 2,  20 => 1,);
+        return array (  82 => 30,  73 => 23,  71 => 22,  63 => 16,  61 => 15,  57 => 13,  51 => 11,  49 => 10,  44 => 8,  40 => 7,  36 => 6,  32 => 5,  28 => 3,  22 => 2,  20 => 1,);
     }
 }

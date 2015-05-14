@@ -40,5 +40,11 @@ confirm:
 addtocard:
   controller: Controller\CardController:addToCard
 
+del_item:
+  controller: Controller\CardController:deleteItem
+
+removeincard:
+  controller: Controller\CardController:deleteProductCard
+
 card_list:
   controller: Controller\CardController:listCard
