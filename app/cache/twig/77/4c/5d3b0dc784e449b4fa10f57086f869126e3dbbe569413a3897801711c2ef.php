@@ -33,42 +33,43 @@ class __TwigTemplate_774c5d3b0dc784e449b4fa10f57086f869126e3dbbe569413a389780171
 \t\t";
         // line 7
         $this->displayBlock('sidebar', $context, $blocks);
-        // line 22
+        // line 23
         echo "\t\t";
         echo twig_var_dump($this->env, $context, (isset($context["session"]) ? $context["session"] : null));
         echo "
 \t\t<div>User:";
-        // line 23
+        // line 24
         echo twig_escape_filter($this->env, $this->getAttribute((isset($context["session"]) ? $context["session"] : null), "user", []), "html", null, true);
         echo " 
 \t\t";
-        // line 24
+        // line 25
         if (($this->getAttribute((isset($context["session"]) ? $context["session"] : null), "path", []) != null)) {
-            // line 25
+            // line 26
             echo "\t\t <img src=\"./../../newproject/web/";
             echo twig_escape_filter($this->env, $this->getAttribute((isset($context["session"]) ? $context["session"] : null), "path", []), "html", null, true);
-            echo "\" style=\"width:80px;height:80px;\"> 
+            echo "\" style=\"width:80px;height:80px;\"> <a href =\"http://localhost:8888/newproject/web/index.php?p=card_list\">list products in your card</a><br>
+
 \t\t ";
         }
-        // line 27
+        // line 29
         echo "\t\t</div>
 \t\t<div id=\"content\">
 \t            ";
-        // line 29
+        // line 31
         $this->displayBlock('body', $context, $blocks);
-        // line 30
+        // line 32
         echo "\t    </div>
 \t\t<div id=\"notif\">
 \t            ";
-        // line 32
+        // line 34
         $this->displayBlock('notif', $context, $blocks);
-        // line 33
+        // line 35
         echo "\t    </div>
 \t    <div id=\"confirm\">
 \t            ";
-        // line 35
+        // line 37
         $this->displayBlock('confirm', $context, $blocks);
-        // line 36
+        // line 38
         echo "\t    </div>
 \t</body>
 
@@ -98,20 +99,21 @@ class __TwigTemplate_774c5d3b0dc784e449b4fa10f57086f869126e3dbbe569413a389780171
 \t\t\t<a href =\"http://localhost:8888/newproject/web/index.php?p=product\">show product</a><br>
 \t\t\t<a href =\"http://localhost:8888/newproject/web/index.php?p=add_product\">add product</a><br>
 \t\t\t<a href =\"http://localhost:8888/newproject/web/index.php?p=del_product\">del product</a><br>
+
 \t\t";
     }
 
-    // line 29
+    // line 31
     public function block_body($context, array $blocks = array())
     {
     }
 
-    // line 32
+    // line 34
     public function block_notif($context, array $blocks = array())
     {
     }
 
-    // line 35
+    // line 37
     public function block_confirm($context, array $blocks = array())
     {
     }
@@ -128,6 +130,6 @@ class __TwigTemplate_774c5d3b0dc784e449b4fa10f57086f869126e3dbbe569413a389780171
 
     public function getDebugInfo()
     {
-        return array (  115 => 35,  110 => 32,  105 => 29,  88 => 8,  85 => 7,  79 => 4,  72 => 36,  70 => 35,  66 => 33,  64 => 32,  60 => 30,  58 => 29,  54 => 27,  48 => 25,  46 => 24,  42 => 23,  37 => 22,  35 => 7,  29 => 4,  24 => 1,);
+        return array (  117 => 37,  112 => 34,  107 => 31,  89 => 8,  86 => 7,  80 => 4,  73 => 38,  71 => 37,  67 => 35,  65 => 34,  61 => 32,  59 => 31,  55 => 29,  48 => 26,  46 => 25,  42 => 24,  37 => 23,  35 => 7,  29 => 4,  24 => 1,);
     }
 }

@@ -64,14 +64,18 @@ class User
     }
 
     public function addInfo($var, $arg, $user){
-        $query = 'UPDATE users SET '.$var.'="'.$arg.'" WHERE name= "'.$user.' " ';
+        $query = 'UPDATE users SET '.$var.' = ? WHERE name = ? ';
+
         $dbexec = $this->conn->prepare($query);
+       // $dbexec->bindValue(1, $var);
         $dbexec->bindValue(1, $arg);
+        $dbexec->bindValue(2, $user);
+
         $dbexec->execute(); 
 
     }
-        public function getInfo($user){
-        $query = 'SELECT * FROM users WHERE name="'.$user.' "';
+    public function getInfo($user){
+        $query = 'SELECT * FROM users WHERE name= ?';
         $dbexec = $this->conn->prepare($query);
         $dbexec->bindValue(1, $user);
         $dbexec->execute(); 

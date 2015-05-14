@@ -36,3 +36,9 @@ del_product:
 
 confirm:
   controller: Controller\UserController:confirm
+
+addtocard:
+  controller: Controller\CardController:addToCard
+
+card_list:
+  controller: Controller\CardController:listCard

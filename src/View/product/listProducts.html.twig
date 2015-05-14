@@ -2,6 +2,13 @@
 {% block body %}
 	List of products in DB :<br>
 	{% for key, product in products %}
-     {{product.name}}<br>
+	<div style="border: 1px solid;">
+	{% if product.path_image!= null %}
+	<img src="./../../newproject/web/{{product.path_image}}" style="width:80px;height:80px;"> 
+	{% endif %}
+     {{product.name}} : {{product.price}}€, Indice Calorique : {{product.kcal_ind}} <br>
+     {{product.description}}<a href ="http://localhost:8888/newproject/web/index.php?p=addtocard&id={{product.id}}">add to card</a><br> 
+     </div>
 	{% endfor %}
+	{{message}}
 {% endblock %}

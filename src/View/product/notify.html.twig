@@ -10,8 +10,17 @@
 
     {% include 'product/form_delProduct.html.twig'  %}
 
+{% elseif methode == "addToCard" %}
+
+    {% include 'user/form_logUser.html.twig'  %}
+
+{% elseif methode == "showProductPage" %}
+
+    {% include 'product/product_page.html.twig'  %}
+
 {% endif %}
 
 {% block notif %}
+
 {{ message }}
 {% endblock %}

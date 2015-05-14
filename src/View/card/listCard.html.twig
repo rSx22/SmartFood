@@ -1,0 +1,19 @@
+{% include 'index.html.twig' %}
+{% block body %}
+	List of products in Card :<br>
+	{% for key, product in products %}
+		<div style="border: 1px solid;">
+		{% if product.path_image!= null %}
+			<img src="./../../newproject/web/{{product.path_image}}" style="width:80px;height:80px;"> 
+		{% endif %}
+	     {{product.name}} : {{product.price}}€, Quantite : 
+	     	{% if product.quantite is empty %}
+	     		Don't forget to set {{product.name}}'s quantite
+	     	{% else %}
+	     		{{product.quantite}} 
+	     	{% endif %}
+	     <br>
+	     <a href ="http://localhost:8888/newproject/web/index.php?p=addtocard&id={{key}}">add more to card</a><br> 
+	     </div>
+	{% endfor %}
+{% endblock %}

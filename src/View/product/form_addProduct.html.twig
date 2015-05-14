@@ -2,10 +2,13 @@
 {% block body %}
 <div>Add product</div>
 <div style="border:1px solid; width:300px;">
-	<form method="POST" action="index.php?p=add_product"> 
+	<form method="POST" action="index.php?p=add_product" enctype="multipart/form-data"> 
 		Name : <input type="text" name="name"><br>
-		Price : <input type="text" name="price"><br>
-		Number of Kcal : <input type="number" name="cal"><br>
+		Price : <input type="text" name="price">€<br>
+		Description : <input type="text" name="desc"><br>
+		Number of Kcal : <input type="number" name="cal"><br><br>
+		<input type="hidden" name="MAX_FILE_SIZE" value="2097152"">
+		Picture : <input type="file" name="picture"><br>
 		<input type="submit">
 	</form>
 </div>

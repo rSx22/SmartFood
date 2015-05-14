@@ -1,10 +1,6 @@
 <?php 
 
 namespace Controller;
-    //affiche les erreurs
-ini_set('error_reporting', E_ALL);
-
-session_start();
  
 use Model\User;
 use Controller\Validator;
@@ -118,8 +114,6 @@ class UserController extends AbstractBaseController {
                             'age' => '',
                             )
                 ;
-                var_dump($request['request']);
-                var_dump(Validator\integerValidator::between($user['age'], 0 , 100 ));
                 switch (true) {
                     case (isset($request['request']['email']) && (preg_match('/^([\w-]+(?:\.[\w-]+)*)@((?:[\w-]+\.)*\w[\w-]{0,66})\.([a-z]{2,6}(?:\.[a-z]{2})?)$/i', $request['request']['email']))): 
                         $user['email_address'] = $request['request']['email'];
@@ -151,7 +145,7 @@ class UserController extends AbstractBaseController {
 
                 if(isset($_SESSION['username'])){
                     $userExist = $userModel->chkUserByName($_SESSION['username']); //cheqk if user logged still exist in db for updatee info
-                
+ 
                     if( $userExist == '1'){ //then we can update info
                         $userinfo = $userModel->getInfo($_SESSION['username']);
                         $_SESSION['path']=$userinfo['path_avatar'];

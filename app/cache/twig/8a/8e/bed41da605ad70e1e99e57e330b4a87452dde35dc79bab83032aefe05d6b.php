@@ -29,7 +29,7 @@ class __TwigTemplate_8a8ebed41da605ad70e1e99e57e330b4a87452dde35dc79bab83032aefe
 </div>
 <div style=\"border:1px solid; width:300px;\">
 \t<form method=\"POST\" action=\"index.php?p=product\"> 
-\t\t<input type=\"number\" name=\"id\" min=\"0\">
+\t\t<input type=\"text\" name=\"search\">
 \t\t<input type=\"submit\">
 \t</form>
 </div>

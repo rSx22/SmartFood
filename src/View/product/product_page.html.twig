@@ -1,0 +1,21 @@
+{% include 'index.html.twig' %}
+{% block body %}
+{% if methode == "showProductPage" %}
+
+    <div>Nom : {{product.name}}</div>
+    <div>Price : {{product.price}}</div>
+    <div>Description : {{product.description}}</div>
+    <div>Indice Calorique : {{product.kcal_ind}}</div>
+
+    {% if product.path_image!= null %}
+		 <img src="./../../newproject/web/{{product.path_image}}" style="width:80px;height:80px;"> 
+	{% endif %}
+
+	<form method="POST" action="index.php?p=addtocard"> 
+	How much<input type="number" name="nbrproduct">
+	<input type="submit" value="add to card">
+	</form>
+
+{% endif %}
+{{message}}
+{% endblock %}

@@ -5,6 +5,10 @@
  */
  
  require __DIR__ . '/../vendor/autoload.php';
+
+ini_set('error_reporting', E_ALL);
+
+session_start();
  
  use Symfony\Component\Yaml\Parser;
  use Controller\Validator;
@@ -62,7 +66,6 @@ $twig = new Twig_Environment($loader, array(
     'debug' => true,
 ));	
 $twig->addExtension(new Twig_Extension_Debug());
-
 if(isset($response['view'])){
 	$template = $twig->loadTemplate($response['view']);
 	unset($response['view']);
@@ -75,6 +78,10 @@ if(isset($response['view'])){
 	}
 }else{
 	$template = $twig->loadTemplate('index.html.twig');
+	if(isset($_SESSION['username'])){
+			$response['session']['user'] = $_SESSION['username'];
+			$response['session']['path'] = $_SESSION['path'];
+	}
 	if( isset( $response )){
 		echo $template->render($response);
 	}else{echo $template->render(array());}

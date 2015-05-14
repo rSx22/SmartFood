@@ -36,7 +36,7 @@ class stringValidator {
 	 	return (str_replace(" ", "", $str1) == $str1);
 	 }
 	 public static function isPrice($price){ // Might be worth doing first
-	if($price =~ '^\d+(,\d{1,2})?$^') {
+	if(preg_match("'^[0-9]{1,}[.|,]{0,1}[0-9]{0,2}$'isU",$price)) {
    			return true;
 		}else{
 		   return false;// Unkewl, fail

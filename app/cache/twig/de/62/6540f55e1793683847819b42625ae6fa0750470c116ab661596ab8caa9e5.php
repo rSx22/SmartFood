@@ -46,17 +46,40 @@ class __TwigTemplate_de626540f55e1793683847819b42625ae6fa0750470c116ab661596ab8c
             // line 12
             echo "
 ";
+        } elseif ((        // line 13
+(isset($context["methode"]) ? $context["methode"] : null) == "addToCard")) {
+            // line 14
+            echo "
+    ";
+            // line 15
+            $this->loadTemplate("user/form_logUser.html.twig", "product/notify.html.twig", 15)->display($context);
+            // line 16
+            echo "
+";
+        } elseif ((        // line 17
+(isset($context["methode"]) ? $context["methode"] : null) == "showProductPage")) {
+            // line 18
+            echo "
+    ";
+            // line 19
+            $this->loadTemplate("product/product_page.html.twig", "product/notify.html.twig", 19)->display($context);
+            // line 20
+            echo "
+";
         }
-        // line 14
+        // line 22
         echo "
 ";
-        // line 15
+        // line 23
         $this->displayBlock('notif', $context, $blocks);
     }
 
     public function block_notif($context, array $blocks = array())
     {
-        // line 16
+        // line 24
+        echo "
+";
+        // line 25
         echo twig_escape_filter($this->env, (isset($context["message"]) ? $context["message"] : null), "html", null, true);
         echo "
 ";
@@ -74,6 +97,6 @@ class __TwigTemplate_de626540f55e1793683847819b42625ae6fa0750470c116ab661596ab8c
 
     public function getDebugInfo()
     {
-        return array (  60 => 16,  54 => 15,  51 => 14,  47 => 12,  45 => 11,  42 => 10,  40 => 9,  37 => 8,  35 => 7,  32 => 6,  30 => 5,  27 => 4,  25 => 3,  22 => 2,  20 => 1,);
+        return array (  83 => 25,  80 => 24,  74 => 23,  71 => 22,  67 => 20,  65 => 19,  62 => 18,  60 => 17,  57 => 16,  55 => 15,  52 => 14,  50 => 13,  47 => 12,  45 => 11,  42 => 10,  40 => 9,  37 => 8,  35 => 7,  32 => 6,  30 => 5,  27 => 4,  25 => 3,  22 => 2,  20 => 1,);
     }
 }

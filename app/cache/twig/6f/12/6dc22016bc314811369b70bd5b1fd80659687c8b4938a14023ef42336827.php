@@ -27,10 +27,13 @@ class __TwigTemplate_6f126dc22016bc314811369b70bd5b1fd80659687c8b4938a14023ef423
         // line 3
         echo "<div>Add product</div>
 <div style=\"border:1px solid; width:300px;\">
-\t<form method=\"POST\" action=\"index.php?p=add_product\"> 
+\t<form method=\"POST\" action=\"index.php?p=add_product\" enctype=\"multipart/form-data\"> 
 \t\tName : <input type=\"text\" name=\"name\"><br>
-\t\tPrice : <input type=\"text\" name=\"price\"><br>
-\t\tNumber of Kcal : <input type=\"number\" name=\"cal\"><br>
+\t\tPrice : <input type=\"text\" name=\"price\">€<br>
+\t\tDescription : <input type=\"text\" name=\"desc\"><br>
+\t\tNumber of Kcal : <input type=\"number\" name=\"cal\"><br><br>
+\t\t<input type=\"hidden\" name=\"MAX_FILE_SIZE\" value=\"2097152\"\">
+\t\tPicture : <input type=\"file\" name=\"picture\"><br>
 \t\t<input type=\"submit\">
 \t</form>
 </div>

@@ -1,10 +1,6 @@
 <?php 
 
 namespace Controller;
-    //affiche les erreurs
-ini_set('error_reporting', E_ALL);
-
-session_start();
  
 use Model\Product;
  
@@ -15,32 +11,31 @@ class ProductController extends AbstractBaseController {
         $conn = AbstractBaseController::createConn();
 
         $productModel = new Product($conn); // new Model for accessing db
-        $product = $productModel->listProducts();
+        $products = $productModel->getAllProducts();
         //you can return a Response object
         return [
             'view' => 'product/listProducts.html.twig', // should be Twig : 'WebSite/View/product/listproduct.html.twig'
-            'products' => $product
+            'products' => $products
         ]; //return views and views parameter
     }
 
     public function showProductAction($request) {
-        if ( isset($request['request']['id']) ){ //chk for id from post else input's view
-            $id = $request['request']['id'];
+        if ( isset($request['request']['search']) ){ //chk for id from post else input's view
+            $search = $request['request']['search'];
             $conn = AbstractBaseController::createConn();
             $productModel = new Product($conn); // new Model for accessing db
-            $product = $productModel->getProductById($id);
+            $product = $productModel->getProductInfo($search);
             if( isset($product['name'])){
                 return  [
                             'view' => 'product/notify.html.twig',
-                            'product' => $product['name'],
+                            'product' => $product,
                             'methode' => 'showProduct',
-                            'message' => $product['name'].' actually in DB with ID : '.$id.' Table products'
+                            'message' => $product['name'].' actually in DB with ID : '.$product['id'].' Table products'
                         ];
             }else{ return  [
                             'view' => 'product/notify.html.twig',
-                            'product' => $product['name'],
                             'methode' => 'showProduct',
-                            'message' => 'No product registered with id : '.$id.' Table products'
+                            'message' => 'No product registered with name : '.$search.' Table products'
                         ];
                 }
         }else{return ['view' => 'product/form_showProduct.html.twig'];}
@@ -55,6 +50,8 @@ class ProductController extends AbstractBaseController {
                             'name' => $request['request']['name'],
                             'price' => $request['request']['price'],
                             'cal' => '',
+                            'desc' => '',
+                            'path_image' => '',
                             )
                 ;
                 if(Validator\stringValidator::strBetween($product['name'], '1', '15' )) {
@@ -69,17 +66,26 @@ class ProductController extends AbstractBaseController {
                             'message' => 'Number of kcal too short (1 number min.) or too long (4 number max.)'
                             ];
                             }
+                        }if( isset( $request['request']['desc'])){
+                            $product['desc'] = $request['request']['desc'];
                         }
-                    
-
 
                         $conn = AbstractBaseController::createConn();
                         $productModel = new product($conn); // new Model for accessing db
-                        $productExist = $productModel->chkproductByName($product['name']); 
+                        $productExist = $productModel->chkproductByName($product['name']);
                         if( $productExist == '0'){ //then we can create it
+                            $productAdd = $productModel->addproduct($product['name'], $product['price'], $product['cal'],$product['desc']); 
+                           
+                            if (isset($_FILES['picture'])) {
+                                $fichier = $_FILES['picture']['name'];
+                                if((pathinfo($fichier, PATHINFO_EXTENSION) == 'jpeg') or (pathinfo($fichier, PATHINFO_EXTENSION) == 'bmp') or (pathinfo($fichier, PATHINFO_EXTENSION) == 'jpg') or (pathinfo($fichier, PATHINFO_EXTENSION) == 'png') or (pathinfo($fichier, PATHINFO_EXTENSION) == 'JPG')or (pathinfo($fichier, PATHINFO_EXTENSION) == 'PNG')){
+                                    $upload = move_uploaded_file($_FILES['picture']['tmp_name'], $_SERVER["DOCUMENT_ROOT"]."/newproject/web/images/picture/".$product['name'].'.'.pathinfo($fichier, PATHINFO_EXTENSION));
+                                    $pictureAdd = $productModel->addProductInfo('path_image', 'images/picture/'.$product['name'].'.'.pathinfo($fichier, PATHINFO_EXTENSION), $product['name']); 
+                               }
+                            }
+
                             
-                            $productAdd = $productModel->addproduct($product['name'], $product['price'], $product['cal']); 
-                            
+      
                             return [
                             'view' => 'product/notify.html.twig',
                             'product' => $product['name'],
@@ -141,4 +147,5 @@ class ProductController extends AbstractBaseController {
         }else {return ['view' => 'product/form_delProduct.html.twig']; // 
         }
     }
+
 }

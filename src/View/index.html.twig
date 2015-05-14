@@ -18,11 +18,13 @@
 			<a href ="http://localhost:8888/newproject/web/index.php?p=product">show product</a><br>
 			<a href ="http://localhost:8888/newproject/web/index.php?p=add_product">add product</a><br>
 			<a href ="http://localhost:8888/newproject/web/index.php?p=del_product">del product</a><br>
+
 		{% endblock %}
 		{{dump(session)}}
 		<div>User:{{ session.user }} 
 		{% if session.path!= null %}
-		 <img src="./../../newproject/web/{{session.path}}" style="width:80px;height:80px;"> 
+		 <img src="./../../newproject/web/{{session.path}}" style="width:80px;height:80px;"> <a href ="http://localhost:8888/newproject/web/index.php?p=card_list">list products in your card</a><br>
+
 		 {% endif %}
 		</div>
 		<div id="content">
