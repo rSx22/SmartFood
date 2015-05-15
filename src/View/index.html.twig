@@ -1,42 +1,86 @@
 <!DOCTYPE html>
 	<meta http-equiv="content-type" content="text/html; charset=utf-8" />
 	<link rel="stylesheet" type="text/css" href="./../web/css/style_index.css">
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css">
+
+<!-- Optional theme -->
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap-theme.min.css">
+
+<!-- Latest compiled and minified JavaScript -->
+	<script src="{{url_path}}/newproject/vendor/components/jquery/jquery.min.js"></script>
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js"></script>
+
 	<title>{% block title %}Test Application{% endblock %}</title>
 	<body>
-		<h1> WELCOME GOLEFOY </h1><br>
-		{% block sidebar %}
-			<a href ="{{url_path}}/newproject/web/index.php?p=user">show user</a><br>
-			<a href ="{{url_path}}/newproject/web/index.php?p=users_list">List user in users</a><br>
-			<a href ="{{url_path}}/newproject/web/index.php?p=add_user ">Form for add user in users</a><br>
-			<a href ="{{url_path}}/newproject/web/index.php?p=add_userinfo ">Form for add user info</a><br>
-			<a href ="{{url_path}}/newproject/web/index.php?p=add_avatar ">Form for add user avatar</a><br>
-			<a href ="{{url_path}}/newproject/web/index.php?p=del_user ">Form for del user in users</a><br>
-			<a href ="{{url_path}}/newproject/web/index.php?p=log_user ">Form for log user in users</a><br>
-			<a href ="{{url_path}}/newproject/web/index.php?p=logout ">Clic for logout. q+</a><br><br>
-
-			<a href ="{{url_path}}/newproject/web/index.php?p=products_list">list products</a><br>
-			<a href ="{{url_path}}/newproject/web/index.php?p=product">show product</a><br>
-			<a href ="{{url_path}}/newproject/web/index.php?p=add_product">add product</a><br>
-			<a href ="{{url_path}}/newproject/web/index.php?p=del_product">del product</a><br>
-
-
-		{% endblock %}
-		{{dump(session)}}
-		<div>User:{{ session.user }} 
-		{% if session.path!= null %}
-		 <img src="{{url_path}}/newproject/web/{{session.path}}" style="width:80px;height:80px;" alt="Your profile picture suddenly disapeared ?!"> <a href ="{{url_path}}/newproject/web/index.php?p=card_list">list products in your card</a> 
-		 <a href ="{{url_path}}/newproject/web/index.php?p=user_page">show profile</a><br>
-
-		 {% endif %}
+	<div class="container">
+		<div class="row text-center">
+		  	<div class="col-md-3 col-md-offset-1">
+			  <div class="col-md-6">Nous contacter</div>
+			  <div class="col-md-6">F</div>
+			</div>
+		  <div class="col-md-3 col-md-offset-4">Besoin d'aide ?</div>
 		</div>
-		<div id="content">
-	            {% block body %}{% endblock %}
-	    </div>
-		<div id="notif">
-	            {% block notif %}{% endblock %}
-	    </div>
-	    <div id="confirm">
-	            {% block confirm %}{% endblock %}
-	    </div>
+
+		<div class="container row bar1">
+		  	<div class="row top-buffer">
+			  <div class="col-md-6 text-center"><a href ="{{url_path}}/newproject/web/index.php">LOGO</a></div>
+			  <div class="col-md-6">
+				<div class="col-md-6 text-right">se connec</div>
+				<div class="col-md-6 text-left">s'inscrire</div>
+			  </div>
+			</div>
+		</div>
+		<div class="container row bar2 text-center">
+			<h2 class="phrase top-buffer2">Phrase d'accroche<h2><br>
+			<div class="undertitle">Livraison à emporter / Temps de livraison / Nb Restaurants part</div>
+			<div class="row top-buffer col-md-10 col-md-offset-1 middd">
+
+        		{% include 'user/form_addUser.html.twig' %}
+        	</div>
+		</div>
+	</div>
+
+
+
+
+		<div class="container">
+			<h1> WELCOME GOLEFOY </h1><br>
+			<div class ="sidebar">
+				{% block sidebar %}
+					<a href ="{{url_path}}/newproject/web/index.php?p=user">show user</a><br>
+					<a href ="{{url_path}}/newproject/web/index.php?p=users_list">List user in users</a><br>
+					<a href ="{{url_path}}/newproject/web/index.php?p=add_user ">Form for add user in users</a><br>
+					<a href ="{{url_path}}/newproject/web/index.php?p=add_userinfo ">Form for add user info</a><br>
+					<a href ="{{url_path}}/newproject/web/index.php?p=add_avatar ">Form for add user avatar</a><br>
+					<a href ="{{url_path}}/newproject/web/index.php?p=del_user ">Form for del user in users</a><br>
+					<a href ="{{url_path}}/newproject/web/index.php?p=log_user ">Form for log user in users</a><br>
+					<a href ="{{url_path}}/newproject/web/index.php?p=logout ">Clic for logout. q+</a><br><br>
+
+					<a href ="{{url_path}}/newproject/web/index.php?p=products_list">list products</a><br>
+					<a href ="{{url_path}}/newproject/web/index.php?p=product">show product</a><br>
+					<a href ="{{url_path}}/newproject/web/index.php?p=add_product">add product</a><br>
+					<a href ="{{url_path}}/newproject/web/index.php?p=del_product">del product</a><br>
+
+
+				{% endblock %}
+				{{dump(session)}}
+				<div>User:{{ session.user }} 
+				{% if session.path!= null %}
+				 <img src="{{url_path}}/newproject/web/{{session.path}}" style="width:80px;height:80px;" alt="Your profile picture suddenly disapeared ?!"> <a href ="{{url_path}}/newproject/web/index.php?p=card_list">list products in your card</a> 
+				 <a href ="{{url_path}}/newproject/web/index.php?p=user_page">show profile</a><br>
+
+				 {% endif %}
+				</div>
+			</div>
+			<div id="content">
+		            {% block body %}{% endblock %}
+		    </div>
+			<div id="notif">
+		            {% block notif %}{% endblock %}
+		    </div>
+		    <div id="confirm">
+		            {% block confirm %}{% endblock %}
+		    </div>
+		
 	</body>
 

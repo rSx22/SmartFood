@@ -1,8 +1,72 @@
 a{
     color:#34A7C1;
 }
+body{
+    background-color:#f5f5ef;
+
+}
+.vcenter {
+    display: inline-block;
+    vertical-align: middle;
+    float: none;
+}
+.top-buffer { margin-top:25px; }
+.top-buffer2 { margin-top:30px; }
+.top-buffer3 { margin-top:20px; }
+.top-buffer4 { margin-top:50px; }
+.top-buffer1{  margin-top:10px; }
+.top-bufferinputxt{ margin-top : 8px;}
+
+.bar1{height: 80px;}
+
+.bar2{height: 450px;
+background-image: url("./../images/asset/Background.png");
+background-size: 100% 100%;
+
+}
+
+.middd{height: 200px;}
+.undertitle{
+    color : #FFF;
+    font-size: 20px;
+    font-weight: lighter;
+    }
+.poscond{
+    font-size: 13px;
+    color : #FFF;
+        font-weight: lighter;
+}
+.phrase{
+        font-weight: lighter;
+    color: #FFF;
+    font-size: 30px;
+}
+.btninscript {
+  -webkit-border-radius: 7;
+  -moz-border-radius: 7;
+  border-radius: 7px;
+  color: #ffffff;
+  font-size: 20px;
+      font-weight: lighter;
+  background: #1dbe8d;
+  padding: 15px 12px 15px 12px;
+  text-decoration: none;
+  border:0;
+}
+
+.btninscript:hover {
+  text-decoration: underline;
+  -webkit-box-shadow:inset 0px -10px 5px #2ad199;
+  -moz-box-shadow:inset 0px -10px 5px #2ad199;
+  box-shadow:inset 0px -10px 5px #2ad199;
+}
+
+
+
+
 
 .onoffswitch {
+    height:30px;
     position: relative; width: 90px;
     -webkit-user-select:none; -moz-user-select:none; -ms-user-select: none;
 }
@@ -49,6 +113,7 @@ a{
     right: 0px; 
 }
 .confirmswitch {
+        height:35px;
     position: relative; width: 90px;
     -webkit-user-select:none; -moz-user-select:none; -ms-user-select: none;
 }
@@ -71,20 +136,20 @@ a{
 }
 .confirmswitch-inner:before {
     content: "Yes";
-    padding-left: 10px;
-    background-color: #34A7C1; color: #FFFFFF;
+    padding-right: 25px;
+    background-color: #1dbe8d; color: #FFFFFF;
 }
 .confirmswitch-inner:after {
     content: "Nop";
-    padding-right: 10px;
+    padding-right: 15px;
     background-color: #FFF; color: #999999;
     text-align: right;
 }
 .confirmswitch-switch {
-    display: block; width: 18px; margin: 6px;
+    display: block; width: 18px; margin: 8px;
     background: #FFFFFF;
     border: 2px solid #999999; border-radius: 20px;
-    position: absolute; top: 0; bottom: 0; right: 56px;
+    position: absolute; top: 0; bottom: 0; right: 50px;
     -moz-transition: all 0.3s ease-in 0s; -webkit-transition: all 0.3s ease-in 0s;
     -o-transition: all 0.3s ease-in 0s; transition: all 0.3s ease-in 0s; 
 }
@@ -92,5 +157,5 @@ a{
     margin-left: 0;
 }
 .confirmswitch-checkbox:checked + .confirmswitch-label .confirmswitch-switch {
-    right: 0px; 
+    right: 5px; 
 }

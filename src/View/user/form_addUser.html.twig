@@ -1,11 +1,41 @@
-{% include 'index.html.twig' %}
+{% if methode == 'formuser' %}
+	
+	{% include 'index.html.twig' %}
+
+{% endif %}
 {% block body %}
-<div>Add user</div>
-<div style="border:1px solid; width:300px;">
+<div class="col-md-8 col-md-offset-2 top-buffer3">
 	<form method="POST" action="index.php?p=add_user"> 
-		Name : <input type="text" name="name"><br>
-		Password : <input type="password" name="password"><br>
-		<input type="submit">
+		<div class="row">
+			<div class="col-md-7">
+				 <input type="text" class="form-control" placeholder="Code postal régional - Ex : 75200" name="name">
+				 <input type="text" class="form-control top-bufferinputxt" placeholder="nom@email.com" name="email">
+				 <div class="row">
+					  <div class="col-xs-6">
+					    <input type="text" class="form-control top-bufferinputxt" placeholder="Mot de passe" name="password"></div>
+					  <div class="col-xs-6">
+					    <input type="text" class="form-control top-bufferinputxt" placeholder="Confirmer" name="password_check"></div>
+				</div>
+			<div class="row">
+				<div class="col-md-4">
+					<div class="confirmswitch top-buffer1">
+					<input type="checkbox" name="confirmswitch" class="confirmswitch-checkbox" id="myconfirmswitch">
+					<label class="confirmswitch-label" for="myconfirmswitch">
+					<span class="confirmswitch-inner"></span>
+					<span class="confirmswitch-switch"></span>
+					</label>
+					</div> 
+				</div>
+				<div class="col-md-6 poscond col-md-offset-2" style="position:absolute;width:300px;bottom:12px;left:100px">
+					 J'accepte les conditions d'utilisation générales
+				</div>
+			</div>
+			</div>
+			<div class="col-md-5 text-center top-buffer4 ">
+				<input class="btninscript" type="submit" value="S'inscrire">
+			</div>
+		</div>
+
 	</form>
 </div>
 {% endblock %}
