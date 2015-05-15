@@ -46,7 +46,7 @@ class __TwigTemplate_ea4a7b4220902da609041e55bd242da9c19fa96ac34abfa02bc3ea391ff
         \t\t<span class=\"onoffswitch-switch\"></span>
     \t\t\t</label>
 \t\t\t\t</div>
-\t\t<input type=\"submit\">
+\t\t<input type=\"submit\" value =\"add user infos\">
 \t</form>
 </div>
 ";

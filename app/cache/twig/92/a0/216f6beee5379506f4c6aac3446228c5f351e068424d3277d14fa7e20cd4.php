@@ -67,24 +67,21 @@ class __TwigTemplate_92a0216f6beee5379506f4c6aac3446228c5f351e068424d3277d14fa7e
             echo " 
 <div>You already have an avatar, want to remplace it ?</div>
 \t<div class=\"confirmswitch\">
-\t\t<input type=\"checkbox\" name=\"confirmswitch\" class=\"confirmswitch-checkbox\" id=\"myconfirmswitch\" checked>
+\t\t<input type=\"checkbox\" name=\"confirmswitch\" class=\"confirmswitch-checkbox\" id=\"myconfirmswitch\">
 \t\t<label class=\"confirmswitch-label\" for=\"myconfirmswitch\">
 \t\t<span class=\"confirmswitch-inner\"></span>
 \t\t<span class=\"confirmswitch-switch\"></span>
 \t\t</label>
 \t</div>
-\t<input type=\"submit\" value=\"valider\">
+
 
 ";
-        } else {
-            // line 36
-            echo "<input type=\"submit\" value=\"valider\">
+        }
+        // line 36
+        echo "<input type=\"submit\"  value=\"Upload picture\">
 </form>
 </div>
-";
-        }
-        // line 40
-        echo "\t</form>
+</form>
 ";
     }
 
@@ -100,6 +97,6 @@ class __TwigTemplate_92a0216f6beee5379506f4c6aac3446228c5f351e068424d3277d14fa7e
 
     public function getDebugInfo()
     {
-        return array (  87 => 40,  81 => 36,  67 => 24,  65 => 23,  57 => 17,  53 => 15,  51 => 14,  47 => 12,  45 => 11,  40 => 8,  34 => 7,  31 => 6,  27 => 4,  25 => 3,  22 => 2,  20 => 1,);
+        return array (  81 => 36,  67 => 24,  65 => 23,  57 => 17,  53 => 15,  51 => 14,  47 => 12,  45 => 11,  40 => 8,  34 => 7,  31 => 6,  27 => 4,  25 => 3,  22 => 2,  20 => 1,);
     }
 }

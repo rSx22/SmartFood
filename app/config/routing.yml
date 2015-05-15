@@ -22,6 +22,9 @@ log_user:
 logout:
   controller: Controller\UserController:logOut
 
+user_page:
+  controller: Controller\UserController:showProfile
+
 products_list:
   controller: Controller\ProductController:listProductsAction
 
@@ -33,9 +36,6 @@ add_product:
 
 del_product:
   controller: Controller\ProductController:deleteProduct
-
-confirm:
-  controller: Controller\UserController:confirm
 
 addtocard:
   controller: Controller\CardController:addToCard

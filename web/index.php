@@ -56,7 +56,7 @@ if(isset($_GET['p'])){
 /**
  * Use Twig !
  */
-$reponse['url_path'] = "http://".$_SERVER['HTTP_HOST'];
+$reponse['url_path'] = "http://".$_SERVER['HTTP_HOST']; //assign url_path to response for view to know relativ path of the page, for link as example
 
 }
 

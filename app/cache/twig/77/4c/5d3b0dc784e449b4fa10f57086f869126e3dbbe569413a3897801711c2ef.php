@@ -33,47 +33,51 @@ class __TwigTemplate_774c5d3b0dc784e449b4fa10f57086f869126e3dbbe569413a389780171
 \t\t";
         // line 7
         $this->displayBlock('sidebar', $context, $blocks);
-        // line 23
+        // line 24
         echo "\t\t";
         echo twig_var_dump($this->env, $context, (isset($context["session"]) ? $context["session"] : null));
         echo "
 \t\t<div>User:";
-        // line 24
+        // line 25
         echo twig_escape_filter($this->env, $this->getAttribute((isset($context["session"]) ? $context["session"] : null), "user", []), "html", null, true);
         echo " 
 \t\t";
-        // line 25
+        // line 26
         if (($this->getAttribute((isset($context["session"]) ? $context["session"] : null), "path", []) != null)) {
-            // line 26
+            // line 27
             echo "\t\t <img src=\"";
             echo twig_escape_filter($this->env, (isset($context["url_path"]) ? $context["url_path"] : null), "html", null, true);
             echo "/newproject/web/";
             echo twig_escape_filter($this->env, $this->getAttribute((isset($context["session"]) ? $context["session"] : null), "path", []), "html", null, true);
-            echo "\" style=\"width:80px;height:80px;\"> <a href =\"";
+            echo "\" style=\"width:80px;height:80px;\" alt=\"Your profile picture suddenly disapeared ?!\"> <a href =\"";
             echo twig_escape_filter($this->env, (isset($context["url_path"]) ? $context["url_path"] : null), "html", null, true);
-            echo "/newproject/web/index.php?p=card_list\">list products in your card</a><br>
+            echo "/newproject/web/index.php?p=card_list\">list products in your card</a> 
+\t\t <a href =\"";
+            // line 28
+            echo twig_escape_filter($this->env, (isset($context["url_path"]) ? $context["url_path"] : null), "html", null, true);
+            echo "/newproject/web/index.php?p=user_page\">show profile</a><br>
 
 \t\t ";
         }
-        // line 29
+        // line 31
         echo "\t\t</div>
 \t\t<div id=\"content\">
 \t            ";
-        // line 31
+        // line 33
         $this->displayBlock('body', $context, $blocks);
-        // line 32
+        // line 34
         echo "\t    </div>
 \t\t<div id=\"notif\">
 \t            ";
-        // line 34
+        // line 36
         $this->displayBlock('notif', $context, $blocks);
-        // line 35
+        // line 37
         echo "\t    </div>
 \t    <div id=\"confirm\">
 \t            ";
-        // line 37
+        // line 39
         $this->displayBlock('confirm', $context, $blocks);
-        // line 38
+        // line 40
         echo "\t    </div>
 \t</body>
 
@@ -139,20 +143,21 @@ class __TwigTemplate_774c5d3b0dc784e449b4fa10f57086f869126e3dbbe569413a389780171
         echo twig_escape_filter($this->env, (isset($context["url_path"]) ? $context["url_path"] : null), "html", null, true);
         echo "/newproject/web/index.php?p=del_product\">del product</a><br>
 
+
 \t\t";
     }
 
-    // line 31
+    // line 33
     public function block_body($context, array $blocks = array())
     {
     }
 
-    // line 34
+    // line 36
     public function block_notif($context, array $blocks = array())
     {
     }
 
-    // line 37
+    // line 39
     public function block_confirm($context, array $blocks = array())
     {
     }
@@ -169,6 +174,6 @@ class __TwigTemplate_774c5d3b0dc784e449b4fa10f57086f869126e3dbbe569413a389780171
 
     public function getDebugInfo()
     {
-        return array (  156 => 37,  151 => 34,  146 => 31,  139 => 20,  135 => 19,  131 => 18,  127 => 17,  122 => 15,  118 => 14,  114 => 13,  110 => 12,  106 => 11,  102 => 10,  98 => 9,  93 => 8,  90 => 7,  84 => 4,  77 => 38,  75 => 37,  71 => 35,  69 => 34,  65 => 32,  63 => 31,  59 => 29,  48 => 26,  46 => 25,  42 => 24,  37 => 23,  35 => 7,  29 => 4,  24 => 1,);
+        return array (  161 => 39,  156 => 36,  151 => 33,  143 => 20,  139 => 19,  135 => 18,  131 => 17,  126 => 15,  122 => 14,  118 => 13,  114 => 12,  110 => 11,  106 => 10,  102 => 9,  97 => 8,  94 => 7,  88 => 4,  81 => 40,  79 => 39,  75 => 37,  73 => 36,  69 => 34,  67 => 33,  63 => 31,  57 => 28,  48 => 27,  46 => 26,  42 => 25,  37 => 24,  35 => 7,  29 => 4,  24 => 1,);
     }
 }

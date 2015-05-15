@@ -24,18 +24,17 @@
  
 <div>You already have an avatar, want to remplace it ?</div>
 	<div class="confirmswitch">
-		<input type="checkbox" name="confirmswitch" class="confirmswitch-checkbox" id="myconfirmswitch" checked>
+		<input type="checkbox" name="confirmswitch" class="confirmswitch-checkbox" id="myconfirmswitch">
 		<label class="confirmswitch-label" for="myconfirmswitch">
 		<span class="confirmswitch-inner"></span>
 		<span class="confirmswitch-switch"></span>
 		</label>
 	</div>
-	<input type="submit" value="valider">
 
-{% else %}
-<input type="submit" value="valider">
+
+{% endif %}
+<input type="submit"  value="Upload picture">
 </form>
 </div>
-{% endif %}
-	</form>
+</form>
 {% endblock %}

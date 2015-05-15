@@ -103,6 +103,14 @@ class UserController extends AbstractBaseController {
             if(isset($request['request']['confirmswitch'])) {
                 $this->addAvatar($request);
             }
+
+            $url_path = "http://".$_SERVER['HTTP_HOST'];
+
+            if(isset($_SESSION['username'])){
+                if(!empty(glob ($_SERVER["DOCUMENT_ROOT"].'/newproject/web/images/avatar/'.$_SESSION['username'].'.*'))){
+                    $exist = true;
+                }else{$exist=false;} var_dump($exist);
+            }
             if( isset( $request['request']['email']) ) { 
                 $user = array(
                             'email_address' => '',
@@ -160,7 +168,8 @@ class UserController extends AbstractBaseController {
                         //'user' => $user['name'],
                         'methode' => 'addUserInfo',
                         'path' => $userinfo['path_avatar'],
-                        //'message' => 'User : '.$user['name'].' registered Table users'
+                        'message' => 'infos updated',
+                        'confirm' => $exist,
                     ];
                     }else{return [
                         'view' => 'user/notify.html.twig',
@@ -177,10 +186,7 @@ class UserController extends AbstractBaseController {
                         ];
                     }
             
-            }else{if(isset($_SESSION['username'])){
-            if((file_exists($_SERVER["DOCUMENT_ROOT"].'/newproject/web/images/avatar/'.$_SESSION['username'].".jpg")) ){
-            $exist = true;
-        }}else{$exist = false;}
+            }else{
              return [
                     'view' => 'user/form_addUserInfo.html.twig',
                     'confirm' => $exist,
@@ -275,51 +281,28 @@ class UserController extends AbstractBaseController {
     }
 
 
-    function addAvatar($request)
+    public function addAvatar($request)
     {
-        if (isset($_FILES['avatar'])) {
-            if(isset($_SESSION['username'])){
+        
+        if(isset($_SESSION['username'])){
+            $url_path = "http://".$_SERVER['HTTP_HOST'];
+                if(!empty(glob ($_SERVER["DOCUMENT_ROOT"].'/newproject/web/images/avatar/'.$_SESSION['username'].'.*'))){
+                    $exist = true;
+                }else{$exist=false;} 
+
+            if (isset($_FILES['avatar'])) {
                 $fichier = $_FILES['avatar']['name'];
-                if((pathinfo($fichier, PATHINFO_EXTENSION) == 'jpeg') or (pathinfo($fichier, PATHINFO_EXTENSION) == 'bmp') or (pathinfo($fichier, PATHINFO_EXTENSION) == 'jpg') or (pathinfo($fichier, PATHINFO_EXTENSION) == 'png')){
-                    if((isset($request['request']['confirmswitch'])) or !file_exists($_SERVER["DOCUMENT_ROOT"].'/newproject/web/images/avatar/'.$_SESSION['username'].".jpg")  ) {
-                            $upload = move_uploaded_file($_FILES['avatar']['tmp_name'], $_SERVER["DOCUMENT_ROOT"]."/newproject/web/images/avatar/".$_SESSION['username'].'.'.pathinfo($fichier, PATHINFO_EXTENSION));
+
+
+                if((pathinfo($fichier, PATHINFO_EXTENSION) == 'jpeg') or (pathinfo($fichier, PATHINFO_EXTENSION) == 'bmp') or (pathinfo($fichier, PATHINFO_EXTENSION) == 'jpg') or (pathinfo($fichier, PATHINFO_EXTENSION) == 'png')or (pathinfo($fichier, PATHINFO_EXTENSION) == 'JPG')or (pathinfo($fichier, PATHINFO_EXTENSION) == 'JPEG')or (pathinfo($fichier, PATHINFO_EXTENSION) == 'PNG')or (pathinfo($fichier, PATHINFO_EXTENSION) == 'BMP')){
+                    if( (isset($request['request']['confirmswitch'])) or ($exist == false )  )  {
+                            if($exist == true){
+                                $existAvatar = glob ($_SERVER["DOCUMENT_ROOT"].'/newproject/web/images/avatar/'.$_SESSION['username'].'.*');
+                                foreach ($existAvatar as $key => $value) {
+                                    unlink($existAvatar[$key]);
+                                }
                             }
-                        if (!empty($fichier['error']) ){     
-                                switch ($fichier['error']){     
-                                   case 'UPLOAD_ERR_INI_SIZE':   
-                                   return [
-                                        'view' => 'user/notify.html.twig',
-                                        'upload' => 'false',
-                                        'methode' => 'addAvatar',
-                                        'message' => 'File too big for server'
-                                        ];     
-                                   break;     
-                                   case 'UPLOAD_ERR_FORM_SIZE': // UPLOAD_ERR_FORM_SIZE     
-                                   return [
-                                        'view' => 'user/notify.html.twig',
-                                        'upload' => 'false',
-                                        'methode' => 'addAvatar',
-                                        'message' => 'File too big for an avatar !' // size bigge than limit in form
-                                        ];
-                                   break;     
-                                   case 'UPLOAD_ERR_PARTIAL': // UPLOAD_ERR_PARTIAL     
-                                   return [
-                                        'view' => 'user/notify.html.twig',
-                                        'upload' => 'false',
-                                        'methode' => 'addAvatar',
-                                        'message' => 'Avatar upload failed while uploading '
-                                        ];    
-                                   break;     
-                                   case 'UPLOAD_ERR_NO_FILE': // UPLOAD_ERR_NO_FILE     
-                                   return [
-                                        'view' => 'user/notify.html.twig',
-                                        'upload' => 'false',
-                                        'methode' => 'addAvatar',
-                                        'message' => 'Avatar cant be empty of null size'
-                                        ];
-                                   break;     
-                                }    
-                        }else {    
+                            $upload = move_uploaded_file($_FILES['avatar']['tmp_name'], $_SERVER["DOCUMENT_ROOT"]."/newproject/web/images/avatar/".$_SESSION['username'].'.'.pathinfo($fichier, PATHINFO_EXTENSION));  
                                 $conn = AbstractBaseController::createConn();
                                 $userModel = new User($conn); // new Model for accessing db
                                 $avatarAdd = $userModel->addinfo('path_avatar', 'images/avatar/'.$_SESSION['username'].'.'.pathinfo($fichier, PATHINFO_EXTENSION), $_SESSION['username']); 
@@ -327,22 +310,36 @@ class UserController extends AbstractBaseController {
                                 $_SESSION['path']=$userinfo['path_avatar'];
                                 return [
                                     'view' => 'user/notify.html.twig',
-                                    'upload' => 'false',
                                     'methode' => 'addAvatar',
-                                    'message' => 'Avatar uploaded !',
+                                    'message' => 'Avatar uploaded ! ( may take few sec the first time to be displayed )',
                                     'path' => $userinfo['path_avatar'],
+                                    'confirm' => $exist,
                                     ];
-                        }  
-                    
+                        } else{return [
+                        'view' => 'user/notify.html.twig',
+                        'upload' => 'false',
+                        'methode' => 'addAvatar',
+                        'message' => 'nothing uploaded',
+                        'confirm' => $exist,
+                        ];
+
+                } 
                 }else{return [
                         'view' => 'user/notify.html.twig',
                         'upload' => 'false',
                         'methode' => 'addAvatar',
-                        'message' => 'Bad extension/Not an image'
+                        'message' => 'Bad extension/Not an image',
+                        'confirm' => $exist,
                         ];
 
                 }
             }else{
+            return ['view' => 'user/form_addAvatar.html.twig',
+            'methode' => 'addAvatar',
+            'confirm' => $exist,
+            ];
+        }
+        }else{
                 return [
                     'view' => 'user/notify.html.twig',
                     'upload' => 'false',
@@ -350,20 +347,29 @@ class UserController extends AbstractBaseController {
                     'message' => 'Not logged in :"/'
                     ];
             }
-        }else{if(isset($_SESSION['username'])){
-            if((file_exists($_SERVER["DOCUMENT_ROOT"].'/newproject/web/images/avatar/'.$_SESSION['username'].".jpg")) ){
-            $exist = true;
-        }else{$exist=false;}}else{$exist = false;}
-            return ['view' => 'user/form_addAvatar.html.twig',
-            'methode' => 'addAvatar',
-            'confirm' => $exist,];
-        }
     }
 
 
-    function upload($path)
-    {
+    public function showProfile($request)
+    {   
+        if(isset($_SESSION['username'])){
+                    //create connection from parent AbstractBaseController
+            $conn = AbstractBaseController::createConn();
 
+            $userModel = new User($conn); // new Model for accessing db
+            $user = $userModel->getInfo($_SESSION['username']);
+            //you can return a Response object
+            return [
+                'view' => 'user/user_page.html.twig', 
+                'user' => $user,
+            ]; //return views and views parameter
+        }else{
+                return [
+                    'view' => 'user/notify.html.twig',
+                    'methode' => 'showProfile',
+                    'message' => 'Not logged in :"/',
+                    ];
+            }
     }
 
 

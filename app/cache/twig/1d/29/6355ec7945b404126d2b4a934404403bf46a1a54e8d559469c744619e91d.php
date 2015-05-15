@@ -89,6 +89,7 @@ class __TwigTemplate_1d296355ec7945b404126d2b4a934404403bf46a1a54e8d559469c74461
     public function block_notif($context, array $blocks = array())
     {
         // line 30
+        echo "<br>";
         echo twig_escape_filter($this->env, (isset($context["message"]) ? $context["message"] : null), "html", null, true);
         echo "
 ";

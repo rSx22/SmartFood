@@ -2,30 +2,14 @@
 {% block body %}
 
 
-    <div>Nom : {{product.name}}</div>
-    <div>Price : {{product.price}}</div>
-    <div>Description : {{product.description}}</div>
-    <div>Indice Calorique : {{product.kcal_ind}}</div>
-
-    {% if product.path_image!= null %}
-		 <img src="./../../newproject/web/{{product.path_image}}" style="width:80px;height:80px;"> 
-	{% endif %}
+    <div>Nom : {{user.name}}</div>
+    <div>email: {{user.email_address}}</div>
+    <div>adresse: {{user.address}} in {{user.city}} in {{user.country}}</div>
+    <div>Phone number : {{user.phone_number}}</div>
+    <div>Gender : {{user.gender}}</div>
+    <div>Age : {{user.age}}</div>
 
 
-{% if methode == "showProductPage" %}
 
-	<form method="POST" action="index.php?p=addtocard"> 
-	How much<input type="number" name="nbrproduct">
-	<input type="submit" value="add to card">
-	</form>
-
-{% elseif methode == "showDelProductPage" %}
-
-	<form method="POST" action="index.php?p=del_item"> 
-	How much<input type="number" name="nbrproduct">
-	<input type="submit" value="remove from card">
-	</form>
-
-{% endif %}
 {{message}}
 {% endblock %}
