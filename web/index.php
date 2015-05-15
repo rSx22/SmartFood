@@ -53,12 +53,9 @@ if(isset($_GET['p'])){
 		//$response can be an object
 		$response = $controller->$action_name($request);
 	}
-/**
- * Use Twig !
- */
-$reponse['url_path'] = "http://".$_SERVER['HTTP_HOST']; //assign url_path to response for view to know relativ path of the page, for link as example
-
 }
+
+$reponse['url_path'] = "http://".$_SERVER['HTTP_HOST']; //assign url_path to response for view to know relativ path of the page, for link as example
 
 $loader = new Twig_Loader_Filesystem('../src/View/');	//load view folder (from root)
 $twig = new Twig_Environment($loader, array(			

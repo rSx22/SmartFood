@@ -15,14 +15,14 @@
 {% if methode == "showProductPage" %}
 
 	<form method="POST" action="index.php?p=addtocard"> 
-	How much<input type="number" name="nbrproduct">
+	How much<input type="number" name="nbrproduct" min="0">
 	<input type="submit" value="add to card">
 	</form>
 
 {% elseif methode == "showDelProductPage" %}
 
 	<form method="POST" action="index.php?p=del_item"> 
-	How much<input type="number" name="nbrproduct">
+	How much<input type="number" name="nbrproduct" min="0">
 	<input type="submit" value="remove from card">
 	</form>
 

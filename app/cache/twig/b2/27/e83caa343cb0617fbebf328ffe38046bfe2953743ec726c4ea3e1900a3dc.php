@@ -64,7 +64,7 @@ class __TwigTemplate_b227e83caa343cb0617fbebf328ffe38046bfe2953743ec726c4ea3e190
             // line 16
             echo "
 \t<form method=\"POST\" action=\"index.php?p=addtocard\"> 
-\tHow much<input type=\"number\" name=\"nbrproduct\">
+\tHow much<input type=\"number\" name=\"nbrproduct\" min=\"0\">
 \t<input type=\"submit\" value=\"add to card\">
 \t</form>
 
@@ -74,7 +74,7 @@ class __TwigTemplate_b227e83caa343cb0617fbebf328ffe38046bfe2953743ec726c4ea3e190
             // line 23
             echo "
 \t<form method=\"POST\" action=\"index.php?p=del_item\"> 
-\tHow much<input type=\"number\" name=\"nbrproduct\">
+\tHow much<input type=\"number\" name=\"nbrproduct\" min=\"0\">
 \t<input type=\"submit\" value=\"remove from card\">
 \t</form>
 

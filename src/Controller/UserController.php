@@ -105,11 +105,11 @@ class UserController extends AbstractBaseController {
             }
 
             $url_path = "http://".$_SERVER['HTTP_HOST'];
-
+            $exist = false;
             if(isset($_SESSION['username'])){
                 if(!empty(glob ($_SERVER["DOCUMENT_ROOT"].'/newproject/web/images/avatar/'.$_SESSION['username'].'.*'))){
                     $exist = true;
-                }else{$exist=false;} var_dump($exist);
+                }else{$exist=false;}
             }
             if( isset( $request['request']['email']) ) { 
                 $user = array(
@@ -311,7 +311,7 @@ class UserController extends AbstractBaseController {
                                 return [
                                     'view' => 'user/notify.html.twig',
                                     'methode' => 'addAvatar',
-                                    'message' => 'Avatar uploaded ! ( may take few sec the first time to be displayed )',
+                                    'message' => 'Avatar uploaded ! ( may need a refresh to be displayed )',
                                     'path' => $userinfo['path_avatar'],
                                     'confirm' => $exist,
                                     ];
