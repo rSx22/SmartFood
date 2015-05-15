@@ -1,10 +1,14 @@
+
 a{
     color:#34A7C1;
 }
 body{
     background-color:#f5f5ef;
-
 }
+div{
+    border:1px solid;
+}
+
 .vcenter {
     display: inline-block;
     vertical-align: middle;
@@ -13,32 +17,56 @@ body{
 .top-buffer { margin-top:25px; }
 .top-buffer2 { margin-top:30px; }
 .top-buffer3 { margin-top:20px; }
-.top-buffer4 { margin-top:50px; }
+.top-buffer4 { margin-top:40px; }
 .top-buffer1{  margin-top:10px; }
 .top-bufferinputxt{ margin-top : 8px;}
 
+.barsize{
+    color:#f5f5ef;
+}
+
+
+@media all and (max-width:938px) {
+  .topbarr{
+    height: 120px;
+  }
+}
+
+@media all and (min-width:938px) {
+  .topbarr{
+    height: 50px;
+  }
+}
+
+
+
+.topbarr{
+background-image: url("./../images/asset/ardoise.png");
+background-size: 100% 100%;
+}
 .bar1{height: 80px;}
 
-.bar2{height: 450px;
+.bar2{height: 420px;
 background-image: url("./../images/asset/Background.png");
 background-size: 100% 100%;
 
 }
-
+.notifyform{height: 30px;
+}
 .middd{height: 200px;}
 .undertitle{
-    color : #FFF;
+    color : #f5f5ef;
     font-size: 20px;
     font-weight: lighter;
     }
-.poscond{
+.littletext{
     font-size: 13px;
-    color : #FFF;
-        font-weight: lighter;
+    color : #f5f5ef;    
+    font-weight: lighter;
 }
 .phrase{
-        font-weight: lighter;
-    color: #FFF;
+    font-weight: lighter;
+    color: #f5f5ef;
     font-size: 30px;
 }
 .btninscript {

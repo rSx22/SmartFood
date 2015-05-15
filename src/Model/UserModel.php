@@ -28,6 +28,14 @@ class User
         $resultQuery = $dbex->fetch();
         return $resultQuery['userExist'] ;
     }
+    public function chkUserByMail($email){
+        $qb = 'SELECT EXISTS(SELECT * FROM users WHERE email_address =  ?) as userExist'; //Check in db with name and password, return 0/1.
+        $dbex = $this->conn->prepare($qb);
+        $dbex->bindValue(1, $email);
+        $dbex->execute();
+        $resultQuery = $dbex->fetch();
+        return $resultQuery['userExist'] ;
+    }
 
     public function getUserByName($name){
         $qb = 'SELECT `name` FROM `users` WHERE name =  ?'; //Check in db with name and password, return 0/1.
@@ -55,11 +63,12 @@ class User
         return $resultQuery;
     }
 
-    public function addUser($name, $password){
-        $query = 'INSERT INTO `users` (`name`, `password`) VALUES (?,?)';
+    public function addUser($email, $password, $postal_code){
+        $query = 'INSERT INTO `users` (`email_address`, `password`,`postal_code`) VALUES (?,?,?)';
         $dbexec = $this->conn->prepare($query);
-        $dbexec->bindValue(1, $name);
+        $dbexec->bindValue(1, $email);
         $dbexec->bindValue(2, $password);
+        $dbexec->bindValue(3, $postal_code);
         $dbexec->execute(); 
     }
 

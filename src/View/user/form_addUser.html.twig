@@ -8,7 +8,7 @@
 	<form method="POST" action="index.php?p=add_user"> 
 		<div class="row">
 			<div class="col-md-7">
-				 <input type="text" class="form-control" placeholder="Code postal régional - Ex : 75200" name="name">
+				 <input type="text" class="form-control" placeholder="Code postal régional - Ex : 75200" name="codepost">
 				 <input type="text" class="form-control top-bufferinputxt" placeholder="nom@email.com" name="email">
 				 <div class="row">
 					  <div class="col-xs-6">
@@ -26,16 +26,17 @@
 					</label>
 					</div> 
 				</div>
-				<div class="col-md-6 poscond col-md-offset-2" style="position:absolute;width:300px;bottom:12px;left:100px">
+				<div class="col-md-6 littletext col-md-offset-2" style="position:absolute;width:300px;bottom:12px;left:100px">
 					 J'accepte les conditions d'utilisation générales
 				</div>
 			</div>
 			</div>
-			<div class="col-md-5 text-center top-buffer4 ">
-				<input class="btninscript" type="submit" value="S'inscrire">
+			<div class="col-md-5 text-center">
+			<div class="littletext notifyform"> {{message}}
+			</div>
+				<input class="btninscript top-buffer3" type="submit" value="S'inscrire">
 			</div>
 		</div>
-
 	</form>
 </div>
 {% endblock %}

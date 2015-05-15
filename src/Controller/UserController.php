@@ -48,56 +48,72 @@ class UserController extends AbstractBaseController {
      * Add User and redirect on listUser after
      */
     public function addUser($request) {
-            if( isset( $request['request']['name']) && isset ($request['request']['password']) ) { 
                 $user = array(
-                            'name' => $request['request']['name'],
-                            'password' => $request['request']['password']
+                            'postal_code' => '',
+                            'email_address' => '',
+                            'password' => '',
                             )
                 ;
-                if(Validator\stringValidator::strBetween($user['name'], '6', '12' )) {
-                    if(Validator\stringValidator::strBetween($user['password'], '6', '12' )){
+                switch (true) {
+                    case ((isset($request['request']['email'])) && (preg_match('/^([\w-]+(?:\.[\w-]+)*)@((?:[\w-]+\.)*\w[\w-]{0,66})\.([a-z]{2,6}(?:\.[a-z]{2})?)$/i', $request['request']['email']))): 
+                        $user['email_address'] = $request['request']['email'];
 
-                        $conn = AbstractBaseController::createConn();
-                        $userModel = new User($conn); // new Model for accessing db
-                        $userExist = $userModel->chkUserByName($user['name']); 
+                    case isset($request['request']['codepost']) : 
+                        $user['postal_code'] = $request['request']['codepost'];
 
-                        if( $userExist == '0'){ //then we can create it
-                            
-                            $userAdd = $userModel->addUser($user['name'], $user['password']); 
-                            
-                            return [
-                            'view' => 'user/notify.html.twig',
-                            'user' => $user['name'],
-                            'methode' => 'addUser',
-                            'message' => 'User : '.$user['name'].' registered Table users'
-                        ];
-                        }else{return [
-                            'view' => 'user/notify.html.twig',
-                            'user' => $user['name'],
-                            'methode' => 'addUser',
-                            'message' => 'User : '.$user['name'].' already exist Table users'
+                    case ( ( isset( $request['request']['password'] ) ) &&  ( isset( $request['request']['password_check'] ))):
+                        if($request['request']['password'] ==  $request['request']['password_check']){
+                            $user['password'] = $request['request']['password'];
+                        }
+
+                }
+                if(isset($request['request']['confirmswitch'])){
+                    $confirm = true;
+                }else{$confirm=false;
+                }
+                if(!empty($user['postal_code'])){
+                    if(!empty($user['email_address'])){
+                        if(!empty($user['password'])){
+                            if($confirm==true){
+                                $conn = AbstractBaseController::createConn();
+                                $userModel = new User($conn); // new Model for accessing db
+                                $userExist = $userModel->chkUserByMail($user['email_address']); 
+
+                                if( $userExist == '0'){ //then we can create it
+                                    
+                                    $userAdd = $userModel->addUser($user['email_address'], $user['password'], $user['postal_code']); 
+                                    
+                                    return [
+                                    'view' => 'index.html.twig',
+                                    'message' => "Utilisateur enregistré", 
+                                ];
+                                }else{return [
+                                    'view' => 'index.html.twig',
+                                    'message' => "L'adresse email est déja utilisé", 
+                                ];
+                                }
+                            }else{return [
+                            'view' => 'index.html.twig',
+                            'message' => "Vous n'avez pas accepté les conditions générale d'utilisation" 
                             ];
                             }
                         }else{return [
-                            'view' => 'user/notify.html.twig',
-                            'user' => $user['name'],
-                            'methode' => 'addUser',
-                            'message' => 'Password too short (6 char. min.) or too long (12 char. max.) Table users'
+                            'view' => 'index.html.twig',
+                            'message' => "Vous n'avez pas entrer de mot de passe" 
                         ];
-
                         }
-                    }else{ return [
-                        'view' => 'user/notify.html.twig',
-                        'user' => $user['name'],
-                        'methode' => 'addUser',
-                        'message' => 'User : '.$user['name'].' too short (6 char. min.) or too long (12 char. max.) Table users'
+                    }else{return [
+                        'view' => 'index.html.twig',
+                        'message' => "Vous n'avez pas entrer d'adresse mail correct" 
                     ];
                     }
-                }else{ return [
-                        'view' => 'user/form_addUser.html.twig'
-                    ];
+                }else{return [
+                        'view' => 'index.html.twig',
+                        'message' => "Vous n'avez pas entrer en code postal" 
+                ];
                 }
-            }
+    }
+
     public function addUserInfo($request) {
         //$stringVal = new stringValidator();
             if(isset($request['request']['confirmswitch'])) {
