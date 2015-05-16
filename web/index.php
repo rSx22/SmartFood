@@ -67,18 +67,18 @@ $twig->addExtension(new Twig_Extension_Debug());		//for debug to work
 if(isset($response['view'])){							//if i've got a response from controller then i show view asked from it
 	$template = $twig->loadTemplate($response['view']); // load view
 	unset($response['view']);							//unset unused view
-	if(isset($_SESSION['username'])){					//for user to see his profil name and profil picture if session is set
-		$response['session']['user'] = $_SESSION['username'];
-		$response['session']['path'] = $_SESSION['path'];
+	if(isset($_SESSION['email_address'])){					//for user to see his profil name and profil picture if session is set
+		$response['email_address'] = $_SESSION['email_address'] ;
+		$response['path'] = $_SESSION['path'];
 		
 	}
 	echo $template->render($response); 					//attach response array of var of the controller to the view, then used in view as {{array.var}}
 	
 }else{
 	$template = $twig->loadTemplate('index.html.twig');	//else i got not response from controller then ->index
-	if(isset($_SESSION['username'])){					//I still want my username and picture to be displayed
-			$response['session']['user'] = $_SESSION['username'];
-			$response['session']['path'] = $_SESSION['path'];
+	if(isset($_SESSION['email_address'])){					//I still want my username and picture to be displayed
+		$response['email_address'] = $_SESSION['email_address'] ;
+		$response['path'] = $_SESSION['path'];
 			
 	}
 	if( isset( $response )){

@@ -22,26 +22,48 @@ class UserController extends AbstractBaseController {
     }
 
     public function showUserAction($request) {
-        if ( isset($request['request']['id']) ){ //chk for id from post else input's view
-            $id = $request['request']['id'];
-            $conn = AbstractBaseController::createConn();
-            $userModel = new User($conn); // new Model for accessing db
-            $user = $userModel->getUserById($id);
-            if( isset($user['name'])){
-                return  [
-                            'view' => 'user/notify.html.twig',
-                            'user' => $user['name'],
-                            'methode' => 'showUser',
-                            'message' => 'User : '.$user['name'].' registered with id : '.$id.' Table users'
-                        ];
-            }else{ return  [
-                            'view' => 'user/notify.html.twig',
-                            'user' => $user['name'],
-                            'methode' => 'showUser',
-                            'message' => 'No User registered with id : '.$id.' Table users'
-                        ];
-                }
-        }else{return ['view' => 'user/form_showUser.html.twig'];}
+        if( isset( $request['request']['email_address']) ){
+            if(isset ($request['request']['password']) && (preg_match('/^([\w-]+(?:\.[\w-]+)*)@((?:[\w-]+\.)*\w[\w-]{0,66})\.([a-z]{2,6}(?:\.[a-z]{2})?)$/i', $request['request']['email_address'])) ) { //if POST
+                //handle form with DBAL
+                //...
+                $user = array(
+                        'email_address' => $request['request']['email_address'],
+                        'password' => $request['request']['password']
+                        )
+                ;
+                $conn = AbstractBaseController::createConn();
+                $userModel = new User($conn); // new Model for accessing db
+
+                $userExist = $userModel->chkUserByMailAndPassword($user['email_address'], $user['password']);
+                if( $userExist == '1'){
+                    $_SESSION['email_address'] = $user['email_address'];
+
+                    $userinfo = $userModel->getInfo($user['email_address']);
+                    $_SESSION['path']=$userinfo['path_avatar'];
+                    return [
+                    'view' => 'index.html.twig',
+                    'email_address' => $user['email_address'],
+                    'methode' => 'loggedUser',
+                    'message' => 'Vous etes connecté',
+                    'path' => $userinfo['path_avatar'],
+                    ];
+                }else {return [
+                'view' => 'index.html.twig',
+                'methode' => 'loggedUser',
+                'message' => "L'email ".$user['email_address']." n'existe pas ou le mot de passe est mauvais",
+                ];
+            }//return other view for email not registerd
+            }else {return [
+                'view' => 'index.html.twig',
+                'methode' => 'loggedUser',
+                'message' => "L'email n'a pas un bon format ou le mot de passe est manquant",
+                ];
+            }//return other view for input
+     }else {return [
+            'view' => 'index.html.twig',
+            'methode' => 'logUser',
+            ];
+        }//return other view for input   
     }
 
     /**
@@ -80,7 +102,7 @@ class UserController extends AbstractBaseController {
                                 $userExist = $userModel->chkUserByMail($user['email_address']); 
 
                                 if( $userExist == '0'){ //then we can create it
-                                    
+                                    $_SESSION['email_address'] = $user['email_address'];
                                     $userAdd = $userModel->addUser($user['email_address'], $user['password'], $user['postal_code']); 
                                     
                                     return [
@@ -109,7 +131,7 @@ class UserController extends AbstractBaseController {
                     }
                 }else{return [
                         'view' => 'index.html.twig',
-                        'message' => "Vous n'avez pas entrer en code postal" 
+                        'message' => "Vous n'avez pas entrer de code postal" 
                 ];
                 }
     }
@@ -243,39 +265,48 @@ class UserController extends AbstractBaseController {
      * Log User (Session) , add session in $request first (index.php)
      */
     public function logUser($request) {
-        if( isset( $request['request']['name']) && isset ($request['request']['password']) ) { //if POST
+        if( isset( $request['request']['email_address']) ){
+        if(isset ($request['request']['password']) && (preg_match('/^([\w-]+(?:\.[\w-]+)*)@((?:[\w-]+\.)*\w[\w-]{0,66})\.([a-z]{2,6}(?:\.[a-z]{2})?)$/i', $request['request']['email_address'])) ) { //if POST
             //handle form with DBAL
             //...
-
+            $user = array(
+                    'email_address' => $request['request']['email_address'],
+                    'password' => $request['request']['password']
+                    )
+            ;
             $conn = AbstractBaseController::createConn();
             $userModel = new User($conn); // new Model for accessing db
-            $user = array(
-                        'name' => $request['request']['name'],
-                        'password' => $request['request']['password']
-                        )
-            ;
-            $userExist = $userModel->chkUserByNameAndPassword($user['name'], $user['password']);
 
+            $userExist = $userModel->chkUserByMailAndPassword($user['email_address'], $user['password']);
             if( $userExist == '1'){
-                $_SESSION['username'] = $user['name'];
+                $_SESSION['email_address'] = $user['email_address'];
 
-                $userinfo = $userModel->getInfo($user['name']);
+                $userinfo = $userModel->getInfo($user['email_address']);
                 $_SESSION['path']=$userinfo['path_avatar'];
                 return [
-                'view' => 'user/notify.html.twig',
-                'user' => $user['name'],
-                'methode' => 'logUser',
-                'message' => 'Logged in :)',
+                'view' => 'index.html.twig',
+                'email_address' => $user['email_address'],
+                'methode' => 'loggedUser',
+                'message' => 'Vous etes connecté',
                 'path' => $userinfo['path_avatar'],
                 ];
             }else {return [
-                'view' => 'user/notify.html.twig',
-                'user' => $user['name'],
-                'methode' => 'logUser',
-                'message' => 'Username '.$user['name'].' dont exist or password is wrong Table users'
-                ];
-                }//return other view for wrong logging 
-        }else {return ['view' => 'user/form_logUser.html.twig'];}
+            'view' => 'index.html.twig',
+            'methode' => 'loggedUser',
+            'message' => "L'email ".$user['email_address']." n'existe pas ou le mot de passe est mauvais",
+            ];
+        }//return other view for email not registerd
+        }else {return [
+            'view' => 'index.html.twig',
+            'methode' => 'loggedUser',
+            'message' => "L'email n'a pas un bon format ou le mot de passe est manquant",
+            ];
+        }//return other view for input
+     }else {return [
+            'view' => 'index.html.twig',
+            'methode' => 'logUser',
+            ];
+        }//return other view for input   
     }
 
 
@@ -293,7 +324,10 @@ class UserController extends AbstractBaseController {
 
         // Finalement, on détruit la session.
         @session_destroy(); //  <--------------->
-        return ['view' => 'user/form_logUser.html.twig'];
+        return ['view' => 'index.html.twig',
+                'message' => 'Vous avez été deconnecté',
+                'methode' => 'loggedUser',
+                ];
     }
 
 
@@ -368,24 +402,34 @@ class UserController extends AbstractBaseController {
 
     public function showProfile($request)
     {   
-        if(isset($_SESSION['username'])){
-                    //create connection from parent AbstractBaseController
-            $conn = AbstractBaseController::createConn();
+         if( isset( $_SESSION['email_address']) ){
+                //handle form with DBAL
+                //...
+                $user = array(
+                        'email_address' =>  $_SESSION['email_address'],
+                        )
+                ;
+                $conn = AbstractBaseController::createConn();
+                $userModel = new User($conn); // new Model for accessing db
 
-            $userModel = new User($conn); // new Model for accessing db
-            $user = $userModel->getInfo($_SESSION['username']);
-            //you can return a Response object
-            return [
-                'view' => 'user/user_page.html.twig', 
-                'user' => $user,
-            ]; //return views and views parameter
-        }else{
-                return [
-                    'view' => 'user/notify.html.twig',
-                    'methode' => 'showProfile',
-                    'message' => 'Not logged in :"/',
+                $userExist = $userModel->chkUserByMail($user['email_address']);
+                if( $userExist == '1'){
+
+                    $userinfo = $userModel->getInfoByMail($user['email_address']);
+                    $_SESSION['path']=$userinfo['path_avatar'];
+                    return [
+                    'view' => 'index.html.twig',
+                    'user' => $userinfo,
+                    'methode' => 'showUser',
+                    'message' => '',
                     ];
-            }
+                }else {return [
+                'view' => 'index.html.twig',
+                'methode' => 'showUser',
+                'message' => "L'email ".$user['email_address']." n'existe pas/plus dans la base",
+                ];
+            }//return other view for email not registerd
+         }
     }
 
 

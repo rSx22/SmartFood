@@ -1,15 +1,23 @@
-{% include 'index.html.twig' %}
 {% block body %}
 
+<div class="row undertitle endbar">
+	<div class="col-md-6">
+	    <div>Adresse e-mail: {{user.email_address}}</div>
+	    <div>Adresse: {{user.address|default('"..."') }} à {{user.city|default('"Ville"')}} en {{user.country|default('"Pays"')}}</div>
+	    <div>Code Postal Régional: {{user.postal_code}}</div>
+	</div>
+	<div class="col-md-6">
+		<div>Age : {{user.age|default('"..."')}}</div>
+	    <div>Sexe : {{user.gender|default('"..."')}}</div>
+	    <div>Numéro de Téléphone : {{user.phone_number|default('"..."')}}</div>
 
-    <div>Nom : {{user.name}}</div>
-    <div>email: {{user.email_address}}</div>
-    <div>adresse: {{user.address}} in {{user.city}} in {{user.country}}</div>
-    <div>Phone number : {{user.phone_number}}</div>
-    <div>Gender : {{user.gender}}</div>
-    <div>Age : {{user.age}}</div>
-
-
+	</div>
+</div>
+<div class="col-md-4 col-md-offset-6 top-buffer3">
+	<form action="index.php?p=add_userinfo">
+		<input type="submit" value="Mettre à jour" class="btnupdate">
+	</form>
+</div>
 
 {{message}}
 {% endblock %}

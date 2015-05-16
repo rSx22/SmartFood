@@ -1,3 +1,4 @@
+@font-face {    font-family: "topbarfont";  src: url('Change Tomorrow Today.ttf'); }
 
 a{
     color:#34A7C1;
@@ -5,10 +6,13 @@ a{
 body{
     background-color:#f5f5ef;
 }
-div{
-    border:1px solid;
+/*div{border:1px solid;}*/
+.linkfb{
+    background-image: url("./../images/asset/f.png");
+    background-size: 100% 100%;
+    height:20px;
+    width: 20px;
 }
-
 .vcenter {
     display: inline-block;
     vertical-align: middle;
@@ -19,32 +23,70 @@ div{
 .top-buffer3 { margin-top:20px; }
 .top-buffer4 { margin-top:40px; }
 .top-buffer1{  margin-top:10px; }
-.top-bufferinputxt{ margin-top : 8px;}
+.top-bufferinputxt{ margin-top : 7px;}
+.top-bufferloglink{ margin-top : 7px;}
 
 .barsize{
     color:#f5f5ef;
 }
+.loglink{
+    height: 40px;
 
-
-@media all and (max-width:938px) {
-  .topbarr{
-    height: 120px;
-  }
 }
-
-@media all and (min-width:938px) {
-  .topbarr{
+.itemloglink{
+    height: 100%;
+    padding-top: 8px;
+}
+.itemloglink a{
+   color:  #4b9f78;
+}
+.itemloglink a:hover{
+   color:  #4b9f78;
+}
+.barloglink{
+    border-right:1px solid #1dbe8d;
+}
+.otherlink{
+    box-shadow:  -5px 0px 14px  #fff; 
+}
+.topbarr{
     height: 50px;
   }
-}
+.topbarr a{
+    color:#f5f5ef;
+    font-family: topbarfont;
 
+    opacity: 0.7;
+    -webkit-transition: opacity 0.3s ease-in-out;/* transition pour Chrome et Safari */
+    -moz-transition: opacity 0.3s ease-in-out;/* transition pour Firefox */
+    -o-transition: opacity 0.3s ease-in-out;/* transition pour Opéra */
+    transition: opacity 0.3s ease-in-out; /* on écrit cette ligne à la fin de façon à ce que ce soit elle qui soit prise en compte lorsque l'attribut transition sera pris en compte par tous les navigateurs */
+
+}
+.topbarr a:hover{
+    color :#FFF;
+    opacity: 0.9;
+}
+.evenmorelittle{
+    font-size: 3px;
+    margin-top: 100px;
+}
 
 
 .topbarr{
 background-image: url("./../images/asset/ardoise.png");
 background-size: 100% 100%;
+
 }
-.bar1{height: 80px;}
+
+.endbar{
+    padding-bottom: 25px;
+    box-shadow: 0px 25px 40px -35px;
+}
+
+.bar1{height: 130px;
+    font-family: topbarfont;
+    color:#4b9f78;}
 
 .bar2{height: 420px;
 background-image: url("./../images/asset/Background.png");
@@ -69,6 +111,37 @@ background-size: 100% 100%;
     color: #f5f5ef;
     font-size: 30px;
 }
+.logoutlink{
+    margin-right:-40px;
+  }
+
+@media screen and (max-width:511px) {
+.logoutlink{
+    left:-120px;
+    margin-top:30px;
+  }
+}
+@media screen and (max-width:991px) {
+  .topbarr{
+    height: 120px;
+  }
+  .itemloglink{
+    width:40%;
+    display: inline;
+    top:30px;
+
+  }
+  .bar1{
+    height:160px;
+  }
+.logoutlink{
+    margin-right:-90px;
+  }
+  .evenmorelittle{
+    margin-top: 0px;
+  }
+}
+
 .btninscript {
   -webkit-border-radius: 7;
   -moz-border-radius: 7;
@@ -83,6 +156,25 @@ background-size: 100% 100%;
 }
 
 .btninscript:hover {
+  text-decoration: underline;
+  -webkit-box-shadow:inset 0px -10px 5px #2ad199;
+  -moz-box-shadow:inset 0px -10px 5px #2ad199;
+  box-shadow:inset 0px -10px 5px #2ad199;
+}
+.btnupdate {
+  -webkit-border-radius: 7;
+  -moz-border-radius: 7;
+  border-radius: 7px;
+  color: #ffffff;
+  font-size: 20px;
+      font-weight: lighter;
+  background: #1dbe8d;
+  padding: 6px 12px 6px 12px;
+  text-decoration: none;
+  border:0;
+}
+
+.btnupdate:hover {
   text-decoration: underline;
   -webkit-box-shadow:inset 0px -10px 5px #2ad199;
   -moz-box-shadow:inset 0px -10px 5px #2ad199;

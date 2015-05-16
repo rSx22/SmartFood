@@ -37,6 +37,16 @@ class User
         return $resultQuery['userExist'] ;
     }
 
+    public function chkUserByMailAndPassword($mail, $password){
+        $qb = 'SELECT EXISTS(SELECT * FROM users WHERE email_address =  ? AND password = ?) as userExist'; //Check in db with name and password, return 0/1.
+        $dbex = $this->conn->prepare($qb);
+        $dbex->bindValue(1, $mail);
+        $dbex->bindValue(2, $password);
+        $dbex->execute();
+        $resultQuery = $dbex->fetch();
+        return $resultQuery['userExist'] ;
+    }
+
     public function getUserByName($name){
         $qb = 'SELECT `name` FROM `users` WHERE name =  ?'; //Check in db with name and password, return 0/1.
         $dbex = $this->conn->prepare($qb);
@@ -87,6 +97,16 @@ class User
         $query = 'SELECT * FROM users WHERE name= ?';
         $dbexec = $this->conn->prepare($query);
         $dbexec->bindValue(1, $user);
+        $dbexec->execute(); 
+        $resultQuery = $dbexec->fetch();
+        return $resultQuery;
+
+    }
+
+    public function getInfoByMail($email){
+        $query = 'SELECT * FROM users WHERE email_address= ?';
+        $dbexec = $this->conn->prepare($query);
+        $dbexec->bindValue(1, $email);
         $dbexec->execute(); 
         $resultQuery = $dbexec->fetch();
         return $resultQuery;

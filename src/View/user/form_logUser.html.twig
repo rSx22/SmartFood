@@ -1,12 +1,23 @@
-{% include 'index.html.twig' %}
 {% block body %}
-<div>login
-</div>
-<div style="border:1px solid; width:300px;">
-	<form method="POST" action="index.php?p=log_user"> 
-		Name : <input type="text" name="name"><br>
-		Password : <input type="password" name="password"><br>
-		<input type="submit">
+<div class="col-md-8 col-md-offset-2 top-buffer3">
+	<form method="POST" action="index.php?p=login"> 
+		<div class="row">
+			<div class="col-md-7">
+
+				 <input type="text" class="form-control top-bufferinputxt" placeholder="nom@email.com" name="email_address">
+				 <input type="password" class="form-control top-bufferinputxt" placeholder="Mot de passe" name="password"></div>
+			<div class="col-md-5 text-center">
+				<input class="btninscript top-buffer3" type="submit" value="Se connecter">
+			</div>
+
+		<div class="littletext notifyform evenmorelittle">
+				{% if methode=='loggedUser' %}
+
+				 {{message}}
+				
+				{% endif %}
+			</div>
+		</div>
 	</form>
 </div>
 {% endblock %}

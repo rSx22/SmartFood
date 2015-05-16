@@ -16,7 +16,7 @@ add_avatar:
 del_user:
   controller: Controller\UserController:deleteUser
 
-log_user:
+login:
   controller: Controller\UserController:logUser
 
 logout:

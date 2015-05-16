@@ -42,9 +42,9 @@ class __TwigTemplate_002c383d24906ddeef38b31f80d145f7cf44503828e0ba7095e495b4097
 \t\t\t\t <input type=\"text\" class=\"form-control top-bufferinputxt\" placeholder=\"nom@email.com\" name=\"email\">
 \t\t\t\t <div class=\"row\">
 \t\t\t\t\t  <div class=\"col-xs-6\">
-\t\t\t\t\t    <input type=\"text\" class=\"form-control top-bufferinputxt\" placeholder=\"Mot de passe\" name=\"password\"></div>
+\t\t\t\t\t    <input type=\"password\" class=\"form-control top-bufferinputxt\" placeholder=\"Mot de passe\" name=\"password\"></div>
 \t\t\t\t\t  <div class=\"col-xs-6\">
-\t\t\t\t\t    <input type=\"text\" class=\"form-control top-bufferinputxt\" placeholder=\"Confirmer\" name=\"password_check\"></div>
+\t\t\t\t\t    <input type=\"password\" class=\"form-control top-bufferinputxt\" placeholder=\"Confirmer\" name=\"password_check\"></div>
 \t\t\t\t</div>
 \t\t\t<div class=\"row\">
 \t\t\t\t<div class=\"col-md-4\">
