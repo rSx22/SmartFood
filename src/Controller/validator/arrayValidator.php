@@ -7,7 +7,7 @@ class arrayValidator extends integerValidator{
  	 public function __construct(){
 	 }
 	 public static function isEmptyArray($array){
-		if (!empty(array_filter($array))) {
+		if (null!==(array_filter($array))) {
 			return FALSE;
 		}else{
 			return TRUE;

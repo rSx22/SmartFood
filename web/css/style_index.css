@@ -6,7 +6,38 @@ a{
 body{
     background-color:#f5f5ef;
 }
+
 /*div{border:1px solid;}*/
+
+
+.img{
+  width:80px;
+  height:80px;
+  margin-top:-25px;
+  margin-left:10px;
+  border:2px solid #999999;
+  border-radius: 10px;
+}
+
+
+.custom-upload {
+    background-color: #008000;
+    border-radius: 4px;
+    cursor: pointer;
+    color: #fff;
+    width:250px;
+    font-size: 10px;
+}
+.custom-upload input {
+    left: -9999px; 
+    position: absolute;
+}
+
+
+
+
+
+
 .linkfb{
     background-image: url("./../images/asset/f.png");
     background-size: 100% 100%;
@@ -18,11 +49,14 @@ body{
     vertical-align: middle;
     float: none;
 }
+.top-buffery5{  margin-top:5px; }
 .top-buffer { margin-top:25px; }
 .top-buffer2 { margin-top:30px; }
 .top-buffer3 { margin-top:20px; }
 .top-buffer4 { margin-top:40px; }
 .top-buffer1{  margin-top:10px; }
+.top-buffer1y5{  margin-top:15px; }
+.top-buffer12{  margin-top:120px; }
 .top-bufferinputxt{ margin-top : 7px;}
 .top-bufferloglink{ margin-top : 7px;}
 
@@ -31,7 +65,6 @@ body{
 }
 .loglink{
     height: 40px;
-
 }
 .itemloglink{
     height: 100%;
@@ -41,7 +74,7 @@ body{
    color:  #4b9f78;
 }
 .itemloglink a:hover{
-   color:  #4b9f78;
+   color:  #5d8f78;
 }
 .barloglink{
     border-right:1px solid #1dbe8d;
@@ -65,7 +98,7 @@ body{
 }
 .topbarr a:hover{
     color :#FFF;
-    opacity: 0.9;
+    opacity: 1;
 }
 .evenmorelittle{
     font-size: 3px;
@@ -112,7 +145,7 @@ background-size: 100% 100%;
     font-size: 30px;
 }
 .logoutlink{
-    margin-right:-40px;
+    margin-right:20px;
   }
 
 @media screen and (max-width:511px) {
@@ -123,7 +156,10 @@ background-size: 100% 100%;
 }
 @media screen and (max-width:991px) {
   .topbarr{
-    height: 120px;
+    height: 100px;
+    background-image: url("./../images/asset/ardoiseextended.png");
+    background-size: 100% 100%;
+
   }
   .itemloglink{
     width:40%;
@@ -140,6 +176,21 @@ background-size: 100% 100%;
   .evenmorelittle{
     margin-top: 0px;
   }
+  .btninscript1 {
+    position: relative;
+    top:-30px;
+  }
+  .widthresize{
+    margin: 5px auto auto auto;
+  }
+ 
+  .btnupdatereplace{
+    position: relative;
+    top:-15px;
+  }
+  .middd{
+    margin-top: 5px;
+  }
 }
 
 .btninscript {
@@ -149,7 +200,7 @@ background-size: 100% 100%;
   color: #ffffff;
   font-size: 20px;
       font-weight: lighter;
-  background: #1dbe8d;
+  background: #4b9f78;
   padding: 15px 12px 15px 12px;
   text-decoration: none;
   border:0;
@@ -157,9 +208,6 @@ background-size: 100% 100%;
 
 .btninscript:hover {
   text-decoration: underline;
-  -webkit-box-shadow:inset 0px -10px 5px #2ad199;
-  -moz-box-shadow:inset 0px -10px 5px #2ad199;
-  box-shadow:inset 0px -10px 5px #2ad199;
 }
 .btnupdate {
   -webkit-border-radius: 7;
@@ -168,7 +216,7 @@ background-size: 100% 100%;
   color: #ffffff;
   font-size: 20px;
       font-weight: lighter;
-  background: #1dbe8d;
+  background: #4b9f78;
   padding: 6px 12px 6px 12px;
   text-decoration: none;
   border:0;
@@ -176,17 +224,11 @@ background-size: 100% 100%;
 
 .btnupdate:hover {
   text-decoration: underline;
-  -webkit-box-shadow:inset 0px -10px 5px #2ad199;
-  -moz-box-shadow:inset 0px -10px 5px #2ad199;
-  box-shadow:inset 0px -10px 5px #2ad199;
 }
 
 
-
-
-
 .onoffswitch {
-    height:30px;
+        height:35px;
     position: relative; width: 90px;
     -webkit-user-select:none; -moz-user-select:none; -ms-user-select: none;
 }
@@ -195,7 +237,7 @@ background-size: 100% 100%;
 }
 .onoffswitch-label {
     display: block; overflow: hidden; cursor: pointer;
-    border: 2px solid #999999; border-radius: 20px;
+    border: 1px solid #999999; border-radius: 20px;
 }
 .onoffswitch-inner {
     display: block; width: 200%; margin-left: -100%;
@@ -208,21 +250,23 @@ background-size: 100% 100%;
     -moz-box-sizing: border-box; -webkit-box-sizing: border-box; box-sizing: border-box;
 }
 .onoffswitch-inner:before {
-    content: "Male";
-    padding-left: 10px;
-    background-color: #34A7C1; color: #FFFFFF;
+    font-size: 11px;
+    content: "Homme";
+    padding-right: 25px;
+    background-color: #94adff; color: #FFFFFF;
 }
 .onoffswitch-inner:after {
-    content: "Female";
-    padding-right: 10px;
-    background-color: #F6BEFA; color: #999999;
+    font-size: 11px;
+    content: "Femme";
+    padding-right: 15px;
+    background-color: #daaaff; color: #FFFFFF;
     text-align: right;
 }
 .onoffswitch-switch {
-    display: block; width: 18px; margin: 6px;
+    display: block; width: 18px; margin: 8px;
     background: #FFFFFF;
     border: 2px solid #999999; border-radius: 20px;
-    position: absolute; top: 0; bottom: 0; right: 56px;
+    position: absolute; top: -1px; bottom: 2px; right: 50px;
     -moz-transition: all 0.3s ease-in 0s; -webkit-transition: all 0.3s ease-in 0s;
     -o-transition: all 0.3s ease-in 0s; transition: all 0.3s ease-in 0s; 
 }
@@ -230,8 +274,10 @@ background-size: 100% 100%;
     margin-left: 0;
 }
 .onoffswitch-checkbox:checked + .onoffswitch-label .onoffswitch-switch {
-    right: 0px; 
+    right: 5px; 
 }
+
+
 .confirmswitch {
         height:35px;
     position: relative; width: 90px;
@@ -242,7 +288,7 @@ background-size: 100% 100%;
 }
 .confirmswitch-label {
     display: block; overflow: hidden; cursor: pointer;
-    border: 2px solid #999999; border-radius: 20px;
+    border: 1px solid #999999; border-radius: 20px;
 }
 .confirmswitch-inner {
     display: block; width: 200%; margin-left: -100%;
@@ -257,7 +303,7 @@ background-size: 100% 100%;
 .confirmswitch-inner:before {
     content: "Yes";
     padding-right: 25px;
-    background-color: #1dbe8d; color: #FFFFFF;
+    background-color: #4b9f78; color: #FFFFFF;
 }
 .confirmswitch-inner:after {
     content: "Nop";
@@ -269,7 +315,7 @@ background-size: 100% 100%;
     display: block; width: 18px; margin: 8px;
     background: #FFFFFF;
     border: 2px solid #999999; border-radius: 20px;
-    position: absolute; top: 0; bottom: 0; right: 50px;
+    position: absolute; top: -1px; bottom: 2px; right: 50px;
     -moz-transition: all 0.3s ease-in 0s; -webkit-transition: all 0.3s ease-in 0s;
     -o-transition: all 0.3s ease-in 0s; transition: all 0.3s ease-in 0s; 
 }

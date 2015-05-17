@@ -17,49 +17,57 @@ class __TwigTemplate_96e9e398076936b92253d7f559aca8987ca6622bb0a7a8686de412ceb6f
     protected function doDisplay(array $context, array $blocks = [])
     {
         // line 1
-        $this->loadTemplate("index.html.twig", "user/user_page.html.twig", 1)->display($context);
-        // line 2
         $this->displayBlock('body', $context, $blocks);
     }
 
     public function block_body($context, array $blocks = array())
     {
-        // line 3
+        // line 2
         echo "
-
-    <div>Nom : ";
+<div class=\"row undertitle endbar\">
+\t<div class=\"col-md-6\">
+\t    <div>Adresse e-mail: ";
         // line 5
-        echo twig_escape_filter($this->env, $this->getAttribute((isset($context["user"]) ? $context["user"] : null), "name", []), "html", null, true);
-        echo "</div>
-    <div>email: ";
-        // line 6
         echo twig_escape_filter($this->env, $this->getAttribute((isset($context["user"]) ? $context["user"] : null), "email_address", []), "html", null, true);
         echo "</div>
-    <div>adresse: ";
+\t    <div>Adresse: ";
+        // line 6
+        echo twig_escape_filter($this->env, (($this->getAttribute((isset($context["user"]) ? $context["user"] : null), "address", [], "any", true, true)) ? (_twig_default_filter($this->getAttribute((isset($context["user"]) ? $context["user"] : null), "address", []), "\"...\"")) : ("\"...\"")), "html", null, true);
+        echo " à ";
+        echo twig_escape_filter($this->env, (($this->getAttribute((isset($context["user"]) ? $context["user"] : null), "city", [], "any", true, true)) ? (_twig_default_filter($this->getAttribute((isset($context["user"]) ? $context["user"] : null), "city", []), "\"Ville\"")) : ("\"Ville\"")), "html", null, true);
+        echo " en ";
+        echo twig_escape_filter($this->env, (($this->getAttribute((isset($context["user"]) ? $context["user"] : null), "country", [], "any", true, true)) ? (_twig_default_filter($this->getAttribute((isset($context["user"]) ? $context["user"] : null), "country", []), "\"Pays\"")) : ("\"Pays\"")), "html", null, true);
+        echo "</div>
+\t    <div>Code Postal Régional: ";
         // line 7
-        echo twig_escape_filter($this->env, $this->getAttribute((isset($context["user"]) ? $context["user"] : null), "address", []), "html", null, true);
-        echo " in ";
-        echo twig_escape_filter($this->env, $this->getAttribute((isset($context["user"]) ? $context["user"] : null), "city", []), "html", null, true);
-        echo " in ";
-        echo twig_escape_filter($this->env, $this->getAttribute((isset($context["user"]) ? $context["user"] : null), "country", []), "html", null, true);
+        echo twig_escape_filter($this->env, $this->getAttribute((isset($context["user"]) ? $context["user"] : null), "postal_code", []), "html", null, true);
         echo "</div>
-    <div>Phone number : ";
-        // line 8
-        echo twig_escape_filter($this->env, $this->getAttribute((isset($context["user"]) ? $context["user"] : null), "phone_number", []), "html", null, true);
-        echo "</div>
-    <div>Gender : ";
-        // line 9
-        echo twig_escape_filter($this->env, $this->getAttribute((isset($context["user"]) ? $context["user"] : null), "gender", []), "html", null, true);
-        echo "</div>
-    <div>Age : ";
+\t</div>
+\t<div class=\"col-md-6\">
+\t\t<div>Age : ";
         // line 10
-        echo twig_escape_filter($this->env, $this->getAttribute((isset($context["user"]) ? $context["user"] : null), "age", []), "html", null, true);
+        echo twig_escape_filter($this->env, (($this->getAttribute((isset($context["user"]) ? $context["user"] : null), "age", [], "any", true, true)) ? (_twig_default_filter($this->getAttribute((isset($context["user"]) ? $context["user"] : null), "age", []), "\"...\"")) : ("\"...\"")), "html", null, true);
+        echo "</div>
+\t    <div>Sexe : ";
+        // line 11
+        echo twig_escape_filter($this->env, (($this->getAttribute((isset($context["user"]) ? $context["user"] : null), "gender", [], "any", true, true)) ? (_twig_default_filter($this->getAttribute((isset($context["user"]) ? $context["user"] : null), "gender", []), "\"...\"")) : ("\"...\"")), "html", null, true);
+        echo "</div>
+\t    <div>Numéro de Téléphone : ";
+        // line 12
+        echo twig_escape_filter($this->env, (($this->getAttribute((isset($context["user"]) ? $context["user"] : null), "phone_number", [], "any", true, true)) ? (_twig_default_filter($this->getAttribute((isset($context["user"]) ? $context["user"] : null), "phone_number", []), "\"...\"")) : ("\"...\"")), "html", null, true);
         echo "</div>
 
-
+\t</div>
+</div>
+<div class=\"col-md-4 col-md-offset-6 top-buffer3\">
+\t<form method=\"GET\" action=\"index.php\">
+\t \t<input type=\"hidden\" name=\"p\" value=\"add_userinfo\">
+\t\t<input type=\"submit\" value=\"Mettre à jour\" class=\"btnupdate btnupdatereplace\">
+\t</form>
+</div>
 
 ";
-        // line 14
+        // line 23
         echo twig_escape_filter($this->env, (isset($context["message"]) ? $context["message"] : null), "html", null, true);
         echo "
 ";
@@ -70,13 +78,8 @@ class __TwigTemplate_96e9e398076936b92253d7f559aca8987ca6622bb0a7a8686de412ceb6f
         return "user/user_page.html.twig";
     }
 
-    public function isTraitable()
-    {
-        return false;
-    }
-
     public function getDebugInfo()
     {
-        return array (  63 => 14,  56 => 10,  52 => 9,  48 => 8,  40 => 7,  36 => 6,  32 => 5,  28 => 3,  22 => 2,  20 => 1,);
+        return array (  71 => 23,  57 => 12,  53 => 11,  49 => 10,  43 => 7,  35 => 6,  31 => 5,  26 => 2,  20 => 1,);
     }
 }

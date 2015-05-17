@@ -39,13 +39,11 @@ class UserController extends AbstractBaseController {
                     $_SESSION['email_address'] = $user['email_address'];
 
                     $userinfo = $userModel->getInfo($user['email_address']);
-                    $_SESSION['path']=$userinfo['path_avatar'];
+                    $_SESSION['path_avatar']=$userinfo['path_avatar'];
                     return [
                     'view' => 'index.html.twig',
-                    'email_address' => $user['email_address'],
                     'methode' => 'loggedUser',
                     'message' => 'Vous etes connecté',
-                    'path' => $userinfo['path_avatar'],
                     ];
                 }else {return [
                 'view' => 'index.html.twig',
@@ -80,7 +78,7 @@ class UserController extends AbstractBaseController {
                     case ((isset($request['request']['email'])) && (preg_match('/^([\w-]+(?:\.[\w-]+)*)@((?:[\w-]+\.)*\w[\w-]{0,66})\.([a-z]{2,6}(?:\.[a-z]{2})?)$/i', $request['request']['email']))): 
                         $user['email_address'] = $request['request']['email'];
 
-                    case isset($request['request']['codepost']) : 
+                    case ((isset($request['request']['codepost'])) && (preg_match('#^[0-9]{5}$#', $request['request']['codepost']))): 
                         $user['postal_code'] = $request['request']['codepost'];
 
                     case ( ( isset( $request['request']['password'] ) ) &&  ( isset( $request['request']['password_check'] ))):
@@ -121,7 +119,7 @@ class UserController extends AbstractBaseController {
                             }
                         }else{return [
                             'view' => 'index.html.twig',
-                            'message' => "Vous n'avez pas entrer de mot de passe" 
+                            'message' => "Vous n'avez pas entré de mot de passe" 
                         ];
                         }
                     }else{return [
@@ -131,104 +129,86 @@ class UserController extends AbstractBaseController {
                     }
                 }else{return [
                         'view' => 'index.html.twig',
-                        'message' => "Vous n'avez pas entrer de code postal" 
+                        'message' => "Vous n'avez pas entré de code postal correct" 
                 ];
                 }
     }
 
     public function addUserInfo($request) {
-        //$stringVal = new stringValidator();
-            if(isset($request['request']['confirmswitch'])) {
-                $this->addAvatar($request);
-            }
+            if(isset($_SESSION['email_address'])){
 
-            $url_path = "http://".$_SERVER['HTTP_HOST'];
-            $exist = false;
-            if(isset($_SESSION['username'])){
-                if(!empty(glob ($_SERVER["DOCUMENT_ROOT"].'/newproject/web/images/avatar/'.$_SESSION['username'].'.*'))){
-                    $exist = true;
-                }else{$exist=false;}
-            }
-            if( isset( $request['request']['email']) ) { 
-                $user = array(
-                            'email_address' => '',
-                            'gender' => '',
-                            'city' => '',
-                            'country' => '',
-                            'phone_number' => '',
-                            'address' => '',
-                            'age' => '',
-                            )
-                ;
-                switch (true) {
-                    case (isset($request['request']['email']) && (preg_match('/^([\w-]+(?:\.[\w-]+)*)@((?:[\w-]+\.)*\w[\w-]{0,66})\.([a-z]{2,6}(?:\.[a-z]{2})?)$/i', $request['request']['email']))): 
-                        $user['email_address'] = $request['request']['email'];
-                        
-                    case isset($request['request']['city']) :
-                        $user['city'] = $request['request']['city'];
-
-                    case isset($request['request']['address']) : 
-                        $user['address'] = $request['request']['address'];
-
-                    case isset($request['request']['country']) : 
-                        $user['country'] = $request['request']['country'];
-
-                    case (isset($request['request']['phone_number']) && (preg_match('/^(1\s*[-\/\.]?)?(\((\d{3})\)|(\d{3}))\s*[-\/\.]?\s*(\d{3})\s*[-\/\.]?\s*(\d{4})\s*(([xX]|[eE][xX][tT])\.?\s*(\d+))*$', $request['request']['phone'] ))) : 
-                        $user['phone_number'] = $request['request']['phone_number'];    
-                        
-                    case isset($request['request']['age']) : 
-                        $user['age'] = $request['request']['age'];
-
-                } 
-                if(isset($request['request']['malefemaleswitch'])){
-                    $user['gender'] = 'male';
-                }
-                elseif(!array_key_exists('malefemaleswitch', $request['request'])){
-                    $user['gender'] = 'female';
-                }
                 $conn = AbstractBaseController::createConn();
                 $userModel = new User($conn); // new Model for accessing db
+                $userExist = $userModel->chkUserByMail($_SESSION['email_address']); //cheqk if user logged still exist in db for updatee info
+                $userinfo = $userModel->getInfoByMail($_SESSION['email_address']);
 
-                if(isset($_SESSION['username'])){
-                    $userExist = $userModel->chkUserByName($_SESSION['username']); //cheqk if user logged still exist in db for updatee info
- 
-                    if( $userExist == '1'){ //then we can update info
-                        $userinfo = $userModel->getInfo($_SESSION['username']);
-                        $_SESSION['path']=$userinfo['path_avatar'];
+                $exist = false;
+                    if(isset(glob ($_SERVER["DOCUMENT_ROOT"].'/newproject/web/images/avatar/'.$userinfo['id'].'.*')['0'])){
+                        $exist = true;
+                    }else{$exist=false;}
+                if( $userExist == '1'){ //then we can update info
+                    if( !empty( $request['request']) ) { 
+
+                        if(isset($request['request']['confirmswitch']) OR ($exist == false) ) {
+                             $upload_avatar = $this->addAvatar($request);
+                        }else{$upload_avatar ='';}
+                        $user = array(
+                                    'address' => '',
+                                    'gender' => '',
+                                    'city' => '',
+                                    'phone_number' => '',
+                                    'age' => '',
+                                    );
+
+                        switch (true) {
+                                
+                            case ((isset($request['request']['city'])) && (preg_match('/[a-zéèêëàâîïôöûü-]+/i', $request['request']['city']))) :
+                                $user['city'] = $request['request']['city'];
+
+                            case ((isset($request['request']['address'])) && (strlen(utf8_decode($request['request']['address'])) < 25 )) : 
+                                $user['address'] = $request['request']['address'];
+
+                            case (isset($request['request']['phone_number']) && (preg_match('/^(1\s*[-\/\.]?)?(\((\d{3})\)|(\d{3}))\s*[-\/\.]?\s*(\d{3})\s*[-\/\.]?\s*(\d{4})\s*(([xX]|[eE][xX][tT])\.?\s*(\d+))*$/', $request['request']['phone_number'] ))) : 
+                                $user['phone_number'] = $request['request']['phone_number'];    
+                                
+                            case (isset($request['request']['age'])): 
+                                if ($request['request']['age'] > 0 && $request['request']['age'] < 120 )  {
+                                     $user['age'] = $request['request']['age'];
+                                }
+
+                            default:break;
+                        } 
+                        if(isset($request['request']['malefemaleswitch'])){
+                            $user['gender'] = 'Homme';
+                        }else{$user['gender'] = 'Femme';}
+
                         foreach ($user as $key => $value) {
                             if($value!==''){
-                                $userAdd = $userModel->addinfo($key, $value, $_SESSION['username']); 
+                                $userAdd = $userModel->addinfo($key, $value, $_SESSION['email_address']); 
                             }
                         }
-               
+                        if(isset(glob ($_SERVER["DOCUMENT_ROOT"].'/newproject/web/images/avatar/'.$userinfo['id'].'.*')['0'])){
+                            $exist = true;
+                        }
                         return [
-                        'view' => 'user/notify.html.twig',
-                        //'user' => $user['name'],
+                        'view' => 'index.html.twig',
                         'methode' => 'addUserInfo',
-                        'path' => $userinfo['path_avatar'],
-                        'message' => 'infos updated',
-                        'confirm' => $exist,
+                        'message' => "Informations mise à jour.".' '.$upload_avatar,
+                        'exist' => $exist,
                     ];
                     }else{return [
-                        'view' => 'user/notify.html.twig',
-                        //'user' => $user['name'],
+                        'view' => 'index.html.twig',
                         'methode' => 'addUserInfo',
-                        //'message' => 'User : '.$user['name'].' already exist Table users'
-                        ];
-                        }
-                    }else{return [
-                        'view' => 'user/notify.html.twig',
-                        //'user' => $user['name'],
-                        'methode' => 'addUserInfo',
-                        'message' => 'Not logged in, cant add info' 
+                        'exist' => $exist,
+                        
                         ];
                     }
-            
+                }
             }else{
              return [
-                    'view' => 'user/form_addUserInfo.html.twig',
-                    'confirm' => $exist,
-                    'methode' => 'addUserInfo'
+                    'view' => 'index.html.twig',
+                    'methode' => 'loggedUser',
+                    'message' => "Vous n'etes pas enregistré",
                 ];
             }
         }
@@ -281,14 +261,14 @@ class UserController extends AbstractBaseController {
             if( $userExist == '1'){
                 $_SESSION['email_address'] = $user['email_address'];
 
-                $userinfo = $userModel->getInfo($user['email_address']);
-                $_SESSION['path']=$userinfo['path_avatar'];
+                $userinfo = $userModel->getInfoByMail($user['email_address']);
+                $_SESSION['path_avatar']=$userinfo['path_avatar'];
                 return [
                 'view' => 'index.html.twig',
                 'email_address' => $user['email_address'],
                 'methode' => 'loggedUser',
                 'message' => 'Vous etes connecté',
-                'path' => $userinfo['path_avatar'],
+                'path_avatar' => $userinfo['path_avatar'],
                 ];
             }else {return [
             'view' => 'index.html.twig',
@@ -333,70 +313,25 @@ class UserController extends AbstractBaseController {
 
     public function addAvatar($request)
     {
-        
-        if(isset($_SESSION['username'])){
-            $url_path = "http://".$_SERVER['HTTP_HOST'];
-                if(!empty(glob ($_SERVER["DOCUMENT_ROOT"].'/newproject/web/images/avatar/'.$_SESSION['username'].'.*'))){
-                    $exist = true;
-                }else{$exist=false;} 
-
-            if (isset($_FILES['avatar'])) {
-                $fichier = $_FILES['avatar']['name'];
-
-
-                if((pathinfo($fichier, PATHINFO_EXTENSION) == 'jpeg') or (pathinfo($fichier, PATHINFO_EXTENSION) == 'bmp') or (pathinfo($fichier, PATHINFO_EXTENSION) == 'jpg') or (pathinfo($fichier, PATHINFO_EXTENSION) == 'png')or (pathinfo($fichier, PATHINFO_EXTENSION) == 'JPG')or (pathinfo($fichier, PATHINFO_EXTENSION) == 'JPEG')or (pathinfo($fichier, PATHINFO_EXTENSION) == 'PNG')or (pathinfo($fichier, PATHINFO_EXTENSION) == 'BMP')){
-                    if( (isset($request['request']['confirmswitch'])) or ($exist == false )  )  {
-                            if($exist == true){
-                                $existAvatar = glob ($_SERVER["DOCUMENT_ROOT"].'/newproject/web/images/avatar/'.$_SESSION['username'].'.*');
-                                foreach ($existAvatar as $key => $value) {
-                                    unlink($existAvatar[$key]);
-                                }
-                            }
-                            $upload = move_uploaded_file($_FILES['avatar']['tmp_name'], $_SERVER["DOCUMENT_ROOT"]."/newproject/web/images/avatar/".$_SESSION['username'].'.'.pathinfo($fichier, PATHINFO_EXTENSION));  
-                                $conn = AbstractBaseController::createConn();
-                                $userModel = new User($conn); // new Model for accessing db
-                                $avatarAdd = $userModel->addinfo('path_avatar', 'images/avatar/'.$_SESSION['username'].'.'.pathinfo($fichier, PATHINFO_EXTENSION), $_SESSION['username']); 
-                                $userinfo = $userModel->getInfo($_SESSION['username']);
-                                $_SESSION['path']=$userinfo['path_avatar'];
-                                return [
-                                    'view' => 'user/notify.html.twig',
-                                    'methode' => 'addAvatar',
-                                    'message' => 'Avatar uploaded ! ( may need a refresh to be displayed )',
-                                    'path' => $userinfo['path_avatar'],
-                                    'confirm' => $exist,
-                                    ];
-                        } else{return [
-                        'view' => 'user/notify.html.twig',
-                        'upload' => 'false',
-                        'methode' => 'addAvatar',
-                        'message' => 'nothing uploaded',
-                        'confirm' => $exist,
-                        ];
-
-                } 
-                }else{return [
-                        'view' => 'user/notify.html.twig',
-                        'upload' => 'false',
-                        'methode' => 'addAvatar',
-                        'message' => 'Bad extension/Not an image',
-                        'confirm' => $exist,
-                        ];
-
-                }
-            }else{
-            return ['view' => 'user/form_addAvatar.html.twig',
-            'methode' => 'addAvatar',
-            'confirm' => $exist,
-            ];
-        }
-        }else{
-                return [
-                    'view' => 'user/notify.html.twig',
-                    'upload' => 'false',
-                    'methode' => 'addAvatar',
-                    'message' => 'Not logged in :"/'
-                    ];
+        if (!empty($_FILES['avatar']['name'])) {
+            $fichier = $_FILES['avatar']['name'];
+            $conn = AbstractBaseController::createConn();
+            $userModel = new User($conn); // new Model for accessing db
+            $userinfo = $userModel->getInfoByMail($_SESSION['email_address']);
+            if((pathinfo($fichier, PATHINFO_EXTENSION) == 'jpeg') or (pathinfo($fichier, PATHINFO_EXTENSION) == 'bmp') or (pathinfo($fichier, PATHINFO_EXTENSION) == 'jpg') or (pathinfo($fichier, PATHINFO_EXTENSION) == 'png')or (pathinfo($fichier, PATHINFO_EXTENSION) == 'JPG')or (pathinfo($fichier, PATHINFO_EXTENSION) == 'JPEG')or (pathinfo($fichier, PATHINFO_EXTENSION) == 'PNG')or (pathinfo($fichier, PATHINFO_EXTENSION) == 'BMP')){
+                        $existAvatar = glob ($_SERVER["DOCUMENT_ROOT"].'/newproject/web/images/avatar/'.$userinfo['id'].'.*');
+                        foreach ($existAvatar as $key => $value) {
+                            unlink($existAvatar[$key]);
+                        }
+                    
+                        $upload = move_uploaded_file($_FILES['avatar']['tmp_name'], $_SERVER["DOCUMENT_ROOT"]."/newproject/web/images/avatar/".$userinfo['id'].'.'.pathinfo($fichier, PATHINFO_EXTENSION));      
+                        $avatarAdd = $userModel->addInfo('path_avatar', 'images/avatar/'.$userinfo['id'].'.'.pathinfo($fichier, PATHINFO_EXTENSION), $_SESSION['email_address']); 
+                        $_SESSION['path_avatar']= 'images/avatar/'.$userinfo['id'].'.'.pathinfo($fichier, PATHINFO_EXTENSION);
+                        return 'Votre image de profil à été mise à jour';
+                
+            }else{return "Le format d'image est incorrect";
             }
+        }  
     }
 
 
@@ -421,11 +356,10 @@ class UserController extends AbstractBaseController {
                     'view' => 'index.html.twig',
                     'user' => $userinfo,
                     'methode' => 'showUser',
-                    'message' => '',
                     ];
                 }else {return [
                 'view' => 'index.html.twig',
-                'methode' => 'showUser',
+                'methode' => 'addUser',
                 'message' => "L'email ".$user['email_address']." n'existe pas/plus dans la base",
                 ];
             }//return other view for email not registerd

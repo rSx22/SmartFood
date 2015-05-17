@@ -83,7 +83,7 @@ class User
     }
 
     public function addInfo($var, $arg, $user){
-        $query = 'UPDATE users SET '.$var.' = ? WHERE name = ? ';
+        $query = 'UPDATE users SET '.$var.' = ? WHERE email_address = ? ';
 
         $dbexec = $this->conn->prepare($query);
        // $dbexec->bindValue(1, $var);

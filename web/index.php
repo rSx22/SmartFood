@@ -69,17 +69,25 @@ if(isset($response['view'])){							//if i've got a response from controller the
 	unset($response['view']);							//unset unused view
 	if(isset($_SESSION['email_address'])){					//for user to see his profil name and profil picture if session is set
 		$response['email_address'] = $_SESSION['email_address'] ;
-		$response['path'] = $_SESSION['path'];
-		
+		if(strlen($_SESSION['email_address']) > 16){
+			$response['email_address_shortened'] = substr($_SESSION['email_address'], 0, 16 ).'...';
+		}
+		if(isset($_SESSION['path_avatar'])){
+			$response['path'] = $_SESSION['path_avatar'];
+		}
 	}
 	echo $template->render($response); 					//attach response array of var of the controller to the view, then used in view as {{array.var}}
 	
 }else{
 	$template = $twig->loadTemplate('index.html.twig');	//else i got not response from controller then ->index
-	if(isset($_SESSION['email_address'])){					//I still want my username and picture to be displayed
+	if(isset($_SESSION['email_address'])){					//for user to see his profil name and profil picture if session is set
 		$response['email_address'] = $_SESSION['email_address'] ;
-		$response['path'] = $_SESSION['path'];
-			
+		if(strlen($_SESSION['email_address']) > 16){
+			$response['email_address_shortened'] = substr($_SESSION['email_address'], 0, 16 ).'...';
+		}
+		if(isset($_SESSION['path_avatar'])){
+			$response['path'] = $_SESSION['path_avatar'];
+		}
 	}
 	if( isset( $response )){
 		echo $template->render($response);

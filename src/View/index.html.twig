@@ -1,5 +1,22 @@
 <!DOCTYPE html>
 	<meta http-equiv="content-type" content="text/html; charset=utf-8" />
+	<meta http-equiv="content-language" content="fr-FR" />
+	<meta name='language' content='fr-FR'>
+	<meta name='revised' content='Saturday, May 16th, 2015, 5:15 pm'>
+	<meta name='category' content=''>
+	<meta name='coverage' content='Worldwide'>
+	<meta name='distribution' content='Global'>
+	<meta name='rating' content='General'>
+	<meta name='revisit-after' content='7 days'>
+	<meta name='designer' content='Clara Koscielniak, Amaury Vallot'>
+	<meta name='pagename' content='Page Commercial de la marque restoklm'>
+	<meta name='author' content='TheophaneCusenza, theo.cusenza@free.fr'>
+	<meta name='target' content='all'>
+	<meta name='HandheldFriendly' content='True'>
+	<meta name='MobileOptimized' content='320'>
+	<meta http-equiv='Cache-Control' content='no-cache'>
+	<meta http-equiv='imagetoolbar' content='no'>
+	<meta http-equiv='x-dns-prefetch-control' content='off'>
 	<link rel="stylesheet" type="text/css" href="./../web/css/style_index.css">
 	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css">
 
@@ -28,20 +45,24 @@
 				<div class="col-md-5 text-right itemloglink barloglink">
 					
 					{% if email_address is defined %}
-					<a href ="{{url_path}}/newproject/web/index.php?p=user_page">{{email_address}}</a>
+						{% if email_address|length < 16 %}
+						<a href ="{{url_path}}/newproject/web/index.php?p=user_page">{{email_address}}</a>
+						{% elseif email_address|length > 16 %}
+						<a href ="{{url_path}}/newproject/web/index.php?p=user_page">{{email_address_shortened}}</a>
+						{% endif %}
 					{% else %}
 					<a href="{{url_path}}/newproject/web/index.php?p=login">Se connecter</a>
 					{% endif%}
 				</div>
 				<div class="col-md-7 text-left itemloglink otherlink">
 					{% if email_address is defined %}
-						{% if avatar_path is defined %}
-						<img src="{{url_path}}/newproject/web/{{session.path}}" style="width:80px;height:80px;" alt="Your profile picture suddenly disapeared ?!"> 
+						{% if path is defined %}
+						<img src="{{root_path}}/newproject/web/{{path}}" class="img" alt="Your profile picture suddenly disapeared ?!"> 
 						{% else %}
-						<img class="col-md-offset-3" src="{{root_path}}/newproject/web/images/avatar/default_pic.jpg" style="width:80px;height:80px;margin-top:-25px;">
+						<img class="img" src="{{root_path}}/newproject/web/images/avatar/default_pic.jpg">
 						{% endif %}
 					{% else %}
-					<a href ="{{url_path}}/newproject/web/index.php">S'inscrire</a>
+					<a href ="{{url_path}}/newproject/web/index.php">S'inscrire &nbsp;&nbsp;&nbsp;</a>
 					{% endif%}
 					<div class="col-md-offset-2 littletext logoutlink" style="position:absolute;top:0;right:-20px;">
 					{% if email_address is defined %}
@@ -57,7 +78,7 @@
 		</div>
 		<div class="container row bar2 text-center">
 			<h2 class="phrase top-buffer3">Phrase d'accroche<h2><br>
-			<div class="undertitle">Livraison à emporter / Temps de livraison / Nb Restaurants part</div>
+			<div class="undertitle">Livraison à emporter / Temps de livraison / Nb Restaurants partenaires / Nombre de spécialtés</div>
 			<div class="row top-buffer col-md-10 col-md-offset-1 middd">
 				{% if methode=='logUser' %}
 
@@ -70,6 +91,10 @@
 				{% elseif methode=='showUser' %}
 
 				{% include 'user/user_page.html.twig' %}
+
+				{% elseif methode=='addUserInfo' %}
+
+				{% include 'user/form_addUserInfo.html.twig' %}
         		
         		{% else %}
 
@@ -84,7 +109,7 @@
 
 
 		<div class="container">
-			<h1> WELCOME GOLEFOY </h1><br>
+			<h1> WELCOME</h1><br>
 			<div class ="sidebar">
 				{% block sidebar %}
 					<a href ="{{url_path}}/newproject/web/index.php?p=user">show user</a><br>

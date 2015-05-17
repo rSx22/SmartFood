@@ -1,25 +1,56 @@
-{% include 'index.html.twig' %}
 {% block body %}
-<div>Add user</div>
-<div style="border:1px solid; width:300px;">
-	<form method="POST" action="index.php?p=add_userinfo"> 
-		Email : <input type="text" name="email"><br>
-		Adress : <input type="text" name="address"><br>
-		City : <input type="text" name="city"><br>
-		Country : <input type="text" name="country"><br>
-		Phone Number : <input type="text" name="phone_number"><br>
-		Age : <input type="number" name="age"><br>
-		Gender :
-
-				<div class="onoffswitch">
-    			<input type="checkbox" name="malefemaleswitch" class="onoffswitch-checkbox" id="myonoffswitch" checked>
-    			<label class="onoffswitch-label" for="myonoffswitch">
-        		<span class="onoffswitch-inner"></span>
-        		<span class="onoffswitch-switch"></span>
-    			</label>
+<div class="col-md-8 col-md-offset-2 top-buffer3">
+	<form method="POST" action="index.php?p=add_userinfo" enctype="multipart/form-data"> 
+		<div class="row">
+			<div class="col-md-5">
+				 <input type="text" class="form-control" placeholder="Votre adresse" name="address">
+				 <input type="text" class="form-control top-bufferinputxt" placeholder="Votre ville" name="city">
+ 				 <input type="text" class="form-control top-bufferinputxt" placeholder="Numéro de téléphone" name="phone_number">
+ 				 <input type="text" class="form-control top-bufferinputxt" placeholder="Votre age" name="age">
+ 				 <div class="row">
+ 				 	<div class="col-md-4">
+		 				<div class="onoffswitch top-buffery5 widthresize">
+								<input type="checkbox" name="malefemaleswitch" class="onoffswitch-checkbox" id="myonoffswitch">
+								<label class="onoffswitch-label" for="myonoffswitch">
+								<span class="onoffswitch-inner"></span>
+								<span class="onoffswitch-switch"></span>
+								</label>
+						</div> 
+					</div>
+					<div class="col-md-2 col-md-offset-2 littletext top-buffer1y5">Sexe
+					</div>
 				</div>
-		<input type="submit" value ="add user infos">
+
+			</div>
+			<div class="col-md-7 text-center littletext">
+			Ajouter une image de profil
+			<input type="hidden" name="MAX_FILE_SIZE" value="2097152"">    
+			 <input type="file" name="avatar" class="btn custom-upload btnupdate top-buffery5 widthresize">
+			<div class="row">
+
+			{% if exist == 'true' %}
+
+				<div class="col-md-4">	
+					<div class="confirmswitch top-buffer1 widthresize">
+						<input type="checkbox" name="confirmswitch" class="confirmswitch-checkbox" id="myconfirmswitch">
+						<label class="confirmswitch-label" for="myconfirmswitch">
+						<span class="confirmswitch-inner"></span>
+						<span class="confirmswitch-switch"></span>
+						</label>
+					</div> 
+				</div>
+				<div class="col-md-7 col-md-offset-1 littletext top-buffer1y5">
+				Remplacer l'image existante ?
+				</div>
+
+			{% endif %}
+
+			</div>
+				<input class="btnupdate btnupdatereplace top-buffer2" type="submit" value="Mettre à jour">
+							<div class="littletext notifyform top-buffer1"> {{message}}
+			</div>
+			</div>
+		</div>
 	</form>
 </div>
 {% endblock %}
-{% include 'user/form_addAvatar.html.twig' %}

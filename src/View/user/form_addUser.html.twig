@@ -1,8 +1,3 @@
-{% if methode == 'formuser' %}
-	
-	{% include 'index.html.twig' %}
-
-{% endif %}
 {% block body %}
 <div class="col-md-8 col-md-offset-2 top-buffer3">
 	<form method="POST" action="index.php?p=add_user"> 
@@ -26,15 +21,15 @@
 					</label>
 					</div> 
 				</div>
-				<div class="col-md-6 littletext col-md-offset-2" style="position:absolute;width:300px;bottom:12px;left:100px">
-					 J'accepte les conditions d'utilisation générales
+				<div class="col-md-6 littletext col-md-offset-2" style="position:absolute;width:240px;bottom:5px;left:80px">
+					 J'accepte les conditions générales d'utilisation et l'utilisation de cookies
 				</div>
 			</div>
 			</div>
 			<div class="col-md-5 text-center">
 			<div class="littletext notifyform"> {{message}}
 			</div>
-				<input class="btninscript top-buffer3" type="submit" value="S'inscrire">
+				<input class="btninscript btninscript1" type="submit" value="S'inscrire">
 			</div>
 		</div>
 	</form>
