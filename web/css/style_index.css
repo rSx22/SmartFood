@@ -1,3 +1,4 @@
+@font-face {    font-family: "topbarfont";  src: url('Change Tomorrow Today.ttf'); }
 
 a{
     color:#34A7C1;
@@ -6,16 +7,16 @@ body{
     background-color:#f5f5ef;
 }
 
-/*div{border:1px solid;}*/
+div{border:1px solid;}
 
 
 .img{
-    width:80px;
-    height:80px;
-    margin-top:-25px;
-    margin-left:10px;
-    border:2px solid #999999;
-    border-radius: 10px;
+  width:80px;
+  height:80px;
+  margin-top:-25px;
+  margin-left:10px;
+  border:2px solid #999999;
+  border-radius: 10px;
 }
 
 
@@ -24,21 +25,23 @@ body{
     border-radius: 4px;
     cursor: pointer;
     color: #fff;
-    width:250px;
+    width:320px;
     font-size: 10px;
 }
 .custom-upload input {
-    left: -9999px;
+    left: -9999px; 
     position: absolute;
 }
 
+
+
 .logo{
-    background-image: url("./../images/asset/LogoSmartFood.png");
+      background-image: url("./../images/asset/LogoSmartFood.png");
     background-size: 100% 100%;
     height:70px;
     margin-top:-15px;
-    width:200px;
 }
+
 
 .linkfb{
     background-image: url("./../images/asset/f.png");
@@ -73,32 +76,47 @@ body{
     padding-top: 8px;
 }
 .itemloglink a{
-    color:  #4b9f78;
+   color:  #4b9f78;
 }
 .itemloglink a:hover{
-    color:  #5d8f78;
+   color:  #5d8f78;
 }
 .barloglink{
     border-right:1px solid #1dbe8d;
 }
 .otherlink{
-    box-shadow:  -5px 0px 14px  #fff;
+    box-shadow:  -5px 0px 14px  #fff; 
 }
 .topbarr{
     height: 50px;
-}
+  }
 .topbarr a{
     color:#f5f5ef;
     font-family: topbarfont;
 
     opacity: 0.7;
-    -webkit-transition: opacity 0.3s ease-in-out;/* transition pour Chrome et Safari */
-    -moz-transition: opacity 0.3s ease-in-out;/* transition pour Firefox */
-    -o-transition: opacity 0.3s ease-in-out;/* transition pour Opéra */
-    transition: opacity 0.3s ease-in-out; /* on écrit cette ligne à la fin de façon à ce que ce soit elle qui soit prise en compte lorsque l'attribut transition sera pris en compte par tous les navigateurs */
+    -webkit-transition: opacity 0.5s ease-in-out;/* transition pour Chrome et Safari */
+    -moz-transition: opacity 0.5s ease-in-out;/* transition pour Firefox */
+    -o-transition: opacity 0.5s ease-in-out;/* transition pour Opéra */
+    transition: opacity 0.5s ease-in-out; /* on écrit cette ligne à la fin de façon à ce que ce soit elle qui soit prise en compte lorsque l'attribut transition sera pris en compte par tous les navigateurs */
 
 }
 .topbarr a:hover{
+    color :#FFF;
+    opacity: 1;
+}
+
+.fblink{
+    color:#f5f5ef;
+
+    opacity: 0.7;
+    -webkit-transition: opacity 0.5s ease-in-out;/* transition pour Chrome et Safari */
+    -moz-transition: opacity 0.5s ease-in-out;/* transition pour Firefox */
+    -o-transition: opacity 0.5s ease-in-out;/* transition pour Opéra */
+    transition: opacity 0.5s ease-in-out; /* on écrit cette ligne à la fin de façon à ce que ce soit elle qui soit prise en compte lorsque l'attribut transition sera pris en compte par tous les navigateurs */
+
+}
+.fblink:hover{
     color :#FFF;
     opacity: 1;
 }
@@ -109,8 +127,8 @@ body{
 
 
 .topbarr{
-    background-image: url("./../images/asset/ardoise.png");
-    background-size: 100% 100%;
+background-image: url("./../images/asset/ardoise.png");
+background-size: 100% 100%;
 
 }
 
@@ -123,22 +141,23 @@ body{
     font-family: topbarfont;
     color:#4b9f78;}
 
-.bar2{height: 420px;
-    background-image: url("./../images/asset/Background.png");
-    background-size: 100% 100%;
+.bar2{height: 450px;
+background-image: url("./../images/asset/Background.jpg");
+background-size: 100% 100%;
 
 }
 .notifyform{height: 30px;
 }
-.middd{height: 200px;}
+.middd{height: 200px;
+margin-top:50px;}
 .undertitle{
     color : #f5f5ef;
     font-size: 20px;
     font-weight: lighter;
-}
+    }
 .littletext{
     font-size: 13px;
-    color : #f5f5ef;
+    color : #f5f5ef;    
     font-weight: lighter;
 }
 .phrase{
@@ -148,89 +167,108 @@ body{
 }
 .logoutlink{
     margin-right:20px;
-}
+  }
+
 
 @media screen and (max-width:511px) {
-    .logoutlink{
-        left:-120px;
-        margin-top:30px;
-    }
+.logoutlink{
+    left:-120px;
+    margin-top:30px;
+  }
+    .showUser{
+    height:540px;
+  }
 }
 @media screen and (max-width:991px) {
-    .topbarr{
-        height: 100px;
-        background-image: url("./../images/asset/ardoiseextended.png");
-        background-size: 100% 100%;
+  .topbarr{
+    height: 100px;
+    background-image: url("./../images/asset/ardoiseextended.png");
+    background-size: 100% 100%;
 
-    }
-    .itemloglink{
-        width:40%;
-        display: inline;
-        top:30px;
+  }
+  .itemloglink{
+    width:40%;
+    display: inline;
+    top:30px;
 
-    }
-    .bar1{
-        height:160px;
-    }
-    .logoutlink{
-        margin-right:-90px;
-    }
-    .evenmorelittle{
-        margin-top: 0px;
-    }
-    .btninscript1 {
-        position: relative;
-        top:-30px;
-    }
-    .widthresize{
-        margin: 5px auto auto auto;
-    }
+  }
+  .bar1{
+    height:160px;
+  }
+.logoutlink{
+    margin-right:-90px;
+  }
+  .evenmorelittle{
+    margin-top: 0px;
+  }
 
-    .btnupdatereplace{
-        position: relative;
-        top:-15px;
-    }
-    .middd{
-        margin-top: 5px;
-    }
+  .widthresize{
+    margin: 5px auto auto auto;
+  }
+ 
+  .btnupdatereplace{
+    position: relative;
+    top:-15px;
+  }
+  .middd{
+    margin-top: 5px;
+  }
+  .bar2{
+    margin-top: 30px;
+  }
+  .topunbuff{
+    margin-top:0px;
+    padding-bottom: 10px;
+  }
+  .logo{
+    margin:auto;
+  }
+  .loglink{
+    top:-20px;
+  }
+  .left{left:10px;
+  }
+.addUserInfo{
+    height:680px;
+  }
 }
 
 .btninscript {
-    -webkit-border-radius: 7;
-    -moz-border-radius: 7;
-    border-radius: 7px;
-    color: #ffffff;
-    font-size: 20px;
-    font-weight: lighter;
-    background: #4b9f78;
-    padding: 15px 12px 15px 12px;
-    text-decoration: none;
-    border:0;
+  -webkit-border-radius: 7;
+  -moz-border-radius: 7;
+  border-radius: 7px;
+  color: #ffffff;
+  font-size: 20px;
+      font-weight: lighter;
+  background: #4b9f78;
+  padding: 15px 12px 15px 12px;
+  text-decoration: none;
+  border:0;
 }
 
 .btninscript:hover {
-    text-decoration: underline;
+  text-decoration: underline;
 }
 .btnupdate {
-    -webkit-border-radius: 7;
-    -moz-border-radius: 7;
-    border-radius: 7px;
-    color: #ffffff;
-    font-size: 20px;
-    font-weight: lighter;
-    background: #4b9f78;
-    padding: 6px 12px 6px 12px;
-    text-decoration: none;
-    border:0;
+  -webkit-border-radius: 7;
+  -moz-border-radius: 7;
+  border-radius: 7px;
+  color: #ffffff;
+  font-size: 20px;
+      font-weight: lighter;
+  background: #4b9f78;
+  padding: 6px 12px 6px 12px;
+  text-decoration: none;
+  border:0;
 }
 
 .btnupdate:hover {
-    text-decoration: underline;
+  text-decoration: underline;
 }
 
 
 .onoffswitch {
-    height:35px;
+        height:35px;
     position: relative; width: 90px;
     -webkit-user-select:none; -moz-user-select:none; -ms-user-select: none;
 }
@@ -243,8 +281,8 @@ body{
 }
 .onoffswitch-inner {
     display: block; width: 200%; margin-left: -100%;
-    -moz-transition: margin 0.3s ease-in 0s; -webkit-transition: margin 0.3s ease-in 0s;
-    -o-transition: margin 0.3s ease-in 0s; transition: margin 0.3s ease-in 0s;
+    -moz-transition: margin 0.5s ease-in 0s; -webkit-transition: margin 0.5s ease-in 0s;
+    -o-transition: margin 0.5s ease-in 0s; transition: margin 0.5s ease-in 0s;
 }
 .onoffswitch-inner:before, .onoffswitch-inner:after {
     display: block; float: left; width: 50%; height: 30px; padding: 0; line-height: 30px;
@@ -269,19 +307,19 @@ body{
     background: #FFFFFF;
     border: 2px solid #999999; border-radius: 20px;
     position: absolute; top: -1px; bottom: 2px; right: 50px;
-    -moz-transition: all 0.3s ease-in 0s; -webkit-transition: all 0.3s ease-in 0s;
-    -o-transition: all 0.3s ease-in 0s; transition: all 0.3s ease-in 0s;
+    -moz-transition: all 0.5s ease-in 0s; -webkit-transition: all 0.5s ease-in 0s;
+    -o-transition: all 0.5s ease-in 0s; transition: all 0.5s ease-in 0s; 
 }
 .onoffswitch-checkbox:checked + .onoffswitch-label .onoffswitch-inner {
     margin-left: 0;
 }
 .onoffswitch-checkbox:checked + .onoffswitch-label .onoffswitch-switch {
-    right: 5px;
+    right: 5px; 
 }
 
 
 .confirmswitch {
-    height:35px;
+        height:35px;
     position: relative; width: 90px;
     -webkit-user-select:none; -moz-user-select:none; -ms-user-select: none;
 }
@@ -294,8 +332,8 @@ body{
 }
 .confirmswitch-inner {
     display: block; width: 200%; margin-left: -100%;
-    -moz-transition: margin 0.3s ease-in 0s; -webkit-transition: margin 0.3s ease-in 0s;
-    -o-transition: margin 0.3s ease-in 0s; transition: margin 0.3s ease-in 0s;
+    -moz-transition: margin 0.5s ease-in 0s; -webkit-transition: margin 0.5s ease-in 0s;
+    -o-transition: margin 0.5s ease-in 0s; transition: margin 0.5s ease-in 0s;
 }
 .confirmswitch-inner:before, .confirmswitch-inner:after {
     display: block; float: left; width: 50%; height: 30px; padding: 0; line-height: 30px;
@@ -318,16 +356,15 @@ body{
     background: #FFFFFF;
     border: 2px solid #999999; border-radius: 20px;
     position: absolute; top: -1px; bottom: 2px; right: 50px;
-    -moz-transition: all 0.3s ease-in 0s; -webkit-transition: all 0.3s ease-in 0s;
-    -o-transition: all 0.3s ease-in 0s; transition: all 0.3s ease-in 0s;
+    -moz-transition: all 0.5s ease-in 0s; -webkit-transition: all 0.5s ease-in 0s;
+    -o-transition: all 0.5s ease-in 0s; transition: all 0.5s ease-in 0s; 
 }
 .confirmswitch-checkbox:checked + .confirmswitch-label .confirmswitch-inner {
     margin-left: 0;
 }
 .confirmswitch-checkbox:checked + .confirmswitch-label .confirmswitch-switch {
-    right: 5px;
+    right: 5px; 
 }
-
 /*Etap*/
 
 .etap-bloc {

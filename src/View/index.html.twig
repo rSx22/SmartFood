@@ -1,110 +1,108 @@
 <!DOCTYPE html>
-<meta http-equiv="content-type" content="text/html; charset=utf-8" />
-<meta http-equiv="content-language" content="fr-FR" />
-<meta name='language' content='fr-FR'>
-<meta name='revised' content='Saturday, May 16th, 2015, 5:15 pm'>
-<meta name='category' content=''>
-<meta name='coverage' content='Worldwide'>
-<meta name='distribution' content='Global'>
-<meta name='rating' content='General'>
-<meta name='revisit-after' content='7 days'>
-<meta name='designer' content='Clara Koscielniak, Amaury Vallot'>
-<meta name='pagename' content='Page Commercial de la marque restoklm'>
-<meta name='author' content='TheophaneCusenza, theo.cusenza@free.fr'>
-<meta name='target' content='all'>
-<meta name='HandheldFriendly' content='True'>
-<meta name='MobileOptimized' content='320'>
-<meta http-equiv='Cache-Control' content='no-cache'>
-<meta http-equiv='imagetoolbar' content='no'>
-<meta http-equiv='x-dns-prefetch-control' content='off'>
-<link rel="stylesheet" type="text/css" href="./../web/css/style_index.css">
-<link rel="stylesheet" type="text/css" href="./../web/css/fonts.css">
-<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css">
+	<meta http-equiv="content-type" content="text/html; charset=utf-8" />
+	<meta http-equiv="content-language" content="fr-FR" />
+	<meta name='language' content='fr-FR'>
+	<meta name='revised' content='Saturday, May 16th, 2015, 5:15 pm'>
+	<meta name='category' content=''>
+	<meta name='coverage' content='Worldwide'>
+	<meta name='distribution' content='Global'>
+	<meta name='rating' content='General'>
+	<meta name='revisit-after' content='7 days'>
+	<meta name='designer' content='Clara Koscielniak, Amaury Vallot'>
+	<meta name='pagename' content='Page Commercial de la marque restoklm'>
+	<meta name='author' content='TheophaneCusenza, theo.cusenza@free.fr'>
+	<meta name='target' content='all'>
+	<meta name='HandheldFriendly' content='True'>
+	<meta name='MobileOptimized' content='320'>
+	<meta http-equiv='Cache-Control' content='no-cache'>
+	<meta http-equiv='imagetoolbar' content='no'>
+	<meta http-equiv='x-dns-prefetch-control' content='off'>
+	<link rel="stylesheet" type="text/css" href="./../web/css/style_index.css">
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css">
 
 <!-- Optional theme -->
-<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap-theme.min.css">
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap-theme.min.css">
 
 <!-- Latest compiled and minified JavaScript -->
-<script src="{{url_path}}/newproject/vendor/components/jquery/jquery.min.js"></script>
-<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js"></script>
+	<script src="{{url_path}}/newproject/vendor/components/jquery/jquery.min.js"></script>
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js"></script>
 
-<title>{% block title %}Test Application{% endblock %}</title>
-<body>
-<div class="container">
-	<div class="row text-center topbarr">
-		<div class="col-md-5 col-md-offset-1 barsize">
-			<div class="col-md-6 barsize top-buffer1"><a href="{{url_path}}/newproject/web/index.php?p=contact">Nous contacter</a></div>
-			<div class="col-md-1 barsize top-buffer1"><a href="{{url_path}}/newproject/web/index.php?p=fb_page"><div class="linkfb" style="margin:auto;"></div></a></div>
+	<title>{% block title %}Resto posé t'as vu{% endblock %}</title>
+	<body>
+	<div class="container">
+		<div class="row text-center topbarr">
+		  	<div class="col-md-5 col-md-offset-1 barsize">
+			  <div class="col-md-6 barsize top-buffer1"><a href="{{url_path}}/newproject/web/index.php?p=contact">Nous contacter</a></div>
+			  <div class="col-md-1 barsize top-buffer1 fblink"><a href="{{url_path}}/newproject/web/index.php?p=fb_page"><div class="linkfb" style="margin:auto;"></div></a></div>
+			</div>
+		  <div class="col-md-3 col-md-offset-2 barsize top-buffer1"><a href="{{url_path}}/newproject/web/index.php?p=help">Besoin d'aide ?</a></div>
 		</div>
-		<div class="col-md-3 col-md-offset-2 barsize top-buffer1"><a href="{{url_path}}/newproject/web/index.php?p=help">Besoin d'aide ?</a></div>
-	</div>
 
-	<div class="row bar1">
-		<div class="row top-buffer2">
-			<div class="col-md-4 col-md-offset-1 top-buffer1 text-center"><a href ="{{url_path}}/newproject/web/index.php">
-					<div class="logo"></div>
-				</a></div>
-			<div class="col-md-5 col-md-offset-1 loglink text-center">
+		<div class="container row bar1">
+		  	<div class="row top-buffer2">
+			  <div class="col-md-3 col-md-offset-2 top-buffer1 text-center" ><a href ="{{url_path}}/newproject/web/index.php"><div class="logo" style ="width:200px;"></div></a></div>
+			  <div class="col-md-5 col-md-offset-2 loglink text-center">
 				<div class="col-md-5 text-right itemloglink barloglink">
-
+					
 					{% if email_address is defined %}
 						{% if email_address|length < 16 %}
-							<a href ="{{url_path}}/newproject/web/index.php?p=user_page">{{email_address}}</a>
+						<a href ="{{url_path}}/newproject/web/index.php?p=user_page">{{email_address}}</a>
 						{% elseif email_address|length > 16 %}
-							<a href ="{{url_path}}/newproject/web/index.php?p=user_page">{{email_address_shortened}}</a>
+						<a href ="{{url_path}}/newproject/web/index.php?p=user_page">{{email_address_shortened}}</a>
 						{% endif %}
 					{% else %}
-						<a href="{{url_path}}/newproject/web/index.php?p=login">Se connecter</a>
+					<a href="{{url_path}}/newproject/web/index.php?p=login">Se connecter</a>
 					{% endif%}
 				</div>
-				<div class="col-md-7 text-left itemloglink otherlink">
+				<div class="col-md-7 itemloglink otherlink left text-left">
 					{% if email_address is defined %}
 						{% if path is defined %}
-							<img src="{{root_path}}/newproject/web/{{path}}" class="img" alt="Your profile picture suddenly disapeared ?!">
+						<img src="{{root_path}}/newproject/web/{{path}}" class="img" alt="Your profile picture suddenly disapeared ?!"> 
 						{% else %}
-							<img class="img" src="{{root_path}}/newproject/web/images/avatar/default_pic.jpg">
+						<img class="img" src="{{root_path}}/newproject/web/images/avatar/default_pic.jpg">
 						{% endif %}
 					{% else %}
-						<a href ="{{url_path}}/newproject/web/index.php">S'inscrire &nbsp;&nbsp;&nbsp;</a>
+					<a href ="{{url_path}}/newproject/web/index.php">S'inscrire &nbsp;&nbsp;&nbsp;</a>
 					{% endif%}
 					<div class="col-md-offset-2 littletext logoutlink" style="position:absolute;top:0;right:-20px;">
-						{% if email_address is defined %}
-							<a href ="{{url_path}}/newproject/web/index.php?p=logout ">Fermer la session</a>
-						{% endif%}
+					{% if email_address is defined %}
+						<a href ="{{url_path}}/newproject/web/index.php?p=logout ">Fermer la session</a>
+					{% endif%}
 					</div>
 				</div>
 
 
+			  </div>
+			  				
 			</div>
-
 		</div>
-	</div>
-	<div class="row bar2 text-center">
-		<h2 class="phrase top-buffer3">Phrase d'accroche<h2><br>
-				<div class="undertitle">Livraison à emporter / Temps de livraison / Nb Restaurants partenaires / Nombre de spécialtés</div>
-				<div class="row top-buffer col-md-10 col-md-offset-1 middd">
-					{% if methode=='logUser' %}
+		<div class="container row bar2 text-center {{methode}}">
+			<h2 class="phrase top-buffer3">Phrase d'accroche<h2><br>
+			<div class="undertitle">Livraison à emporter / Temps de livraison / Nb Restaurants partenaires / Nombre de spécialtés</div>
+			<div class="row top-buffer col-md-10 col-md-offset-1 middd">
+				{% if methode=='logUser' %}
 
-						{% include 'user/form_logUser.html.twig' %}
+				{% include 'user/form_logUser.html.twig' %}
 
-					{% elseif methode=='loggedUser' %}
+				{% elseif methode=='loggedUser' %}
 
-						{% include 'user/form_logUser.html.twig' %}
+				{% include 'user/form_logUser.html.twig' %}
 
-					{% elseif methode=='showUser' %}
+				{% elseif methode=='showUser' %}
 
-						{% include 'user/user_page.html.twig' %}
+				{% include 'user/user_page.html.twig' %}
 
-					{% elseif methode=='addUserInfo' %}
+				{% elseif methode=='addUserInfo' %}
 
-						{% include 'user/form_addUserInfo.html.twig' %}
+				{% include 'user/form_addUserInfo.html.twig' %}
+        		
+        		{% else %}
 
-					{% else %}
+        		{% include 'user/form_addUser.html.twig' %}
 
-						{% include 'user/form_addUser.html.twig' %}
-
-					{% endif %}
-				</div>
+        		{% endif %}
+        	</div>
+		</div>
 	</div>
 
 	{#Etap Bloc#}

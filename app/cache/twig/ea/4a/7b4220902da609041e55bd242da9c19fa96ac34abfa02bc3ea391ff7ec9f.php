@@ -41,7 +41,7 @@ class __TwigTemplate_ea4a7b4220902da609041e55bd242da9c19fa96ac34abfa02bc3ea391ff
 \t\t\t\t\t\t\t\t</label>
 \t\t\t\t\t\t</div> 
 \t\t\t\t\t</div>
-\t\t\t\t\t<div class=\"col-md-2 col-md-offset-2 littletext top-buffer1y5\">Sexe
+\t\t\t\t\t<div class=\"col-md-2 col-md-offset-2 littletext top-buffer1y5 topunbuff\">Sexe
 \t\t\t\t\t</div>
 \t\t\t\t</div>
 

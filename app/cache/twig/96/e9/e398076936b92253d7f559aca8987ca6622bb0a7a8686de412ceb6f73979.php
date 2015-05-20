@@ -35,8 +35,6 @@ class __TwigTemplate_96e9e398076936b92253d7f559aca8987ca6622bb0a7a8686de412ceb6f
         echo twig_escape_filter($this->env, (($this->getAttribute((isset($context["user"]) ? $context["user"] : null), "address", [], "any", true, true)) ? (_twig_default_filter($this->getAttribute((isset($context["user"]) ? $context["user"] : null), "address", []), "\"...\"")) : ("\"...\"")), "html", null, true);
         echo " à ";
         echo twig_escape_filter($this->env, (($this->getAttribute((isset($context["user"]) ? $context["user"] : null), "city", [], "any", true, true)) ? (_twig_default_filter($this->getAttribute((isset($context["user"]) ? $context["user"] : null), "city", []), "\"Ville\"")) : ("\"Ville\"")), "html", null, true);
-        echo " en ";
-        echo twig_escape_filter($this->env, (($this->getAttribute((isset($context["user"]) ? $context["user"] : null), "country", [], "any", true, true)) ? (_twig_default_filter($this->getAttribute((isset($context["user"]) ? $context["user"] : null), "country", []), "\"Pays\"")) : ("\"Pays\"")), "html", null, true);
         echo "</div>
 \t    <div>Code Postal Régional: ";
         // line 7
@@ -59,15 +57,23 @@ class __TwigTemplate_96e9e398076936b92253d7f559aca8987ca6622bb0a7a8686de412ceb6f
 
 \t</div>
 </div>
-<div class=\"col-md-4 col-md-offset-6 top-buffer3\">
-\t<form method=\"GET\" action=\"index.php\">
-\t \t<input type=\"hidden\" name=\"p\" value=\"add_userinfo\">
-\t\t<input type=\"submit\" value=\"Mettre à jour\" class=\"btnupdate btnupdatereplace\">
-\t</form>
+<div class=\"row\">
+\t<div class=\"col-md-4 col-md-offset-1 top-buffer3\">
+\t\t<form method=\"GET\" action=\"index.php\">
+\t\t \t<input type=\"hidden\" name=\"p\" value=\"del_user\">
+\t\t\t<input type=\"submit\" value=\"Supprimer le compte\" class=\"btnupdate btnupdatereplace\">
+\t\t</form>
+\t</div>
+\t<div class=\"col-md-4 col-md-offset-2 top-buffer3\">
+\t\t<form method=\"GET\" action=\"index.php\">
+\t\t \t<input type=\"hidden\" name=\"p\" value=\"add_userinfo\">
+\t\t\t<input type=\"submit\" value=\"Mettre à jour\" class=\"btnupdate btnupdatereplace\">
+\t\t</form>
+\t</div>
 </div>
 
 ";
-        // line 23
+        // line 31
         echo twig_escape_filter($this->env, (isset($context["message"]) ? $context["message"] : null), "html", null, true);
         echo "
 ";
@@ -80,6 +86,6 @@ class __TwigTemplate_96e9e398076936b92253d7f559aca8987ca6622bb0a7a8686de412ceb6f
 
     public function getDebugInfo()
     {
-        return array (  71 => 23,  57 => 12,  53 => 11,  49 => 10,  43 => 7,  35 => 6,  31 => 5,  26 => 2,  20 => 1,);
+        return array (  77 => 31,  55 => 12,  51 => 11,  47 => 10,  41 => 7,  35 => 6,  31 => 5,  26 => 2,  20 => 1,);
     }
 }
