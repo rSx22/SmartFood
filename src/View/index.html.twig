@@ -1,151 +1,258 @@
 <!DOCTYPE html>
-	<meta http-equiv="content-type" content="text/html; charset=utf-8" />
-	<meta http-equiv="content-language" content="fr-FR" />
-	<meta name='language' content='fr-FR'>
-	<meta name='revised' content='Saturday, May 16th, 2015, 5:15 pm'>
-	<meta name='category' content=''>
-	<meta name='coverage' content='Worldwide'>
-	<meta name='distribution' content='Global'>
-	<meta name='rating' content='General'>
-	<meta name='revisit-after' content='7 days'>
-	<meta name='designer' content='Clara Koscielniak, Amaury Vallot'>
-	<meta name='pagename' content='Page Commercial de la marque restoklm'>
-	<meta name='author' content='TheophaneCusenza, theo.cusenza@free.fr'>
-	<meta name='target' content='all'>
-	<meta name='HandheldFriendly' content='True'>
-	<meta name='MobileOptimized' content='320'>
-	<meta http-equiv='Cache-Control' content='no-cache'>
-	<meta http-equiv='imagetoolbar' content='no'>
-	<meta http-equiv='x-dns-prefetch-control' content='off'>
-	<link rel="stylesheet" type="text/css" href="./../web/css/style_index.css">
-	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css">
+<meta http-equiv="content-type" content="text/html; charset=utf-8" />
+<meta http-equiv="content-language" content="fr-FR" />
+<meta name='language' content='fr-FR'>
+<meta name='revised' content='Saturday, May 16th, 2015, 5:15 pm'>
+<meta name='category' content=''>
+<meta name='coverage' content='Worldwide'>
+<meta name='distribution' content='Global'>
+<meta name='rating' content='General'>
+<meta name='revisit-after' content='7 days'>
+<meta name='designer' content='Clara Koscielniak, Amaury Vallot'>
+<meta name='pagename' content='Page Commercial de la marque restoklm'>
+<meta name='author' content='TheophaneCusenza, theo.cusenza@free.fr'>
+<meta name='target' content='all'>
+<meta name='HandheldFriendly' content='True'>
+<meta name='MobileOptimized' content='320'>
+<meta http-equiv='Cache-Control' content='no-cache'>
+<meta http-equiv='imagetoolbar' content='no'>
+<meta http-equiv='x-dns-prefetch-control' content='off'>
+<link rel="stylesheet" type="text/css" href="./../web/css/style_index.css">
+<link rel="stylesheet" type="text/css" href="./../web/css/fonts.css">
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css">
 
 <!-- Optional theme -->
-	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap-theme.min.css">
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap-theme.min.css">
 
 <!-- Latest compiled and minified JavaScript -->
-	<script src="{{url_path}}/newproject/vendor/components/jquery/jquery.min.js"></script>
-	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js"></script>
+<script src="{{url_path}}/newproject/vendor/components/jquery/jquery.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js"></script>
 
-	<title>{% block title %}Test Application{% endblock %}</title>
-	<body>
-	<div class="container">
-		<div class="row text-center topbarr">
-		  	<div class="col-md-5 col-md-offset-1 barsize">
-			  <div class="col-md-6 barsize top-buffer1"><a href="{{url_path}}/newproject/web/index.php?p=contact">Nous contacter</a></div>
-			  <div class="col-md-1 barsize top-buffer1"><a href="{{url_path}}/newproject/web/index.php?p=fb_page"><div class="linkfb" style="margin:auto;"></div></a></div>
-			</div>
-		  <div class="col-md-3 col-md-offset-2 barsize top-buffer1"><a href="{{url_path}}/newproject/web/index.php?p=help">Besoin d'aide ?</a></div>
+<title>{% block title %}Test Application{% endblock %}</title>
+<body>
+<div class="container">
+	<div class="row text-center topbarr">
+		<div class="col-md-5 col-md-offset-1 barsize">
+			<div class="col-md-6 barsize top-buffer1"><a href="{{url_path}}/newproject/web/index.php?p=contact">Nous contacter</a></div>
+			<div class="col-md-1 barsize top-buffer1"><a href="{{url_path}}/newproject/web/index.php?p=fb_page"><div class="linkfb" style="margin:auto;"></div></a></div>
 		</div>
+		<div class="col-md-3 col-md-offset-2 barsize top-buffer1"><a href="{{url_path}}/newproject/web/index.php?p=help">Besoin d'aide ?</a></div>
+	</div>
 
-		<div class="container row bar1">
-		  	<div class="row top-buffer2">
-			  <div class="col-md-4 col-md-offset-1 top-buffer1 text-center"><a href ="{{url_path}}/newproject/web/index.php">LOGO</a></div>
-			  <div class="col-md-5 col-md-offset-1 loglink text-center">
+	<div class="row bar1">
+		<div class="row top-buffer2">
+			<div class="col-md-4 col-md-offset-1 top-buffer1 text-center"><a href ="{{url_path}}/newproject/web/index.php">
+					<div class="logo"></div>
+				</a></div>
+			<div class="col-md-5 col-md-offset-1 loglink text-center">
 				<div class="col-md-5 text-right itemloglink barloglink">
-					
+
 					{% if email_address is defined %}
 						{% if email_address|length < 16 %}
-						<a href ="{{url_path}}/newproject/web/index.php?p=user_page">{{email_address}}</a>
+							<a href ="{{url_path}}/newproject/web/index.php?p=user_page">{{email_address}}</a>
 						{% elseif email_address|length > 16 %}
-						<a href ="{{url_path}}/newproject/web/index.php?p=user_page">{{email_address_shortened}}</a>
+							<a href ="{{url_path}}/newproject/web/index.php?p=user_page">{{email_address_shortened}}</a>
 						{% endif %}
 					{% else %}
-					<a href="{{url_path}}/newproject/web/index.php?p=login">Se connecter</a>
+						<a href="{{url_path}}/newproject/web/index.php?p=login">Se connecter</a>
 					{% endif%}
 				</div>
 				<div class="col-md-7 text-left itemloglink otherlink">
 					{% if email_address is defined %}
 						{% if path is defined %}
-						<img src="{{root_path}}/newproject/web/{{path}}" class="img" alt="Your profile picture suddenly disapeared ?!"> 
+							<img src="{{root_path}}/newproject/web/{{path}}" class="img" alt="Your profile picture suddenly disapeared ?!">
 						{% else %}
-						<img class="img" src="{{root_path}}/newproject/web/images/avatar/default_pic.jpg">
+							<img class="img" src="{{root_path}}/newproject/web/images/avatar/default_pic.jpg">
 						{% endif %}
 					{% else %}
-					<a href ="{{url_path}}/newproject/web/index.php">S'inscrire &nbsp;&nbsp;&nbsp;</a>
+						<a href ="{{url_path}}/newproject/web/index.php">S'inscrire &nbsp;&nbsp;&nbsp;</a>
 					{% endif%}
 					<div class="col-md-offset-2 littletext logoutlink" style="position:absolute;top:0;right:-20px;">
-					{% if email_address is defined %}
-						<a href ="{{url_path}}/newproject/web/index.php?p=logout ">Fermer la session</a>
-					{% endif%}
+						{% if email_address is defined %}
+							<a href ="{{url_path}}/newproject/web/index.php?p=logout ">Fermer la session</a>
+						{% endif%}
 					</div>
 				</div>
 
 
-			  </div>
-			  				
+			</div>
+
+		</div>
+	</div>
+	<div class="row bar2 text-center">
+		<h2 class="phrase top-buffer3">Phrase d'accroche<h2><br>
+				<div class="undertitle">Livraison à emporter / Temps de livraison / Nb Restaurants partenaires / Nombre de spécialtés</div>
+				<div class="row top-buffer col-md-10 col-md-offset-1 middd">
+					{% if methode=='logUser' %}
+
+						{% include 'user/form_logUser.html.twig' %}
+
+					{% elseif methode=='loggedUser' %}
+
+						{% include 'user/form_logUser.html.twig' %}
+
+					{% elseif methode=='showUser' %}
+
+						{% include 'user/user_page.html.twig' %}
+
+					{% elseif methode=='addUserInfo' %}
+
+						{% include 'user/form_addUserInfo.html.twig' %}
+
+					{% else %}
+
+						{% include 'user/form_addUser.html.twig' %}
+
+					{% endif %}
+				</div>
+	</div>
+
+	{#Etap Bloc#}
+
+	<div class="row etap-bloc">
+		<div class="col-md-12 text-center">
+			<div>
+				<div class="circle1"></div>
+				<div class="circle"></div>
+				<div class="circle"></div>
+				<div class="circle"></div>
 			</div>
 		</div>
-		<div class="container row bar2 text-center">
-			<h2 class="phrase top-buffer3">Phrase d'accroche<h2><br>
-			<div class="undertitle">Livraison à emporter / Temps de livraison / Nb Restaurants partenaires / Nombre de spécialtés</div>
-			<div class="row top-buffer col-md-10 col-md-offset-1 middd">
-				{% if methode=='logUser' %}
+	</div>
 
-				{% include 'user/form_logUser.html.twig' %}
+	{#Description Bloc#}
+	<div class="row">
+		<div class="col-md-12 description-bloc">
+			<div class="row col-md-8 col-md-offset-2 db-center-bloc">
+				<div >
+					<div class="row  db-title">EN CE MOMENT</div>
+					<div class="row">
+						<div class="col-md-3">
+							<div class="row">
+								<p class="article-title">Article 1</p>
+							</div>
+							<div class="row">
+								<p class="article-desc">Ardeo, mihi credite, Patres conscripti (id quod vosmet de me existimatis et facitis ipsi) incredibili quodam amore patriae, qui me amor et subvenire olim impendentibus periculis maximis cum dimicatione quodam...</p>
+							</div>
+							<div class="row"><img class="img-desc" src="../web/images/asset/crepes.png" alt="crepe"></div>
+						</div>
 
-				{% elseif methode=='loggedUser' %}
+						<div class="col-md-2">
+							<img class="plat" src="../web/images/asset/plat1.png" alt="plat">
+						</div>
 
-				{% include 'user/form_logUser.html.twig' %}
+						<div class="col-md-2">
+							<div class="row">
+								<div class="col-md-12 green-square text-center">
+									déjà
+									<span class="big-number">20</span>
+									heureux
+								</div>
+								<div class="col-md-12 sand-square text-center">
+									plus de
+									<span class="big-number">400</span>
+									combinaisons
+								</div>
+							</div>
+						</div>
+						<div class="col-md-2">
+							<img class="plat"  src="../web/images/asset/salade.png" alt="plat">
+						</div>
 
-				{% elseif methode=='showUser' %}
+						<div class="col-md-3">
+							<div class="row">
+								<p class="article-title">Article 1</p>
+							</div>
+							<div class="row">
+								<p class="article-desc">Ardeo, mihi credite, Patres conscripti (id quod vosmet de me existimatis et facitis ipsi) incredibili quodam amore patriae, qui me amor et subvenire olim impendentibus periculis maximis cum dimicatione quodam...</p>
+							</div>
+							<div class="row"><img class="img-desc" src="../web/images/asset/crepes.png" alt="crepe"></div>
+						</div>
+					</div>
+				</div>
+			</div>
+			<div class="row col-md-12 text-center quote">"Cette application est on ne peut plus extraordinaire,<br> j’en pleure de Joie rien qu'à y penser!"</div>
 
-				{% include 'user/user_page.html.twig' %}
-
-				{% elseif methode=='addUserInfo' %}
-
-				{% include 'user/form_addUserInfo.html.twig' %}
-        		
-        		{% else %}
-
-        		{% include 'user/form_addUser.html.twig' %}
-
-        		{% endif %}
-        	</div>
 		</div>
 	</div>
 
 
+	{#Footer#}
 
+	<div class="row text-center bottombarr">
+		<div class="col-md-12">
+			<div class="col-md-3">
+				<p class="nous-contact">
+					<span class="footer-titles">Nous contacter</span><br>
+                    <span class="footer-text"> Mail: smart@food.fr<br>
+                    Adresse: 95 rue Parmentier<br>
+                    75013 PARIS FRANCE</span></p></div>
+			<div class="col-md-5">
+				<p class="footer-titles">Restez connectés</p>
+				<img class="footer-logo" src="{{root_path}}/newproject/web/images/asset/logo-iphone.png">
+				<img class="footer-logo" src="{{root_path}}/newproject/web/images/asset/logo-android.png">
+				<img class="footer-logo" src="{{root_path}}/newproject/web/images/asset/FACEBOOK-bottom.png">
+				<p class="download-app">TÉLÉCHARGER L’APPLICATION</p>
 
-		<div class="container">
-			<h1> WELCOME</h1><br>
-			<div class ="sidebar">
-				{% block sidebar %}
-					<a href ="{{url_path}}/newproject/web/index.php?p=user">show user</a><br>
-					<a href ="{{url_path}}/newproject/web/index.php?p=users_list">List user in users</a><br>
-					<a href ="{{url_path}}/newproject/web/index.php?p=add_user ">Form for add user in users</a><br>
-					<a href ="{{url_path}}/newproject/web/index.php?p=add_userinfo ">Form for add user info</a><br>
-					<a href ="{{url_path}}/newproject/web/index.php?p=add_avatar ">Form for add user avatar</a><br>
-					<a href ="{{url_path}}/newproject/web/index.php?p=del_user ">Form for del user in users</a><br>
-					<a href ="{{url_path}}/newproject/web/index.php?p=log_user ">Form for log user in users</a><br>
-					<a href ="{{url_path}}/newproject/web/index.php?p=logout ">Clic for logout. q+</a><br><br>
-
-					<a href ="{{url_path}}/newproject/web/index.php?p=products_list">list products</a><br>
-					<a href ="{{url_path}}/newproject/web/index.php?p=product">show product</a><br>
-					<a href ="{{url_path}}/newproject/web/index.php?p=add_product">add product</a><br>
-					<a href ="{{url_path}}/newproject/web/index.php?p=del_product">del product</a><br>
-
-
-				{% endblock %}
-				{{dump(session)}}
-				<div>User:{{ session.user }} 
-				{% if session.path!= null %}
-				 <img src="{{url_path}}/newproject/web/{{session.path}}" style="width:80px;height:80px;" alt="Your profile picture suddenly disapeared ?!"> <a href ="{{url_path}}/newproject/web/index.php?p=card_list">list products in your card</a> 
-				 <a href ="{{url_path}}/newproject/web/index.php?p=user_page">show profile</a><br>
-
-				 {% endif %}
-				</div>
 			</div>
-			<div id="content">
-		            {% block body %}{% endblock %}
-		    </div>
-			<div id="notif">
-		            {% block notif %}{% endblock %}
-		    </div>
-		    <div id="confirm">
-		            {% block confirm %}{% endblock %}
-		    </div>
-		
-	</body>
+			<div class="col-md-4">
+				<p class="copyright">
+					<span class="copyright-title">COPYRIGHT ®™  SmartFood 2015</span><br>
+                        <span class="footer-text">Mentions légales<br>
+                        Conditions générales d’utilisation<br>
+                        Politique d’annulation</span>
+				</p>
+			</div>
+		</div>
+	</div>
+</div>
 
+
+</div>
+
+
+
+
+
+
+
+<div class="container">
+	<h1> WELCOME</h1><br>
+	<div class ="sidebar">
+		{% block sidebar %}
+			<a href ="{{url_path}}/newproject/web/index.php?p=user">show user</a><br>
+			<a href ="{{url_path}}/newproject/web/index.php?p=users_list">List user in users</a><br>
+			<a href ="{{url_path}}/newproject/web/index.php?p=add_user ">Form for add user in users</a><br>
+			<a href ="{{url_path}}/newproject/web/index.php?p=add_userinfo ">Form for add user info</a><br>
+			<a href ="{{url_path}}/newproject/web/index.php?p=add_avatar ">Form for add user avatar</a><br>
+			<a href ="{{url_path}}/newproject/web/index.php?p=del_user ">Form for del user in users</a><br>
+			<a href ="{{url_path}}/newproject/web/index.php?p=log_user ">Form for log user in users</a><br>
+			<a href ="{{url_path}}/newproject/web/index.php?p=logout ">Clic for logout. q+</a><br><br>
+
+			<a href ="{{url_path}}/newproject/web/index.php?p=products_list">list products</a><br>
+			<a href ="{{url_path}}/newproject/web/index.php?p=product">show product</a><br>
+			<a href ="{{url_path}}/newproject/web/index.php?p=add_product">add product</a><br>
+			<a href ="{{url_path}}/newproject/web/index.php?p=del_product">del product</a><br>
+
+
+		{% endblock %}
+		{{dump(session)}}
+		<div>User:{{ session.user }}
+			{% if session.path!= null %}
+				<img src="{{url_path}}/newproject/web/{{session.path}}" style="width:80px;height:80px;" alt="Your profile picture suddenly disapeared ?!"> <a href ="{{url_path}}/newproject/web/index.php?p=card_list">list products in your card</a>
+				<a href ="{{url_path}}/newproject/web/index.php?p=user_page">show profile</a><br>
+
+			{% endif %}
+		</div>
+	</div>
+	<div id="content">
+		{% block body %}{% endblock %}
+	</div>
+	<div id="notif">
+		{% block notif %}{% endblock %}
+	</div>
+	<div id="confirm">
+		{% block confirm %}{% endblock %}
+	</div>
+
+</body>
