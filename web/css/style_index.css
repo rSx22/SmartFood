@@ -597,3 +597,54 @@ body{
     height: 59px;
     color: #ffffff;
 }
+
+.tape {
+    margin-top: -15px;
+}
+
+.meal-desc {
+    font-family: topbarfont;
+    font-size: 14px;
+    margin-top: 210px;
+    font-weight: bold;
+}
+
+
+/*Like*/
+
+.like-title {
+    font-family: "BebasNeue Regular";
+    font-size: 19px;
+    text-decoration: underline;
+    font-weight: bold;
+}
+
+.like-bloc {
+    margin-top: 45px;
+}
+
+.img-like {
+    background-size: 100% 100%;
+    background-image: url("./../images/asset/hamburger.png");
+    height: 329px;
+    width: 435px;
+    box-shadow: 1px 1px 1px;
+
+}
+
+.like-rate {
+    height: 329px;
+    width: 435px;
+    background-color: #82b199;
+    padding-top: 10px;
+    box-shadow: 1px 1px 2px;
+
+}
+
+.rate-item {
+    font-family: "BebasNeue Regular";
+    font-size: 35px;
+    color: #4a5152;
+    font-weight: bold;
+    margin-top: 8px;
+}
