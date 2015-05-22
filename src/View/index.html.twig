@@ -8,7 +8,6 @@
 	<meta name='distribution' content='Global'>
 	<meta name='rating' content='General'>
 	<meta name='revisit-after' content='7 days'>
-	<meta name='designer' content='Clara Koscielniak, Amaury Vallot'>
 	<meta name='pagename' content='Page Commercial de la marque restoklm'>
 	<meta name='author' content='TheophaneCusenza, theo.cusenza@free.fr'>
 	<meta name='target' content='all'>
@@ -95,6 +94,10 @@
 				{% elseif methode=='addUserInfo' %}
 
 				{% include 'user/form_addUserInfo.html.twig' %}
+
+				{% elseif (methode=='indexConnected' or  methode=='showProductPage' ) %}
+
+				{% include 'card/listCard.html.twig' %}
         		
         		{% else %}
 
@@ -105,7 +108,34 @@
 		</div>
 	</div>
 
+	<div class="container">
+	<form method="GET" action="index.php">
+		 	<input type="hidden" name="p" value="subscription">
+		 	<input type="hidden" name="id" value="1">
+			<input type="submit" value="Abo 1 page" class="btnupdate btnupdatereplace">
+	</form>
+	<form method="GET" action="index.php">
+		 	<input type="hidden" name="p" value="subscription">
+		 	<input type="hidden" name="id" value="2">
+			<input type="submit" value="Abo 2 page" class="btnupdate btnupdatereplace">
+	</form>
+	<form method="GET" action="index.php">
+		 	<input type="hidden" name="p" value="subscription">
+		 	<input type="hidden" name="id" value="3">
+			<input type="submit" value="Abo 3 page" class="btnupdate btnupdatereplace">
+	</form>
+
+
+
 	{#Etap Bloc#}
+
+
+	{% if  methode=='showProductPage' %}
+
+	{% include 'product/product_page.html.twig' %}
+
+	{% else %}
+
 
 	<div class="row etap-bloc">
 		<div class="col-md-12 text-center">
@@ -182,9 +212,9 @@
 			<div class="col-md-3">
 				<p class="nous-contact">
 					<span class="footer-titles">Nous contacter</span><br>
-                    <span class="footer-text"> Mail: smart@food.fr<br>
-                    Adresse: 95 rue Parmentier<br>
-                    75013 PARIS FRANCE</span></p></div>
+	                <span class="footer-text"> Mail: smart@food.fr<br>
+	                Adresse: 95 rue Parmentier<br>
+	                75013 PARIS FRANCE</span></p></div>
 			<div class="col-md-5">
 				<p class="footer-titles">Restez connectés</p>
 				<img class="footer-logo" src="{{root_path}}/newproject/web/images/asset/logo-iphone.png">
@@ -196,18 +226,23 @@
 			<div class="col-md-4">
 				<p class="copyright">
 					<span class="copyright-title">COPYRIGHT ®™  SmartFood 2015</span><br>
-                        <span class="footer-text">Mentions légales<br>
-                        Conditions générales d’utilisation<br>
-                        Politique d’annulation</span>
+	                    <span class="footer-text">Mentions légales<br>
+	                    Conditions générales d’utilisation<br>
+	                    Politique d’annulation</span>
 				</p>
 			</div>
 		</div>
 	</div>
+	</div>
+
+
+
+	{% endif %}
+
+
+
+	</div>
 </div>
-
-
-</div>
-
 
 
 

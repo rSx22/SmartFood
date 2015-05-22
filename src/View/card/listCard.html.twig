@@ -1,6 +1,5 @@
-{% include 'index.html.twig' %}
 {% block body %}
-	List of products in Card : 
+	Vos abonnements
 	<div> Total card price : {{total_price}}€
 	</div>
 	<br>
@@ -21,5 +20,4 @@
 	      <a href ="{{url_path}}/newproject/web/index.php?p=del_item&id={{key}}">lower quantite from card</a><br> 
 	     </div>
 	{% endfor %}
-	{{message}}
 {% endblock %}

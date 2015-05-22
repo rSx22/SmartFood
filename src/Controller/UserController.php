@@ -195,11 +195,13 @@ class UserController extends AbstractBaseController {
                         'methode' => 'addUserInfo',
                         'message' => "Informations mises à jour.".' '.$upload_avatar,
                         'exist' => $exist,
+                        'user' => $user,
                     ];
                     }else{return [
                         'view' => 'index.html.twig',
                         'methode' => 'addUserInfo',
                         'exist' => $exist,
+                        'user' => $userinfo,
                         
                         ];
                     }

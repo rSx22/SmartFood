@@ -7,9 +7,13 @@ body{
     background-color:#f5f5ef;
 }
 
-div{border:1px solid;}
+/*div{border:1px solid;}*/
+
+.btnform{
+display: none;
 
 
+}
 .img{
   width:80px;
   height:80px;
@@ -31,6 +35,37 @@ div{border:1px solid;}
 .custom-upload input {
     left: -9999px; 
     position: absolute;
+}
+
+#time0{
+display: none;
+}
+#time1{
+display: none;
+}
+#time2{
+display: none;
+}
+#time3{
+display: none;
+}
+#time4{
+display: none;
+}
+#time5{
+display: none;
+}
+
+#timename0{
+    width: 300px;
+}
+
+#timename1{
+    width: 300px;
+}
+
+#timename2{
+    width: 300px;
 }
 
 

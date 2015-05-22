@@ -28,6 +28,9 @@ user_page:
 products_list:
   controller: Controller\ProductController:listProductsAction
 
+subscription:
+  controller: Controller\ProductController:showSubscribeMode
+
 product:
   controller: Controller\ProductController:showProductAction
 

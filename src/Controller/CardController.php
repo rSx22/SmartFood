@@ -8,68 +8,52 @@ use Model\Product;
 class CardController extends AbstractBaseController {
     protected $total_price;
   
-    public function addToCard($request){
-        if(isset($_SESSION['username'])){ // chk if session user is set or /else display the error as 'message'
-
+    public function addToCard($request){ // chk if session user is set or /else display the error as 'message'
             $conn = AbstractBaseController::createConn();
             $productModel = new product($conn);
-            if(isset($_SESSION['productid']) && !isset($request['query']['id'])) {  
-               $_SESSION['product'] = $productModel->getProductById($_SESSION['productid']);
+                if(isset($_SESSION['productid']) && !empty($request['request']['daychoice'])) {  
+                    $dayz = explode(',',$request['request']['daychoice']);
+                    if (count($dayz) <= 3) { 
 
-               
-                if(isset($request['request']['nbrproduct'])){ 
-                    if(!empty($_SESSION['card'][$_SESSION['product']['id']]['quantite']) ){
-                        $_SESSION['card'][$_SESSION['product']['id']]['quantite'] = $_SESSION['card'][$_SESSION['product']['id']]['quantite'] + $request['request']['nbrproduct'];
+                         $_SESSION['card'][$_SESSION['productid']] = $_SESSION['product'][$_SESSION['productid']];
+
+                        foreach ($dayz as $key => $value) {
+                            $_SESSION['card'][$_SESSION['productid']]['days'][$value] = $request['request']['timepikr'.$key];
+                        }
+
+                        $_SESSION['product'] = array();
+                        //$_SESSION[]
+                       var_dump($_SESSION['card']);die;
+                        $tot = $this->setTotalCardPrice();
+
+
+                        return [
+                                'total_price' => $tot,
+                                'view' => 'card/listCard.html.twig',
+                                'products' => $_SESSION['card'],
+                                'methode' => 'addedToCard',
+                                'message' => 'Product added to card',
+                                'id' => $_SESSION['productid'],             
+                                ];
                     }else{
-                        $_SESSION['card'][$_SESSION['product']['id']] = array('name' =>$_SESSION['product']['name'],
-                                                        'price' =>$_SESSION['product']['price'],
-                                                        'quantite' =>$request['request']['nbrproduct'],
-                                                        'path_image' =>$_SESSION['product']['path_image']
-                                                        );
-                    }
-                }
-                $tot = $this->setTotalCardPrice();
-                return [
-                        'total_price' => $tot,
-                        'view' => 'card/listCard.html.twig',
-                        'products' => $_SESSION['card'],
-                        'methode' => 'addedToCard',
-                        'message' => 'Product added to card'
-                        
-                        ];
-               // }else{
-                 //   return [
-                   //     'view' => 'product/notify.html.twig',
-                     //   'product' => $_SESSION['product'],
-                       // 'methode' => 'showProductPage',
-                        //'message' => 'please enter quantite'
-                        
-                        //];
-                //}
-
-                //////
-            }else{
-
-                    $_SESSION['productid'] = $request['query']['id'];
-                
-                return [
-                    'view' => 'product/product_page.html.twig',
-                   //'product' => $_SESSION['product'],
+                        return [
+                    'view' => 'index.html.twig',
+                    'product' => $_SESSION['product'][$_SESSION['productid']],
                     'methode' => 'showProductPage',
-                    //'message' => 'productname : '.$product.' dont exist Table products'
+                    'message' => "Trop de jours sont séléctionné",
+                    'id' => $_SESSION['productid'],
                     
                     ];
-
-            }
-        }else{return [
-                    'view' => 'product/notify.html.twig',
-                    //'product' => $product,
-                    'methode' => 'addToCard',
-                    'message' => 'Not logged in :"/'
-                    
+                    }
+                }else{
+                     return [
+                    'view' => 'index.html.twig',
+                    'product' => $_SESSION['product'][$_SESSION['productid']],
+                    'methode' => 'showProductPage',
+                    'message' => "Veuillez selectionner les jours d'abonnement",
+                    'id' => $_SESSION['productid'],        
                     ];
-
-        }
+                }
     }
 
     public function listCard($request){

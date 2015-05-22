@@ -1,6 +1,12 @@
-{% include 'index.html.twig' %}
 {% block body %}
+ <link rel="Stylesheet" href="{{url_path}}/newproject/web/weekline/styles/cleanslate.css" />
+ <link rel="Stylesheet" href="{{url_path}}/newproject/web/weekline/styles/jquery.weekLine.css" />
+ <script src="{{url_path}}/newproject/web/weekline/scripts/jquery.weekLine.js"></script>
 
+
+
+ <link rel="Stylesheet" href="{{url_path}}/newproject/web/weekline/timepicker/jquery.timepicker.css" />
+ <script src="{{url_path}}/newproject/web/weekline/timepicker/jquery.timepicker.min.js"></script>
 
     <div>Nom : {{product.name}}</div>
     <div>Price : {{product.price}}</div>
@@ -14,10 +20,21 @@
 
 {% if methode == "showProductPage" %}
 
-	<form method="POST" action="index.php?p=addtocard"> 
-	How much<input type="number" name="nbrproduct" min="0">
-	<input type="submit" value="add to card">
-	</form>
+
+<div class="weekselec">Selectionner les jours de livraison<span id="weekCal"></span></div>  <button data-id="{{id}}" id="btnSelect">Valider</button>  <br>
+
+
+
+<form method="POST" action="index.php?p=addtocard" name="calendar">  
+<input type="hidden" name="daychoice" value="0" />
+<div id="time0"> <div id="timename0"></div><input type="text" id="timepicker0" name="timepikr0"><span id="daytimechoice0"></span></div><br>
+<div id="time1"> <div id="timename1"></div><input type="text" id="timepicker1" name="timepikr1"><span id="daytimechoice1"></span></div><br>
+<div id="time2"> <div id="timename2"></div><input type="text" id="timepicker2" name="timepikr2"><span id="daytimechoice2"></span></div><br>
+<div id="time3"> <div id="timename3"></div><input type="text" id="timepicker3" name="timepikr3"><span id="daytimechoice3"></span></div><br>
+<div id="time4"> <div id="timename4"></div><input type="text" id="timepicker4" name="timepikr4"><span id="daytimechoice4"></span></div><br>
+<div id="time5"> <div id="timename5"></div><input type="text" id="timepicker5" name="timepikr5"><span id="daytimechoice5"></span></div><br>
+<input type="submit" value="Envoyer" name="butnform" class="btnform"><span id="return"></span>
+</form>
 
 {% elseif methode == "showDelProductPage" %}
 
@@ -29,3 +46,5 @@
 {% endif %}
 {{message}}
 {% endblock %}
+
+ <script src="{{url_path}}/newproject/web/weekline/scripts/wl.js"></script>

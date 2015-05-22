@@ -82,7 +82,7 @@ if(isset($response['view'])){							//if i've got a response from controller the
 	$template = $twig->loadTemplate('index.html.twig');	//else i got not response from controller then ->index
 	if(isset($_SESSION['email_address'])){					//for user to see his profil name and profil picture if session is set
 		$response['email_address'] = $_SESSION['email_address'] ;
-		$response['methode'] = 'showUser';
+		$response['methode'] = 'indexConnected';
 		if(strlen($_SESSION['email_address']) > 16){
 			$response['email_address_shortened'] = substr($_SESSION['email_address'], 0, 16 ).'...';
 		}

@@ -19,6 +19,21 @@ class ProductController extends AbstractBaseController {
         ]; //return views and views parameter
     }
 
+
+
+    public function showSubscribeMode($request){
+        $conn = AbstractBaseController::createConn();
+        $productModel = new product($conn);
+        $product  = $productModel->getProductById($request['query']['id']);
+            return [
+                'view' => 'index.html.twig',
+                'product' => $product,
+                'methode' => 'showProductPage',
+                //'message' => 'productname : '.$product.' dont exist Table products'
+                'id' => $product['id'],
+                ];
+    }
+
     public function showProductAction($request) {
         if ( isset($request['request']['search']) ){ //chk for id from post else input's view
             $search = $request['request']['search'];
@@ -42,8 +57,9 @@ class ProductController extends AbstractBaseController {
     }
 
     public function addProduct($request) {
-            if( isset( $request['request']['name']) && isset ($request['request']['price']) ) { 
+            if( isset( $request['request']['name']) && isset ($request['request']['price'])&& isset ($request['request']['id']) ) { 
                 $product = array(
+                            'id' => $request['request']['id'],
                             'name' => $request['request']['name'],
                             'price' => $request['request']['price'],
                             'cal' => '',
