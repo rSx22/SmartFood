@@ -2,6 +2,6 @@ doctrine:
   host: localhost
   dbname: myDB
   user: root
-  password: root
+  password:
   driver: pdo_mysql
   port: 3306
