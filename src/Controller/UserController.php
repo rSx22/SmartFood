@@ -114,12 +114,12 @@ class UserController extends AbstractBaseController {
                                 }
                             }else{return [
                             'view' => 'index.html.twig',
-                            'message' => "Vous n'avez pas accepté les conditions générale d'utilisation" 
+                            'message' => "Veuillez accepté les conditions générales d'utilisation et l'utilisation de cookies" 
                             ];
                             }
                         }else{return [
                             'view' => 'index.html.twig',
-                            'message' => "Vous n'avez pas entré de mot de passe" 
+                            'message' => "Vous n'avez pas entré de mot de passe ou la vérification est différente" 
                         ];
                         }
                     }else{return [
@@ -193,13 +193,15 @@ class UserController extends AbstractBaseController {
                         return [
                         'view' => 'index.html.twig',
                         'methode' => 'addUserInfo',
-                        'message' => "Informations mise à jour.".' '.$upload_avatar,
+                        'message' => "Informations mises à jour.".' '.$upload_avatar,
                         'exist' => $exist,
+                        'user' => $user,
                     ];
                     }else{return [
                         'view' => 'index.html.twig',
                         'methode' => 'addUserInfo',
                         'exist' => $exist,
+                        'user' => $userinfo,
                         
                         ];
                     }
@@ -215,29 +217,33 @@ class UserController extends AbstractBaseController {
 
     public function deleteUser($request) {
         //check request content else show input view
-        if(isset($request['request']['name']) ) { 
+        if(isset($_SESSION['email_address']) ) { 
 
-            $user =  $request['request']['name'];
+            $user =  $_SESSION['email_address'];
             $conn = AbstractBaseController::createConn();
             $userModel = new User($conn); // new Model for accessing db
-            $userExist = $userModel->chkUserByName($user); //chk in db if user exist
+            $userExist = $userModel->chkUserByMail($user); //chk in db if user exist
             if( $userExist >= 1){ 
                 $userDel= $userModel->delUser($user); // if exist delete it
+                $this->logOut();
                 return [
-                    'view' => 'user/notify.html.twig',
-                    'user' => $user,
+                    'view' => 'index.html.twig',
                     'methode' => 'delUser',
-                    'message' => 'User : '.$user.' deleted Table users'
+                    'message' => $user.' a été supprimé',
                 ];
             }else{ return [
-                'view' => 'user/notify.html.twig',
-                'user' => $user,
+                'view' => 'index.html.twig',
                 'methode' => 'delUser',
-                'message' => 'Username : '.$user.' dont exist Table users'
+                'message' => $user.' a déja été supprimé',
                 
                 ];
             }
-        }else {return ['view' => 'user/form_delUser.html.twig']; // 
+        }else {return [
+                'view' => 'index.html.twig',
+                'methode' => 'delUser',
+                'message' => 'Veuillez vous connecter',
+                
+                ]; // 
         }
     }
 

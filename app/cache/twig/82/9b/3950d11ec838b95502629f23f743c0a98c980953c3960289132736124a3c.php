@@ -56,7 +56,7 @@ class __TwigTemplate_829b3950d11ec838b95502629f23f743c0a98c980953c39602891327361
         echo twig_escape_filter($this->env, (isset($context["message"]) ? $context["message"] : null), "html", null, true);
         echo "
 \t\t\t</div>
-\t\t\t\t<input class=\"btninscript btninscript1\" type=\"submit\" value=\"S'inscrire\">
+\t\t\t\t<input class=\"btninscript\" type=\"submit\" value=\"S'inscrire\">
 \t\t\t</div>
 \t\t</div>
 \t</form>

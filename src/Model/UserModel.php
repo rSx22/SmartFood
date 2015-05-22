@@ -114,7 +114,7 @@ class User
     }
     
     public function delUser($name){
-        $qb = 'DELETE FROM `users` WHERE name = ?';
+        $qb = 'DELETE FROM `users` WHERE email_address = ?';
         $dbex = $this->conn->prepare($qb);
         $dbex->bindValue(1, $name);
         $dbex->execute();

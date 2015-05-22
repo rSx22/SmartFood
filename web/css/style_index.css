@@ -8,6 +8,8 @@ body{
 
 /*div{border:1px solid;}*/
 
+.btnform{
+display: none;}
 
 .img{
     width:80px;
@@ -31,6 +33,39 @@ body{
     left: -9999px;
     position: absolute;
 }
+
+#time0{
+display: none;
+}
+#time1{
+display: none;
+}
+#time2{
+display: none;
+}
+#time3{
+display: none;
+}
+#time4{
+display: none;
+}
+#time5{
+display: none;
+}
+
+#timename0{
+    width: 300px;
+}
+
+#timename1{
+    width: 300px;
+}
+
+#timename2{
+    width: 300px;
+}
+
+
 
 .logo{
     background-image: url("./../images/asset/LogoSmartFood.png");
@@ -102,6 +137,21 @@ body{
     color :#FFF;
     opacity: 1;
 }
+
+.fblink{
+    color:#f5f5ef;
+
+    opacity: 0.7;
+    -webkit-transition: opacity 0.5s ease-in-out;/* transition pour Chrome et Safari */
+    -moz-transition: opacity 0.5s ease-in-out;/* transition pour Firefox */
+    -o-transition: opacity 0.5s ease-in-out;/* transition pour Opéra */
+    transition: opacity 0.5s ease-in-out; /* on écrit cette ligne à la fin de façon à ce que ce soit elle qui soit prise en compte lorsque l'attribut transition sera pris en compte par tous les navigateurs */
+
+}
+.fblink:hover{
+    color :#FFF;
+    opacity: 1;
+}
 .evenmorelittle{
     font-size: 3px;
     margin-top: 100px;
@@ -124,7 +174,7 @@ body{
     color:#4b9f78;}
 
 .bar2{height: 420px;
-    background-image: url("./../images/asset/Background.png");
+    background-image: url("./../images/asset/Background.jpg");
     background-size: 100% 100%;
 
 }

@@ -34,14 +34,17 @@ class __TwigTemplate_ea4a7b4220902da609041e55bd242da9c19fa96ac34abfa02bc3ea391ff
  \t\t\t\t <div class=\"row\">
  \t\t\t\t \t<div class=\"col-md-4\">
 \t\t \t\t\t\t<div class=\"onoffswitch top-buffery5 widthresize\">
-\t\t\t\t\t\t\t\t<input type=\"checkbox\" name=\"malefemaleswitch\" class=\"onoffswitch-checkbox\" id=\"myonoffswitch\">
+\t\t\t\t\t\t\t\t<input type=\"checkbox\" name=\"malefemaleswitch\" class=\"onoffswitch-checkbox\" id=\"myonoffswitch\" ";
+        // line 13
+        echo ((($this->getAttribute((isset($context["user"]) ? $context["user"] : null), "gender", []) == "Homme")) ? ("checked") : (""));
+        echo ">
 \t\t\t\t\t\t\t\t<label class=\"onoffswitch-label\" for=\"myonoffswitch\">
 \t\t\t\t\t\t\t\t<span class=\"onoffswitch-inner\"></span>
 \t\t\t\t\t\t\t\t<span class=\"onoffswitch-switch\"></span>
 \t\t\t\t\t\t\t\t</label>
 \t\t\t\t\t\t</div> 
 \t\t\t\t\t</div>
-\t\t\t\t\t<div class=\"col-md-2 col-md-offset-2 littletext top-buffer1y5\">Sexe
+\t\t\t\t\t<div class=\"col-md-2 col-md-offset-2 littletext top-buffer1y5 topunbuff\">Sexe
 \t\t\t\t\t</div>
 \t\t\t\t</div>
 
@@ -95,6 +98,6 @@ class __TwigTemplate_ea4a7b4220902da609041e55bd242da9c19fa96ac34abfa02bc3ea391ff
 
     public function getDebugInfo()
     {
-        return array (  81 => 50,  76 => 47,  59 => 32,  57 => 31,  26 => 2,  20 => 1,);
+        return array (  84 => 50,  79 => 47,  62 => 32,  60 => 31,  39 => 13,  26 => 2,  20 => 1,);
     }
 }

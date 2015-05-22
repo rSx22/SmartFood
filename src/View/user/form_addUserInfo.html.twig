@@ -10,14 +10,14 @@
  				 <div class="row">
  				 	<div class="col-md-4">
 		 				<div class="onoffswitch top-buffery5 widthresize">
-								<input type="checkbox" name="malefemaleswitch" class="onoffswitch-checkbox" id="myonoffswitch">
+								<input type="checkbox" name="malefemaleswitch" class="onoffswitch-checkbox" id="myonoffswitch" {{ user.gender == 'Homme' ? 'checked' : '' }}>
 								<label class="onoffswitch-label" for="myonoffswitch">
 								<span class="onoffswitch-inner"></span>
 								<span class="onoffswitch-switch"></span>
 								</label>
 						</div> 
 					</div>
-					<div class="col-md-2 col-md-offset-2 littletext top-buffer1y5">Sexe
+					<div class="col-md-2 col-md-offset-2 littletext top-buffer1y5 topunbuff">Sexe
 					</div>
 				</div>
 
