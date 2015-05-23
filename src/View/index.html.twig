@@ -77,9 +77,16 @@
 			  				
 			</div>
 		</div>
-		<div class="container row bar2 text-center {{methode}}">
+		<div class="row bar2 text-center {{methode}}">
+
+			{% if methode!='indexConnected' and methode!='showProductPage' %}
+
 			<h2 class="phrase top-buffer3">Phrase d'accroche<h2><br>
 			<div class="undertitle">Livraison à emporter / Temps de livraison / Nb Restaurants partenaires / Nombre de spécialtés</div>
+        		
+        	{% endif %}
+
+
 			<div class="row top-buffer col-md-10 col-md-offset-1 middd">
 				{% if methode=='logUser' %}
 
@@ -108,24 +115,20 @@
         		{% endif %}
         	</div>
 		</div>
+
+	<div class="">
+
+			<div class="row etap-bloc">
+		<div class="col-md-12 text-center">
+			<div>
+				<div class="circle1"></div>
+				<div class="circle"></div>
+				<div class="circle"></div>
+				<div class="circle"></div>
+			</div>
+		</div>
 	</div>
 
-	<div class="container">
-	<form method="POST" action="index.php?p=subscription&id=1">
-		 	<input type="hidden" name="p" value="subscription">
-		 	<input type="hidden" name="id" value="1">
-			<input type="submit" value="Abo 1 page" class="btnupdate btnupdatereplace">
-	</form>
-	<form method="POST" action="index.php?p=subscription&id=2">
-		 	<input type="hidden" name="p" value="subscription">
-		 	<input type="hidden" name="id" value="2">
-			<input type="submit" value="Abo 2 page" class="btnupdate btnupdatereplace">
-	</form>
-	<form method="POST" action="index.php?p=subscription&id=3">
-		 	<input type="hidden" name="p" value="subscription">
-		 	<input type="hidden" name="id" value="3">
-			<input type="submit" value="Abo 3 page" class="btnupdate btnupdatereplace">
-	</form>
 				<form method="POST" action="?p=statsdump">
 				<input type="submit" value="dump session request" class="btnupdate btnupdatereplace">
 			</form>
@@ -142,16 +145,7 @@
 	{% else %}
 
 
-	<div class="row etap-bloc">
-		<div class="col-md-12 text-center">
-			<div>
-				<div class="circle1"></div>
-				<div class="circle"></div>
-				<div class="circle"></div>
-				<div class="circle"></div>
-			</div>
-		</div>
-	</div>
+
 
 	{#Abonnements#}
 
@@ -161,17 +155,32 @@
 				<div class="col-md-1 col-md-offset-2">
 					<div class="row abon-title">ABONNEMENT 1</div>
 					<div class="row abon-desc">Description blablbalba</div>
-					<div class="row"><button class="abon-btn">Découvrir</button></div>
+					<div class="row"><form method="POST" action="index.php?p=subscription&id=1">
+									 	<input type="hidden" name="p" value="subscription">
+									 	<input type="hidden" name="id" value="1">
+										<input type="submit" value="Découvrir" class="btnupdate large">
+									</form>
+					</div>
 				</div>
 				<div class="col-md-1 col-md-offset-2">
 					<div class="row abon-title">ABONNEMENT 2</div>
 					<div class="row abon-desc">Description blablbalba</div>
-					<div class="row"><button class="abon-btn">Découvrir</button></div>
+					<div class="row"><form method="POST" action="index.php?p=subscription&id=2">
+									 	<input type="hidden" name="p" value="subscription">
+									 	<input type="hidden" name="id" value="2">
+										<input type="submit" value="Découvrir" class="btnupdate large">
+									</form>
+					</div>
 				</div>
 				<div class="col-md-1 col-md-offset-2">
 					<div class="row abon-title">ABONNEMENT 3</div>
 					<div class="row abon-desc">Description blablbalba</div>
-					<div class="row"><button class="abon-btn">Découvrir</button></div>
+					<div class="row">	<form method="POST" action="index.php?p=subscription&id=3">
+										 	<input type="hidden" name="p" value="subscription">
+										 	<input type="hidden" name="id" value="3">
+											<input type="submit" value="Découvrir" class="btnupdate large">
+										</form>
+					</div>
 				</div>
 			</div>
 		</div>
@@ -273,7 +282,7 @@
 				<div class="row meal-desc">Salade</div>
 			</div>
 			<div class="col-md-1 ">
-				<button class="btn proposition-btn"><span class="glyphicon glyphicon-refresh"></span></button>
+				<div class="proposition-btn">&nbsp;<div class="rotate"><span class="glyphicon glyphicon-refresh"></span></div></div>
 			</div>
 			<div class="col-md-3 proposition-polaroid">
 				<img class="row tape" src="../web/images/asset/tape.png" alt="tape">
@@ -384,53 +393,7 @@
 
 	{% endif %}
 
-
-
 	</div>
 </div>
-
-
-
-
-
-
-<div class="container">
-	<h1> WELCOME</h1><br>
-	<div class ="sidebar">
-		{% block sidebar %}
-			<a href ="{{url_path}}/newproject/web/index.php?p=user">show user</a><br>
-			<a href ="{{url_path}}/newproject/web/index.php?p=users_list">List user in users</a><br>
-			<a href ="{{url_path}}/newproject/web/index.php?p=add_user ">Form for add user in users</a><br>
-			<a href ="{{url_path}}/newproject/web/index.php?p=add_userinfo ">Form for add user info</a><br>
-			<a href ="{{url_path}}/newproject/web/index.php?p=add_avatar ">Form for add user avatar</a><br>
-			<a href ="{{url_path}}/newproject/web/index.php?p=del_user ">Form for del user in users</a><br>
-			<a href ="{{url_path}}/newproject/web/index.php?p=log_user ">Form for log user in users</a><br>
-			<a href ="{{url_path}}/newproject/web/index.php?p=logout ">Clic for logout. q+</a><br><br>
-
-			<a href ="{{url_path}}/newproject/web/index.php?p=products_list">list products</a><br>
-			<a href ="{{url_path}}/newproject/web/index.php?p=product">show product</a><br>
-			<a href ="{{url_path}}/newproject/web/index.php?p=add_product">add product</a><br>
-			<a href ="{{url_path}}/newproject/web/index.php?p=del_product">del product</a><br>
-
-
-		{% endblock %}
-		{{dump(session)}}
-		<div>User:{{ session.user }}
-			{% if session.path!= null %}
-				<img src="{{url_path}}/newproject/web/{{session.path}}" style="width:80px;height:80px;" alt="Your profile picture suddenly disapeared ?!"> <a href ="{{url_path}}/newproject/web/index.php?p=card_list">list products in your card</a>
-				<a href ="{{url_path}}/newproject/web/index.php?p=user_page">show profile</a><br>
-
-			{% endif %}
-		</div>
-	</div>
-	<div id="content">
-		{% block body %}{% endblock %}
-	</div>
-	<div id="notif">
-		{% block notif %}{% endblock %}
-	</div>
-	<div id="confirm">
-		{% block confirm %}{% endblock %}
-	</div>
 
 </body>

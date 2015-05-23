@@ -52,5 +52,8 @@ removeincard:
 card_list:
   controller: Controller\CardController:listCard
 
+setcalendar:
+  controller: Controller\CardController:setcalendar
+
 statsdump:
   controller: Controller\UserController:dump

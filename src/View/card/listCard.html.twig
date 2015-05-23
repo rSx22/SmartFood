@@ -1,38 +1,55 @@
 {% block body %}
-	Vos abonnements
+	<div class="phrase">Vos abonnements</div>
 	<br>
-
+	{{message}}
+	<br>
 		{% for sub, info in session.card %}
 
-			<div style="border: 1px solid;">
+			<div class="">
+			<div class="card row">
+			<div class="col-md-4">
 
-			{% if info.subscription.path_image!= null %}
 
-				<img src="{{url_path}}/newproject/web/{{info.subscription.path_image}}" style="width:80px;height:80px;"> 
+			<div class="littletext">
+				{% if info.subscription.path_image!= null %}
 
-			{% endif %}
+					<img src="{{url_path}}/newproject/web/{{info.subscription.path_image}}" style="width:80px;height:80px;"> 
 
-		     
-			{% if info.subscription.name!=null %}
+				{% endif %}
+			     
+			{% if info.subscription.name is not empty %}
 
-			{{info.subscription.name}} : {{info.subscription.price}}€
+				{{info.subscription.name}} : {{info.subscription.price}}€
+			</div>
 
 			
-	
+			</div>
+			<div class="col-md-4"> 
+			{% for day, hour in info.days %}
+			<div class="littletext"> {{day}} {{hour}}
+			</div>
+			{% if day is empty %}
+
+	     		N'oubliez pas de saisir les jours auxquelles vous desirez etre livrer {{info.subscription.name}}
+	     	{% else %}
 
 
-		     <br>
+	     	{% endif %}
+		{% endfor %}
+			</div>
+			<div class="col-md-4">
+
 		     <form method="POST" action="index.php?p=subscription">
 		 		<input type="hidden" name="p" value="subscription">
 		 		<input type="hidden" name="id" value="{{info.subscription.id}}">
 		 		<input type="hidden" name="remove" value="{{info.subscription.id}}">
-				<input type="submit" value="Modifier les jours de livraison" class="btnupdate btnupdatereplace">
+				<input type="submit" value="Modifier les jours de livraison" class="btnupdate top-buffery3">
 			</form>
 			<form method="POST" action="?p=removeincard">
 		 		<input type="hidden" name="p" value="subscription">
 		 		<input type="hidden" name="id" value="{{info.subscription.id}}">
 		 		<input type="hidden" name="remove" value="{{info.subscription.id}}">
-				<input type="submit" value="Supprimer du panier" class="btnupdate btnupdatereplace">
+				<input type="submit" value="Supprimer du panier" class="btnupdate top-buffery3">
 			</form>
 
 
@@ -43,22 +60,16 @@
 			Le panier est vide
 
 			{% endif %}
-
-
+			</div>
+</div>
 		     
 
 
-		{% for day, hour in info.days %}
-
-			{% if day is empty %}
-
-	     		N'oubliez pas de saisir les jours auxquelles vous desirez etre livrer {{info.subscription.name}}'s quantite
-	     	{% else %}
-
-
-	     	{% endif %}
 		{% endfor %}
-		{% endfor %}
+
+		<form method="POST" action="index.php?p=setcalendar">
+			<input type="submit" value="Souscrire" class="btnupdate btnupdatereplace">
+		</form>
 
 
 </div>
