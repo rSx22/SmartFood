@@ -20,6 +20,7 @@ class CardController extends AbstractBaseController {
 
                 if (isset($_SESSION['remove'])) {
                     $subscribeid = $_SESSION['remove'];
+                    unset($_SESSION['remove']);
                 }else{
                 $subscribeid = array_keys($request['request'], 'Envoyer');
                 }
@@ -34,38 +35,55 @@ class CardController extends AbstractBaseController {
                 }
                 $product  = $productModel->getProductById($subscribeid['0']);
                 if (count($dayz) == $dayNumber) { 
-                    if (!isset($_SESSION['card'])) {
-                        $_SESSION['card'] = array();
-                    }
-                    if(!isset($_SESSION['card'][$subscribeid['0']])){
-                        $_SESSION['card'][$subscribeid['0']] = array ('subscription' => $product);
-                    }   
-                    foreach ($_SESSION['card'] as $key => $value) {
-                        if(!isset($_SESSION['card'][$key]['days'])){
-                            $_SESSION['card'][$key]['days'] = array();
-                        }
-                        foreach ($_SESSION['card'][$key]['days'] as $k => $v) {    
-                            foreach ($dayz as $sub => $day) {
-                                if($day == $k){
-                                    unset($_SESSION['card'][$key]['days'][$k]);
 
+                     if(empty($_SESSION['card']['3'])) {
+                           
+
+
+                            if (!isset($_SESSION['card'])) {
+                                $_SESSION['card'] = array();
+                            }
+                            if (count($_SESSION['card']) <= 1) {
+                                 $message = "L'abonnement à été ajouté au panier";
+                            if(!isset($_SESSION['card'][$subscribeid['0']])){
+                                $_SESSION['card'][$subscribeid['0']] = array ('subscription' => $product);
+                            }   
+                            foreach ($_SESSION['card'] as $key => $value) {
+                                if(!isset($_SESSION['card'][$key]['days'])){
+                                    $_SESSION['card'][$key]['days'] = array();
                                 }
-                                if (isset( $_SESSION['card'][$key]['days'])) {
-                                    if(isset($_SESSION['remove'])){
-                                          unset($_SESSION['card'][$key]['days']);
-                                          unset($_SESSION['remove']);
-                                        
+                                foreach ($_SESSION['card'][$key]['days'] as $k => $v) {    
+                                    foreach ($dayz as $sub => $day) {
+                                        if($day == $k){
+                                            unset($_SESSION['card'][$key]['days'][$k]);
+
+                                        }
+                                        if (isset( $_SESSION['card'][$key]['days'])) {
+                                            if(isset($_SESSION['remove'])){
+                                                  unset($_SESSION['card'][$key]['days']);
+                                                  unset($_SESSION['remove']);
+                                                
+                                            }
+                                        }
+                                        if (empty($_SESSION['card'][$key]['days'])) {
+                                            unset($_SESSION['card'][$key]['days']);
+                                        }
                                     }
                                 }
-                                if (empty($_SESSION['card'][$key]['days'])) {
-                                    unset($_SESSION['card'][$key]['days']);
-                                }
                             }
+                            foreach ($dayz as $key => $value) {
+                                         $_SESSION['card'][$subscribeid['0']]['days'][$value] = $request['request']['timepikr'.$key];
+
+                            }
+                       }else{
+                                    $message ="Deux abonnements maximum";
+                                
                         }
-                    }
-                    foreach ($dayz as $key => $value) {
-                        $_SESSION['card'][$subscribeid['0']]['days'][$value] = $request['request']['timepikr'.$key];
-                    }
+                           
+                    }else{
+                        $message = "Déja un abonnement de 5 jours est dans le panier";
+                          
+                     }
 
                     //$_SESSION[]
                     $tot = $this->setTotalCardPrice();
@@ -75,7 +93,7 @@ class CardController extends AbstractBaseController {
                             'view' => 'index.html.twig',
                             'product' => $product,
                             'methode' => 'showProductPage',
-                            'message' => "L'abonnement à été ajouté au panier",
+                            'message' => $message,
                             'id' => $product['id'],        
                             ];
                         }else{ 
@@ -194,11 +212,14 @@ class CardController extends AbstractBaseController {
         }
         
     }
+    public function setCalendar($request){
+
+    }
+
 
     public function setTotalCardPrice(){
     $this->total_price = '0';
         foreach ($_SESSION['card'] as $key => $value) {
-            var_dump($key);
             if (isset($_SESSION['card'][$key['price']])) {
                 $this->total_price = $this->total_price + $_SESSION['card'][$key]['price'];
         
