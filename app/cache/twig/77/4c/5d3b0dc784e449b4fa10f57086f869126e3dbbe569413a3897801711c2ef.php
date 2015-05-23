@@ -252,13 +252,29 @@ class __TwigTemplate_774c5d3b0dc784e449b4fa10f57086f869126e3dbbe569413a389780171
 
 \t<div class=\"\">
 
-\t\t\t<div class=\"row etap-bloc\">
+\t<div class=\"row etap-bloc overflow\">
 \t\t<div class=\"col-md-12 text-center\">
-\t\t\t<div>
-\t\t\t\t<div class=\"circle1\"></div>
-\t\t\t\t<div class=\"circle\"></div>
-\t\t\t\t<div class=\"circle\"></div>
-\t\t\t\t<div class=\"circle\"></div>
+\t\t\t<div class=\"row xxs\">
+\t\t\t<div class=\"x1 posx1 col-xs-2 col-xs-offset-2\">    
+\t\t\t\t<div class=\"x2\">
+    \t\t\t\t<span>lol dude</span>
+\t\t\t\t\t </div>
+\t\t\t\t</div>
+\t\t\t\t<div class=\"x1 posx1 col-xs-2\">    
+\t\t\t\t\t<div class=\"x2\">
+    \t\t\t\t\t<span>lol dude</span>
+\t\t\t\t\t \t</div>
+\t\t\t\t\t</div>
+\t\t\t<div class=\"x1 posx1 col-xs-2\">    
+\t\t\t\t<div class=\"x2\">
+    \t\t\t\t<span>lol dude</span>
+\t\t\t\t \t</div>
+\t\t\t\t</div>
+\t\t\t<div class=\"x1 posx1 col-xs-2\">    
+\t\t\t\t<div class=\"x2\">
+    \t\t\t\t<span>lol dude</span>
+\t\t\t\t </div>
+\t\t\t</div>
 \t\t\t</div>
 \t\t</div>
 \t</div>
@@ -270,59 +286,59 @@ class __TwigTemplate_774c5d3b0dc784e449b4fa10f57086f869126e3dbbe569413a389780171
 
 
 \t";
-        // line 139
+        // line 155
         echo "
 
 \t";
-        // line 141
+        // line 157
         if (((isset($context["methode"]) ? $context["methode"] : null) == "showProductPage")) {
-            // line 142
+            // line 158
             echo "
 \t";
-            // line 143
-            $this->loadTemplate("product/product_page.html.twig", "index.html.twig", 143)->display($context);
-            // line 144
+            // line 159
+            $this->loadTemplate("product/product_page.html.twig", "index.html.twig", 159)->display($context);
+            // line 160
             echo "
 \t";
         } else {
-            // line 146
+            // line 162
             echo "
 
 
 
 \t";
-            // line 151
+            // line 167
             echo "
 \t<div class=\"row abon-bloc text-center\">
 \t\t<div class=\"abon-bloc-img\">
 \t\t\t<div class=\"row abon-bloc-desc\">
-\t\t\t\t<div class=\"col-md-1 col-md-offset-2\">
+\t\t\t\t<div class=\"col-md-1 col-md-offset-2 col-xs-1 col-xs-offset-2\">
 \t\t\t\t\t<div class=\"row abon-title\">ABONNEMENT 1</div>
 \t\t\t\t\t<div class=\"row abon-desc\">Description blablbalba</div>
 \t\t\t\t\t<div class=\"row\"><form method=\"POST\" action=\"index.php?p=subscription&id=1\">
 \t\t\t\t\t\t\t\t\t \t<input type=\"hidden\" name=\"p\" value=\"subscription\">
 \t\t\t\t\t\t\t\t\t \t<input type=\"hidden\" name=\"id\" value=\"1\">
-\t\t\t\t\t\t\t\t\t\t<input type=\"submit\" value=\"Découvrir\" class=\"btnupdate large\">
+\t\t\t\t\t\t\t\t\t\t<input type=\"submit\" value=\"Découvrir\" class=\"btnupdate large subscribereplace\">
 \t\t\t\t\t\t\t\t\t</form>
 \t\t\t\t\t</div>
 \t\t\t\t</div>
-\t\t\t\t<div class=\"col-md-1 col-md-offset-2\">
+\t\t\t\t<div class=\"col-md-1 col-md-offset-2 col-xs-1 col-xs-offset-2\">
 \t\t\t\t\t<div class=\"row abon-title\">ABONNEMENT 2</div>
 \t\t\t\t\t<div class=\"row abon-desc\">Description blablbalba</div>
 \t\t\t\t\t<div class=\"row\"><form method=\"POST\" action=\"index.php?p=subscription&id=2\">
 \t\t\t\t\t\t\t\t\t \t<input type=\"hidden\" name=\"p\" value=\"subscription\">
 \t\t\t\t\t\t\t\t\t \t<input type=\"hidden\" name=\"id\" value=\"2\">
-\t\t\t\t\t\t\t\t\t\t<input type=\"submit\" value=\"Découvrir\" class=\"btnupdate large\">
+\t\t\t\t\t\t\t\t\t\t<input type=\"submit\" value=\"Découvrir\" class=\"btnupdate large subscribereplace\">
 \t\t\t\t\t\t\t\t\t</form>
 \t\t\t\t\t</div>
 \t\t\t\t</div>
-\t\t\t\t<div class=\"col-md-1 col-md-offset-2\">
+\t\t\t\t<div class=\"col-md-1 col-md-offset-2 col-xs-1 col-xs-offset-2\">
 \t\t\t\t\t<div class=\"row abon-title\">ABONNEMENT 3</div>
 \t\t\t\t\t<div class=\"row abon-desc\">Description blablbalba</div>
 \t\t\t\t\t<div class=\"row\">\t<form method=\"POST\" action=\"index.php?p=subscription&id=3\">
 \t\t\t\t\t\t\t\t\t\t \t<input type=\"hidden\" name=\"p\" value=\"subscription\">
 \t\t\t\t\t\t\t\t\t\t \t<input type=\"hidden\" name=\"id\" value=\"3\">
-\t\t\t\t\t\t\t\t\t\t\t<input type=\"submit\" value=\"Découvrir\" class=\"btnupdate large\">
+\t\t\t\t\t\t\t\t\t\t\t<input type=\"submit\" value=\"Découvrir\" class=\"btnupdate large subscribereplace\">
 \t\t\t\t\t\t\t\t\t\t</form>
 \t\t\t\t\t</div>
 \t\t\t\t</div>
@@ -331,53 +347,22 @@ class __TwigTemplate_774c5d3b0dc784e449b4fa10f57086f869126e3dbbe569413a389780171
 \t</div>
 
 \t";
-            // line 190
+            // line 206
             echo "\t<div class=\"row\">
 \t\t<div class=\"col-md-12 description-bloc\">
 \t\t\t<div class=\"row col-md-8 col-md-offset-2 db-center-bloc\">
 \t\t\t\t<div >
 \t\t\t\t\t<div class=\"row  db-title\">EN CE MOMENT</div>
-\t\t\t\t\t<div class=\"row\">
-\t\t\t\t\t\t<div class=\"col-md-3\">
-\t\t\t\t\t\t\t<div class=\"row\">
-\t\t\t\t\t\t\t\t<p class=\"article-title\">Article 1</p>
+\t\t\t\t\t<div>
+\t\t\t\t\t\t<div class=\"row imgmiam\">
+\t\t\t\t\t\t\t<div class=\"col-md-3 col-xs-3\">
+\t\t\t\t\t\t\t\t\t\t<p class=\"article-title\">Article 1</p>
+\t\t\t\t\t\t\t\t\t\t<p class=\"article-desc\">Ardeo, mihi credite, Patres conscripti (id quod vosmet de me existimatis et facitis ipsi) incredibili cum dimicatione quodam...</p>
 \t\t\t\t\t\t\t</div>
-\t\t\t\t\t\t\t<div class=\"row\">
-\t\t\t\t\t\t\t\t<p class=\"article-desc\">Ardeo, mihi credite, Patres conscripti (id quod vosmet de me existimatis et facitis ipsi) incredibili quodam amore patriae, qui me amor et subvenire olim impendentibus periculis maximis cum dimicatione quodam...</p>
+\t\t\t\t\t\t\t<div class=\"col-md-3 col-md-offset-6 col-xs-3 col-xs-offset-6\">
+\t\t\t\t\t\t\t\t\t\t<p class=\"article-title\">Article 1</p>
+\t\t\t\t\t\t\t\t\t\t<p class=\"article-desc\">Ardeo, mihi credite, Patres conscripti (id quod vosmet de me existimatis et facitis ipsi) incredibili quodam dimicatione quodam...</p>
 \t\t\t\t\t\t\t</div>
-\t\t\t\t\t\t\t<div class=\"row\"><img class=\"img-desc\" src=\"../web/images/asset/crepes.png\" alt=\"crepe\"></div>
-\t\t\t\t\t\t</div>
-
-\t\t\t\t\t\t<div class=\"col-md-2\">
-\t\t\t\t\t\t\t<img class=\"plat\" src=\"../web/images/asset/plat1.png\" alt=\"plat\">
-\t\t\t\t\t\t</div>
-
-\t\t\t\t\t\t<div class=\"col-md-2\">
-\t\t\t\t\t\t\t<div class=\"row\">
-\t\t\t\t\t\t\t\t<div class=\"col-md-12 green-square text-center\">
-\t\t\t\t\t\t\t\t\tdéjà
-\t\t\t\t\t\t\t\t\t<span class=\"big-number\">20</span>
-\t\t\t\t\t\t\t\t\theureux
-\t\t\t\t\t\t\t\t</div>
-\t\t\t\t\t\t\t\t<div class=\"col-md-12 sand-square text-center\">
-\t\t\t\t\t\t\t\t\tplus de
-\t\t\t\t\t\t\t\t\t<span class=\"big-number\">400</span>
-\t\t\t\t\t\t\t\t\tcombinaisons
-\t\t\t\t\t\t\t\t</div>
-\t\t\t\t\t\t\t</div>
-\t\t\t\t\t\t</div>
-\t\t\t\t\t\t<div class=\"col-md-2\">
-\t\t\t\t\t\t\t<img class=\"plat\"  src=\"../web/images/asset/salade.png\" alt=\"plat\">
-\t\t\t\t\t\t</div>
-
-\t\t\t\t\t\t<div class=\"col-md-3\">
-\t\t\t\t\t\t\t<div class=\"row\">
-\t\t\t\t\t\t\t\t<p class=\"article-title\">Article 1</p>
-\t\t\t\t\t\t\t</div>
-\t\t\t\t\t\t\t<div class=\"row\">
-\t\t\t\t\t\t\t\t<p class=\"article-desc\">Ardeo, mihi credite, Patres conscripti (id quod vosmet de me existimatis et facitis ipsi) incredibili quodam amore patriae, qui me amor et subvenire olim impendentibus periculis maximis cum dimicatione quodam...</p>
-\t\t\t\t\t\t\t</div>
-\t\t\t\t\t\t\t<div class=\"row\"><img class=\"img-desc\" src=\"../web/images/asset/crepes.png\" alt=\"crepe\"></div>
 \t\t\t\t\t\t</div>
 \t\t\t\t\t</div>
 \t\t\t\t</div>
@@ -388,11 +373,11 @@ class __TwigTemplate_774c5d3b0dc784e449b4fa10f57086f869126e3dbbe569413a389780171
 \t</div>
 
 \t";
-            // line 246
+            // line 231
             echo "\t<div class=\"row big-user-bloc text-center\">
 
 \t\t\t";
-            // line 249
+            // line 234
             echo "
 \t\t<div class=\"row last-meal-bloc\">
 \t\t\t<div class=\"row title-last-meal\">MON DERNIER REPAS:</div>
@@ -420,7 +405,7 @@ class __TwigTemplate_774c5d3b0dc784e449b4fa10f57086f869126e3dbbe569413a389780171
 \t\t</div>
 
 \t\t\t";
-            // line 276
+            // line 261
             echo "\t\t<div class=\"row proposition-day\">
 \t\t\t<div class=\"col-md-3 proposition-title\">
 \t\t\t\tAujourd'hui nous vous proposons:
@@ -439,7 +424,7 @@ class __TwigTemplate_774c5d3b0dc784e449b4fa10f57086f869126e3dbbe569413a389780171
 \t\t</div>
 
 \t\t\t";
-            // line 294
+            // line 279
             echo "
 \t\t<div class=\"row\">
 \t\t\t<div class=\"row col-md-10 col-md-offset-2 like-title text-left\">Aimez vous manger?</div>
@@ -458,12 +443,12 @@ class __TwigTemplate_774c5d3b0dc784e449b4fa10f57086f869126e3dbbe569413a389780171
 
 
 \t\t\t";
-            // line 312
+            // line 297
             echo "
 \t\t";
-            // line 313
+            // line 298
             $context["foo"] = "bar";
-            // line 314
+            // line 299
             echo "
 \t\t<div class=\"row calendar-bloc col-md-12\">
 \t\t\t<div class=\"row calendar-title text-left col-md-offset-2\">Mes repas</div>
@@ -512,7 +497,7 @@ class __TwigTemplate_774c5d3b0dc784e449b4fa10f57086f869126e3dbbe569413a389780171
 
 
 \t";
-            // line 362
+            // line 347
             echo "
 \t<div class=\"row text-center bottombarr\">
 \t\t<div class=\"col-md-12\">
@@ -525,15 +510,15 @@ class __TwigTemplate_774c5d3b0dc784e449b4fa10f57086f869126e3dbbe569413a389780171
 \t\t\t<div class=\"col-md-5\">
 \t\t\t\t<p class=\"footer-titles\">Restez connectés</p>
 \t\t\t\t<img class=\"footer-logo\" src=\"";
-            // line 373
+            // line 358
             echo twig_escape_filter($this->env, (isset($context["root_path"]) ? $context["root_path"] : null), "html", null, true);
             echo "/newproject/web/images/asset/logo-iphone.png\">
 \t\t\t\t<img class=\"footer-logo\" src=\"";
-            // line 374
+            // line 359
             echo twig_escape_filter($this->env, (isset($context["root_path"]) ? $context["root_path"] : null), "html", null, true);
             echo "/newproject/web/images/asset/logo-android.png\">
 \t\t\t\t<img class=\"footer-logo\" src=\"";
-            // line 375
+            // line 360
             echo twig_escape_filter($this->env, (isset($context["root_path"]) ? $context["root_path"] : null), "html", null, true);
             echo "/newproject/web/images/asset/FACEBOOK-bottom.png\">
 \t\t\t\t<p class=\"download-app\">TÉLÉCHARGER L’APPLICATION</p>
@@ -556,7 +541,7 @@ class __TwigTemplate_774c5d3b0dc784e449b4fa10f57086f869126e3dbbe569413a389780171
 
 \t";
         }
-        // line 395
+        // line 380
         echo "
 \t</div>
 </div>
@@ -582,6 +567,6 @@ class __TwigTemplate_774c5d3b0dc784e449b4fa10f57086f869126e3dbbe569413a389780171
 
     public function getDebugInfo()
     {
-        return array (  568 => 31,  560 => 395,  537 => 375,  533 => 374,  529 => 373,  516 => 362,  467 => 314,  465 => 313,  462 => 312,  443 => 294,  424 => 276,  396 => 249,  392 => 246,  335 => 190,  295 => 151,  289 => 146,  285 => 144,  283 => 143,  280 => 142,  278 => 141,  274 => 139,  250 => 116,  246 => 114,  244 => 113,  241 => 112,  237 => 110,  235 => 109,  232 => 108,  230 => 107,  227 => 106,  225 => 105,  222 => 104,  220 => 103,  217 => 102,  215 => 101,  212 => 100,  210 => 99,  207 => 98,  205 => 97,  202 => 96,  200 => 95,  197 => 94,  195 => 93,  192 => 92,  190 => 91,  185 => 88,  178 => 83,  176 => 82,  171 => 80,  161 => 72,  155 => 70,  153 => 69,  150 => 68,  144 => 66,  141 => 65,  135 => 63,  127 => 61,  124 => 60,  122 => 59,  118 => 57,  112 => 55,  109 => 54,  101 => 52,  99 => 51,  92 => 50,  89 => 49,  87 => 48,  80 => 44,  72 => 39,  67 => 37,  63 => 36,  55 => 31,  49 => 28,  20 => 1,);
+        return array (  553 => 31,  545 => 380,  522 => 360,  518 => 359,  514 => 358,  501 => 347,  452 => 299,  450 => 298,  447 => 297,  428 => 279,  409 => 261,  381 => 234,  377 => 231,  351 => 206,  311 => 167,  305 => 162,  301 => 160,  299 => 159,  296 => 158,  294 => 157,  290 => 155,  250 => 116,  246 => 114,  244 => 113,  241 => 112,  237 => 110,  235 => 109,  232 => 108,  230 => 107,  227 => 106,  225 => 105,  222 => 104,  220 => 103,  217 => 102,  215 => 101,  212 => 100,  210 => 99,  207 => 98,  205 => 97,  202 => 96,  200 => 95,  197 => 94,  195 => 93,  192 => 92,  190 => 91,  185 => 88,  178 => 83,  176 => 82,  171 => 80,  161 => 72,  155 => 70,  153 => 69,  150 => 68,  144 => 66,  141 => 65,  135 => 63,  127 => 61,  124 => 60,  122 => 59,  118 => 57,  112 => 55,  109 => 54,  101 => 52,  99 => 51,  92 => 50,  89 => 49,  87 => 48,  80 => 44,  72 => 39,  67 => 37,  63 => 36,  55 => 31,  49 => 28,  20 => 1,);
     }
 }

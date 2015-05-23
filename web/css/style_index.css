@@ -13,6 +13,46 @@ display: none;}
 .large{
   width:150px;
 }
+.imgmiam{
+    background-image: url("./../images/asset/miam.png");
+    background-size: 100% 100%;
+    height:225px;
+}
+
+.x1 {
+    overflow:hidden;
+}
+.x1 .x2 {
+    display:block;
+    float:left;
+    padding: 43.5%;
+    width:auto;
+    height:auto;
+    border-radius:50%;
+    -moz-border-radius:50%;
+    -webkit-border-radius:50%;
+    -khtml-border-radius: 50%;
+    background:#eee;
+    text-align:center;
+    position: relative;
+}
+.x1 .x2 span {
+    position: absolute;
+    width: 100%;
+    left: 0;
+    top: 48%;
+    line-height: 1em;
+    height: 1em;
+    font-size: 100%;
+    overflow: hidden;
+}​
+.posx1{
+   
+}
+.xxs{
+    height: 200px;
+}
+
 .rotate{
     margin-top: -35px;
     padding: 17px 17px 17px 17px;
@@ -228,20 +268,69 @@ display: none;
 .logoutlink{
     margin-right:20px;
 }
+.posx1{
+    margin-top: 30px;
+}
 
+@media screen and (max-width:620px) {
+    .overflow {
+    height: 150px; /* hauteur de la zone tronquée, à ajuster en fonction du besoin */
+    overflow: hidden;
+    position: relative;
+}
+.overflow:after {
+    content: ""; /* pour créer un élément fantôme */
+    pointer-events: none; /* pour que l'élément n'empêche pas la sélection de texte (navigateurs supportant cette propriété) */
+    width: 100%; /* pour que l'élément fantôme couvre la largeur entière et 30% de la hauteur */
+    height: 30%;
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    /* lignes suivantes : dégradé vertical de blanc transparent vers blanc opaque (navigateurs supportant les dégradés CSS, navigateurs supportant les couleurs rgba */
+    background: -webkit-linear-gradient(rgba(255,255,255,0), rgba(255,255,255,1));
+    background: -moz-linear-gradient(rgba(255,255,255,0), rgba(255,255,255,1));
+    background: -ms-linear-gradient(rgba(255,255,255,0), rgba(255,255,255,1));
+    background: -o-linear-gradient(rgba(255,255,255,0), rgba(255,255,255,1));
+    background: linear-gradient(rgba(255,255,255,0), rgba(255,255,255,1));
+}
+}
 @media screen and (max-width:511px) {
     .logoutlink{
         left:-120px;
         margin-top:30px;
     }
+    .etap-bloc{
+        height:80px;
+    }
+    .abon-bloc-img {
+        height: 250px;
+    }
+    .subscribereplace{
+        display: none;
+}
+}
+@media screen and (max-width:991px) and (min-width:511px) {
+    .abon-bloc-img {
+        height: 430px;
+    }
+    .subscribereplace{
+        margin-top: 373px;
+        margin-left: -10px;
+        width:120px;
+    }
 }
 @media screen and (max-width:991px) {
+    .abon-desc{display: none;}
+    .abon-title{display:none;}
     .topbarr{
         height: 100px;
         background-image: url("./../images/asset/ardoiseextended.png");
         background-size: 100% 100%;
 
     }
+    .posx1{
+    margin-top: 40px;
+}
     .itemloglink{
         width:40%;
         display: inline;
@@ -274,6 +363,9 @@ display: none;
     }
     .circle{
       height:50px;
+    }
+    .etap-bloc{
+        height:160px;
     }
 }
 
@@ -414,14 +506,12 @@ display: none;
 
 .abon-bloc {
     background-color: #4b9f78;
-
 }
 
 /*Etap*/
 
 .etap-bloc {
     background-color: #4b9f78;
-    height: 250px;
 }
 .circle1 {
     height: 200px;
@@ -447,14 +537,15 @@ display: none;
 
 .abon-bloc {
     background-color: #f5f5ef;
-    height: 800px;
+    height: 680px;
 
 }
 
 .abon-bloc-img {
+    width: 70%;
     background-image: url("./../images/asset/photoaccueil1.png");
-    width: 870px;
-    height: 636px;
+    background-size: 100% 100%;
+    
     margin-left: auto;
     margin-right: auto;
     margin-top: 66px;
@@ -617,7 +708,8 @@ display: none;
 
 .last-meal-bloc {
     background-image: url("./../images/asset/lastMeal.png");
-    width: 1137px;
+    background-size: 100% 100%;
+    width: 100%;
     height: 279px;
     display: inline-block;
     margin-top: 35px;
