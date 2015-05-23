@@ -372,5 +372,8 @@ class UserController extends AbstractBaseController {
          }
     }
 
+    public function dump(){
+        var_dump($_SESSION,$_SESSION['card']);die;
+    }
 
 }

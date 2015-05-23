@@ -69,6 +69,7 @@ if(isset($response['view'])){							//if i've got a response from controller the
 	unset($response['view']);							//unset unused view
 	if(isset($_SESSION['email_address'])){					//for user to see his profil name and profil picture if session is set
 		$response['email_address'] = $_SESSION['email_address'] ;
+		$response['session'] = $_SESSION;
 		if(strlen($_SESSION['email_address']) > 16){
 			$response['email_address_shortened'] = substr($_SESSION['email_address'], 0, 16 ).'...';
 		}
@@ -83,6 +84,7 @@ if(isset($response['view'])){							//if i've got a response from controller the
 	if(isset($_SESSION['email_address'])){					//for user to see his profil name and profil picture if session is set
 		$response['email_address'] = $_SESSION['email_address'] ;
 		$response['methode'] = 'indexConnected';
+		$response['session'] = $_SESSION;
 		if(strlen($_SESSION['email_address']) > 16){
 			$response['email_address_shortened'] = substr($_SESSION['email_address'], 0, 16 ).'...';
 		}

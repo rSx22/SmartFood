@@ -7,60 +7,104 @@ use Model\Product;
  
 class CardController extends AbstractBaseController {
     protected $total_price;
+    protected $card;
   
     public function addToCard($request){ // chk if session user is set or /else display the error as 'message'
             $conn = AbstractBaseController::createConn();
             $productModel = new product($conn);
-                if(isset($_SESSION['productid']) && !empty($request['request']['daychoice'])) {  
-                    $dayz = explode(',',$request['request']['daychoice']);
-                    if (count($dayz) <= 3) { 
 
-                         $_SESSION['card'][$_SESSION['productid']] = $_SESSION['product'][$_SESSION['productid']];
+            if (isset($request['request']['id'])) {
+                $product  = $productModel->getProductById($request['request']['id']);
+            }
+            if(( in_array('Envoyer' , $request['request']) && !empty($request['request']['daychoice'])) or isset($_SESSION['remove']) ) {  
 
-                        foreach ($dayz as $key => $value) {
-                            $_SESSION['card'][$_SESSION['productid']]['days'][$value] = $request['request']['timepikr'.$key];
-                        }
-
-                        $_SESSION['product'] = array();
-                        //$_SESSION[]
-                       var_dump($_SESSION['card']);die;
-                        $tot = $this->setTotalCardPrice();
-
-
-                        return [
-                                'total_price' => $tot,
-                                'view' => 'card/listCard.html.twig',
-                                'products' => $_SESSION['card'],
-                                'methode' => 'addedToCard',
-                                'message' => 'Product added to card',
-                                'id' => $_SESSION['productid'],             
-                                ];
-                    }else{
-                        return [
-                    'view' => 'index.html.twig',
-                    'product' => $_SESSION['product'][$_SESSION['productid']],
-                    'methode' => 'showProductPage',
-                    'message' => "Trop de jours sont séléctionné",
-                    'id' => $_SESSION['productid'],
-                    
-                    ];
-                    }
+                if (isset($_SESSION['remove'])) {
+                    $subscribeid = $_SESSION['remove'];
                 }else{
-                     return [
-                    'view' => 'index.html.twig',
-                    'product' => $_SESSION['product'][$_SESSION['productid']],
-                    'methode' => 'showProductPage',
-                    'message' => "Veuillez selectionner les jours d'abonnement",
-                    'id' => $_SESSION['productid'],        
-                    ];
+                $subscribeid = array_keys($request['request'], 'Envoyer');
                 }
+                $dayz = explode(',',$request['request']['daychoice']);
+                
+                if ($subscribeid['0'] == 1) {
+                    $dayNumber = 1;
+                } else if ($subscribeid['0'] == 2) {
+                    $dayNumber = 3;
+                } else if ($subscribeid['0'] == 3) {
+                    $dayNumber = 5;
+                }
+                $product  = $productModel->getProductById($subscribeid['0']);
+                if (count($dayz) == $dayNumber) { 
+                    if (!isset($_SESSION['card'])) {
+                        $_SESSION['card'] = array();
+                    }
+                    if(!isset($_SESSION['card'][$subscribeid['0']])){
+                        $_SESSION['card'][$subscribeid['0']] = array ('subscription' => $product);
+                    }   
+                    foreach ($_SESSION['card'] as $key => $value) {
+                        if(!isset($_SESSION['card'][$key]['days'])){
+                            $_SESSION['card'][$key]['days'] = array();
+                        }
+                        foreach ($_SESSION['card'][$key]['days'] as $k => $v) {    
+                            foreach ($dayz as $sub => $day) {
+                                if($day == $k){
+                                    unset($_SESSION['card'][$key]['days'][$k]);
+
+                                }
+                                if (isset( $_SESSION['card'][$key]['days'])) {
+                                    if(isset($_SESSION['remove'])){
+                                          unset($_SESSION['card'][$key]['days']);
+                                          unset($_SESSION['remove']);
+                                        
+                                    }
+                                }
+                                if (empty($_SESSION['card'][$key]['days'])) {
+                                    unset($_SESSION['card'][$key]['days']);
+                                }
+                            }
+                        }
+                    }
+                    foreach ($dayz as $key => $value) {
+                        $_SESSION['card'][$subscribeid['0']]['days'][$value] = $request['request']['timepikr'.$key];
+                    }
+
+                    //$_SESSION[]
+                    $tot = $this->setTotalCardPrice();
+
+                   
+                    return [
+                            'view' => 'index.html.twig',
+                            'product' => $product,
+                            'methode' => 'showProductPage',
+                            'message' => "L'abonnement à été ajouté au panier",
+                            'id' => $product['id'],        
+                            ];
+                        }else{ 
+                    return [
+                'view' => 'index.html.twig',
+                'product' => $product,
+                'methode' => 'showProductPage',
+                'message' => "Veuillez selectionner ".$dayNumber." jours d'abonnement",
+                'id' => $product['id'],
+                
+                ];
+                }
+                }else{
+                    return [
+                'view' => 'index.html.twig',
+                'product' => $product,
+                'methode' => 'showProductPage',
+                'message' => "Veuillez selectionner les jours d'abonnement",
+                'id' => $request['request']['id'],
+                ];
+                }
+                
     }
 
     public function listCard($request){
         if(isset($_SESSION['card'])){
             $tot = $this->setTotalCardPrice();
             return [
-                    'view' => 'card/listCard.html.twig',
+                    'view' => 'index/listCard.html.twig',
                     'products' => $_SESSION['card'],
                     'methode' => 'addedToCard',
                     'message' => '',
@@ -83,28 +127,11 @@ class CardController extends AbstractBaseController {
 
     public function deleteProductCard($request){
         if(isset($_SESSION['card'])){
-                if(array_key_exists( $request['query']['id'], $_SESSION['card'])){
-                    unset($_SESSION['card'][$request['query']['id']]);
+                if(array_key_exists( $request['request']['id'], $_SESSION['card'])){
+                    unset($_SESSION['card'][$request['request']['id']]);
                 }
             $tot = $this->setTotalCardPrice();
-            return [
-                    'view' => 'card/listCard.html.twig',
-                    'products' => $_SESSION['card'],
-                    'methode' => 'addedToCard',
-                    'message' => 'removed from card',
-                    'total_price' => $tot
-                    
-                    ];
-
-        }else{
-            return [
-                    'view' => 'card/notify.html.twig',
-                    //'product' => $product,
-                    'methode' => 'listCard',
-                    'message' => 'Your card is empty'
-                    
-                    ];
-
+            
         }
         
     }
@@ -171,8 +198,14 @@ class CardController extends AbstractBaseController {
     public function setTotalCardPrice(){
     $this->total_price = '0';
         foreach ($_SESSION['card'] as $key => $value) {
-            $this->total_price = $this->total_price + ($_SESSION['card'][$key]['price'] * $_SESSION['card'][$key]['quantite'] );
+            var_dump($key);
+            if (isset($_SESSION['card'][$key['price']])) {
+                $this->total_price = $this->total_price + $_SESSION['card'][$key]['price'];
+        
+            }
+                # code...
         }
+            
     return $this->total_price;
     }
 }
