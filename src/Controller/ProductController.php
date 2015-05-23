@@ -24,14 +24,17 @@ class ProductController extends AbstractBaseController {
     public function showSubscribeMode($request){
         $conn = AbstractBaseController::createConn();
         $productModel = new product($conn);
-        $product  = $productModel->getProductById($request['query']['id']);
-            return [
-                'view' => 'index.html.twig',
-                'product' => $product,
-                'methode' => 'showProductPage',
-                //'message' => 'productname : '.$product.' dont exist Table products'
-                'id' => $product['id'],
-                ];
+        $product  = $productModel->getProductById($request['request']['id']);
+        if(isset($request['request']['remove'])){
+            $_SESSION['remove'] = $request['request']['remove'];                                    
+        }
+        return [
+            'view' => 'index.html.twig',
+            'product' => $product,
+            'methode' => 'showProductPage',
+            //'message' => 'productname : '.$product.' dont exist Table products'
+            'id' => $product['id'],
+            ];
     }
 
     public function showProductAction($request) {

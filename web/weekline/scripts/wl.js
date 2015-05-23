@@ -16,6 +16,14 @@ $('#timepicker2').timepicker();
 $('#timepicker2').on('changeTime', function() {
     $('#daytimechoice2').text($(this).val());
 });
+$('#timepicker3').timepicker();
+$('#timepicker3').on('changeTime', function() {
+    $('#daytimechoice3').text($(this).val());
+});
+$('#timepicker4').timepicker();
+$('#timepicker4').on('changeTime', function() {
+    $('#daytimechoice4').text($(this).val());
+});
 
 $('#btnSelect').click(doSelect);
 function doSelect()
@@ -30,7 +38,7 @@ function doSelect()
 	$('#time'+2).css( "display", "none" );
 	$('#time'+3).css( "display", "none" );
 	$('#time'+4).css( "display", "none" );
-	$('#time'+5).css( "display", "none" );
+
 
 	var arrdayz = $("#weekCal").weekLine('getSelected', 'dayLabels').split(",");
 
@@ -41,7 +49,6 @@ function doSelect()
 
 	var subscriptionid = $('#btnSelect').data('id');
 	var dayNumber = 0;
-	alert(subscriptionid);
 	if (subscriptionid == 1) {
 		dayNumber = 1;
 	} else if (subscriptionid == 2) {
@@ -49,8 +56,8 @@ function doSelect()
 	} else if (subscriptionid == 3) {
 		dayNumber = 5;
 	}
-	if (iterator <= dayNumber ) {
-	     $( ":input[name='butnform']" ).css( "display", "inline-block" );
+	if (iterator <= dayNumber  ) {
+	     $( ".btnform" ).css( "display", "inline-block" );
 	     $( '#return' ).text('');
 
 	arrdayz.forEach(function (élément, index) {

@@ -18,10 +18,10 @@ class __TwigTemplate_b227e83caa343cb0617fbebf328ffe38046bfe2953743ec726c4ea3e190
     {
         // line 1
         $this->displayBlock('body', $context, $blocks);
-        // line 49
+        // line 48
         echo "
  <script src=\"";
-        // line 50
+        // line 49
         echo twig_escape_filter($this->env, (isset($context["url_path"]) ? $context["url_path"] : null), "html", null, true);
         echo "/newproject/web/weekline/scripts/wl.js\"></script>";
     }
@@ -104,14 +104,16 @@ class __TwigTemplate_b227e83caa343cb0617fbebf328ffe38046bfe2953743ec726c4ea3e190
 <div id=\"time2\"> <div id=\"timename2\"></div><input type=\"text\" id=\"timepicker2\" name=\"timepikr2\"><span id=\"daytimechoice2\"></span></div><br>
 <div id=\"time3\"> <div id=\"timename3\"></div><input type=\"text\" id=\"timepicker3\" name=\"timepikr3\"><span id=\"daytimechoice3\"></span></div><br>
 <div id=\"time4\"> <div id=\"timename4\"></div><input type=\"text\" id=\"timepicker4\" name=\"timepikr4\"><span id=\"daytimechoice4\"></span></div><br>
-<div id=\"time5\"> <div id=\"timename5\"></div><input type=\"text\" id=\"timepicker5\" name=\"timepikr5\"><span id=\"daytimechoice5\"></span></div><br>
-<input type=\"submit\" value=\"Envoyer\" name=\"butnform\" class=\"btnform\"><span id=\"return\"></span>
+<input type=\"submit\" value=\"Envoyer\" name=\"";
+            // line 35
+            echo twig_escape_filter($this->env, (isset($context["id"]) ? $context["id"] : null), "html", null, true);
+            echo "\" class=\"btnform\"><span id=\"return\"></span>
 </form>
 
 ";
-        } elseif ((        // line 39
+        } elseif ((        // line 38
 (isset($context["methode"]) ? $context["methode"] : null) == "showDelProductPage")) {
-            // line 40
+            // line 39
             echo "
 \t<form method=\"POST\" action=\"index.php?p=del_item\"> 
 \tHow much<input type=\"number\" name=\"nbrproduct\" min=\"0\">
@@ -120,7 +122,7 @@ class __TwigTemplate_b227e83caa343cb0617fbebf328ffe38046bfe2953743ec726c4ea3e190
 
 ";
         }
-        // line 47
+        // line 46
         echo twig_escape_filter($this->env, (isset($context["message"]) ? $context["message"] : null), "html", null, true);
         echo "
 ";
@@ -138,6 +140,6 @@ class __TwigTemplate_b227e83caa343cb0617fbebf328ffe38046bfe2953743ec726c4ea3e190
 
     public function getDebugInfo()
     {
-        return array (  124 => 47,  115 => 40,  113 => 39,  95 => 24,  91 => 22,  89 => 21,  85 => 19,  77 => 17,  75 => 16,  70 => 14,  66 => 13,  62 => 12,  58 => 11,  53 => 9,  49 => 8,  42 => 4,  38 => 3,  33 => 2,  30 => 1,  25 => 50,  22 => 49,  20 => 1,);
+        return array (  126 => 46,  117 => 39,  115 => 38,  109 => 35,  95 => 24,  91 => 22,  89 => 21,  85 => 19,  77 => 17,  75 => 16,  70 => 14,  66 => 13,  62 => 12,  58 => 11,  53 => 9,  49 => 8,  42 => 4,  38 => 3,  33 => 2,  30 => 1,  25 => 49,  22 => 48,  20 => 1,);
     }
 }

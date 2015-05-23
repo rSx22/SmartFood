@@ -51,3 +51,6 @@ removeincard:
 
 card_list:
   controller: Controller\CardController:listCard
+
+statsdump:
+  controller: Controller\UserController:dump

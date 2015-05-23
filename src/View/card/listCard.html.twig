@@ -1,23 +1,69 @@
 {% block body %}
 	Vos abonnements
-	<div> Total card price : {{total_price}}€
-	</div>
 	<br>
-	{% for key, product in products %}
-		<div style="border: 1px solid;">
-		{% if product.path_image!= null %}
-			<img src="{{url_path}}/newproject/web/{{product.path_image}}" style="width:80px;height:80px;"> 
-		{% endif %}
-	     {{product.name}} : {{product.price}}€, Quantite : 
-	     	{% if product.quantite is empty or product.quantite == '0'  %}
-	     		Don't forget to set {{product.name}}'s quantite
+
+		{% for sub, info in session.card %}
+
+			<div style="border: 1px solid;">
+
+			{% if info.subscription.path_image!= null %}
+
+				<img src="{{url_path}}/newproject/web/{{info.subscription.path_image}}" style="width:80px;height:80px;"> 
+
+			{% endif %}
+
+		     
+			{% if info.subscription.name!=null %}
+
+			{{info.subscription.name}} : {{info.subscription.price}}€
+
+			
+	
+
+
+		     <br>
+		     <form method="POST" action="index.php?p=subscription">
+		 		<input type="hidden" name="p" value="subscription">
+		 		<input type="hidden" name="id" value="{{info.subscription.id}}">
+		 		<input type="hidden" name="remove" value="{{info.subscription.id}}">
+				<input type="submit" value="Modifier les jours de livraison" class="btnupdate btnupdatereplace">
+			</form>
+			<form method="POST" action="?p=removeincard">
+		 		<input type="hidden" name="p" value="subscription">
+		 		<input type="hidden" name="id" value="{{info.subscription.id}}">
+		 		<input type="hidden" name="remove" value="{{info.subscription.id}}">
+				<input type="submit" value="Supprimer du panier" class="btnupdate btnupdatereplace">
+			</form>
+
+
+			<br>
+
+			{% else %}
+
+			Le panier est vide
+
+			{% endif %}
+
+
+		     
+
+
+		{% for day, hour in info.days %}
+
+			{% if day is empty %}
+
+	     		N'oubliez pas de saisir les jours auxquelles vous desirez etre livrer {{info.subscription.name}}'s quantite
 	     	{% else %}
-	     		{{product.quantite}} 
+
+
 	     	{% endif %}
-	     <br>
-	     <a href ="{{url_path}}/newproject/web/index.php?p=addtocard&id={{key}}">add more to card</a><br> 
-	     <a href ="{{url_path}}/newproject/web/index.php?p=removeincard&id={{key}}">remove from card</a><br> 
-	      <a href ="{{url_path}}/newproject/web/index.php?p=del_item&id={{key}}">lower quantite from card</a><br> 
-	     </div>
-	{% endfor %}
+		{% endfor %}
+		{% endfor %}
+
+
+</div>
+
+
+
+
 {% endblock %}

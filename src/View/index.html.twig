@@ -109,21 +109,24 @@
 	</div>
 
 	<div class="container">
-	<form method="GET" action="index.php">
+	<form method="POST" action="index.php?p=subscription&id=1">
 		 	<input type="hidden" name="p" value="subscription">
 		 	<input type="hidden" name="id" value="1">
 			<input type="submit" value="Abo 1 page" class="btnupdate btnupdatereplace">
 	</form>
-	<form method="GET" action="index.php">
+	<form method="POST" action="index.php?p=subscription&id=2">
 		 	<input type="hidden" name="p" value="subscription">
 		 	<input type="hidden" name="id" value="2">
 			<input type="submit" value="Abo 2 page" class="btnupdate btnupdatereplace">
 	</form>
-	<form method="GET" action="index.php">
+	<form method="POST" action="index.php?p=subscription&id=3">
 		 	<input type="hidden" name="p" value="subscription">
 		 	<input type="hidden" name="id" value="3">
 			<input type="submit" value="Abo 3 page" class="btnupdate btnupdatereplace">
 	</form>
+				<form method="POST" action="?p=statsdump">
+				<input type="submit" value="dump session request" class="btnupdate btnupdatereplace">
+			</form>
 
 
 
