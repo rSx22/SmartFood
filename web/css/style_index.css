@@ -482,14 +482,26 @@ display: none;
 }
 
 .img-desc {
-    height: 133px;
+    height: 135px;
     width: 195px;
+    background-image:  url("./../images/asset/crepes.png");
+    background-size: 100% 100%;
+
 }
 
 .plat {
     height: 260px;
     width: 130px;
     margin-left: auto;
+    background-image:  url("./../images/asset/salade.png");
+    background-size: 100% 100%;
+}
+.plat2 {
+    height: 260px;
+    width: 130px;
+    margin-left: auto;
+    background-image:  url("./../images/asset/plat1.png");
+    background-size: 100% 100%;
 }
 
 .green-square {
