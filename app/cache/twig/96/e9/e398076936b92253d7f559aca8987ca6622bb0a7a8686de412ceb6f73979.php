@@ -70,9 +70,10 @@ class __TwigTemplate_96e9e398076936b92253d7f559aca8987ca6622bb0a7a8686de412ceb6f
 \t\t\t<input type=\"submit\" value=\"Mettre à jour\" class=\"btnupdate btnupdatereplace\">
 \t\t</form>
 \t</div>
+</div>
 
 ";
-        // line 30
+        // line 31
         echo twig_escape_filter($this->env, (isset($context["message"]) ? $context["message"] : null), "html", null, true);
         echo "
 ";
@@ -85,6 +86,6 @@ class __TwigTemplate_96e9e398076936b92253d7f559aca8987ca6622bb0a7a8686de412ceb6f
 
     public function getDebugInfo()
     {
-        return array (  76 => 30,  55 => 12,  51 => 11,  47 => 10,  41 => 7,  35 => 6,  31 => 5,  26 => 2,  20 => 1,);
+        return array (  77 => 31,  55 => 12,  51 => 11,  47 => 10,  41 => 7,  35 => 6,  31 => 5,  26 => 2,  20 => 1,);
     }
 }

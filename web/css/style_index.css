@@ -1,3 +1,4 @@
+@font-face {    font-family: "topbarfont";  src: url('Change Tomorrow Today.ttf'); }
 
 a{
     color:#34A7C1;
@@ -308,6 +309,10 @@ display: none;
     .subscribereplace{
         display: none;
 }
+.x1 .x2 {
+
+    padding: 65.5%;
+}
 }
 @media screen and (max-width:991px) and (min-width:511px) {
     .abon-bloc-img {
@@ -537,12 +542,13 @@ display: none;
 
 .abon-bloc {
     background-color: #f5f5ef;
-    height: 680px;
+    height: 670px;
 
 }
 
 .abon-bloc-img {
     width: 70%;
+    padding-bottom: 20px;
     background-image: url("./../images/asset/photoaccueil1.png");
     background-size: 100% 100%;
     

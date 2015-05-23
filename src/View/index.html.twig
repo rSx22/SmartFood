@@ -41,10 +41,21 @@
 
 		<div class="container row bar1">
 		  	<div class="row top-buffer2">
-			  <div class="col-md-3 col-md-offset-2 top-buffer1 text-center" ><a href ="{{url_path}}/newproject/web/index.php"><div class="logo" style ="width:200px;"></div></a></div>
+			  <div class="col-md-3 col-md-offset-2 top-buffer1 text-center" ><a href ="{{url_path}}/newproject/web/index.php"><div class="logo" style ="width:200px;"></div></a>
+				
+
+				<form method="POST" action="?p=statsdump">
+					<input type="submit" value="dump session request" class="btnupdate btnupdatereplace">
+				</form>
+
+
+
+			</div>
+
+
 			  <div class="col-md-5 col-md-offset-2 loglink text-center">
 				<div class="col-md-5 text-right itemloglink barloglink">
-					
+
 					{% if email_address is defined %}
 						{% if email_address|length < 16 %}
 						<a href ="{{url_path}}/newproject/web/index.php?p=user_page">{{email_address}}</a>
@@ -144,11 +155,6 @@
 			</div>
 		</div>
 	</div>
-
-				<form method="POST" action="?p=statsdump">
-				<input type="submit" value="dump session request" class="btnupdate btnupdatereplace">
-			</form>
-
 
 
 	{#Etap Bloc#}
