@@ -1,41 +1,43 @@
 <!DOCTYPE html>
-	<meta http-equiv="content-type" content="text/html; charset=utf-8" />
-	<meta http-equiv="content-language" content="fr-FR" />
-	<meta name='language' content='fr-FR'>
-	<meta name='revised' content='Saturday, May 16th, 2015, 5:15 pm'>
-	<meta name='category' content=''>
-	<meta name='coverage' content='Worldwide'>
-	<meta name='distribution' content='Global'>
-	<meta name='rating' content='General'>
-	<meta name='revisit-after' content='7 days'>
-	<meta name='pagename' content='Page Commercial de la marque restoklm'>
-	<meta name='author' content='TheophaneCusenza, theo.cusenza@free.fr'>
-	<meta name='target' content='all'>
-	<meta name='HandheldFriendly' content='True'>
-	<meta name='MobileOptimized' content='320'>
-	<meta http-equiv='Cache-Control' content='no-cache'>
-	<meta http-equiv='imagetoolbar' content='no'>
-	<meta http-equiv='x-dns-prefetch-control' content='off'>
-	<link rel="stylesheet" type="text/css" href="./../web/css/style_index.css">
-	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css">
+<meta http-equiv="content-type" content="text/html; charset=utf-8" />
+<meta http-equiv="content-language" content="fr-FR" />
+<meta name='language' content='fr-FR'>
+<meta name='revised' content='Saturday, May 16th, 2015, 5:15 pm'>
+<meta name='category' content=''>
+<meta name='coverage' content='Worldwide'>
+<meta name='distribution' content='Global'>
+<meta name='rating' content='General'>
+<meta name='revisit-after' content='7 days'>
+<meta name='designer' content='Clara Koscielniak, Amaury Vallot'>
+<meta name='pagename' content='Page Commercial de la marque restoklm'>
+<meta name='author' content='TheophaneCusenza, theo.cusenza@free.fr'>
+<meta name='target' content='all'>
+<meta name='HandheldFriendly' content='True'>
+<meta name='MobileOptimized' content='320'>
+<meta http-equiv='Cache-Control' content='no-cache'>
+<meta http-equiv='imagetoolbar' content='no'>
+<meta http-equiv='x-dns-prefetch-control' content='off'>
+<link rel="stylesheet" type="text/css" href="./../web/css/style_index.css">
+<link rel="stylesheet" type="text/css" href="./../web/css/fonts.css">
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css">
 
 <!-- Optional theme -->
-	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap-theme.min.css">
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap-theme.min.css">
 
 <!-- Latest compiled and minified JavaScript -->
-	<script src="{{url_path}}/newproject/vendor/components/jquery/jquery.min.js"></script>
-	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js"></script>
+<script src="{{url_path}}/newproject/vendor/components/jquery/jquery.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js"></script>
 
-	<title>{% block title %}Resto posé t'as vu{% endblock %}</title>
-	<body>
-	<div class="container">
-		<div class="row text-center topbarr">
-		  	<div class="col-md-5 col-md-offset-1 barsize">
-			  <div class="col-md-6 barsize top-buffer1"><a href="{{url_path}}/newproject/web/index.php?p=contact">Nous contacter</a></div>
-			  <div class="col-md-1 barsize top-buffer1 fblink"><a href="{{url_path}}/newproject/web/index.php?p=fb_page"><div class="linkfb" style="margin:auto;"></div></a></div>
-			</div>
-		  <div class="col-md-3 col-md-offset-2 barsize top-buffer1"><a href="{{url_path}}/newproject/web/index.php?p=help">Besoin d'aide ?</a></div>
+<title>{% block title %}Test Application{% endblock %}</title>
+<body>
+<div class="container">
+	<div class="row text-center topbarr">
+		<div class="col-md-5 col-md-offset-1 barsize">
+			<div class="col-md-6 barsize top-buffer1"><a href="{{url_path}}/newproject/web/index.php?p=contact">Nous contacter</a></div>
+			<div class="col-md-1 barsize top-buffer1"><a href="{{url_path}}/newproject/web/index.php?p=fb_page"><div class="linkfb" style="margin:auto;"></div></a></div>
 		</div>
+		<div class="col-md-3 col-md-offset-2 barsize top-buffer1"><a href="{{url_path}}/newproject/web/index.php?p=help">Besoin d'aide ?</a></div>
+	</div>
 
 		<div class="container row bar1">
 		  	<div class="row top-buffer2">
@@ -151,6 +153,30 @@
 		</div>
 	</div>
 
+	{#Abonnements#}
+
+	<div class="row abon-bloc text-center">
+		<div class="abon-bloc-img">
+			<div class="row abon-bloc-desc">
+				<div class="col-md-1 col-md-offset-2">
+					<div class="row abon-title">ABONNEMENT 1</div>
+					<div class="row abon-desc">Description blablbalba</div>
+					<div class="row"><button class="abon-btn">Découvrir</button></div>
+				</div>
+				<div class="col-md-1 col-md-offset-2">
+					<div class="row abon-title">ABONNEMENT 2</div>
+					<div class="row abon-desc">Description blablbalba</div>
+					<div class="row"><button class="abon-btn">Découvrir</button></div>
+				</div>
+				<div class="col-md-1 col-md-offset-2">
+					<div class="row abon-title">ABONNEMENT 3</div>
+					<div class="row abon-desc">Description blablbalba</div>
+					<div class="row"><button class="abon-btn">Découvrir</button></div>
+				</div>
+			</div>
+		</div>
+	</div>
+
 	{#Description Bloc#}
 	<div class="row">
 		<div class="col-md-12 description-bloc">
@@ -207,6 +233,121 @@
 		</div>
 	</div>
 
+	{#User Page#}
+	<div class="row big-user-bloc text-center">
+
+			{#Notation#}
+
+		<div class="row last-meal-bloc">
+			<div class="row title-last-meal">MON DERNIER REPAS:</div>
+			<div class="row last-meal-lines">
+				<div class="col-md-1 col-md-offset-2 last-meal-titles-like">Qualité:</div>
+				<div class="col-md-2 last-meal-choices-like"><img src="./../web/images/asset/smiley-sad.png" alt="smiley"> J'aime pas</div>
+				<div class="col-md-2 last-meal-choices-like"><img src="./../web/images/asset/smiley-soso.png" alt="smiley"> Moyen</div>
+				<div class="col-md-2 last-meal-choices-like"><img src="./../web/images/asset/smiley-happy.png" alt="smiley"> J'aime</div>
+				<div class="col-md-2 last-meal-choices-like"><img src="./../web/images/asset/smiley-happy.png" alt="smiley"> J'aime beaucoup</div>
+			</div>
+			<div class="row last-meal-lines">
+				<div class="col-md-1 col-md-offset-2 last-meal-titles-like">Nourrissant:</div>
+				<div class="col-md-2 last-meal-choices-like"><img src="./../web/images/asset/smiley-sad.png" alt="smiley"> Pas assez</div>
+				<div class="col-md-2 last-meal-choices-like"><img src="./../web/images/asset/smiley-happy.png" alt="smiley"> Parfait</div>
+				<div class="col-md-2 last-meal-choices-like"><img src="./../web/images/asset/smiley-soso.png" alt="smiley"> Trop consistant</div>
+			</div>
+			<div class="row last-meal-lines">
+				<div class="col-md-1 col-md-offset-2 last-meal-titles-like">Varié:</div>
+				<div class="col-md-2 last-meal-choices-like"><img src="./../web/images/asset/smiley-sad.png" alt="smiley"> Pas assez</div>
+				<div class="col-md-2 last-meal-choices-like"><img src="./../web/images/asset/smiley-soso.png" alt="smiley"> Assez</div>
+				<div class="col-md-2 last-meal-choices-like"><img src="./../web/images/asset/smiley-happy.png" alt="smiley"> Parfait</div>
+				<div class="col-md-2 last-meal-choices-like"><img src="./../web/images/asset/smiley-soso.png" alt="smiley"> Trop varié</div>
+			</div>
+
+		</div>
+
+			{#Proposition#}
+		<div class="row proposition-day">
+			<div class="col-md-3 proposition-title">
+				Aujourd'hui nous vous proposons:
+			</div>
+			<div class="col-md-3 proposition-polaroid">
+				<img class="row tape"  src="../web/images/asset/tape.png" alt="tape">
+				<div class="row meal-desc">Salade</div>
+			</div>
+			<div class="col-md-1 ">
+				<button class="btn proposition-btn"><span class="glyphicon glyphicon-refresh"></span></button>
+			</div>
+			<div class="col-md-3 proposition-polaroid">
+				<img class="row tape" src="../web/images/asset/tape.png" alt="tape">
+				<div class="row meal-desc">Salade</div>
+			</div>
+		</div>
+
+			{#Do you like#}
+
+		<div class="row">
+			<div class="row col-md-10 col-md-offset-2 like-title text-left">Aimez vous manger?</div>
+			<div class="row like-bloc">
+				<div class="img-like col-md-4 col-md-offset-2"></div>
+				<div class="like-rate col-md-4 text-left">
+					<div class="row rate-item col-md-offset-1">J'adore</div>
+					<div class="row rate-item col-md-offset-1">J'aime pas</div>
+					<div class="row rate-item col-md-offset-1">J'aime pas</div>
+					<div class="row rate-item col-md-offset-1">Allergique</div>
+					<div class="row rate-item col-md-offset-1">Sans Avis</div>
+				</div>
+			</div>
+			<div class="row meal-name text-left col-md-offset-2">Hamburger Maison</div>
+		</div>
+
+
+			{#Calendar#}
+
+		{% set foo = 'bar' %}
+
+		<div class="row calendar-bloc col-md-12">
+			<div class="row calendar-title text-left col-md-offset-2">Mes repas</div>
+			<div class="row calendar">
+				<table>
+					<tr class="month">
+						<td colspan="7" class="month">
+							Cette semaine
+						</td>
+					</tr>
+					<tr>
+						<td class="day"><div class="day-letter">L</div></td>
+						<td class="day"><div class="day-letter">M</div></td>
+						<td class="day"><div class="day-letter">M</div></td>
+						<td class="day"><div class="day-letter">J</div></td>
+						<td class="day"><div class="day-letter">V</div></td>
+						<td class="day week-end"><div class="day-letter">S</div></td>
+						<td class="day week-end"><div class="day-letter sunday">D</div></td>
+					</tr>
+				</table>
+			</div>
+			<div class="row calendar">
+				<table>
+					<tr class="month">
+						<td colspan="7" class="month">
+							Semaine prochaine
+						</td>
+					</tr>
+					<tr>
+						<td class="day"><div class="day-letter">L</div></td>
+						<td class="day"><div class="day-letter">M</div></td>
+						<td class="day"><div class="day-letter">M</div></td>
+						<td class="day"><div class="day-letter">J</div></td>
+						<td class="day"><div class="day-letter">V</div></td>
+						<td class="day week-end"><div class="day-letter">S</div></td>
+						<td class="day week-end"><div class="day-letter sunday">D</div></td>
+					</tr>
+				</table>
+			</div>
+
+		</div>
+
+	</div>
+
+
+
 
 	{#Footer#}
 
@@ -239,6 +380,7 @@
 	</div>
 
 
+</div>
 
 	{% endif %}
 
