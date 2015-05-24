@@ -2,7 +2,7 @@
 		$("#weekCal").weekLine({
 	dayLabels: ["Lundi", "Mardi", "Mercredi", "Jeudi", "Vendredi"],
  });
-	}
+}
 
 
 

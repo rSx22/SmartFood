@@ -7,6 +7,15 @@ html, body {
     max-width: 100%;
     overflow-x: hidden;
 }
+.glow{
+text-shadow: #999999 1px 1px, #999999 -1px 1px, #999999 -1px -1px, #999999 1px -1px;}
+
+.question:before{
+      color: #ff4800;
+    content: "» ";
+    font-weight: bold;
+    
+}
 
 /*div{border:1px solid;}*/
 .emptycard{
@@ -268,10 +277,25 @@ display: none;
     width: 100%;
 
 }
+.black{
+    font-size: 25px;
 
+    font-weight: normal;
+}
+.yolo{
+font-size: 25px;
+    color:#edede7;
+    font-weight: normal;
+}
 .barimg2{
     background-image: url("./../images/asset/tassethé.jpg");
     background-size: 100% 100%;
+
+}
+.barimg3{
+    background-image: url("./../images/asset/help.png");
+    background-size: 100% 100%;
+    background-color: #edede7;
 
 }
 .slick-prev:before, .slick-next:before { font-family: "slick"; font-size: 40px; line-height: 1; color: red; opacity: 0.75; -webkit-font-smoothing: antialiased; -moz-osx-font-smoothing: grayscale; }   

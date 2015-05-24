@@ -5,8 +5,10 @@ if ($(".bar2") != null) {
 	slidesToShow: 1,
     slidesToScroll: 1,
     fade: true,
-    infinite:true,
-    speed:1000,
+    infinite: true,
+    speed: 1500,
+   	autoplay: true,
+ 	autoplaySpeed: 2000,
 });
 }
 });
