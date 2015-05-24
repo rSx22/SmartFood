@@ -29,6 +29,8 @@
 <script type="text/javascript" src="//code.jquery.com/jquery-migrate-1.2.1.min.js"></script>
 <script type="text/javascript" src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js"></script>
 <script type="text/javascript" src="./../web/js/refreshMeal.js"></script>
+<script type="text/javascript" src="./../web/js/doYouLikeThis.js"></script>
+
 
 
 <title>{% block title %}Test Application{% endblock %}</title>
@@ -97,7 +99,7 @@
 				<div class="barimg slick-slide {{methode}}" style="height:430px;width:100%">
 				{% if methode!='indexConnected' and methode!='showProductPage' %}
 
-				<h2 class="phrase top-buffer3">Phrase d'accroche<h2><br>
+				<h2 class="phrase top-buffer3">PHRASE D'ACCROCHE<h2><br>
 				<div class="undertitle">Livraison à emporter / Temps de livraison / Nb Restaurants partenaires / Nombre de spécialtés</div>
 	        		
 	        	{% endif %}
@@ -349,11 +351,11 @@
 			<div class=" like-bloc">
 				<div class="img-like col-md-5 col-xs-5 col-md-offset-1 col-xs-offset-1"></div>
 				<div class="row like-rate col-md-5 col-xs-5 text-left">
-					<div class="row rate-item col-md-offset-1 col-xs-offset-1">J'adore</div>
-					<div class="row rate-item col-md-offset-1 col-xs-offset-1">J'aime pas</div>
-					<div class="row rate-item col-md-offset-1 col-xs-offset-1">J'aime pas</div>
-					<div class="row rate-item col-md-offset-1 col-xs-offset-1">Allergique</div>
-					<div class="row rate-item col-md-offset-1 col-xs-offset-1">Sans Avis</div>
+					<div class="row rate-item col-md-offset-1 col-xs-offset-1" data-like="j'adore">J'adore</div>
+					<div class="row rate-item col-md-offset-1 col-xs-offset-1" data-like="j'aime">J'aime</div>
+					<div class="row rate-item col-md-offset-1 col-xs-offset-1" data-like="j'aime pas">J'aime pas</div>
+					<div class="row rate-item col-md-offset-1 col-xs-offset-1" data-like="allergique">Allergique</div>
+					<div class="row rate-item col-md-offset-1 col-xs-offset-1" data-like="sans avis">Sans Avis</div>
 
 				</div>
 				<div class=" meal-name text-left col-md-3 col-xs-offset-4">Hamburger Maison</div>
