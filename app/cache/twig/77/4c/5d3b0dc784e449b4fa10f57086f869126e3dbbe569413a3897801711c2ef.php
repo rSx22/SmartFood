@@ -222,7 +222,7 @@ class __TwigTemplate_774c5d3b0dc784e449b4fa10f57086f869126e3dbbe569413a389780171
         // line 108
         echo twig_escape_filter($this->env, (isset($context["methode"]) ? $context["methode"] : null), "html", null, true);
         echo "\" style=\"height:430px;width:100%:background-color: #edede7;\">
-\t\t\t\t\t<div class=\"phrase top-buffer4\">
+\t\t\t\t\t<div class=\"phrase\">
 \t\t\t\t\t</div>
 \t\t\t\t\t<div class=\" top-buffer col-md-10 col-md-offset-1 middd\">
 \t\t\t\t\t\t\t";
@@ -256,7 +256,7 @@ class __TwigTemplate_774c5d3b0dc784e449b4fa10f57086f869126e3dbbe569413a389780171
 \t\t\t\t<div class=\"barimg ";
             // line 129
             echo twig_escape_filter($this->env, (isset($context["methode"]) ? $context["methode"] : null), "html", null, true);
-            echo "\" style=\"width:100%\">
+            echo "\" style=\"width:104%;margin-left:-15px;>
 
 \t                <h2 class=\"phrase top-buffer3\">Phrase d'accroche<h2><br>
 \t                <div class=\"undertitle\">Livraison à emporter / Temps de livraison / Nb Restaurants partenaires / Nombre de spécialtés</div>

@@ -24,14 +24,10 @@ class __TwigTemplate_1af1f9eeefb76fb4fcdf7b05e5a40a9380f758236a004de96345caa84be
     {
         // line 2
         echo "\t<div class=\"text-center\">
-\t\t\t";
-        // line 3
-        echo twig_escape_filter($this->env, (isset($context["message"]) ? $context["message"] : null), "html", null, true);
-        echo "
-\t\t<div class=\"phrase \">
+\t\t<div class=\"phrase\">
 \t\t\t<span class=\"black\">Un problème ? Smartfood </span>
 \t\t\t<span class=\"yolo glow\">à l'écoute de vos besoins</span>
-\t\t\t<div class=\"col-md-6 col-xs-6\">     
+\t\t\t<div class=\"col-md-6 col-xs-6 helpsize black top-buffer2\">     
 
 \t\t\t\tVous trouverez, ci-dessous, les réponses aux questions que vous posez le plus fréquemment à notre hotline ou au service client. Nous souhaitons vous apporter des éléments de réponse simple.
 \t\t\t\t 
@@ -59,6 +55,6 @@ class __TwigTemplate_1af1f9eeefb76fb4fcdf7b05e5a40a9380f758236a004de96345caa84be
 
     public function getDebugInfo()
     {
-        return array (  29 => 3,  26 => 2,  20 => 1,);
+        return array (  26 => 2,  20 => 1,);
     }
 }
