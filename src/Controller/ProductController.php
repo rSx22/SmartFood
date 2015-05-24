@@ -163,4 +163,13 @@ class ProductController extends AbstractBaseController {
         }
     }
 
+    public function addAppreciation($request) {
+        if(isset($request['request']['appreciation']) && isset($_SESSION['user_id'])){
+            $conn = AbstractBaseController::createConn();
+            $productModel = new product($conn); // new Model for accessing db
+            $apprec = $productModel->addAppreciation($request['request']['appreciation'], $_SESSION['user_id'], 0);
+
+        }
+    }
+
 }
