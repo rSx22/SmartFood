@@ -1,5 +1,4 @@
-﻿
-$("#weekCal").weekLine({
+﻿$("#weekCal").weekLine({
 	dayLabels: ["Lundi", "Mardi", "Mercredi", "Jeudi", "Vendredi"],
  });
 

@@ -23,7 +23,7 @@ class __TwigTemplate_0e656b81dd8e19317561918599e15a99290356f257ef7f9b7c069292a97
     public function block_body($context, array $blocks = array())
     {
         // line 2
-        echo "\t<div class=\"phrase\">Vos abonnements</div>
+        echo "\t<div class=\"phrase top-buffer2\">Vos abonnements</div>
 \t<br>
 \t";
         // line 4

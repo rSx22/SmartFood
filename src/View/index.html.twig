@@ -16,16 +16,18 @@
 <meta http-equiv='Cache-Control' content='no-cache'>
 <meta http-equiv='imagetoolbar' content='no'>
 <meta http-equiv='x-dns-prefetch-control' content='off'>
+
+
 <link rel="stylesheet" type="text/css" href="./../web/css/style_index.css">
 <link rel="stylesheet" type="text/css" href="./../web/css/fonts.css">
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css">
-
-<!-- Optional theme -->
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap-theme.min.css">
+<link rel="stylesheet" type="text/css" href="{{url_path}}/newproject/web/js/slick/slick.css"/>
+<link rel="stylesheet" type="text/css" href="{{url_path}}/newproject/web/js/slick/slick-theme.css"/>
 
-<!-- Latest compiled and minified JavaScript -->
-<script src="{{url_path}}/newproject/vendor/components/jquery/jquery.min.js"></script>
-<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js"></script>
+<script type="text/javascript" src="{{url_path}}/newproject/vendor/components/jquery/jquery.min.js"></script>
+<script type="text/javascript" src="//code.jquery.com/jquery-migrate-1.2.1.min.js"></script>
+<script type="text/javascript" src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js"></script>
 
 <title>{% block title %}Test Application{% endblock %}</title>
 <body style="background-color:#f5f5ef;">
@@ -85,47 +87,104 @@
 			  				
 			</div>
 		</div>
-		<div class="row bar2 text-center {{methode}}">
 
-			{% if methode!='indexConnected' and methode!='showProductPage' %}
+		<div class="row text-center ">
+			{% if (methode=='indexConnected' or  methode=='showProductPage' ) %}
+			<div class="bar2">
+			{% endif %}
+				<div class="barimg slick-slide {{methode}}" style="height:430px;width:100%">
+				{% if methode!='indexConnected' and methode!='showProductPage' %}
 
-			<h2 class="phrase top-buffer3">Phrase d'accroche<h2><br>
-			<div class="undertitle">Livraison à emporter / Temps de livraison / Nb Restaurants partenaires / Nombre de spécialtés</div>
-        		
-        	{% endif %}
+				<h2 class="phrase top-buffer3">Phrase d'accroche<h2><br>
+				<div class="undertitle">Livraison à emporter / Temps de livraison / Nb Restaurants partenaires / Nombre de spécialtés</div>
+	        		
+	        	{% endif %}
 
 
-			<div class="row top-buffer col-md-10 col-md-offset-1 middd">
-				{% if methode=='logUser' %}
+				<div class="row top-buffer col-md-10 col-md-offset-1 middd">
+					{% if methode=='logUser' %}
 
-				{% include 'user/form_logUser.html.twig' %}
+					{% include 'user/form_logUser.html.twig' %}
 
-				{% elseif methode=='loggedUser' %}
+					{% elseif methode=='loggedUser' %}
 
-				{% include 'user/form_logUser.html.twig' %}
+					{% include 'user/form_logUser.html.twig' %}
 
-				{% elseif methode=='showUser' %}
+					{% elseif methode=='showUser' %}
 
-				{% include 'user/user_page.html.twig' %}
+					{% include 'user/user_page.html.twig' %}
 
-				{% elseif methode=='addUserInfo' %}
+					{% elseif methode=='addUserInfo' %}
 
-				{% include 'user/form_addUserInfo.html.twig' %}
+					{% include 'user/form_addUserInfo.html.twig' %}
 
-				{% elseif (methode=='indexConnected' or  methode=='showProductPage' ) %}
+					{% elseif (methode=='indexConnected' or  methode=='showProductPage' ) %}
 
-				{% include 'card/listCard.html.twig' %}
-        		
-        		{% else %}
+					{% include 'card/listCard.html.twig' %}
+	        		
+	        		{% else %}
 
-        		{% include 'user/form_addUser.html.twig' %}
+	        		{% include 'user/form_addUser.html.twig' %}
 
-        		{% endif %}
-        	</div>
+	        		{% endif %}
+	        	</div>
+	        	</div>
+				<div class="barimg2 slick-slide {{methode}}" style="height:430px;width:100%">
+					<div class="phrase top-buffer12">Goutez à la variété et à la simplicité</div>
+				</div>
+				{% if (methode=='indexConnected' or  methode=='showProductPage' ) %}
+
+				</div>
+				<button class="slick-prev" aria-label="previous" data-role="none" type="button" style="display: block;">Previous</button>
+				<button class="slick-next" aria-label="next" data-role="none" type="button" style="display: block;">Next</button>
+				{% endif %}
+
+				{% if (methode!='indexConnected' and  methode!='showProductPage' ) %}
+
+				<div class="barimg {{methode}}" style="width:100%">
+                {% if methode!='indexConnected' and methode!='showProductPage' %}
+
+                <h2 class="phrase top-buffer3">Phrase d'accroche<h2><br>
+                <div class="undertitle">Livraison à emporter / Temps de livraison / Nb Restaurants partenaires / Nombre de spécialtés</div>
+                    
+                {% endif %}
+
+
+                <div class="row top-buffer col-md-10 col-md-offset-1 middd">
+                    {% if methode=='logUser' %}
+
+                    {% include 'user/form_logUser.html.twig' %}
+
+                    {% elseif methode=='loggedUser' %}
+
+                    {% include 'user/form_logUser.html.twig' %}
+
+                    {% elseif methode=='showUser' %}
+
+                    {% include 'user/user_page.html.twig' %}
+
+                    {% elseif methode=='addUserInfo' %}
+
+                    {% include 'user/form_addUserInfo.html.twig' %}
+
+                    {% elseif (methode=='indexConnected' or  methode=='showProductPage' ) %}
+
+                    {% include 'card/listCard.html.twig' %}
+                    
+                    {% else %}
+
+                    {% include 'user/form_addUser.html.twig' %}
+
+                    {% endif %}
+                </div>
+                </div>
+
+				{% endif %}
+
+					
+			</div>
+		<div class="">
 		</div>
-
-	<div class="">
-
 	<div class="row etap-bloc overflow">
 		<div class="col-md-12 text-center">
 			<div class="row xxs">
@@ -393,4 +452,11 @@
 	</div>
 </div>
 
+
+<script type="text/javascript" src="{{url_path}}/newproject/web/js/weekline/scripts/jquery.weekLine.js"></script>
+<script type="text/javascript" src="{{url_path}}/newproject/web/js/weekline/timepicker/jquery.timepicker.min.js"></script>
+<script type="text/javascript" src="{{url_path}}/newproject/web/js/weekline/scripts/wl.js"></script>
+
+<script type="text/javascript" src="{{url_path}}/newproject/web/js/onrefresh.js"></script>
+<script type="text/javascript" src="{{url_path}}/newproject/web/js/slick/slick.min.js"></script>
 </body>

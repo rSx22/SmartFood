@@ -31,7 +31,7 @@ class __TwigTemplate_f1b61d2d0e488fb74bcf2822eac3a8ce9c0495cb9bb0b529abe01e05e3f
 \t\t\t\t <input type=\"text\" class=\"form-control top-bufferinputxt\" placeholder=\"nom@email.com\" name=\"email_address\">
 \t\t\t\t <input type=\"password\" class=\"form-control top-bufferinputxt\" placeholder=\"Mot de passe\" name=\"password\"></div>
 \t\t\t<div class=\"col-md-5 text-center\">
-\t\t\t\t<input class=\"btninscript top-buffer3\" type=\"submit\" value=\"Se connecter\">
+\t\t\t\t<input class=\"btnlog top-buffer3\" type=\"submit\" value=\"Se connecter\">
 \t\t\t</div>
 
 \t\t<div class=\"littletext notifyform evenmorelittle\">

@@ -18,62 +18,45 @@ class __TwigTemplate_b227e83caa343cb0617fbebf328ffe38046bfe2953743ec726c4ea3e190
     {
         // line 1
         $this->displayBlock('body', $context, $blocks);
-        // line 48
-        echo "
- <script src=\"";
-        // line 49
-        echo twig_escape_filter($this->env, (isset($context["url_path"]) ? $context["url_path"] : null), "html", null, true);
-        echo "/newproject/web/weekline/scripts/wl.js\"></script>";
     }
 
-    // line 1
     public function block_body($context, array $blocks = array())
     {
         // line 2
-        echo " <link rel=\"Stylesheet\" href=\"";
+        echo "<link rel=\"stylesheet\" type=\"text/css\" href=\"";
         echo twig_escape_filter($this->env, (isset($context["url_path"]) ? $context["url_path"] : null), "html", null, true);
-        echo "/newproject/web/weekline/styles/cleanslate.css\" />
- <link rel=\"Stylesheet\" href=\"";
+        echo "/newproject/web/js/weekline/styles/jquery.weekLine.css\"/>
+<link rel=\"stylesheet\" type=\"text/css\" href=\"";
         // line 3
         echo twig_escape_filter($this->env, (isset($context["url_path"]) ? $context["url_path"] : null), "html", null, true);
-        echo "/newproject/web/weekline/styles/jquery.weekLine.css\" />
- <script src=\"";
+        echo "/newproject/web/js/weekline/styles/cleanslate.css\"/>
+<link rel=\"Stylesheet\" href=\"";
         // line 4
         echo twig_escape_filter($this->env, (isset($context["url_path"]) ? $context["url_path"] : null), "html", null, true);
-        echo "/newproject/web/weekline/scripts/jquery.weekLine.js\"></script>
+        echo "/newproject/web/js/weekline/timepicker/jquery.timepicker.css\" />
 
-
-
- <link rel=\"Stylesheet\" href=\"";
-        // line 8
-        echo twig_escape_filter($this->env, (isset($context["url_path"]) ? $context["url_path"] : null), "html", null, true);
-        echo "/newproject/web/weekline/timepicker/jquery.timepicker.css\" />
- <script src=\"";
-        // line 9
-        echo twig_escape_filter($this->env, (isset($context["url_path"]) ? $context["url_path"] : null), "html", null, true);
-        echo "/newproject/web/weekline/timepicker/jquery.timepicker.min.js\"></script>
 
     <div>Nom : ";
-        // line 11
+        // line 7
         echo twig_escape_filter($this->env, $this->getAttribute((isset($context["product"]) ? $context["product"] : null), "name", []), "html", null, true);
         echo "</div>
     <div>Price : ";
-        // line 12
+        // line 8
         echo twig_escape_filter($this->env, $this->getAttribute((isset($context["product"]) ? $context["product"] : null), "price", []), "html", null, true);
         echo "</div>
     <div>Description : ";
-        // line 13
+        // line 9
         echo twig_escape_filter($this->env, $this->getAttribute((isset($context["product"]) ? $context["product"] : null), "description", []), "html", null, true);
         echo "</div>
     <div>Indice Calorique : ";
-        // line 14
+        // line 10
         echo twig_escape_filter($this->env, $this->getAttribute((isset($context["product"]) ? $context["product"] : null), "kcal_ind", []), "html", null, true);
         echo "</div>
 
     ";
-        // line 16
+        // line 12
         if (($this->getAttribute((isset($context["product"]) ? $context["product"] : null), "path_image", []) != null)) {
-            // line 17
+            // line 13
             echo "\t\t <img src=\"";
             echo twig_escape_filter($this->env, (isset($context["url_path"]) ? $context["url_path"] : null), "html", null, true);
             echo "/newproject/web/";
@@ -81,17 +64,17 @@ class __TwigTemplate_b227e83caa343cb0617fbebf328ffe38046bfe2953743ec726c4ea3e190
             echo "\" style=\"width:80px;height:80px;\"> 
 \t";
         }
-        // line 19
+        // line 15
         echo "
 
 ";
-        // line 21
+        // line 17
         if (((isset($context["methode"]) ? $context["methode"] : null) == "showProductPage")) {
-            // line 22
+            // line 18
             echo "
 
 <div class=\"weekselec\">Selectionner les jours de livraison<span id=\"weekCal\"></span></div>  <button data-id=\"";
-            // line 24
+            // line 20
             echo twig_escape_filter($this->env, (isset($context["id"]) ? $context["id"] : null), "html", null, true);
             echo "\" id=\"btnSelect\">Valider</button>  <br>
 
@@ -105,15 +88,15 @@ class __TwigTemplate_b227e83caa343cb0617fbebf328ffe38046bfe2953743ec726c4ea3e190
 <div id=\"time3\"> <div id=\"timename3\"></div><input type=\"text\" id=\"timepicker3\" name=\"timepikr3\"><span id=\"daytimechoice3\"></span></div><br>
 <div id=\"time4\"> <div id=\"timename4\"></div><input type=\"text\" id=\"timepicker4\" name=\"timepikr4\"><span id=\"daytimechoice4\"></span></div><br>
 <input type=\"submit\" value=\"Envoyer\" name=\"";
-            // line 35
+            // line 31
             echo twig_escape_filter($this->env, (isset($context["id"]) ? $context["id"] : null), "html", null, true);
             echo "\" class=\"btnform\"><span id=\"return\"></span>
 </form>
 
 ";
-        } elseif ((        // line 38
+        } elseif ((        // line 34
 (isset($context["methode"]) ? $context["methode"] : null) == "showDelProductPage")) {
-            // line 39
+            // line 35
             echo "
 \t<form method=\"POST\" action=\"index.php?p=del_item\"> 
 \tHow much<input type=\"number\" name=\"nbrproduct\" min=\"0\">
@@ -122,7 +105,7 @@ class __TwigTemplate_b227e83caa343cb0617fbebf328ffe38046bfe2953743ec726c4ea3e190
 
 ";
         }
-        // line 46
+        // line 42
         echo twig_escape_filter($this->env, (isset($context["message"]) ? $context["message"] : null), "html", null, true);
         echo "
 ";
@@ -133,13 +116,8 @@ class __TwigTemplate_b227e83caa343cb0617fbebf328ffe38046bfe2953743ec726c4ea3e190
         return "product/product_page.html.twig";
     }
 
-    public function isTraitable()
-    {
-        return false;
-    }
-
     public function getDebugInfo()
     {
-        return array (  126 => 46,  117 => 39,  115 => 38,  109 => 35,  95 => 24,  91 => 22,  89 => 21,  85 => 19,  77 => 17,  75 => 16,  70 => 14,  66 => 13,  62 => 12,  58 => 11,  53 => 9,  49 => 8,  42 => 4,  38 => 3,  33 => 2,  30 => 1,  25 => 49,  22 => 48,  20 => 1,);
+        return array (  109 => 42,  100 => 35,  98 => 34,  92 => 31,  78 => 20,  74 => 18,  72 => 17,  68 => 15,  60 => 13,  58 => 12,  53 => 10,  49 => 9,  45 => 8,  41 => 7,  35 => 4,  31 => 3,  26 => 2,  20 => 1,);
     }
 }

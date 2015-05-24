@@ -4,6 +4,17 @@ a{
     color:#34A7C1;
 }
 
+
+
+
+
+
+
+
+
+
+
+
 /*div{border:1px solid;}*/
 .emptycard{
     font-weight: lighter;
@@ -14,7 +25,7 @@ a{
     background-image: url("./../images/asset/shopping.png");
     background-size: 100% 100%;
     height:125px;
-    width:25%;
+    width:20%;
     margin: 15px auto 15px auto;
     border-radius: 15px;
     border: 2px solid #000;
@@ -260,11 +271,26 @@ display: none;
     color:#4b9f78;}
 
 .bar2{height: 400px;
-    background-image: url("./../images/asset/Background.jpg");
+    width: 100%;
+
+}
+
+.barimg2{
+    background-image: url("./../images/asset/tassethé.jpg");
     background-size: 100% 100%;
 
 }
-.notifyform{height: 30px;
+.slick-prev{
+    margin-left : 40px;
+}
+.slick-next{
+    margin-right : 40px;
+}
+.barimg{
+    background-image: url("./../images/asset/Background.jpg");
+    background-size: 100% 100%;
+    height: 450px;
+    width: 100%;
 }
 .middd{height: 200px;}
 .undertitle{
@@ -304,6 +330,22 @@ display: none;
 }
 
 .btninscript:hover {
+    text-decoration: underline;
+}
+.btnlog {
+    -webkit-border-radius: 7;
+    -moz-border-radius: 7;
+    border-radius: 7px;
+    color: #ffffff;
+    font-size: 20px;
+    font-weight: lighter;
+    background: #4b9f78;
+    padding: 15px 12px 15px 12px;
+    text-decoration: none;
+    border:0;
+}
+
+.btnlog:hover {
     text-decoration: underline;
 }
 .btnupdate {
@@ -590,8 +632,8 @@ display: none;
 /*Footer*/
 
 .bottombarr {
-    background-image: url("./../images/asset/ardoiseFOOTER.png");
-    background-size: 110% 100%;
+    background-image: url("./../images/asset/ardoiseextended.png");
+    background-size: 100% 100%;
     width:100%;
     height: 151px;
     font-family: topbarfont;
@@ -892,6 +934,9 @@ content:"Actualiser";
     .btnprofil{
         width:100px;
     }
+    .btninscript {
+        padding: 2%;
+    }
 }
 @media screen and (max-width:991px) and (min-width:511px) {
     .abon-bloc-img {
@@ -913,7 +958,7 @@ content:"Actualiser";
 
     .topbarr{
         height: 100px;
-        background-image: url("./../images/asset/ardoiseextended.png");
+        background-image: url("./../images/asset/ardoiseextendedtop.png");
         background-size: 100% 100%;
 
     }
@@ -944,7 +989,7 @@ content:"Actualiser";
     .evenmorelittle{
         margin-top: 0px;
     }
-    .btninscript1 {
+    .btninscript {
         position: relative;
         top:-30px;
     }
