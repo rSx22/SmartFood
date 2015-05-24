@@ -303,7 +303,7 @@ margin-right: 40px;}
 .undertitle{
     color : #f5f5ef;
     font-size: 20px;
-    font-weight: lighter;
+    font-family: Roboto;
 }
 .littletext{
     font-size: 13px;
@@ -311,10 +311,10 @@ margin-right: 40px;}
     font-weight: lighter;
 }
 .phrase{
-    font-weight: lighter;
     color: #f5f5ef;
     font-size: 30px;
     padding-top: 30px;
+    font-family: "Roboto";
 }
 .logoutlink{
     margin-right:20px;
@@ -740,6 +740,11 @@ margin-right: 40px;}
 
 .last-meal-choices-like {
     font-size: 14px;
+
+}
+.last-meal-choices-like:hover {
+    color: #4b9f78;
+    cursor: pointer;
 }
 
     /*Proposition of the day*/
@@ -837,7 +842,10 @@ content:"Actualiser";
     font-weight: bold;
     margin-top: 8px;
 }
-
+.rate-item:hover{
+    color: #ffffff;
+    cursor: pointer;
+}
 .meal-name {
     font-family: Roboto-Thin;
     font-size: 19px;
