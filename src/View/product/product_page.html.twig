@@ -1,12 +1,8 @@
 {% block body %}
- <link rel="Stylesheet" href="{{url_path}}/newproject/web/weekline/styles/cleanslate.css" />
- <link rel="Stylesheet" href="{{url_path}}/newproject/web/weekline/styles/jquery.weekLine.css" />
- <script src="{{url_path}}/newproject/web/weekline/scripts/jquery.weekLine.js"></script>
+<link rel="stylesheet" type="text/css" href="{{url_path}}/newproject/web/js/weekline/styles/jquery.weekLine.css"/>
+<link rel="stylesheet" type="text/css" href="{{url_path}}/newproject/web/js/weekline/styles/cleanslate.css"/>
+<link rel="Stylesheet" href="{{url_path}}/newproject/web/js/weekline/timepicker/jquery.timepicker.css" />
 
-
-
- <link rel="Stylesheet" href="{{url_path}}/newproject/web/weekline/timepicker/jquery.timepicker.css" />
- <script src="{{url_path}}/newproject/web/weekline/timepicker/jquery.timepicker.min.js"></script>
 
     <div>Nom : {{product.name}}</div>
     <div>Price : {{product.price}}</div>
@@ -45,5 +41,3 @@
 {% endif %}
 {{message}}
 {% endblock %}
-
- <script src="{{url_path}}/newproject/web/weekline/scripts/wl.js"></script>
