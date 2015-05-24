@@ -23,7 +23,7 @@ class __TwigTemplate_1af1f9eeefb76fb4fcdf7b05e5a40a9380f758236a004de96345caa84be
     public function block_body($context, array $blocks = array())
     {
         // line 2
-        echo "\t<div class=\"text-center>>
+        echo "\t<div class=\"text-center\">
 \t\t\t";
         // line 3
         echo twig_escape_filter($this->env, (isset($context["message"]) ? $context["message"] : null), "html", null, true);

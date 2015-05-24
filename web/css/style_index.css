@@ -14,7 +14,7 @@ text-shadow: #999999 1px 1px, #999999 -1px 1px, #999999 -1px -1px, #999999 1px -
       color: #ff4800;
     content: "» ";
     font-weight: bold;
-    
+
 }
 
 /*div{border:1px solid;}*/
@@ -1000,7 +1000,9 @@ content:"Actualiser";
         width:40%;
         display: inline;
         top:30px;
-
+    }
+    .barimg{
+        width:90%;
     }
     .bar1{
         height:160px;
