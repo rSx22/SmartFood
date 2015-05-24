@@ -72,7 +72,7 @@ class __TwigTemplate_0e656b81dd8e19317561918599e15a99290356f257ef7f9b7c069292a97
 
 \t\t\t
 \t\t\t</div>
-\t\t\t<div class=\"col-md-4 col-xs-3\"> 
+\t\t\t<div class=\"col-md-4 col-xs-3\" > 
 \t\t\t";
                 // line 27
                 if (twig_test_empty($this->getAttribute($context["info"], "days", []))) {
@@ -92,7 +92,7 @@ class __TwigTemplate_0e656b81dd8e19317561918599e15a99290356f257ef7f9b7c069292a97
                 $context['_seq'] = twig_ensure_traversable($this->getAttribute($context["info"], "days", []));
                 foreach ($context['_seq'] as $context["day"] => $context["hour"]) {
                     // line 35
-                    echo "\t\t\t<div class=\"littletext\"> ";
+                    echo "\t\t\t<div class=\"littletext dayz\" style=\"min-width:95px;\"> ";
                     echo twig_escape_filter($this->env, $context["day"], "html", null, true);
                     echo " ";
                     echo twig_escape_filter($this->env, $context["hour"], "html", null, true);
@@ -162,7 +162,7 @@ class __TwigTemplate_0e656b81dd8e19317561918599e15a99290356f257ef7f9b7c069292a97
             // line 71
             echo "
 \t\t\t<form method=\"POST\" action=\"index.php?p=setcalendar\">
-\t\t\t<input type=\"submit\" value=\"Souscrire\" class=\"btnupdate btnupdatereplace\">
+\t\t\t<input type=\"submit\" value=\"Souscrire\" class=\"btnupdate top-buffer1\">
 \t\t\t</form>
 
 \t\t\t";

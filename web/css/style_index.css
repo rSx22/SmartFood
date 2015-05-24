@@ -3,17 +3,10 @@
 a{
     color:#34A7C1;
 }
-
-
-
-
-
-
-
-
-
-
-
+html, body {
+    max-width: 100%;
+    overflow-x: hidden;
+}
 
 /*div{border:1px solid;}*/
 .emptycard{
@@ -153,8 +146,9 @@ display: none;
 #timename2{
     width: 300px;
 }
-
-
+.dayz:before{
+    content:"";
+}
 
 .logo{
     background-image: url("./../images/asset/LogoSmartFood.png");
@@ -903,19 +897,21 @@ content:"Actualiser";
     left: 0;
     bottom: 0;
     /* lignes suivantes : dégradé vertical de blanc transparent vers blanc opaque (navigateurs supportant les dégradés CSS, navigateurs supportant les couleurs rgba */
-    background: -webkit-linear-gradient(rgba(255,255,255,0), rgba(255,255,255,1));
-    background: -moz-linear-gradient(rgba(255,255,255,0), rgba(255,255,255,1));
-    background: -ms-linear-gradient(rgba(255,255,255,0), rgba(255,255,255,1));
-    background: -o-linear-gradient(rgba(255,255,255,0), rgba(255,255,255,1));
-    background: linear-gradient(rgba(255,255,255,0), rgba(255,255,255,1));
-}
+    background: -webkit-linear-gradient(rgba(255,255,255,0), rgba(237,237,273,1));
+    background: -moz-linear-gradient(rgba(255,255,255,0), rgba(237,237,273,1));
+    background: -ms-linear-gradient(rgba(255,255,255,0), rgba(237,237,273,1));
+    background: -o-linear-gradient(rgba(255,255,255,0), rgba(237,237,273,1));
+    background: linear-gradient(rgba(255,255,255,0), rgba(237,237,273,1));
+    }
 }
 @media screen and (max-width:511px) {
     .logoutlink{
         left:-120px;
         margin-top:30px;
     }
-
+    .abon-bloc {
+        height:350px;
+    }
     .etap-bloc{
         height:80px;
     }
@@ -954,6 +950,9 @@ content:"Actualiser";
         margin-top: 373px;
         margin-left: -10px;
         width:120px;
+    }
+        .abon-bloc {
+        height:550px;
     }
 }
 

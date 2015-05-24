@@ -23,7 +23,7 @@
 
 			
 			</div>
-			<div class="col-md-4 col-xs-3"> 
+			<div class="col-md-4 col-xs-3" > 
 			{% if info.days is empty %}
 
 	     	<div class="littletext top-buffer2">Aucun jours ne sont sélectionnés</div>
@@ -32,7 +32,7 @@
 
 	     	{% endif %}
 			{% for day, hour in info.days %}
-			<div class="littletext"> {{day}} {{hour}}
+			<div class="littletext dayz" style="min-width:95px;"> {{day}} {{hour}}
 			</div>
 
 		{% endfor %}
@@ -70,7 +70,7 @@
 			{% else %}
 
 			<form method="POST" action="index.php?p=setcalendar">
-			<input type="submit" value="Souscrire" class="btnupdate btnupdatereplace">
+			<input type="submit" value="Souscrire" class="btnupdate top-buffer1">
 			</form>
 
 			{% endif %}
