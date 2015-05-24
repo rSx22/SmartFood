@@ -272,7 +272,7 @@ class UserController extends AbstractBaseController {
                 return [
                 'view' => 'index.html.twig',
                 'email_address' => $user['email_address'],
-                'methode' => 'loggedUser',
+                'methode' => 'showUser',
                 'message' => 'Vous etes connecté',
                 'path_avatar' => $userinfo['path_avatar'],
                 ];

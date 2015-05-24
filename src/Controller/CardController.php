@@ -10,6 +10,8 @@ class CardController extends AbstractBaseController {
     protected $card;
   
     public function addToCard($request){ // chk if session user is set or /else display the error as 'message'
+        if (isset($_SESSION['email_address'])) {
+        
             $conn = AbstractBaseController::createConn();
             $productModel = new product($conn);
 
@@ -115,7 +117,13 @@ class CardController extends AbstractBaseController {
                 'id' => $request['request']['id'],
                 ];
                 }
-                
+            }else{
+                    return [
+                'view' => 'index.html.twig',
+                'methode' => 'loggedUser',
+                'message' => "Veuillez vous connecter",
+                ];
+            }
     }
 
     public function listCard($request){

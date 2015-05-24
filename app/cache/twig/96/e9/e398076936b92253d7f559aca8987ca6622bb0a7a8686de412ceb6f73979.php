@@ -72,10 +72,10 @@ class __TwigTemplate_96e9e398076936b92253d7f559aca8987ca6622bb0a7a8686de412ceb6f
 \t</div>
 </div>
 
-";
+<div class=\"littletext\">";
         // line 31
         echo twig_escape_filter($this->env, (isset($context["message"]) ? $context["message"] : null), "html", null, true);
-        echo "
+        echo "</div>
 ";
     }
 

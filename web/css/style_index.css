@@ -3,12 +3,23 @@
 a{
     color:#34A7C1;
 }
-body{
-    background-color:#f5f5ef;
-}
 
 /*div{border:1px solid;}*/
-
+.emptycard{
+    font-weight: lighter;
+    font-size: 40px;
+    color:#FFF;
+}
+.panier{
+    background-image: url("./../images/asset/shopping.png");
+    background-size: 100% 100%;
+    height:125px;
+    width:25%;
+    margin: 15px auto 15px auto;
+    border-radius: 15px;
+    border: 2px solid #000;
+    opacity: 0.4;
+}
 .btnform{
 display: none;}
 .large{
@@ -80,9 +91,10 @@ display: none;}
 }
 
 .card{
-    height:100px;
+    height:107px;
     border-bottom: 1px solid #fff;
     border-radius: 50px;
+    margin-top: 18px;
 }
 
 
@@ -175,6 +187,8 @@ display: none;
 .itemloglink{
     height: 100%;
     padding-top: 8px;
+    box-shadow:  -5px 0px 14px  #fff;
+    border-radius: 10px;
 }
 .itemloglink a{
     color:  #4b9f78;
@@ -184,9 +198,11 @@ display: none;
 }
 .barloglink{
     border-right:1px solid #1dbe8d;
+        border-top-right-radius: 0px;
+    border-bottom-right-radius: 0px;
 }
 .otherlink{
-    box-shadow:  -5px 0px 14px  #fff;
+    
 }
 .topbarr{
     height: 50px;
@@ -243,7 +259,7 @@ display: none;
     font-family: topbarfont;
     color:#4b9f78;}
 
-.bar2{height: 450px;
+.bar2{height: 400px;
     background-image: url("./../images/asset/Background.jpg");
     background-size: 100% 100%;
 
@@ -273,106 +289,6 @@ display: none;
     margin-top: 30px;
 }
 
-@media screen and (max-width:620px) {
-    .overflow {
-    height: 150px; /* hauteur de la zone tronquée, à ajuster en fonction du besoin */
-    overflow: hidden;
-    position: relative;
-}
-.overflow:after {
-    content: ""; /* pour créer un élément fantôme */
-    pointer-events: none; /* pour que l'élément n'empêche pas la sélection de texte (navigateurs supportant cette propriété) */
-    width: 100%; /* pour que l'élément fantôme couvre la largeur entière et 30% de la hauteur */
-    height: 30%;
-    position: absolute;
-    left: 0;
-    bottom: 0;
-    /* lignes suivantes : dégradé vertical de blanc transparent vers blanc opaque (navigateurs supportant les dégradés CSS, navigateurs supportant les couleurs rgba */
-    background: -webkit-linear-gradient(rgba(255,255,255,0), rgba(255,255,255,1));
-    background: -moz-linear-gradient(rgba(255,255,255,0), rgba(255,255,255,1));
-    background: -ms-linear-gradient(rgba(255,255,255,0), rgba(255,255,255,1));
-    background: -o-linear-gradient(rgba(255,255,255,0), rgba(255,255,255,1));
-    background: linear-gradient(rgba(255,255,255,0), rgba(255,255,255,1));
-}
-}
-@media screen and (max-width:511px) {
-    .logoutlink{
-        left:-120px;
-        margin-top:30px;
-    }
-    .etap-bloc{
-        height:80px;
-    }
-    .abon-bloc-img {
-        height: 250px;
-    }
-    .subscribereplace{
-        display: none;
-}
-.x1 .x2 {
-
-    padding: 65.5%;
-}
-}
-@media screen and (max-width:991px) and (min-width:511px) {
-    .abon-bloc-img {
-        height: 430px;
-    }
-    .subscribereplace{
-        margin-top: 373px;
-        margin-left: -10px;
-        width:120px;
-    }
-}
-@media screen and (max-width:991px) {
-    .abon-desc{display: none;}
-    .abon-title{display:none;}
-    .topbarr{
-        height: 100px;
-        background-image: url("./../images/asset/ardoiseextended.png");
-        background-size: 100% 100%;
-
-    }
-    .posx1{
-    margin-top: 40px;
-}
-    .itemloglink{
-        width:40%;
-        display: inline;
-        top:30px;
-
-    }
-    .bar1{
-        height:160px;
-    }
-    .logoutlink{
-        margin-right:-90px;
-    }
-    .evenmorelittle{
-        margin-top: 0px;
-    }
-    .btninscript1 {
-        position: relative;
-        top:-30px;
-    }
-    .widthresize{
-        margin: 5px auto auto auto;
-    }
-
-    .btnupdatereplace{
-        position: relative;
-        top:-15px;
-    }
-    .middd{
-        margin-top: 5px;
-    }
-    .circle{
-      height:50px;
-    }
-    .etap-bloc{
-        height:160px;
-    }
-}
 
 .btninscript {
     -webkit-border-radius: 7;
@@ -404,6 +320,22 @@ display: none;
 }
 
 .btnupdate:hover {
+    text-decoration: underline;
+}
+.btnprofil {
+    -webkit-border-radius: 7;
+    -moz-border-radius: 7;
+    border-radius: 7px;
+    color: #ffffff;
+    font-size: 14px;
+    font-weight: lighter;
+    background: #4b9f78;
+    padding: 4px 9px 4px 9px;
+    text-decoration: none;
+    border:0;
+}
+
+.btnprofil:hover {
     text-decoration: underline;
 }
 
@@ -541,8 +473,8 @@ display: none;
 /*Abonnement Bloc*/
 
 .abon-bloc {
-    background-color: #f5f5ef;
-    height: 670px;
+    background-color: #edede7;
+    height: 690px;
 
 }
 
@@ -588,6 +520,7 @@ display: none;
 .description-bloc {
     height: 500px;
     background-color: #f5f5ef;
+    margin-top: 30px;
 }
 
 
@@ -658,7 +591,8 @@ display: none;
 
 .bottombarr {
     background-image: url("./../images/asset/ardoiseFOOTER.png");
-    background-size: 100% 100%;
+    background-size: 110% 100%;
+    width:100%;
     height: 151px;
     font-family: topbarfont;
     color: #ffffff;
@@ -706,7 +640,7 @@ display: none;
 
 .big-user-bloc {
     height: 1770px;
-    background-color: #f5f5ef;
+    background-color: #edede7;
 
 }
 
@@ -715,8 +649,8 @@ display: none;
 .last-meal-bloc {
     background-image: url("./../images/asset/lastMeal.png");
     background-size: 100% 100%;
-    width: 100%;
-    height: 279px;
+    width: 90%;
+    height: 320px;
     display: inline-block;
     margin-top: 35px;
 }
@@ -750,6 +684,7 @@ display: none;
 
 .proposition-day {
     height: 316px;
+    width: 100%;
 }
 
 .proposition-title {
@@ -899,4 +834,138 @@ content:"Actualiser";
 
 .sunday {
     color: #ffffff;
+}
+
+
+
+@media screen and (max-width:620px) {
+.overflow {
+    height: 150px; /* hauteur de la zone tronquée, à ajuster en fonction du besoin */
+    overflow: hidden;
+    position: relative;
+}
+.overflow:after {
+    content: ""; /* pour créer un élément fantôme */
+    pointer-events: none; /* pour que l'élément n'empêche pas la sélection de texte (navigateurs supportant cette propriété) */
+    width: 100%; /* pour que l'élément fantôme couvre la largeur entière et 30% de la hauteur */
+    height: 30%;
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    /* lignes suivantes : dégradé vertical de blanc transparent vers blanc opaque (navigateurs supportant les dégradés CSS, navigateurs supportant les couleurs rgba */
+    background: -webkit-linear-gradient(rgba(255,255,255,0), rgba(255,255,255,1));
+    background: -moz-linear-gradient(rgba(255,255,255,0), rgba(255,255,255,1));
+    background: -ms-linear-gradient(rgba(255,255,255,0), rgba(255,255,255,1));
+    background: -o-linear-gradient(rgba(255,255,255,0), rgba(255,255,255,1));
+    background: linear-gradient(rgba(255,255,255,0), rgba(255,255,255,1));
+}
+}
+@media screen and (max-width:511px) {
+    .logoutlink{
+        left:-120px;
+        margin-top:30px;
+    }
+
+    .etap-bloc{
+        height:80px;
+    }
+    .abon-bloc-img {
+        height: 250px;
+    }
+    .subscribereplace{
+        display: none;
+    }
+    .x1 .x2 {
+
+        padding: 65.5%;
+    }
+    .slash{
+        left:60px;
+    }
+    .rate-item{
+        font-size: 25px;
+        margin-top:20px;
+    }
+    .bottombarr{
+        height: 200px;
+    }
+    .btnprofil{
+        width:100px;
+    }
+}
+@media screen and (max-width:991px) and (min-width:511px) {
+    .abon-bloc-img {
+        height: 430px;
+    }
+    .subscribereplace{
+        margin-top: 373px;
+        margin-left: -10px;
+        width:120px;
+    }
+}
+
+@media screen and (max-width:991px) {
+    .proposition-btn{
+        margin-left:-22px;
+    }
+    .abon-desc{display: none;}
+    .abon-title{display:none;}
+
+    .topbarr{
+        height: 100px;
+        background-image: url("./../images/asset/ardoiseextended.png");
+        background-size: 100% 100%;
+
+    }
+    .posx1{
+    margin-top: 40px;
+}
+    .itemloglink{
+        width:40%;
+        display: inline;
+        top:30px;
+
+    }
+    .bar1{
+        height:160px;
+    }
+    .addUserInfo{
+        height: 600px;
+    }
+   .showUser{
+        height: 470px;
+    }
+    .logoutlink{
+        margin-right:-90px;
+    }
+    .loglink{
+        bottom:40px;
+    }
+    .evenmorelittle{
+        margin-top: 0px;
+    }
+    .btninscript1 {
+        position: relative;
+        top:-30px;
+    }
+    .widthresize{
+        margin: 5px auto auto auto;
+    }
+
+    .btnupdatereplace{
+        position: relative;
+        top:-15px;
+    }
+    .middd{
+        margin-top: 5px;
+    }
+    .circle{
+      height:50px;
+    }
+    .etap-bloc{
+        height:160px;
+    }
+    .morelittle{
+        font-size: 10px;
+    }
 }

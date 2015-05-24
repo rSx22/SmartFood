@@ -8,7 +8,6 @@
 <meta name='distribution' content='Global'>
 <meta name='rating' content='General'>
 <meta name='revisit-after' content='7 days'>
-<meta name='designer' content='Clara Koscielniak, Amaury Vallot'>
 <meta name='pagename' content='Page Commercial de la marque restoklm'>
 <meta name='author' content='TheophaneCusenza, theo.cusenza@free.fr'>
 <meta name='target' content='all'>
@@ -29,7 +28,7 @@
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js"></script>
 
 <title>{% block title %}Test Application{% endblock %}</title>
-<body>
+<body style="background-color:#f5f5ef;">
 <div class="container">
 	<div class="row text-center topbarr">
 		<div class="col-md-5 col-md-offset-1 barsize">
@@ -39,21 +38,19 @@
 		<div class="col-md-3 col-md-offset-2 barsize top-buffer1"><a href="{{url_path}}/newproject/web/index.php?p=help">Besoin d'aide ?</a></div>
 	</div>
 
-		<div class="container row bar1">
+		<div class="row bar1">
 		  	<div class="row top-buffer2">
 			  <div class="col-md-3 col-md-offset-2 top-buffer1 text-center" ><a href ="{{url_path}}/newproject/web/index.php"><div class="logo" style ="width:200px;"></div></a>
 				
 
-				<form method="POST" action="?p=statsdump">
-					<input type="submit" value="dump session request" class="btnupdate btnupdatereplace">
-				</form>
+
 
 
 
 			</div>
 
 
-			  <div class="col-md-5 col-md-offset-2 loglink text-center">
+			  <div class="col-md-5 col-md-offset-1 loglink text-center">
 				<div class="col-md-5 text-right itemloglink barloglink">
 
 					{% if email_address is defined %}
@@ -168,6 +165,7 @@
 
 
 
+{% if  methode!='showUser' %}
 
 	{#Abonnements#}
 
@@ -233,6 +231,8 @@
 		</div>
 	</div>
 
+	{% else %}
+
 	{#User Page#}
 	<div class="row big-user-bloc text-center">
 
@@ -241,41 +241,41 @@
 		<div class="row last-meal-bloc">
 			<div class="row title-last-meal">MON DERNIER REPAS:</div>
 			<div class="row last-meal-lines">
-				<div class="col-md-1 col-md-offset-2 last-meal-titles-like">Qualité:</div>
-				<div class="col-md-2 last-meal-choices-like"><img src="./../web/images/asset/smiley-sad.png" alt="smiley"> J'aime pas</div>
-				<div class="col-md-2 last-meal-choices-like"><img src="./../web/images/asset/smiley-soso.png" alt="smiley"> Moyen</div>
-				<div class="col-md-2 last-meal-choices-like"><img src="./../web/images/asset/smiley-happy.png" alt="smiley"> J'aime</div>
-				<div class="col-md-2 last-meal-choices-like"><img src="./../web/images/asset/smiley-happy.png" alt="smiley"> J'aime beaucoup</div>
+				<div class="col-md-1 col-md-offset-2 col-xs-1 col-xs-offset-1 last-meal-titles-like">Qualité:</div>
+				<div class="col-md-2 col-xs-2 col-xs-1 col-xs-offset-1 last-meal-choices-like slash"><img src="./../web/images/asset/smiley-sad.png" alt="smiley"> J'aime pas</div>
+				<div class="col-md-2 col-xs-1 last-meal-choices-like slash"><img src="./../web/images/asset/smiley-soso.png" alt="smiley"> Moyen</div>
+				<div class="col-md-2 col-xs-1 last-meal-choices-like slash"><img src="./../web/images/asset/smiley-happy.png" alt="smiley"> J'aime</div>
+				<div class="col-md-2 col-xs-1 last-meal-choices-like slash"><img src="./../web/images/asset/smiley-happy.png" alt="smiley"> J'aime beaucoup</div>
 			</div>
 			<div class="row last-meal-lines">
-				<div class="col-md-1 col-md-offset-2 last-meal-titles-like">Nourrissant:</div>
-				<div class="col-md-2 last-meal-choices-like"><img src="./../web/images/asset/smiley-sad.png" alt="smiley"> Pas assez</div>
-				<div class="col-md-2 last-meal-choices-like"><img src="./../web/images/asset/smiley-happy.png" alt="smiley"> Parfait</div>
-				<div class="col-md-2 last-meal-choices-like"><img src="./../web/images/asset/smiley-soso.png" alt="smiley"> Trop consistant</div>
+				<div class="col-md-1 col-md-offset-2 col-xs-1 col-xs-offset-1 last-meal-titles-like">Nourrissant:</div>
+				<div class="col-md-2 col-xs-1 col-xs-1 col-xs-offset-1 last-meal-choices-like slash"><img src="./../web/images/asset/smiley-sad.png" alt="smiley"> Pas assez</div>
+				<div class="col-md-2 col-xs-1 last-meal-choices-like slash"><img src="./../web/images/asset/smiley-happy.png" alt="smiley"> Parfait</div>
+				<div class="col-md-2 col-xs-1 last-meal-choices-like slash"><img src="./../web/images/asset/smiley-soso.png" alt="smiley"> Trop consistant</div>
 			</div>
 			<div class="row last-meal-lines">
-				<div class="col-md-1 col-md-offset-2 last-meal-titles-like">Varié:</div>
-				<div class="col-md-2 last-meal-choices-like"><img src="./../web/images/asset/smiley-sad.png" alt="smiley"> Pas assez</div>
-				<div class="col-md-2 last-meal-choices-like"><img src="./../web/images/asset/smiley-soso.png" alt="smiley"> Assez</div>
-				<div class="col-md-2 last-meal-choices-like"><img src="./../web/images/asset/smiley-happy.png" alt="smiley"> Parfait</div>
-				<div class="col-md-2 last-meal-choices-like"><img src="./../web/images/asset/smiley-soso.png" alt="smiley"> Trop varié</div>
+				<div class="col-md-1 col-md-offset-2 col-xs-1 col-xs-offset-1 last-meal-titles-like">Varié:</div>
+				<div class="col-md-2 col-xs-2 col-xs-1 col-xs-offset-1 last-meal-choices-like slash"><img src="./../web/images/asset/smiley-sad.png" alt="smiley"> Pas assez</div>
+				<div class="col-md-2 col-xs-1 last-meal-choices-like slash"><img src="./../web/images/asset/smiley-soso.png" alt="smiley"> Assez</div>
+				<div class="col-md-2 col-xs-1 last-meal-choices-like slash"><img src="./../web/images/asset/smiley-happy.png" alt="smiley"> Parfait</div>
+				<div class="col-md-2 col-xs-1 last-meal-choices-like slash"><img src="./../web/images/asset/smiley-soso.png" alt="smiley"> Trop varié</div>
 			</div>
 
 		</div>
 
 			{#Proposition#}
-		<div class="row proposition-day">
-			<div class="col-md-3 proposition-title">
+		<div class=" proposition-day">
+			<div class="col-md-3 col-xs-3 proposition-title">
 				Aujourd'hui nous vous proposons:
 			</div>
-			<div class="col-md-3 proposition-polaroid">
+			<div class="col-md-3 col-xs-3  proposition-polaroid">
 				<img class="row tape"  src="../web/images/asset/tape.png" alt="tape">
 				<div class="row meal-desc">Salade</div>
 			</div>
-			<div class="col-md-1 ">
+			<div class="col-md-1 col-xs-1 ">
 				<div class="proposition-btn">&nbsp;<div class="rotate"><span class="glyphicon glyphicon-refresh"></span></div></div>
 			</div>
-			<div class="col-md-3 proposition-polaroid">
+			<div class="col-md-3 col-xs-3  proposition-polaroid">
 				<img class="row tape" src="../web/images/asset/tape.png" alt="tape">
 				<div class="row meal-desc">Salade</div>
 			</div>
@@ -283,19 +283,21 @@
 
 			{#Do you like#}
 
-		<div class="row">
-			<div class="row col-md-10 col-md-offset-2 like-title text-left">Aimez vous manger?</div>
-			<div class="row like-bloc">
-				<div class="img-like col-md-4 col-md-offset-2"></div>
-				<div class="like-rate col-md-4 text-left">
-					<div class="row rate-item col-md-offset-1">J'adore</div>
-					<div class="row rate-item col-md-offset-1">J'aime pas</div>
-					<div class="row rate-item col-md-offset-1">J'aime pas</div>
-					<div class="row rate-item col-md-offset-1">Allergique</div>
-					<div class="row rate-item col-md-offset-1">Sans Avis</div>
+		<div class="">
+			<div class="row col-md-10 col-xs-10 col-md-offset-2 col-xs-offset-2 like-title text-left">Aimez vous manger?</div>
+			<div class=" like-bloc">
+				<div class="img-like col-md-5 col-xs-5 col-md-offset-1 col-xs-offset-1"></div>
+				<div class="row like-rate col-md-5 col-xs-5 text-left">
+					<div class="row rate-item col-md-offset-1 col-xs-offset-1">J'adore</div>
+					<div class="row rate-item col-md-offset-1 col-xs-offset-1">J'aime pas</div>
+					<div class="row rate-item col-md-offset-1 col-xs-offset-1">J'aime pas</div>
+					<div class="row rate-item col-md-offset-1 col-xs-offset-1">Allergique</div>
+					<div class="row rate-item col-md-offset-1 col-xs-offset-1">Sans Avis</div>
+
 				</div>
+				<div class=" meal-name text-left col-md-3 col-xs-offset-4">Hamburger Maison</div>
 			</div>
-			<div class="row meal-name text-left col-md-offset-2">Hamburger Maison</div>
+			
 		</div>
 
 
@@ -303,10 +305,11 @@
 
 		{% set foo = 'bar' %}
 
-		<div class="row calendar-bloc col-md-12">
-			<div class="row calendar-title text-left col-md-offset-2">Mes repas</div>
-			<div class="row calendar">
-				<table>
+		<div class="calendar-bloc col-md-12 col-xs-12">
+			<div class="row calendar-title text-left col-md-offset-2 col-md-offset-12">Mes repas</div>
+			<div class="row calendar table">
+				<div class="table-responsive">
+  					<table class="table">
 					<tr class="month">
 						<td colspan="7" class="month">
 							Cette semaine
@@ -323,8 +326,10 @@
 					</tr>
 				</table>
 			</div>
-			<div class="row calendar">
-				<table>
+			</div>
+			<div class="row calendar table">
+				<div class="table-responsive">
+  					<table class="table">
 					<tr class="month">
 						<td colspan="7" class="month">
 							Semaine prochaine
@@ -341,25 +346,26 @@
 					</tr>
 				</table>
 			</div>
+			</div>
 
 		</div>
 
 	</div>
 
-
+{% endif %}
 
 
 	{#Footer#}
 
-	<div class="row text-center bottombarr">
-		<div class="col-md-12">
-			<div class="col-md-3">
+	<div class="text-center bottombarr">
+		<div class="col-md-12 col-xs-12">
+			<div class="col-md-3 col-xs-4">
 				<p class="nous-contact">
 					<span class="footer-titles">Nous contacter</span><br>
 	                <span class="footer-text"> Mail: smart@food.fr<br>
 	                Adresse: 95 rue Parmentier<br>
 	                75013 PARIS FRANCE</span></p></div>
-			<div class="col-md-5">
+			<div class="col-md-5 col-xs-4">
 				<p class="footer-titles">Restez connectés</p>
 				<img class="footer-logo" src="{{root_path}}/newproject/web/images/asset/logo-iphone.png">
 				<img class="footer-logo" src="{{root_path}}/newproject/web/images/asset/logo-android.png">
@@ -367,7 +373,7 @@
 				<p class="download-app">TÉLÉCHARGER L’APPLICATION</p>
 
 			</div>
-			<div class="col-md-4">
+			<div class="col-md-4 col-xs-4">
 				<p class="copyright">
 					<span class="copyright-title">COPYRIGHT ®™  SmartFood 2015</span><br>
 	                    <span class="footer-text">Mentions légales<br>
@@ -381,7 +387,7 @@
 
 
 </div>
-
+	
 	{% endif %}
 
 	</div>
