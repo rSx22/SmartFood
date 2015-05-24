@@ -93,4 +93,14 @@ class Product
             $dbex->execute();
             return $name;
     }
+    public function addAppreciation($appreciation, $user_id, $menu_id){
+        $query = 'INSERT INTO liked_things (appreciation, user_id, menu_id) VALUES (:appreciation, :user_id, :menu_id)';
+        $dbexec = $this->conn->prepare($query);
+        $dbexec->execute([
+            'appreciation' => $appreciation,
+            'user_id' => $user_id,
+            'menu_id' => $menu_id
+        ]);
+
+    }
 }
