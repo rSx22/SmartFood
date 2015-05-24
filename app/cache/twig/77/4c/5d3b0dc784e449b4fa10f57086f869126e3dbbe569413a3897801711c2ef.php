@@ -285,8 +285,8 @@ class __TwigTemplate_774c5d3b0dc784e449b4fa10f57086f869126e3dbbe569413a389780171
             // line 136
             echo "
 \t\t\t\t</div>
-\t\t\t\t<button class=\"slick-prev\" aria-label=\"previous\" data-role=\"none\" type=\"button\" style=\"display: block;\">Previous</button>
-\t\t\t\t<button class=\"slick-next\" aria-label=\"next\" data-role=\"none\" type=\"button\" style=\"display: block;\">Next</button>
+\t\t\t\t<button class=\"slick-prev\">Previous</button>
+\t\t\t\t<button class=\"slick-next\">Next</button>
 \t\t\t\t";
         }
         // line 141

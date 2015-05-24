@@ -280,12 +280,19 @@ display: none;
     background-size: 100% 100%;
 
 }
+.slick-prev:before, .slick-next:before { font-family: "slick"; font-size: 40px; line-height: 1; color: red; opacity: 0.75; -webkit-font-smoothing: antialiased; -moz-osx-font-smoothing: grayscale; }   
+
+.slick-prev:before { content: "‹"; }
+[dir="rtl"] .slick-prev:before { content: "›"; }
+
+[dir="rtl"] .slick-next { left: -10px; top: 70px; right: auto; }
+.slick-next:before { content: "›"; }
+[dir="rtl"] .slick-next:before { content: "‹"; }
+
 .slick-prev{
-    margin-left : 40px;
-}
+margin-left: 40px;}
 .slick-next{
-    margin-right : 40px;
-}
+margin-right: 40px;}
 .barimg{
     background-image: url("./../images/asset/Background.jpg");
     background-size: 100% 100%;
@@ -307,6 +314,7 @@ display: none;
     font-weight: lighter;
     color: #f5f5ef;
     font-size: 30px;
+    padding-top: 30px;
 }
 .logoutlink{
     margin-right:20px;
