@@ -57,3 +57,6 @@ setcalendar:
 
 statsdump:
   controller: Controller\UserController:dump
+
+addAppreciation:
+  controller: Controller\ProductController:addAppreciation
