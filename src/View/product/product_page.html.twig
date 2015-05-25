@@ -17,27 +17,50 @@
 {% if methode == "showProductPage" %}
 
 
-<div class="weekselec">Selectionner les jours de livraison<span id="weekCal"></span></div>  <button data-id="{{id}}" id="btnSelect">Valider</button>  <br>
+<div class="weekselec">Selectionner les jours de livraison
+	<span id="weekCal"></span>
+</div>
+<button data-id="{{id}}" id="btnSelect">Valider</button>  <br>
 
 
 
 <form method="POST" action="index.php?p=addtocard" name="calendar">  
-<input type="hidden" name="daychoice" value="0" />
-<div id="time0"> <div id="timename0"></div><input type="text" id="timepicker0" name="timepikr0"><span id="daytimechoice0"></span></div><br>
-<div id="time1"> <div id="timename1"></div><input type="text" id="timepicker1" name="timepikr1"><span id="daytimechoice1"></span></div><br>
-<div id="time2"> <div id="timename2"></div><input type="text" id="timepicker2" name="timepikr2"><span id="daytimechoice2"></span></div><br>
-<div id="time3"> <div id="timename3"></div><input type="text" id="timepicker3" name="timepikr3"><span id="daytimechoice3"></span></div><br>
-<div id="time4"> <div id="timename4"></div><input type="text" id="timepicker4" name="timepikr4"><span id="daytimechoice4"></span></div><br>
-<input type="submit" value="Envoyer" name="{{id}}" class="btnform"><span id="return"></span>
+<input type="hidden" name="daychoice" value="0">
+<div id="time0">
+	<div id="timename0"></div>
+	<input type="text" id="timepicker0" name="timepikr0">
+		<span id="daytimechoice0"></span>
+</div>
+<br>
+<div id="time1"> 
+	<div id="timename1"></div>
+	<input type="text" id="timepicker1" name="timepikr1">
+		<span id="daytimechoice1"></span>
+</div>
+<br>
+<div id="time2">
+	<div id="timename2"></div>
+	<input type="text" id="timepicker2" name="timepikr2">
+		<span id="daytimechoice2"></span>
+</div>
+<br>
+<div id="time3">
+	<div id="timename3">
+		</div><input type="text" id="timepicker3" name="timepikr3">
+		<span id="daytimechoice3"></span>
+</div>
+<br>
+<div id="time4">
+	<div id="timename4"></div>
+	<input type="text" id="timepicker4" name="timepikr4">
+	<span id="daytimechoice4"></span>
+</div>
+<br>
+<input type="submit" value="Envoyer" name="{{id}}" class="btnform">
+<span id="return"></span>
+
 </form>
-
-{% elseif methode == "showDelProductPage" %}
-
-	<form method="POST" action="index.php?p=del_item"> 
-	How much<input type="number" name="nbrproduct" min="0">
-	<input type="submit" value="remove from card">
-	</form>
-
 {% endif %}
+
 {{message}}
 {% endblock %}

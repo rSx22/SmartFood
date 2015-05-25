@@ -89,28 +89,19 @@
 		</div>
 
 		<div class="row text-center">
+			{{methode}}
 			{% if methode=='indexConnected' or  methode=='showProductPage' %}
 			<div class="bar2">
-			{% endif %}
-				<div class="barimg slick-slide {{methode}}" style="height:430px;width:100%;">
-					{% if methode!='indexConnected' and methode!='showProductPage' %}
-
-					<h2 class="phrase top-buffer3">Phrase d'accroche<h2><br>
-					<div class="undertitle">Livraison à emporter / Temps de livraison / Nb Restaurants partenaires / Nombre de spécialtés
-					</div>
-		        		
-		        	{% endif %}
-
-
-					<div class="row top-buffer col-md-10 col-md-offset-1 middd">
+				<div class="barimg {{methode}}" style="height:430px;width:100%;">
+					<div class="row top-buffer col-md-10 col-md-offset-1 middd" style="width:100%;">
 						{% include 'card/listCard.html.twig' %}
 		        	</div>
 	        	</div>
-				<div class="barimg2 slick-slide {{methode}}" style="height:430px;width:100%;">
+				<div class="barimg2 {{methode}}" style="height:430px;">
 					<div class="phrase top-buffer12">Goutez à la variété et à la simplicité
 					</div>
 				</div>
-				<div class="barimg3 slick-slide {{methode}}" style="height:430px;width:100%:background-color: #edede7;">
+				<div class="barimg3 {{methode}}" style="height:430px;background-color: #edede7;">
 					<div class="phrase">
 					</div>
 					<div class=" top-buffer col-md-10 col-md-offset-1 middd">
@@ -120,39 +111,37 @@
 							
 					</div>
 				</div>
-
-				{% if (methode=='indexConnected' or  methode=='showProductPage' ) %}
-				</div>
-				{% endif %}
-				</div>
-
-				{% if (methode!='indexConnected' and  methode!='showProductPage' ) %}
-
-				<div class="barimg {{methode}}">
-	                <h2 class="phrase top-buffer3">Phrase d'accroche<h2><br>
-	                <div class="undertitle">Livraison à emporter / Temps de livraison / Nb Restaurants partenaires / Nombre de spécialtés
-	                </div>        
-		                <div class="row top-buffer col-md-10 col-md-offset-1 middd">
-		                    {% if methode=='logUser' %}
-		                    {% include 'user/form_logUser.html.twig' %}
-		                    {% elseif methode=='loggedUser' %}
-		                    {% include 'user/form_logUser.html.twig' %}
-		                    {% elseif methode=='showUser' %}
-		                    {% include 'user/user_page.html.twig' %}
-		                    {% elseif methode=='addUserInfo' %}
-		                    {% include 'user/form_addUserInfo.html.twig' %}
-		                    {% elseif (methode=='indexConnected' or  methode=='showProductPage' ) %}
-		                    {% include 'card/listCard.html.twig' %}
-		                    
-		                    {% else %}
-		                    {% include 'user/form_addUser.html.twig' %}
-		                    {% endif %}
-		                </div>
-                </div>
-				{% endif %}
-
-					
 			</div>
+		</div>
+			{% else %}
+
+
+			<div class="barimg {{methode}}">
+                <h2 class="phrase top-buffer3">Phrase d'accroche<h2>
+                <div class="undertitle">Livraison à emporter / Temps de livraison / Nb Restaurants partenaires / Nombre de spécialtés
+                </div>        
+	                <div class="row top-buffer col-md-10 col-md-offset-1 middd">
+	                    {% if methode=='logUser' %}
+	                    {% include 'user/form_logUser.html.twig' %}
+	                    {% elseif methode=='loggedUser' %}
+	                    {% include 'user/form_logUser.html.twig' %}
+	                    {% elseif methode=='showUser' %}
+	                    {% include 'user/user_page.html.twig' %}
+	                    {% elseif methode=='addUserInfo' %}
+	                    {% include 'user/form_addUserInfo.html.twig' %}
+	                    {% elseif (methode=='indexConnected' or  methode=='showProductPage' ) %}
+	                    {% include 'card/listCard.html.twig' %}
+	                    
+	                    {% else %}
+	                    {% include 'user/form_addUser.html.twig' %}
+	                    {% endif %}
+
+	                </div>
+            	</div>
+			{% endif %}
+		</div>
+		
+
 		<div class="">
 		</div>
 	<div class="row etap-bloc overflow">
@@ -430,8 +419,8 @@
 <script type="text/javascript" src="{{url_path}}/newproject/web/js/weekline/timepicker/jquery.timepicker.min.js"></script>
 <script type="text/javascript" src="{{url_path}}/newproject/web/js/weekline/scripts/wl.js"></script>
 
-<script type="text/javascript" src="{{url_path}}/newproject/web/js/onrefresh.js"></script>
 <script type="text/javascript" src="{{url_path}}/newproject/web/js/slick/slick.min.js"></script>
+<script type="text/javascript" src="{{url_path}}/newproject/web/js/onrefresh.js"></script>
 
 <script type="text/javascript" src="./../web/js/refreshMeal.js"></script>
 <script type="text/javascript" src="./../web/js/doYouLikeThis.js"></script>

@@ -73,39 +73,61 @@ class __TwigTemplate_b227e83caa343cb0617fbebf328ffe38046bfe2953743ec726c4ea3e190
             // line 18
             echo "
 
-<div class=\"weekselec\">Selectionner les jours de livraison<span id=\"weekCal\"></span></div>  <button data-id=\"";
-            // line 20
+<div class=\"weekselec\">Selectionner les jours de livraison
+\t<span id=\"weekCal\"></span>
+</div>
+<button data-id=\"";
+            // line 23
             echo twig_escape_filter($this->env, (isset($context["id"]) ? $context["id"] : null), "html", null, true);
             echo "\" id=\"btnSelect\">Valider</button>  <br>
 
 
 
 <form method=\"POST\" action=\"index.php?p=addtocard\" name=\"calendar\">  
-<input type=\"hidden\" name=\"daychoice\" value=\"0\" />
-<div id=\"time0\"> <div id=\"timename0\"></div><input type=\"text\" id=\"timepicker0\" name=\"timepikr0\"><span id=\"daytimechoice0\"></span></div><br>
-<div id=\"time1\"> <div id=\"timename1\"></div><input type=\"text\" id=\"timepicker1\" name=\"timepikr1\"><span id=\"daytimechoice1\"></span></div><br>
-<div id=\"time2\"> <div id=\"timename2\"></div><input type=\"text\" id=\"timepicker2\" name=\"timepikr2\"><span id=\"daytimechoice2\"></span></div><br>
-<div id=\"time3\"> <div id=\"timename3\"></div><input type=\"text\" id=\"timepicker3\" name=\"timepikr3\"><span id=\"daytimechoice3\"></span></div><br>
-<div id=\"time4\"> <div id=\"timename4\"></div><input type=\"text\" id=\"timepicker4\" name=\"timepikr4\"><span id=\"daytimechoice4\"></span></div><br>
+<input type=\"hidden\" name=\"daychoice\" value=\"0\">
+<div id=\"time0\">
+\t<div id=\"timename0\"></div>
+\t<input type=\"text\" id=\"timepicker0\" name=\"timepikr0\">
+\t\t<span id=\"daytimechoice0\"></span>
+</div>
+<br>
+<div id=\"time1\"> 
+\t<div id=\"timename1\"></div>
+\t<input type=\"text\" id=\"timepicker1\" name=\"timepikr1\">
+\t\t<span id=\"daytimechoice1\"></span>
+</div>
+<br>
+<div id=\"time2\">
+\t<div id=\"timename2\"></div>
+\t<input type=\"text\" id=\"timepicker2\" name=\"timepikr2\">
+\t\t<span id=\"daytimechoice2\"></span>
+</div>
+<br>
+<div id=\"time3\">
+\t<div id=\"timename3\">
+\t\t</div><input type=\"text\" id=\"timepicker3\" name=\"timepikr3\">
+\t\t<span id=\"daytimechoice3\"></span>
+</div>
+<br>
+<div id=\"time4\">
+\t<div id=\"timename4\"></div>
+\t<input type=\"text\" id=\"timepicker4\" name=\"timepikr4\">
+\t<span id=\"daytimechoice4\"></span>
+</div>
+<br>
 <input type=\"submit\" value=\"Envoyer\" name=\"";
-            // line 31
+            // line 59
             echo twig_escape_filter($this->env, (isset($context["id"]) ? $context["id"] : null), "html", null, true);
-            echo "\" class=\"btnform\"><span id=\"return\"></span>
+            echo "\" class=\"btnform\">
+<span id=\"return\"></span>
+
 </form>
-
-";
-        } elseif ((        // line 34
-(isset($context["methode"]) ? $context["methode"] : null) == "showDelProductPage")) {
-            // line 35
-            echo "
-\t<form method=\"POST\" action=\"index.php?p=del_item\"> 
-\tHow much<input type=\"number\" name=\"nbrproduct\" min=\"0\">
-\t<input type=\"submit\" value=\"remove from card\">
-\t</form>
-
 ";
         }
-        // line 42
+        // line 64
+        echo "
+";
+        // line 65
         echo twig_escape_filter($this->env, (isset($context["message"]) ? $context["message"] : null), "html", null, true);
         echo "
 ";
@@ -118,6 +140,6 @@ class __TwigTemplate_b227e83caa343cb0617fbebf328ffe38046bfe2953743ec726c4ea3e190
 
     public function getDebugInfo()
     {
-        return array (  109 => 42,  100 => 35,  98 => 34,  92 => 31,  78 => 20,  74 => 18,  72 => 17,  68 => 15,  60 => 13,  58 => 12,  53 => 10,  49 => 9,  45 => 8,  41 => 7,  35 => 4,  31 => 3,  26 => 2,  20 => 1,);
+        return array (  131 => 65,  128 => 64,  120 => 59,  81 => 23,  74 => 18,  72 => 17,  68 => 15,  60 => 13,  58 => 12,  53 => 10,  49 => 9,  45 => 8,  41 => 7,  35 => 4,  31 => 3,  26 => 2,  20 => 1,);
     }
 }
