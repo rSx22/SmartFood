@@ -251,7 +251,6 @@ display: none;
     margin-top: 100px;
 }
 
-
 .topbarr{
     background-image: url("./../images/asset/ardoise.png");
     background-size: 100% 100%;
@@ -291,12 +290,14 @@ font-size: 25px;
 .barimg2{
     background-image: url("./../images/asset/tassethé.jpg");
     background-size: 100% 100%;
+    height:430px;width:100%;
 
 }
 .barimg3{
     background-image: url("./../images/asset/help.png");
     background-size: 100% 100%;
     background-color: #edede7;
+    height:430px;width:100%;
 
 }
 .slick-prev:before, .slick-next:before { font-family: "slick"; font-size: 40px; line-height: 1; color: red; opacity: 0.75; -webkit-font-smoothing: antialiased; -moz-osx-font-smoothing: grayscale; }   
@@ -315,8 +316,8 @@ margin-right: 40px;}
 .barimg{
     background-image: url("./../images/asset/Background.jpg");
     background-size: 100% 100%;
-    height: 450px;
-    width: 100%;
+    height:430px;
+    width:100%;
 }
 .middd{height: 200px;}
 .undertitle{
@@ -1025,10 +1026,10 @@ content:"Actualiser";
         height:160px;
     }
     .addUserInfo{
-        height: 600px;
+        height: 620px;
     }
    .showUser{
-        height: 470px;
+        height: 490px;
     }
     .logoutlink{
         margin-right:-90px;

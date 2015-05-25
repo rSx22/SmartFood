@@ -180,12 +180,12 @@ class __TwigTemplate_774c5d3b0dc784e449b4fa10f57086f869126e3dbbe569413a389780171
 \t\t\t</div>
 \t\t</div>
 
-\t\t<div class=\" text-center\">
+\t\t<div class=\"row text-center\">
 \t\t\t";
         // line 92
         if ((((isset($context["methode"]) ? $context["methode"] : null) == "indexConnected") || ((isset($context["methode"]) ? $context["methode"] : null) == "showProductPage"))) {
             // line 93
-            echo "\t\t\t<div class=\"bar2\" style=\"margin-left:-15px;\">
+            echo "\t\t\t<div class=\"bar2\">
 \t\t\t";
         }
         // line 95
@@ -255,7 +255,7 @@ class __TwigTemplate_774c5d3b0dc784e449b4fa10f57086f869126e3dbbe569413a389780171
 \t\t\t\t<div class=\"barimg ";
             // line 131
             echo twig_escape_filter($this->env, (isset($context["methode"]) ? $context["methode"] : null), "html", null, true);
-            echo "\" style=\"width:104%;margin-left:-15px;\">
+            echo "\">
 \t                <h2 class=\"phrase top-buffer3\">Phrase d'accroche<h2><br>
 \t                <div class=\"undertitle\">Livraison à emporter / Temps de livraison / Nb Restaurants partenaires / Nombre de spécialtés
 \t                </div>        
