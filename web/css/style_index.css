@@ -7,8 +7,46 @@ a{
 
 
 
+.firstetap{
+    background-image: url("./../images/asset/firstetap.png");
+    background-size: 100% 90%;
+    background-repeat: no-repeat;
+height: auto;
+width:25%;
+min-width:60px;
+float: left;
 
-
+}
+.secondetap{
+    background-image: url("./../images/asset/secondetap.png");
+    background-size: 100% 90%;
+    background-repeat: no-repeat;
+height: auto;
+width:25%;
+min-width:60px;
+float: left;
+margin-left:-50px;
+}
+.thirdetap{
+    background-image: url("./../images/asset/thirdetap.png");
+    background-size: 100% 90%;
+    background-repeat: no-repeat;
+height: auto;
+width:25%;
+min-width:60px;
+float: left;
+margin-left:-50px;
+}
+.fourthetap{
+    background-image: url("./../images/asset/fourthetap.png");
+    background-size: 100% 90%;
+    background-repeat: no-repeat;
+height: auto;
+width:25%;
+min-width:60px;
+float: left;
+margin-left:-50px;
+}
 
 .glow{
 text-shadow: #999999 1px 1px, #999999 -1px 1px, #999999 -1px -1px, #999999 1px -1px;}
@@ -46,14 +84,13 @@ display: none;}
 .x1 .x2 {
     display:block;
     float:left;
-    padding: 43.5%;
+    padding: 55.5%;
     width:auto;
     height:auto;
     border-radius:50%;
     -moz-border-radius:50%;
     -webkit-border-radius:50%;
     -khtml-border-radius: 50%;
-    background:#eee;
     text-align:center;
     position: relative;
 }
@@ -67,11 +104,11 @@ display: none;}
     font-size: 100%;
     overflow: hidden;
 }​
-.posx1{
-   
-}
 .xxs{
     height: 200px;
+    width:80%;
+    min-width:400px;
+    padding-left: 22%;
 }
 
 .rotate{
