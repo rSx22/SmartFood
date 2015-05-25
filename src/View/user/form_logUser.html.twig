@@ -3,20 +3,20 @@
 	<form method="POST" action="index.php?p=login"> 
 		<div class="row">
 			<div class="col-md-7">
-
-				 <input type="text" class="form-control top-bufferinputxt" placeholder="nom@email.com" name="email_address">
-				 <input type="password" class="form-control top-bufferinputxt" placeholder="Mot de passe" name="password"></div>
+				<input type="text" class="form-control top-bufferinputxt" placeholder="nom@email.com" name="email_address">
+				<input type="password" class="form-control top-bufferinputxt" placeholder="Mot de passe" name="password">
+			</div>
 			<div class="col-md-5 text-center">
 				<input class="btnlog top-buffer3" type="submit" value="Se connecter">
 			</div>
 
-		<div class="littletext notifyform evenmorelittle">
-				{% if methode=='loggedUser' %}
+			<div class="littletext notifyform evenmorelittle">
+			{% if methode=='loggedUser' %}
 
-				 {{message}}
-				
-				{% endif %}
-			</div>
+			{{message}}
+			
+			{% endif %}
+			</div>			
 		</div>
 	</form>
 </div>

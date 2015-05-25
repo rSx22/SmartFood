@@ -92,7 +92,7 @@ class __TwigTemplate_0e656b81dd8e19317561918599e15a99290356f257ef7f9b7c069292a97
                 $context['_seq'] = twig_ensure_traversable($this->getAttribute($context["info"], "days", []));
                 foreach ($context['_seq'] as $context["day"] => $context["hour"]) {
                     // line 35
-                    echo "\t\t\t<div class=\"littletext\"> ";
+                    echo "\t\t\t<div class=\"littletext sizeday\"> ";
                     echo twig_escape_filter($this->env, $context["day"], "html", null, true);
                     echo " ";
                     echo twig_escape_filter($this->env, $context["hour"], "html", null, true);
