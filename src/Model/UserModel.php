@@ -19,7 +19,14 @@ class User
         $resultQuery = $dbex->fetch();
         return $resultQuery['userExist'] ;
     }
-
+    public function chkOrder($id){
+        $qb = 'SELECT EXISTS(SELECT * FROM users_has_orders WHERE users_id =  ?) as orderExist'; //Check in db with name and password, return 0/1.
+        $dbex = $this->conn->prepare($qb);
+        $dbex->bindValue(1, $id);
+        $dbex->execute();
+        $resultQuery = $dbex->fetch();
+        return $resultQuery['orderExist'] ;
+    }
     public function chkUserByName($name){
         $qb = 'SELECT EXISTS(SELECT * FROM users WHERE name =  ?) as userExist'; //Check in db with name and password, return 0/1.
         $dbex = $this->conn->prepare($qb);

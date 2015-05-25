@@ -190,7 +190,7 @@ class __TwigTemplate_774c5d3b0dc784e449b4fa10f57086f869126e3dbbe569413a389780171
             // line 94
             echo twig_escape_filter($this->env, (isset($context["methode"]) ? $context["methode"] : null), "html", null, true);
             echo "\" style=\"height:430px;width:100%;\">
-\t\t\t\t\t<div class=\"row middd\" style=\"width:100%;\">
+\t\t\t\t\t<div class=\"middd\" style=\"width:100%;\">
 \t\t\t\t\t\t";
             // line 96
             $this->loadTemplate("card/listCard.html.twig", "index.html.twig", 96)->display($context);
