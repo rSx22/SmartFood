@@ -235,26 +235,23 @@ class __TwigTemplate_774c5d3b0dc784e449b4fa10f57086f869126e3dbbe569413a389780171
 \t\t\t\t\t</div>
 \t\t\t\t</div>
 
-
-\t\t\t\t
-
 \t\t\t\t";
-        // line 122
+        // line 119
         if ((((isset($context["methode"]) ? $context["methode"] : null) == "indexConnected") || ((isset($context["methode"]) ? $context["methode"] : null) == "showProductPage"))) {
-            // line 123
+            // line 120
             echo "\t\t\t\t</div>
 \t\t\t\t";
         }
-        // line 125
+        // line 122
         echo "\t\t\t\t</div>
 
 \t\t\t\t";
-        // line 127
+        // line 124
         if ((((isset($context["methode"]) ? $context["methode"] : null) != "indexConnected") && ((isset($context["methode"]) ? $context["methode"] : null) != "showProductPage"))) {
-            // line 128
+            // line 125
             echo "
 \t\t\t\t<div class=\"barimg ";
-            // line 129
+            // line 126
             echo twig_escape_filter($this->env, (isset($context["methode"]) ? $context["methode"] : null), "html", null, true);
             echo "\" style=\"width:104%;margin-left:-15px;>
 
@@ -264,73 +261,73 @@ class __TwigTemplate_774c5d3b0dc784e449b4fa10f57086f869126e3dbbe569413a389780171
 
 \t\t                <div class=\"row top-buffer col-md-10 col-md-offset-1 middd\">
 \t\t                    ";
-            // line 136
+            // line 133
             if (((isset($context["methode"]) ? $context["methode"] : null) == "logUser")) {
-                // line 137
+                // line 134
                 echo "
 \t\t                    ";
-                // line 138
-                $this->loadTemplate("user/form_logUser.html.twig", "index.html.twig", 138)->display($context);
-                // line 139
+                // line 135
+                $this->loadTemplate("user/form_logUser.html.twig", "index.html.twig", 135)->display($context);
+                // line 136
                 echo "
 \t\t                    ";
-            } elseif ((            // line 140
+            } elseif ((            // line 137
 (isset($context["methode"]) ? $context["methode"] : null) == "loggedUser")) {
-                // line 141
+                // line 138
                 echo "
 \t\t                    ";
-                // line 142
-                $this->loadTemplate("user/form_logUser.html.twig", "index.html.twig", 142)->display($context);
-                // line 143
+                // line 139
+                $this->loadTemplate("user/form_logUser.html.twig", "index.html.twig", 139)->display($context);
+                // line 140
                 echo "
 \t\t                    ";
-            } elseif ((            // line 144
+            } elseif ((            // line 141
 (isset($context["methode"]) ? $context["methode"] : null) == "showUser")) {
-                // line 145
+                // line 142
                 echo "
 \t\t                    ";
-                // line 146
-                $this->loadTemplate("user/user_page.html.twig", "index.html.twig", 146)->display($context);
-                // line 147
+                // line 143
+                $this->loadTemplate("user/user_page.html.twig", "index.html.twig", 143)->display($context);
+                // line 144
                 echo "
 \t\t                    ";
-            } elseif ((            // line 148
+            } elseif ((            // line 145
 (isset($context["methode"]) ? $context["methode"] : null) == "addUserInfo")) {
-                // line 149
+                // line 146
                 echo "
 \t\t                    ";
-                // line 150
-                $this->loadTemplate("user/form_addUserInfo.html.twig", "index.html.twig", 150)->display($context);
-                // line 151
+                // line 147
+                $this->loadTemplate("user/form_addUserInfo.html.twig", "index.html.twig", 147)->display($context);
+                // line 148
                 echo "
 \t\t                    ";
-            } elseif (((            // line 152
+            } elseif (((            // line 149
 (isset($context["methode"]) ? $context["methode"] : null) == "indexConnected") || ((isset($context["methode"]) ? $context["methode"] : null) == "showProductPage"))) {
-                // line 153
+                // line 150
                 echo "
 \t\t                    ";
-                // line 154
-                $this->loadTemplate("card/listCard.html.twig", "index.html.twig", 154)->display($context);
-                // line 155
+                // line 151
+                $this->loadTemplate("card/listCard.html.twig", "index.html.twig", 151)->display($context);
+                // line 152
                 echo "\t\t                    
 \t\t                    ";
             } else {
-                // line 157
+                // line 154
                 echo "
 \t\t                    ";
-                // line 158
-                $this->loadTemplate("user/form_addUser.html.twig", "index.html.twig", 158)->display($context);
-                // line 159
+                // line 155
+                $this->loadTemplate("user/form_addUser.html.twig", "index.html.twig", 155)->display($context);
+                // line 156
                 echo "
 \t\t                    ";
             }
-            // line 161
+            // line 158
             echo "\t\t                </div>
 \t                </div>
                 </div>
 \t\t\t\t";
         }
-        // line 165
+        // line 162
         echo "
 \t\t\t\t\t
 \t\t\t
@@ -365,32 +362,32 @@ class __TwigTemplate_774c5d3b0dc784e449b4fa10f57086f869126e3dbbe569413a389780171
 
 
 \t";
-        // line 199
+        // line 196
         echo "
 
 \t";
-        // line 201
+        // line 198
         if (((isset($context["methode"]) ? $context["methode"] : null) == "showProductPage")) {
-            // line 202
+            // line 199
             echo "
 \t";
-            // line 203
-            $this->loadTemplate("product/product_page.html.twig", "index.html.twig", 203)->display($context);
-            // line 204
+            // line 200
+            $this->loadTemplate("product/product_page.html.twig", "index.html.twig", 200)->display($context);
+            // line 201
             echo "
 \t";
         } else {
-            // line 206
+            // line 203
             echo "
 
 
 ";
-            // line 209
+            // line 206
             if (((isset($context["methode"]) ? $context["methode"] : null) != "showUser")) {
-                // line 210
+                // line 207
                 echo "
 \t";
-                // line 212
+                // line 209
                 echo "
 \t<div class=\"row abon-bloc text-center\">
 \t\t<div class=\"abon-bloc-img\">
@@ -430,7 +427,7 @@ class __TwigTemplate_774c5d3b0dc784e449b4fa10f57086f869126e3dbbe569413a389780171
 \t</div>
 
 \t";
-                // line 251
+                // line 248
                 echo "\t<div class=\"row\">
 \t\t<div class=\"col-md-12 description-bloc\">
 \t\t\t<div class=\"row col-md-8 col-md-offset-2 db-center-bloc\">
@@ -457,14 +454,14 @@ class __TwigTemplate_774c5d3b0dc784e449b4fa10f57086f869126e3dbbe569413a389780171
 
 \t";
             } else {
-                // line 276
+                // line 273
                 echo "
 \t";
-                // line 278
+                // line 275
                 echo "\t<div class=\"row big-user-bloc text-center\">
 
 \t\t\t";
-                // line 281
+                // line 278
                 echo "
 \t\t<div class=\"row last-meal-bloc\">
 \t\t\t<div class=\"row title-last-meal\">MON DERNIER REPAS:</div>
@@ -492,7 +489,7 @@ class __TwigTemplate_774c5d3b0dc784e449b4fa10f57086f869126e3dbbe569413a389780171
 \t\t</div>
 
 \t\t\t";
-                // line 308
+                // line 305
                 echo "\t\t<div class=\" proposition-day\">
 \t\t\t<div class=\"col-md-3 col-xs-3 proposition-title\">
 \t\t\t\tAujourd'hui nous vous proposons:
@@ -511,7 +508,7 @@ class __TwigTemplate_774c5d3b0dc784e449b4fa10f57086f869126e3dbbe569413a389780171
 \t\t</div>
 
 \t\t\t";
-                // line 326
+                // line 323
                 echo "
 \t\t<div class=\"\">
 \t\t\t<div class=\"row col-md-10 col-xs-10 col-md-offset-2 col-xs-offset-2 like-title text-left\">Aimez vous manger?</div>
@@ -532,12 +529,12 @@ class __TwigTemplate_774c5d3b0dc784e449b4fa10f57086f869126e3dbbe569413a389780171
 
 
 \t\t\t";
-                // line 346
+                // line 343
                 echo "
 \t\t";
-                // line 347
+                // line 344
                 $context["foo"] = "bar";
-                // line 348
+                // line 345
                 echo "
 \t\t<div class=\"calendar-bloc col-md-12 col-xs-12\">
 \t\t\t<div class=\"row calendar-title text-left col-md-offset-2 col-md-offset-12\">Mes repas</div>
@@ -588,11 +585,11 @@ class __TwigTemplate_774c5d3b0dc784e449b4fa10f57086f869126e3dbbe569413a389780171
 
 ";
             }
-            // line 397
+            // line 394
             echo "
 
 \t";
-            // line 400
+            // line 397
             echo "
 \t<div class=\"text-center bottombarr\">
 \t\t<div class=\"col-md-12 col-xs-12\">
@@ -605,15 +602,15 @@ class __TwigTemplate_774c5d3b0dc784e449b4fa10f57086f869126e3dbbe569413a389780171
 \t\t\t<div class=\"col-md-5 col-xs-4\">
 \t\t\t\t<p class=\"footer-titles\">Restez connectés</p>
 \t\t\t\t<img class=\"footer-logo\" src=\"";
-            // line 411
+            // line 408
             echo twig_escape_filter($this->env, (isset($context["root_path"]) ? $context["root_path"] : null), "html", null, true);
             echo "/newproject/web/images/asset/logo-iphone.png\">
 \t\t\t\t<img class=\"footer-logo\" src=\"";
-            // line 412
+            // line 409
             echo twig_escape_filter($this->env, (isset($context["root_path"]) ? $context["root_path"] : null), "html", null, true);
             echo "/newproject/web/images/asset/logo-android.png\">
 \t\t\t\t<img class=\"footer-logo\" src=\"";
-            // line 413
+            // line 410
             echo twig_escape_filter($this->env, (isset($context["root_path"]) ? $context["root_path"] : null), "html", null, true);
             echo "/newproject/web/images/asset/FACEBOOK-bottom.png\">
 \t\t\t\t<p class=\"download-app\">TÉLÉCHARGER L’APPLICATION</p>
@@ -636,30 +633,30 @@ class __TwigTemplate_774c5d3b0dc784e449b4fa10f57086f869126e3dbbe569413a389780171
 \t
 \t";
         }
-        // line 433
+        // line 430
         echo "
 \t</div>
 </div>
 
 
 <script type=\"text/javascript\" src=\"";
-        // line 438
+        // line 435
         echo twig_escape_filter($this->env, (isset($context["url_path"]) ? $context["url_path"] : null), "html", null, true);
         echo "/newproject/web/js/weekline/scripts/jquery.weekLine.js\"></script>
 <script type=\"text/javascript\" src=\"";
-        // line 439
+        // line 436
         echo twig_escape_filter($this->env, (isset($context["url_path"]) ? $context["url_path"] : null), "html", null, true);
         echo "/newproject/web/js/weekline/timepicker/jquery.timepicker.min.js\"></script>
 <script type=\"text/javascript\" src=\"";
-        // line 440
+        // line 437
         echo twig_escape_filter($this->env, (isset($context["url_path"]) ? $context["url_path"] : null), "html", null, true);
         echo "/newproject/web/js/onrefresh.js\"></script>
 <script type=\"text/javascript\" src=\"";
-        // line 441
+        // line 438
         echo twig_escape_filter($this->env, (isset($context["url_path"]) ? $context["url_path"] : null), "html", null, true);
         echo "/newproject/web/js/slick/slick.min.js\"></script>
 <script type=\"text/javascript\" src=\"";
-        // line 442
+        // line 439
         echo twig_escape_filter($this->env, (isset($context["url_path"]) ? $context["url_path"] : null), "html", null, true);
         echo "/newproject/web/js/weekline/scripts/wl.js\"></script>
 </body>";
@@ -683,6 +680,6 @@ class __TwigTemplate_774c5d3b0dc784e449b4fa10f57086f869126e3dbbe569413a389780171
 
     public function getDebugInfo()
     {
-        return array (  669 => 32,  663 => 442,  659 => 441,  655 => 440,  651 => 439,  647 => 438,  640 => 433,  617 => 413,  613 => 412,  609 => 411,  596 => 400,  592 => 397,  541 => 348,  539 => 347,  536 => 346,  515 => 326,  496 => 308,  468 => 281,  464 => 278,  461 => 276,  434 => 251,  394 => 212,  391 => 210,  389 => 209,  384 => 206,  380 => 204,  378 => 203,  375 => 202,  373 => 201,  369 => 199,  334 => 165,  328 => 161,  324 => 159,  322 => 158,  319 => 157,  315 => 155,  313 => 154,  310 => 153,  308 => 152,  305 => 151,  303 => 150,  300 => 149,  298 => 148,  295 => 147,  293 => 146,  290 => 145,  288 => 144,  285 => 143,  283 => 142,  280 => 141,  278 => 140,  275 => 139,  273 => 138,  270 => 137,  268 => 136,  258 => 129,  255 => 128,  253 => 127,  249 => 125,  245 => 123,  243 => 122,  232 => 113,  230 => 112,  223 => 108,  216 => 104,  212 => 102,  210 => 101,  205 => 98,  197 => 92,  195 => 91,  190 => 90,  186 => 88,  184 => 87,  172 => 77,  166 => 75,  164 => 74,  161 => 73,  155 => 71,  152 => 70,  146 => 68,  138 => 66,  135 => 65,  133 => 64,  129 => 62,  123 => 60,  120 => 59,  112 => 57,  110 => 56,  103 => 55,  100 => 54,  98 => 53,  88 => 46,  79 => 40,  74 => 38,  70 => 37,  62 => 32,  55 => 28,  50 => 26,  46 => 25,  20 => 1,);
+        return array (  666 => 32,  660 => 439,  656 => 438,  652 => 437,  648 => 436,  644 => 435,  637 => 430,  614 => 410,  610 => 409,  606 => 408,  593 => 397,  589 => 394,  538 => 345,  536 => 344,  533 => 343,  512 => 323,  493 => 305,  465 => 278,  461 => 275,  458 => 273,  431 => 248,  391 => 209,  388 => 207,  386 => 206,  381 => 203,  377 => 201,  375 => 200,  372 => 199,  370 => 198,  366 => 196,  331 => 162,  325 => 158,  321 => 156,  319 => 155,  316 => 154,  312 => 152,  310 => 151,  307 => 150,  305 => 149,  302 => 148,  300 => 147,  297 => 146,  295 => 145,  292 => 144,  290 => 143,  287 => 142,  285 => 141,  282 => 140,  280 => 139,  277 => 138,  275 => 137,  272 => 136,  270 => 135,  267 => 134,  265 => 133,  255 => 126,  252 => 125,  250 => 124,  246 => 122,  242 => 120,  240 => 119,  232 => 113,  230 => 112,  223 => 108,  216 => 104,  212 => 102,  210 => 101,  205 => 98,  197 => 92,  195 => 91,  190 => 90,  186 => 88,  184 => 87,  172 => 77,  166 => 75,  164 => 74,  161 => 73,  155 => 71,  152 => 70,  146 => 68,  138 => 66,  135 => 65,  133 => 64,  129 => 62,  123 => 60,  120 => 59,  112 => 57,  110 => 56,  103 => 55,  100 => 54,  98 => 53,  88 => 46,  79 => 40,  74 => 38,  70 => 37,  62 => 32,  55 => 28,  50 => 26,  46 => 25,  20 => 1,);
     }
 }
