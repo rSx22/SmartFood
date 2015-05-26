@@ -1,7 +1,7 @@
 $(function() {
     $('.rate-item').click(function() {
         $.ajax({
-            url : 'index.php?p=addAppreciation',
+            url : '?p=addAppreciation',
             type : 'POST',
             data : {appreciation: $(this).attr('data-like')},
             dataType : 'json',
@@ -9,7 +9,7 @@ $(function() {
                 console.log(data);
             },
             error : function(data) {
-                alert(data.responseText);
+                console.log(data);
 
             }
         });
