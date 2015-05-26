@@ -810,6 +810,10 @@ margin-right: 40px;}
     padding-left: 57px;
 }
 
+.smileys {
+    margin-left: 5px;
+}
+
 .last-meal-lines {
     font-family: topbarfont;
     color: #ffffff;
@@ -832,7 +836,7 @@ margin-right: 40px;}
 }
 
 .radio-btn-like{
-    display: none;
+    /*display: none;*/
 }
 .btn-like {
     font-family: "BebasNeue Regular";
@@ -843,6 +847,11 @@ margin-right: 40px;}
     border: 0;
     color: #ffffff;
     margin-top: 20px;
+}
+.label-like:hover {
+    color: #4b9f78;
+    cursor: pointer;
+
 }
 
     /*Proposition of the day*/
