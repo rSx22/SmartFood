@@ -125,7 +125,8 @@
 	                    {% include 'user/form_addUserInfo.html.twig' %}
 	                    {% elseif (methode=='indexConnected' or  methode=='showProductPage' ) %}
 	                    {% include 'card/listCard.html.twig' %}
-	                    
+						{% elseif methode=='addUserStep2' %}
+						{% include 'user/form_addUserStep2.html.twig' %}
 	                    {% else %}
 	                    {% include 'user/form_addUser.html.twig' %}
 	                    {% endif %}
