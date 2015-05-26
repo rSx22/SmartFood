@@ -17,6 +17,51 @@ text-shadow: #999999 1px 1px, #999999 -1px 1px, #999999 -1px -1px, #999999 1px -
 
 }
 
+
+.firstetap{
+    background-image: url("./../images/asset/firstetap.png");
+    background-size: 100% 90%;
+    background-repeat: no-repeat;
+height: auto;
+width:25%;
+min-width:60px;
+float: left;
+
+}
+.secondetap{
+    background-image: url("./../images/asset/secondetap.png");
+    background-size: 100% 90%;
+    background-repeat: no-repeat;
+height: auto;
+width:25%;
+min-width:60px;
+float: left;
+margin-left:-50px;
+}
+.thirdetap{
+    background-image: url("./../images/asset/thirdetap.png");
+    background-size: 100% 90%;
+    background-repeat: no-repeat;
+height: auto;
+width:25%;
+min-width:60px;
+float: left;
+margin-left:-50px;
+}
+.fourthetap{
+    background-image: url("./../images/asset/fourthetap.png");
+    background-size: 100% 90%;
+    background-repeat: no-repeat;
+height: auto;
+width:25%;
+min-width:60px;
+float: left;
+margin-left:-50px;
+}
+
+.glow{
+text-shadow: #999999 1px 1px, #999999 -1px 1px, #999999 -1px -1px, #999999 1px -1px;}
+
 /*div{border:1px solid;}*/
 .emptycard{
     font-weight: lighter;
@@ -50,7 +95,7 @@ display: none;}
 .x1 .x2 {
     display:block;
     float:left;
-    padding: 43.5%;
+    padding: 55.5%;
     width:auto;
     height:auto;
     border-radius:50%;
@@ -76,6 +121,9 @@ display: none;}
 }
 .xxs{
     height: 200px;
+    width:80%;
+    min-width:400px;
+    padding-left: 22%;
 }
 
 .rotate{
@@ -158,6 +206,8 @@ display: none;
 .dayz:before{
     content:"";
 }
+
+
 
 .logo{
     background-image: url("./../images/asset/LogoSmartFood.png");
@@ -277,19 +327,21 @@ display: none;
     width: 100%;
 
 }
-
 .black{
     font-size: 25px;
     color:#999999;
     font-weight: normal;
+    font-family: "BebasNeue Regular";
 }
 .yolo{
 font-size: 25px;
     color:#edede7;
     font-weight: normal;
+    font-family: "BebasNeue Regular";
 }
 .helpsize{
     font-size: 15px;
+ font-family: "BebasNeue Regular";
 }
 .barimg2{
     background-image: url("./../images/asset/tassethé.jpg");
@@ -318,8 +370,8 @@ margin-right: 40px;}
 .barimg{
     background-image: url("./../images/asset/Background.jpg");
     background-size: 100% 100%;
-    height: 450px;
-    width: 100%;
+    height:430px;
+    width:100%;
 }
 .middd{height: 200px;}
 .undertitle{
@@ -331,6 +383,9 @@ margin-right: 40px;}
     font-size: 13px;
     color : #f5f5ef;
     font-weight: lighter;
+}
+.sizeday{
+    min-width:99px;
 }
 .phrase{
     color: #f5f5ef;
@@ -928,6 +983,12 @@ content:"Actualiser";
     color: #ffffff;
 }
 
+.question:before{
+      color: #ff4800;
+    content: "» ";
+    font-weight: bold;
+
+    }
 
 
 @media screen and (max-width:620px) {
@@ -1032,10 +1093,10 @@ content:"Actualiser";
         height:160px;
     }
     .addUserInfo{
-        height: 600px;
+        height: 620px;
     }
    .showUser{
-        height: 470px;
+        height: 490px;
     }
     .logoutlink{
         margin-right:-90px;

@@ -22,7 +22,7 @@ class Product
 
         public function getProductById($id){
      
-            $qb = 'SELECT * FROM products WHERE id =  ?'; //Check in db with name and password, return 0/1.
+            $qb = 'SELECT * FROM products WHERE id =  ?'; 
             $dbex = $this->conn->prepare($qb);
             $dbex->bindValue(1, $id);
             $dbex->execute();

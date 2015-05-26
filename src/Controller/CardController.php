@@ -4,6 +4,7 @@ namespace Controller;
  
 use Model\Card;
 use Model\Product;
+use Model\User;
  
 class CardController extends AbstractBaseController {
     protected $total_price;
@@ -13,7 +14,7 @@ class CardController extends AbstractBaseController {
         if (isset($_SESSION['email_address'])) {
         
             $conn = AbstractBaseController::createConn();
-            $productModel = new product($conn);
+            $productModel = new Product($conn);
 
             if (isset($request['request']['id'])) {
                 $product  = $productModel->getProductById($request['request']['id']);
@@ -166,7 +167,7 @@ class CardController extends AbstractBaseController {
         if(isset($_SESSION['card'])){
 
             $conn = AbstractBaseController::createConn();
-            $productModel = new product($conn);
+            $productModel = new Product($conn);
             if(isset($_SESSION['productid']) && !isset($request['query']['id'])) {  
                $_SESSION['product'] = $productModel->getProductById($_SESSION['productid']);
 
@@ -220,15 +221,33 @@ class CardController extends AbstractBaseController {
         }
         
     }
-    public function setCalendar($request){
+    public function setCalendar(){
+        $conn = AbstractBaseController::createConn();
+        $cardModel = new Card($conn);
+        $userModel = new User($conn);
+        $info = $userModel->getInfoByMail($_SESSION['email_address']);
+        $exist = $userModel->chkOrder($info['id']);
+        if ($exist==0) {    
+            foreach ($_SESSION['card'] as $sub => $subspec) {
+                if (!empty($_SESSION['card'][$sub]['days'])) {
+                    foreach ($_SESSION['card'][$sub]['days'] as $day => $hour) {
+                        
+                            $cardModel->addOrder($sub,$day,$hour); 
+                            $cardModel->setOrderUser($info['id']);   
+                    }
 
+                } 
+            }
+        }else{
+            return ['message' => 'Vous avez déja commander'];
+        }
     }
 
 
     public function setTotalCardPrice(){
     $this->total_price = '0';
         foreach ($_SESSION['card'] as $key => $value) {
-            if (isset($_SESSION['card'][$key['price']])) {
+            if (isset($_SESSION['card'][$key]['price'])) {
                 $this->total_price = $this->total_price + $_SESSION['card'][$key]['price'];
         
             }

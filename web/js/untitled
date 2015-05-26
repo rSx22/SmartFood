@@ -1,0 +1,4 @@
+		$(".bar2").css("width", $(".etap-bloc").width());
+		$( window ).resize(function() {
+		$(".bar2").css("width", $(".etap-bloc").width());
+		});

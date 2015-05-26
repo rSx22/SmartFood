@@ -18,18 +18,14 @@
 <meta http-equiv='x-dns-prefetch-control' content='off'>
 
 
-<link rel="stylesheet" type="text/css" href="./../web/css/style_index.css">
-<link rel="stylesheet" type="text/css" href="./../web/css/fonts.css">
-<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css">
-<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap-theme.min.css">
+<link rel="stylesheet" type="text/css" href="./../web/css/style_index.css"/>
+<link rel="stylesheet" type="text/css" href="./../web/css/fonts.css"/>
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css"/>
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap-theme.min.css"/>
 <link rel="stylesheet" type="text/css" href="{{url_path}}/newproject/web/js/slick/slick.css"/>
-<link rel="stylesheet" type="text/css" href="{{url_path}}/newproject/web/js/slick/slick-theme.css"/>
+<link rel="stylesheet" type="text/css" href="{{url_path}}/newproject/web/js/slick/slick-theme.css">
 
-<script type="text/javascript" src="{{url_path}}/newproject/vendor/components/jquery/jquery.min.js"></script>
-<script type="text/javascript" src="//code.jquery.com/jquery-migrate-1.2.1.min.js"></script>
-<script type="text/javascript" src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js"></script>
-<script type="text/javascript" src="./../web/js/refreshMeal.js"></script>
-<script type="text/javascript" src="./../web/js/doYouLikeThis.js"></script>
+
 
 
 
@@ -87,28 +83,19 @@
 			</div>
 		</div>
 
-		<div class=" text-center">
+		<div class="row text-center">
 			{% if methode=='indexConnected' or  methode=='showProductPage' %}
-			<div class="bar2" style="margin-left:-15px;">
-			{% endif %}
-				<div class="barimg slick-slide {{methode}}" style="height:430px;width:100%;">
-					{% if methode!='indexConnected' and methode!='showProductPage' %}
-
-				<h2 class="phrase top-buffer3">PHRASE D'ACCROCHE<h2><br>
-				<div class="undertitle">Livraison à emporter / Temps de livraison / Nb Restaurants partenaires / Nombre de spécialtés</div>
-	        		
-	        	{% endif %}
-
-
-					<div class="row top-buffer col-md-10 col-md-offset-1 middd">
+			<div class="bar2">
+				<div class="barimg {{methode}}" style="height:430px;width:100%;">
+					<div class="middd" style="width:100%;">
 						{% include 'card/listCard.html.twig' %}
 		        	</div>
 	        	</div>
-				<div class="barimg2 slick-slide {{methode}}" style="height:430px;width:100%;">
+				<div class="barimg2 {{methode}}" style="height:430px;">
 					<div class="phrase top-buffer12">Goutez à la variété et à la simplicité
 					</div>
 				</div>
-				<div class="barimg3 slick-slide {{methode}}" style="height:430px;width:100%:background-color: #edede7;">
+				<div class="barimg3 {{methode}}" style="height:430px;background-color: #edede7;">
 					<div class="phrase">
 					</div>
 					<div class=" top-buffer col-md-10 col-md-offset-1 middd">
@@ -118,85 +105,56 @@
 							
 					</div>
 				</div>
+			</div>
+		</div>
+			{% else %}
 
 
-				
+			<div class="barimg {{methode}}">
+                <h2 class="phrase top-buffer3">Phrase d'accroche<h2>
+                <div class="undertitle">Livraison à emporter / Temps de livraison / Nb Restaurants partenaires / Nombre de spécialtés
+                </div>        
+	                <div class="row top-buffer col-md-10 col-md-offset-1 middd">
+	                    {% if methode=='logUser' %}
+	                    {% include 'user/form_logUser.html.twig' %}
+	                    {% elseif methode=='loggedUser' %}
+	                    {% include 'user/form_logUser.html.twig' %}
+	                    {% elseif methode=='showUser' %}
+	                    {% include 'user/user_page.html.twig' %}
+	                    {% elseif methode=='addUserInfo' %}
+	                    {% include 'user/form_addUserInfo.html.twig' %}
+	                    {% elseif (methode=='indexConnected' or  methode=='showProductPage' ) %}
+	                    {% include 'card/listCard.html.twig' %}
+	                    
+	                    {% else %}
+	                    {% include 'user/form_addUser.html.twig' %}
+	                    {% endif %}
 
-				{% if (methode=='indexConnected' or  methode=='showProductPage' ) %}
-				</div>
-				{% endif %}
-				</div>
-
-				{% if (methode!='indexConnected' and  methode!='showProductPage' ) %}
-
-				<div class="barimg {{methode}}" style="width:104%;margin-left:-15px;>
-
-	                <h2 class="phrase top-buffer3">Phrase d'accroche<h2><br>
-	                <div class="undertitle">Livraison à emporter / Temps de livraison / Nb Restaurants partenaires / Nombre de spécialtés</div>
-		                    
-
-		                <div class="row top-buffer col-md-10 col-md-offset-1 middd">
-		                    {% if methode=='logUser' %}
-
-		                    {% include 'user/form_logUser.html.twig' %}
-
-		                    {% elseif methode=='loggedUser' %}
-
-		                    {% include 'user/form_logUser.html.twig' %}
-
-		                    {% elseif methode=='showUser' %}
-
-		                    {% include 'user/user_page.html.twig' %}
-
-		                    {% elseif methode=='addUserInfo' %}
-
-		                    {% include 'user/form_addUserInfo.html.twig' %}
-
-		                    {% elseif (methode=='indexConnected' or  methode=='showProductPage' ) %}
-
-		                    {% include 'card/listCard.html.twig' %}
-
-
-							{% elseif methode=='addUserStep2' %}
-
-								{% include 'user/form_addUserStep2.html.twig' %}
-		                    
-		                    {% else %}
-
-		                    {% include 'user/form_addUser.html.twig' %}
-
-
-		                    {% endif %}
-		                </div>
 	                </div>
-                </div>
-				{% endif %}
+            	</div>
+			{% endif %}
+		</div>
+		
 
-					
-			
 		<div class="">
 		</div>
 	<div class="row etap-bloc overflow">
 		<div class="col-md-12 text-center">
-			<div class="row xxs">
-			<div class="x1 posx1 col-xs-2 col-xs-offset-2">    
+			<div class="xxs text-center" style="min-width:400px;width:95%;margin-left: 12%;">
+			<div class="x1 firstetap">    
 				<div class="x2">
-    				<span></span>
 					 </div>
 				</div>
-				<div class="x1 posx1 col-xs-2">    
+				<div class="x1 secondetap">    
 					<div class="x2">
-    					<span></span>
 					 	</div>
 					</div>
-			<div class="x1 posx1 col-xs-2">    
+			<div class="x1 thirdetap">    
 				<div class="x2">
-    				<span></span>
 				 	</div>
 				</div>
-			<div class="x1 posx1 col-xs-2">    
+			<div class="x1 fourthetap">    
 				<div class="x2">
-    				<span></span>
 				 </div>
 			</div>
 			</div>
@@ -443,10 +401,17 @@
 	</div>
 </div>
 
+<script type="text/javascript" src="{{url_path}}/newproject/vendor/components/jquery/jquery.min.js"></script>
+<script type="text/javascript" src="//code.jquery.com/jquery-migrate-1.2.1.min.js"></script>
+<script type="text/javascript" src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js"></script>
 
 <script type="text/javascript" src="{{url_path}}/newproject/web/js/weekline/scripts/jquery.weekLine.js"></script>
 <script type="text/javascript" src="{{url_path}}/newproject/web/js/weekline/timepicker/jquery.timepicker.min.js"></script>
-<script type="text/javascript" src="{{url_path}}/newproject/web/js/onrefresh.js"></script>
-<script type="text/javascript" src="{{url_path}}/newproject/web/js/slick/slick.min.js"></script>
 <script type="text/javascript" src="{{url_path}}/newproject/web/js/weekline/scripts/wl.js"></script>
+
+<script type="text/javascript" src="{{url_path}}/newproject/web/js/slick/slick.min.js"></script>
+<script type="text/javascript" src="{{url_path}}/newproject/web/js/onrefresh.js"></script>
+
+<script type="text/javascript" src="./../web/js/refreshMeal.js"></script>
+<script type="text/javascript" src="./../web/js/doYouLikeThis.js"></script>
 </body>
