@@ -81,6 +81,16 @@ class User
         $dbexec->bindValue(3, $postal_code);
         $dbexec->execute(); 
     }
+    public function addUserStep2($name, $phone_number, $address, $email_address){
+        $query = 'UPDATE users SET name = :name, phone_number = :phone_number, address = :address WHERE email_address = :email_address';
+        $dbexec = $this->conn->prepare($query);
+        $dbexec->execute([
+            'name' => $name,
+            'phone_number' => $phone_number,
+            'address' => $address,
+            'email_address' =>$email_address,
+        ]);
+    }
 
     public function addInfo($var, $arg, $user){
         $query = 'UPDATE users SET '.$var.' = ? WHERE email_address = ? ';

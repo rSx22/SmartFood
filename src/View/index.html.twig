@@ -46,13 +46,8 @@
 
 		<div class="row bar1">
 		  	<div class="row top-buffer2">
-			  <div class="col-md-3 col-md-offset-2 top-buffer1 text-center" ><a href ="{{url_path}}/newproject/web/index.php"><div class="logo" style ="width:200px;"></div></a>
-				
-
-
-
-
-
+			  <div class="col-md-3 col-md-offset-2 top-buffer1 text-center" >
+			  		<a href ="{{url_path}}/newproject/web/index.php"><div class="logo" style ="width:200px;"></div></a>
 			</div>
 
 
@@ -92,12 +87,12 @@
 			</div>
 		</div>
 
-		<div class="row text-center ">
-			{% if (methode=='indexConnected' or  methode=='showProductPage' ) %}
-			<div class="bar2">
+		<div class=" text-center">
+			{% if methode=='indexConnected' or  methode=='showProductPage' %}
+			<div class="bar2" style="margin-left:-15px;">
 			{% endif %}
-				<div class="barimg slick-slide {{methode}}" style="height:430px;width:100%">
-				{% if methode!='indexConnected' and methode!='showProductPage' %}
+				<div class="barimg slick-slide {{methode}}" style="height:430px;width:100%;">
+					{% if methode!='indexConnected' and methode!='showProductPage' %}
 
 				<h2 class="phrase top-buffer3">PHRASE D'ACCROCHE<h2><br>
 				<div class="undertitle">Livraison à emporter / Temps de livraison / Nb Restaurants partenaires / Nombre de spécialtés</div>
@@ -105,88 +100,80 @@
 	        	{% endif %}
 
 
-				<div class="row top-buffer col-md-10 col-md-offset-1 middd">
-					{% if methode=='logUser' %}
-
-					{% include 'user/form_logUser.html.twig' %}
-
-					{% elseif methode=='loggedUser' %}
-
-					{% include 'user/form_logUser.html.twig' %}
-
-					{% elseif methode=='showUser' %}
-
-					{% include 'user/user_page.html.twig' %}
-
-					{% elseif methode=='addUserInfo' %}
-
-					{% include 'user/form_addUserInfo.html.twig' %}
-
-					{% elseif (methode=='indexConnected' or  methode=='showProductPage' ) %}
-
-					{% include 'card/listCard.html.twig' %}
-	        		
-	        		{% else %}
-
-	        		{% include 'user/form_addUser.html.twig' %}
-
-	        		{% endif %}
+					<div class="row top-buffer col-md-10 col-md-offset-1 middd">
+						{% include 'card/listCard.html.twig' %}
+		        	</div>
 	        	</div>
-	        	</div>
-				<div class="barimg2 slick-slide {{methode}}" style="height:430px;width:100%">
-					<div class="phrase top-buffer12">Goutez à la variété et à la simplicité</div>
+				<div class="barimg2 slick-slide {{methode}}" style="height:430px;width:100%;">
+					<div class="phrase top-buffer12">Goutez à la variété et à la simplicité
+					</div>
 				</div>
+				<div class="barimg3 slick-slide {{methode}}" style="height:430px;width:100%:background-color: #edede7;">
+					<div class="phrase">
+					</div>
+					<div class=" top-buffer col-md-10 col-md-offset-1 middd">
+							{% include 'user/help.html.twig' %}
+					</div>					
+					<div class="top-buffer col-md-10 col-md-offset-1 middd">
+							
+					</div>
+				</div>
+
+
+				
+
 				{% if (methode=='indexConnected' or  methode=='showProductPage' ) %}
-
 				</div>
-				<button class="slick-prev">Previous</button>
-				<button class="slick-next">Next</button>
 				{% endif %}
+				</div>
 
 				{% if (methode!='indexConnected' and  methode!='showProductPage' ) %}
 
-				<div class="barimg {{methode}}" style="width:100%">
-                {% if methode!='indexConnected' and methode!='showProductPage' %}
+				<div class="barimg {{methode}}" style="width:104%;margin-left:-15px;>
 
-                <h2 class="phrase top-buffer3">Phrase d'accroche<h2><br>
-                <div class="undertitle">Livraison à emporter / Temps de livraison / Nb Restaurants partenaires / Nombre de spécialtés</div>
-                    
-                {% endif %}
+	                <h2 class="phrase top-buffer3">Phrase d'accroche<h2><br>
+	                <div class="undertitle">Livraison à emporter / Temps de livraison / Nb Restaurants partenaires / Nombre de spécialtés</div>
+		                    
+
+		                <div class="row top-buffer col-md-10 col-md-offset-1 middd">
+		                    {% if methode=='logUser' %}
+
+		                    {% include 'user/form_logUser.html.twig' %}
+
+		                    {% elseif methode=='loggedUser' %}
+
+		                    {% include 'user/form_logUser.html.twig' %}
+
+		                    {% elseif methode=='showUser' %}
+
+		                    {% include 'user/user_page.html.twig' %}
+
+		                    {% elseif methode=='addUserInfo' %}
+
+		                    {% include 'user/form_addUserInfo.html.twig' %}
+
+		                    {% elseif (methode=='indexConnected' or  methode=='showProductPage' ) %}
+
+		                    {% include 'card/listCard.html.twig' %}
 
 
-                <div class="row top-buffer col-md-10 col-md-offset-1 middd">
-                    {% if methode=='logUser' %}
+							{% elseif methode=='addUserStep2' %}
 
-                    {% include 'user/form_logUser.html.twig' %}
+								{% include 'user/form_addUserStep2.html.twig' %}
+		                    
+		                    {% else %}
 
-                    {% elseif methode=='loggedUser' %}
+		                    {% include 'user/form_addUser.html.twig' %}
 
-                    {% include 'user/form_logUser.html.twig' %}
 
-                    {% elseif methode=='showUser' %}
-
-                    {% include 'user/user_page.html.twig' %}
-
-                    {% elseif methode=='addUserInfo' %}
-
-                    {% include 'user/form_addUserInfo.html.twig' %}
-
-                    {% elseif (methode=='indexConnected' or  methode=='showProductPage' ) %}
-
-                    {% include 'card/listCard.html.twig' %}
-                    
-                    {% else %}
-
-                    {% include 'user/form_addUser.html.twig' %}
-
-                    {% endif %}
+		                    {% endif %}
+		                </div>
+	                </div>
                 </div>
-                </div>
-
 				{% endif %}
 
 					
-			</div>
+			
 		<div class="">
 		</div>
 	<div class="row etap-bloc overflow">
@@ -194,22 +181,22 @@
 			<div class="row xxs">
 			<div class="x1 posx1 col-xs-2 col-xs-offset-2">    
 				<div class="x2">
-    				<span>lol dude</span>
+    				<span></span>
 					 </div>
 				</div>
 				<div class="x1 posx1 col-xs-2">    
 					<div class="x2">
-    					<span>lol dude</span>
+    					<span></span>
 					 	</div>
 					</div>
 			<div class="x1 posx1 col-xs-2">    
 				<div class="x2">
-    				<span>lol dude</span>
+    				<span></span>
 				 	</div>
 				</div>
 			<div class="x1 posx1 col-xs-2">    
 				<div class="x2">
-    				<span>lol dude</span>
+    				<span></span>
 				 </div>
 			</div>
 			</div>
@@ -459,8 +446,7 @@
 
 <script type="text/javascript" src="{{url_path}}/newproject/web/js/weekline/scripts/jquery.weekLine.js"></script>
 <script type="text/javascript" src="{{url_path}}/newproject/web/js/weekline/timepicker/jquery.timepicker.min.js"></script>
-<script type="text/javascript" src="{{url_path}}/newproject/web/js/weekline/scripts/wl.js"></script>
-
 <script type="text/javascript" src="{{url_path}}/newproject/web/js/onrefresh.js"></script>
 <script type="text/javascript" src="{{url_path}}/newproject/web/js/slick/slick.min.js"></script>
+<script type="text/javascript" src="{{url_path}}/newproject/web/js/weekline/scripts/wl.js"></script>
 </body>

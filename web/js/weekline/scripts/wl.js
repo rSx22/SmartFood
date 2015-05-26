@@ -1,6 +1,10 @@
-﻿$("#weekCal").weekLine({
+﻿if ($("#weekCal") != null) {
+		$("#weekCal").weekLine({
 	dayLabels: ["Lundi", "Mardi", "Mercredi", "Jeudi", "Vendredi"],
  });
+}
+
+
 
 
 $('#timepicker0').timepicker();

@@ -1,0 +1,21 @@
+{% block body %}
+    <div class="col-md-8 col-md-offset-2 top-buffer3">
+        <form method="POST" action="index.php?p=add_userStep2" enctype="multipart/form-data">
+            <div class="row">
+                <div class="col-md-5">
+                    <input type="text" class="form-control" placeholder="Prénom" name="first_name">
+                    <input type="text" class="form-control top-bufferinputxt" placeholder="Nom" name="name">
+                    <input type="text" class="form-control top-bufferinputxt" placeholder="Numéro de téléphone" name="phone_number">
+                    <input type="text" class="form-control top-bufferinputxt" placeholder="Votre adresse" name="address">
+                    <input class="btnupdate btnupdatereplace top-buffer2" type="submit" value="Confirmer">
+                    <div class="littletext notifyform top-buffer1"> {{message}}
+                </div>
+                <div class="col-md-7 text-center littletext">
+
+
+                    </div>
+                </div>
+            </div>
+        </form>
+    </div>
+{% endblock %}

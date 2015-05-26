@@ -10,6 +10,9 @@ add_user:
 add_userinfo:
   controller: Controller\UserController:addUserInfo
 
+add_userStep2:
+  controller: Controller\UserController:addUserStep2
+
 add_avatar:
   controller: Controller\UserController:addAvatar
 
