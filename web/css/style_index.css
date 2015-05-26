@@ -629,14 +629,14 @@ margin-right: 40px;}
     font-family: "BebasNeue Regular";
     font-size: 24px;
     color: #ffffff;
-    margin-top: 373px;
+    margin-top: 280px;
     margin-left: 50px;
 
 }
 
 .abon-desc {
     font-family: topbarfont;
-    font-size: 21px;
+    font-size: 18px;
     color: #ffffff;
 }
 .abon-btn {
@@ -1036,6 +1036,7 @@ content:"Actualiser";
     }
     .subscribereplace{
         display: none;
+
     }
     .x1 .x2 {
 
