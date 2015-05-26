@@ -831,6 +831,20 @@ margin-right: 40px;}
     cursor: pointer;
 }
 
+.radio-btn-like{
+    display: none;
+}
+.btn-like {
+    font-family: "BebasNeue Regular";
+    font-size: 16px;
+    background-color: #4b9f78;
+    height: 30px;
+    width: 100px;
+    border: 0;
+    color: #ffffff;
+    margin-top: 20px;
+}
+
     /*Proposition of the day*/
 
 .proposition-day {
