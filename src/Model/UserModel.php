@@ -84,7 +84,7 @@ class User
         $query = 'INSERT INTO `users` (`email_address`, `password`,`postal_code`) VALUES (?,?,?)';
         $dbexec = $this->conn->prepare($query);
         $dbexec->bindValue(1, $email);
-        $dbexec->bindValue(2, $password);
+        $dbexec->bindValue(2, sha1($password));
         $dbexec->bindValue(3, $postal_code);
         $dbexec->execute(); 
     }
