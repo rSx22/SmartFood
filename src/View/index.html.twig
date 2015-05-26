@@ -250,26 +250,26 @@
 
 		<div class="row last-meal-bloc">
 			<div class="row title-last-meal">MON DERNIER REPAS:</div>
-			<form class="last-meal-quality">
+			<form method="POST" action="index.php?p=rate_last_meal" class="last-meal-quality">
 				<div class="row last-meal-lines">
 					<div class="col-md-1 col-md-offset-2 col-xs-1 col-xs-offset-1 last-meal-titles-like">Qualité:</div>
-					<div class="col-md-2 col-xs-2 col-xs-1 col-xs-offset-1 last-meal-choices-like slash"><img src="./../web/images/asset/smiley-sad.png" alt="smiley"><input type="radio" name="like" value="j'aime pas" class="radio-btn-like">J'aime pas</div>
-					<div class="col-md-2 col-xs-1 last-meal-choices-like slash"><img src="./../web/images/asset/smiley-soso.png" alt="smiley"><input type="radio" name="like" value="moyen" class="radio-btn-like"> Moyen</div>
-					<div class="col-md-2 col-xs-1 last-meal-choices-like slash"><img src="./../web/images/asset/smiley-happy.png" alt="smiley"><input type="radio" name="like" value="j'aime" class="radio-btn-like"> J'aime</div>
-					<div class="col-md-2 col-xs-1 last-meal-choices-like slash"><img src="./../web/images/asset/smiley-happy.png" alt="smiley"><input type="radio" name="like" value="j'aime beaucoup" class="radio-btn-like"> J'aime beaucoup</div>
+					<div class="col-md-2 col-xs-2 col-xs-1 col-xs-offset-1 last-meal-choices-like slash"><input type="radio" name="like" value="j'aime pas" {#class="radio-btn-like"#} id="sel1"><label for="sel1" class="label-like"> J'aime pas</label><img src="./../web/images/asset/smiley-sad.png" alt="smiley" class="smileys"></div>
+					<div class="col-md-2 col-xs-1 last-meal-choices-like slash"><input type="radio" name="like" value="moyen" class="radio-btn-like" id="sel2"><label for="sel2" class="label-like"> Moyen</label><img src="./../web/images/asset/smiley-soso.png" alt="smiley" class="smileys"></div>
+					<div class="col-md-2 col-xs-1 last-meal-choices-like slash"><input type="radio" name="like" value="j'aime" class="radio-btn-like" id="sel3"><label for="sel3" class="label-like"> J'aime</label><img src="./../web/images/asset/smiley-happy.png" alt="smiley" class="smileys"></div>
+					<div class="col-md-2 col-xs-1 last-meal-choices-like slash"><input type="radio" name="like" value="j'aime beaucoup" class="radio-btn-like" id="sel4"><label for="sel4" class="label-like"> J'aime beaucoup</label><img src="./../web/images/asset/smiley-happy.png" alt="smiley" class="smileys"></div>
 				</div>
 				<div class="row last-meal-lines">
 					<div class="col-md-1 col-md-offset-2 col-xs-1 col-xs-offset-1 last-meal-titles-like">Nourrissant:</div>
-					<div class="col-md-2 col-xs-1 col-xs-1 col-xs-offset-1 last-meal-choices-like slash"><img src="./../web/images/asset/smiley-sad.png" alt="smiley"><input type="radio" name="quantity" value="pas assez" class="radio-btn-like"> Pas assez</div>
-					<div class="col-md-2 col-xs-1 last-meal-choices-like slash"><img src="./../web/images/asset/smiley-happy.png" alt="smiley"><input type="radio" name="quantity" value="parfait" class="radio-btn-like"> Parfait</div>
-					<div class="col-md-2 col-xs-1 last-meal-choices-like slash"><img src="./../web/images/asset/smiley-soso.png" alt="smiley"><input type="radio" name="quantity" value="trop" class="radio-btn-like"> Trop consistant</div>
+					<div class="col-md-2 col-xs-1 col-xs-1 col-xs-offset-1 last-meal-choices-like slash"><input type="radio" name="quantity" value="pas assez" class="radio-btn-like" id="sel5"><label for="sel5" class="label-like"> Pas assez</label><img src="./../web/images/asset/smiley-sad.png" alt="smiley" class="smileys"></div>
+					<div class="col-md-2 col-xs-1 last-meal-choices-like slash"><input type="radio" name="quantity" value="parfait" class="radio-btn-like" id="sel6"><label for="sel6" class="label-like"> Parfait</label><img src="./../web/images/asset/smiley-happy.png" alt="smiley" class="smileys"></div>
+					<div class="col-md-2 col-xs-1 last-meal-choices-like slash"><input type="radio" name="quantity" value="trop" class="radio-btn-like" id="sel7"><label for="sel7" class="label-like"> Trop consistant</label><img src="./../web/images/asset/smiley-soso.png" alt="smiley" class="smileys"></div>
 				</div>
 				<div class="row last-meal-lines">
 					<div class="col-md-1 col-md-offset-2 col-xs-1 col-xs-offset-1 last-meal-titles-like">Varié:</div>
-					<div class="col-md-2 col-xs-2 col-xs-1 col-xs-offset-1 last-meal-choices-like slash"><img src="./../web/images/asset/smiley-sad.png" alt="smiley"><input type="radio" name="variety" value="pas assez" class="radio-btn-like"> Pas assez</div>
-					<div class="col-md-2 col-xs-1 last-meal-choices-like slash"><img src="./../web/images/asset/smiley-soso.png" alt="smiley"><input type="radio" name="variety" value="assez" class="radio-btn-like"> Assez</div>
-					<div class="col-md-2 col-xs-1 last-meal-choices-like slash"><img src="./../web/images/asset/smiley-happy.png" alt="smiley"><input type="radio" name="variety" value="parfait" class="radio-btn-like"> Parfait</div>
-					<div class="col-md-2 col-xs-1 last-meal-choices-like slash"><img src="./../web/images/asset/smiley-soso.png" alt="smiley"><input type="radio" name="variety" value="trop" class="radio-btn-like"> Trop varié</div>
+					<div class="col-md-2 col-xs-2 col-xs-1 col-xs-offset-1 last-meal-choices-like slash"><input type="radio" name="variety" value="pas assez" class="radio-btn-like"  id="sel8"><label for="sel8" class="label-like"> Pas assez</label><img src="./../web/images/asset/smiley-sad.png" alt="smiley" class="smileys"></div>
+					<div class="col-md-2 col-xs-1 last-meal-choices-like slash"><input type="radio" name="variety" value="assez" class="radio-btn-like"  id="sel9"><label for="sel9" class="label-like"> Assez</label><img src="./../web/images/asset/smiley-soso.png" alt="smiley" class="smileys"></div>
+					<div class="col-md-2 col-xs-1 last-meal-choices-like slash"><input type="radio" name="variety" value="parfait" class="radio-btn-like" id="sel10"><label for="sel10" class="label-like"> Parfait</label><img src="./../web/images/asset/smiley-happy.png" alt="smiley" class="smileys"></div>
+					<div class="col-md-2 col-xs-1 last-meal-choices-like slash"><input type="radio" name="variety" value="trop" class="radio-btn-like" id="sel11"><label for="sel11" class="label-like"> Trop varié</label><img src="./../web/images/asset/smiley-soso.png" alt="smiley" class="smileys"></div>
 				</div>
 				<div class="row">
 					<input class="btn-like" type="submit" value="Valider">
