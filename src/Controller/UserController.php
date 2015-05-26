@@ -104,8 +104,9 @@ class UserController extends AbstractBaseController {
                                     $userAdd = $userModel->addUser($user['email_address'], $user['password'], $user['postal_code']); 
                                     
                                     return [
-                                    'view' => 'index.html.twig',
-                                    'message' => "Utilisateur enregistré", 
+                                        'view' => 'index.html.twig',
+                                        'methode' => 'addUserStep2',
+                                        'message' => "Utilisateur enregistré",
                                 ];
                                 }else{return [
                                     'view' => 'index.html.twig',
