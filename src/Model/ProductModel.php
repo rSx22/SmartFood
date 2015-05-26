@@ -101,6 +101,23 @@ class Product
             'user_id' => $user_id,
             'menu_id' => $menu_id
         ]);
+        $resultQuery = $dbexec->fetch();
+        return $resultQuery;
 
+
+    }
+
+    public function rateLastMeal ($quality, $quantity, $variety, $user_id, $menu_id){
+        $query = 'INSERT INTO last_meals (quality, quantity, variety, user_id, menu_id) VALUES (:quality, :quantity, :variety, :user_id, :menu_id)';
+        $dbexec = $this->conn->prepare($query);
+        $dbexec->execute([
+            'quality' => $quality,
+            'quantity' => $quantity,
+            'variety' => $variety,
+            'user_id' => $user_id,
+            'menu_id' => $menu_id
+        ]);
+        $resultQuery = $dbexec->fetch();
+        return $resultQuery;
     }
 }
