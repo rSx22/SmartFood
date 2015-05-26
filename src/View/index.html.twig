@@ -250,27 +250,31 @@
 
 		<div class="row last-meal-bloc">
 			<div class="row title-last-meal">MON DERNIER REPAS:</div>
-			<div class="row last-meal-lines">
-				<div class="col-md-1 col-md-offset-2 col-xs-1 col-xs-offset-1 last-meal-titles-like">Qualité:</div>
-				<div class="col-md-2 col-xs-2 col-xs-1 col-xs-offset-1 last-meal-choices-like slash"><img src="./../web/images/asset/smiley-sad.png" alt="smiley"> J'aime pas</div>
-				<div class="col-md-2 col-xs-1 last-meal-choices-like slash"><img src="./../web/images/asset/smiley-soso.png" alt="smiley"> Moyen</div>
-				<div class="col-md-2 col-xs-1 last-meal-choices-like slash"><img src="./../web/images/asset/smiley-happy.png" alt="smiley"> J'aime</div>
-				<div class="col-md-2 col-xs-1 last-meal-choices-like slash"><img src="./../web/images/asset/smiley-happy.png" alt="smiley"> J'aime beaucoup</div>
-			</div>
-			<div class="row last-meal-lines">
-				<div class="col-md-1 col-md-offset-2 col-xs-1 col-xs-offset-1 last-meal-titles-like">Nourrissant:</div>
-				<div class="col-md-2 col-xs-1 col-xs-1 col-xs-offset-1 last-meal-choices-like slash"><img src="./../web/images/asset/smiley-sad.png" alt="smiley"> Pas assez</div>
-				<div class="col-md-2 col-xs-1 last-meal-choices-like slash"><img src="./../web/images/asset/smiley-happy.png" alt="smiley"> Parfait</div>
-				<div class="col-md-2 col-xs-1 last-meal-choices-like slash"><img src="./../web/images/asset/smiley-soso.png" alt="smiley"> Trop consistant</div>
-			</div>
-			<div class="row last-meal-lines">
-				<div class="col-md-1 col-md-offset-2 col-xs-1 col-xs-offset-1 last-meal-titles-like">Varié:</div>
-				<div class="col-md-2 col-xs-2 col-xs-1 col-xs-offset-1 last-meal-choices-like slash"><img src="./../web/images/asset/smiley-sad.png" alt="smiley"> Pas assez</div>
-				<div class="col-md-2 col-xs-1 last-meal-choices-like slash"><img src="./../web/images/asset/smiley-soso.png" alt="smiley"> Assez</div>
-				<div class="col-md-2 col-xs-1 last-meal-choices-like slash"><img src="./../web/images/asset/smiley-happy.png" alt="smiley"> Parfait</div>
-				<div class="col-md-2 col-xs-1 last-meal-choices-like slash"><img src="./../web/images/asset/smiley-soso.png" alt="smiley"> Trop varié</div>
-			</div>
-
+			<form class="last-meal-quality">
+				<div class="row last-meal-lines">
+					<div class="col-md-1 col-md-offset-2 col-xs-1 col-xs-offset-1 last-meal-titles-like">Qualité:</div>
+					<div class="col-md-2 col-xs-2 col-xs-1 col-xs-offset-1 last-meal-choices-like slash"><img src="./../web/images/asset/smiley-sad.png" alt="smiley"><input type="radio" name="like" value="j'aime pas" class="radio-btn-like">J'aime pas</div>
+					<div class="col-md-2 col-xs-1 last-meal-choices-like slash"><img src="./../web/images/asset/smiley-soso.png" alt="smiley"><input type="radio" name="like" value="moyen" class="radio-btn-like"> Moyen</div>
+					<div class="col-md-2 col-xs-1 last-meal-choices-like slash"><img src="./../web/images/asset/smiley-happy.png" alt="smiley"><input type="radio" name="like" value="j'aime" class="radio-btn-like"> J'aime</div>
+					<div class="col-md-2 col-xs-1 last-meal-choices-like slash"><img src="./../web/images/asset/smiley-happy.png" alt="smiley"><input type="radio" name="like" value="j'aime beaucoup" class="radio-btn-like"> J'aime beaucoup</div>
+				</div>
+				<div class="row last-meal-lines">
+					<div class="col-md-1 col-md-offset-2 col-xs-1 col-xs-offset-1 last-meal-titles-like">Nourrissant:</div>
+					<div class="col-md-2 col-xs-1 col-xs-1 col-xs-offset-1 last-meal-choices-like slash"><img src="./../web/images/asset/smiley-sad.png" alt="smiley"><input type="radio" name="quantity" value="pas assez" class="radio-btn-like"> Pas assez</div>
+					<div class="col-md-2 col-xs-1 last-meal-choices-like slash"><img src="./../web/images/asset/smiley-happy.png" alt="smiley"><input type="radio" name="quantity" value="parfait" class="radio-btn-like"> Parfait</div>
+					<div class="col-md-2 col-xs-1 last-meal-choices-like slash"><img src="./../web/images/asset/smiley-soso.png" alt="smiley"><input type="radio" name="quantity" value="trop" class="radio-btn-like"> Trop consistant</div>
+				</div>
+				<div class="row last-meal-lines">
+					<div class="col-md-1 col-md-offset-2 col-xs-1 col-xs-offset-1 last-meal-titles-like">Varié:</div>
+					<div class="col-md-2 col-xs-2 col-xs-1 col-xs-offset-1 last-meal-choices-like slash"><img src="./../web/images/asset/smiley-sad.png" alt="smiley"><input type="radio" name="variety" value="pas assez" class="radio-btn-like"> Pas assez</div>
+					<div class="col-md-2 col-xs-1 last-meal-choices-like slash"><img src="./../web/images/asset/smiley-soso.png" alt="smiley"><input type="radio" name="variety" value="assez" class="radio-btn-like"> Assez</div>
+					<div class="col-md-2 col-xs-1 last-meal-choices-like slash"><img src="./../web/images/asset/smiley-happy.png" alt="smiley"><input type="radio" name="variety" value="parfait" class="radio-btn-like"> Parfait</div>
+					<div class="col-md-2 col-xs-1 last-meal-choices-like slash"><img src="./../web/images/asset/smiley-soso.png" alt="smiley"><input type="radio" name="variety" value="trop" class="radio-btn-like"> Trop varié</div>
+				</div>
+				<div class="row">
+					<input class="btn-like" type="submit" value="Valider">
+				</div>
+			</form>
 		</div>
 
 			{#Proposition#}
