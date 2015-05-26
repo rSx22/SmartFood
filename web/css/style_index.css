@@ -577,6 +577,13 @@ margin-right: 40px;}
 .etap-bloc {
     background-color: #4b9f78;
 }
+
+.img-etapp {
+    background-image: url("./../images/asset/bannierre_ETAPES.png");
+    background-size: 100% 100%;
+    height: 230px;
+
+}
 .circle1 {
     height: 200px;
     width: 200px;
