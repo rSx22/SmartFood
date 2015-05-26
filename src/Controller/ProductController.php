@@ -167,9 +167,27 @@ class ProductController extends AbstractBaseController {
         if(isset($request['request']['appreciation']) && isset($_SESSION['user_id'])){
             $conn = AbstractBaseController::createConn();
             $productModel = new product($conn); // new Model for accessing db
-            $apprec = $productModel->addAppreciation($request['request']['appreciation'], $_SESSION['user_id'], 0);
+            $apprec = $productModel->addAppreciation($request['request']['appreciation'], $_SESSION['user_id'], 1);
 
         }
+        return [
+            'view' => 'product/notify.html.twig',
+            'methode' => 'addAppreciation',
+
+        ];
+
     }
 
+    public function rateLastMeal ($request){
+        if(isset($request['request']['quantity']) && isset($request['request']['quality']) && isset($request['request']['variety']) && isset($_SESSION['user_id'])){
+            $conn = AbstractBaseController::createConn();
+            $productModel = new product($conn); // new Model for accessing db
+            $apprec = $productModel->addAppreciation($request['request']['quality'], $request['request']['quantity'], $request['request']['variety'], $_SESSION['user_id'], $_SESSION['menu_id']);
+        }
+        return [
+            'view' => 'product/notify.html.twig',
+            'methode' => 'rateLastMeal',
+
+        ];
+    }
 }
