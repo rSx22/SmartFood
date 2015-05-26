@@ -63,3 +63,6 @@ statsdump:
 
 addAppreciation:
   controller: Controller\ProductController:addAppreciation
+
+rateLastMeal:
+  controller: Controller\ProductController:rateLastMeal
