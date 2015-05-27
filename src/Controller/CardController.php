@@ -75,7 +75,8 @@ class CardController extends AbstractBaseController {
                                 }
                             }
                             foreach ($dayz as $key => $value) {
-                                         $_SESSION['card'][$subscribeid['0']]['days'][$value] = $request['request']['timepikr'.$key];
+                                        $keyplus=$key+1;
+                                         $_SESSION['card'][$subscribeid['0']]['days'][$value] = $request['request']['timepikr'.$keyplus];
 
                             }
                        }else{

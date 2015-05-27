@@ -333,7 +333,7 @@ class UserController extends AbstractBaseController {
                         $upload = move_uploaded_file($_FILES['avatar']['tmp_name'], $_SERVER["DOCUMENT_ROOT"]."/newproject/web/images/avatar/".$userinfo['id'].'.'.pathinfo($fichier, PATHINFO_EXTENSION));      
                         $avatarAdd = $userModel->addInfo('path_avatar', 'images/avatar/'.$userinfo['id'].'.'.pathinfo($fichier, PATHINFO_EXTENSION), $_SESSION['email_address']); 
                         $_SESSION['path_avatar']= 'images/avatar/'.$userinfo['id'].'.'.pathinfo($fichier, PATHINFO_EXTENSION);
-                        return 'Votre image de profil à été mise à jour';
+                        return 'Votre image de profil va être mise à jour';
                 
             }else{return "Le format d'image est incorrect";
             }

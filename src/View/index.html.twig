@@ -18,13 +18,16 @@
 <meta http-equiv='x-dns-prefetch-control' content='off'>
 
 
-<link rel="stylesheet" type="text/css" href="./../web/css/style_index.css"/>
-<link rel="stylesheet" type="text/css" href="./../web/css/fonts.css"/>
+
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css"/>
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap-theme.min.css"/>
+<link rel="stylesheet" type="text/css" href="{{url_path}}/newproject/web/css/normalize.css" />
+<link rel="stylesheet" type="text/css" href="./../web/css/style_index.css"/>
 <link rel="stylesheet" type="text/css" href="{{url_path}}/newproject/web/js/slick/slick.css"/>
 <link rel="stylesheet" type="text/css" href="{{url_path}}/newproject/web/js/slick/slick-theme.css">
-
+<link rel="stylesheet" type="text/css" href="./../web/css/fonts.css"/>
+<link rel="stylesheet" type="text/css" href="{{url_path}}/newproject/web/css/demo.css" />
+<link rel="stylesheet" type="text/css" href="{{url_path}}/newproject/web/css/component.css" />
 
 
 
@@ -42,7 +45,7 @@
 
 		<div class="row bar1">
 		  	<div class="row top-buffer2">
-			  <div class="col-md-3 col-md-offset-2 top-buffer1 text-center" ><a href ="{{url_path}}/newproject/web/index.php"><div class="logo" style ="width:200px;"></div></a>
+			  <div class="col-md-3 col-md-offset-2 top-buffer1 text-center" ><a  href ="{{url_path}}/newproject/web/index.php"><div class="logo" style ="width:200px;"></div></a>
 				
 
 
@@ -120,17 +123,22 @@
                 <div class="undertitle">Livraison à emporter / Temps de livraison / Nb Restaurants partenaires / Nombre de spécialtés
                 </div>        
 	                <div class="row top-buffer col-md-10 col-md-offset-1 middd">
+
 	                    {% if methode=='logUser' %}
 	                    {% include 'user/form_logUser.html.twig' %}
+
 	                    {% elseif methode=='loggedUser' %}
 	                    {% include 'user/form_logUser.html.twig' %}
+
 	                    {% elseif methode=='showUser' %}
 	                    {% include 'user/user_page.html.twig' %}
+
 	                    {% elseif methode=='addUserInfo' %}
 	                    {% include 'user/form_addUserInfo.html.twig' %}
+
 	                    {% elseif (methode=='indexConnected' or  methode=='showProductPage' ) %}
 	                    {% include 'card/listCard.html.twig' %}
-	                    
+	          
 	                    {% else %}
 	                    {% include 'user/form_addUser.html.twig' %}
 	                    {% endif %}
@@ -174,11 +182,7 @@
 
 	{% include 'product/product_page.html.twig' %}
 
-	{% else %}
-
-
-
-{% if  methode!='showUser' %}
+	{% elseif  methode!='showUser' %}
 
 	{#Abonnements#}
 
@@ -219,12 +223,16 @@
 		</div>
 	</div>
 
+	{% endif %}
+
+	{% if methode!='showUser' %}
+
 	{#Description Bloc#}
 	<div class="row">
 		<div class="col-md-12 description-bloc">
 			<div class="row col-md-8 col-md-offset-2 db-center-bloc">
 				<div >
-					<div class="row  db-title">EN CE MOMENT</div>
+					<div class=" db-title">EN CE MOMENT</div>
 					<div>
 						<div class="row imgmiam">
 							<div class="col-md-3 col-xs-3">
@@ -244,7 +252,7 @@
 		</div>
 	</div>
 
-	{% else %}
+	{% elseif  methode=='showUser' %}
 
 	{#User Page#}
 	<div class="row big-user-bloc text-center">
@@ -365,7 +373,7 @@
 
 	</div>
 
-{% endif %}
+	{% endif %}
 
 
 	{#Footer#}
@@ -401,21 +409,21 @@
 
 </div>
 	
-	{% endif %}
+
 
 	</div>
 </div>
 
+<script type="text/javascript" src="{{url_path}}/newproject/web/js/modernizr.custom.js"></script>
 <script type="text/javascript" src="{{url_path}}/newproject/vendor/components/jquery/jquery.min.js"></script>
 <script type="text/javascript" src="//code.jquery.com/jquery-migrate-1.2.1.min.js"></script>
 <script type="text/javascript" src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js"></script>
 
 <script type="text/javascript" src="{{url_path}}/newproject/web/js/weekline/scripts/jquery.weekLine.js"></script>
 <script type="text/javascript" src="{{url_path}}/newproject/web/js/weekline/timepicker/jquery.timepicker.min.js"></script>
-<script type="text/javascript" src="{{url_path}}/newproject/web/js/weekline/scripts/wl.js"></script>
 
 <script type="text/javascript" src="{{url_path}}/newproject/web/js/slick/slick.min.js"></script>
-<script type="text/javascript" src="{{url_path}}/newproject/web/js/onrefresh.js"></script>
+<script type="text/javascript" src="{{url_path}}/newproject/web/js/subscription.js"></script>
 
 <script type="text/javascript" src="./../web/js/refreshMeal.js"></script>
 <script type="text/javascript" src="./../web/js/doYouLikeThis.js"></script>

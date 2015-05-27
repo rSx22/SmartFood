@@ -1,6 +1,6 @@
 ﻿(function ($) {
 	
-	var selectedDay = "selectedDay";
+	var selectedDay = "selectedDay nava";
 	
     $.fn.weekLine = function (params) {
         if (methods[params]) {
@@ -34,7 +34,7 @@
 				}
 				
                 $week
-					.addClass("weekDays cleanslate")
+					.addClass("cl-effect-6 listday")
 				    .append(weekHTML)
 				    .mouseup(function () {
 				        mouseDown = false;

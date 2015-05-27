@@ -2,14 +2,20 @@
 
 <div class="row undertitle endbar">
 	<div class="col-md-6">
-	    <div>Adresse e-mail: {{user.email_address}}</div>
-	    <div>Adresse: {{user.address|default('"..."') }} à {{user.city|default('"Ville"')}}</div>
-	    <div>Code Postal Régional: {{user.postal_code}}</div>
+	    <div>Adresse e-mail: {{user.email_address}}
+	    </div>
+	    <div>Adresse: {{user.address|default('"..."') }} à {{user.city|default('"Ville"')}}
+	    </div>
+	    <div>Code Postal Régional: {{user.postal_code}}
+	    </div>
 	</div>
 	<div class="col-md-6">
-		<div>Age : {{user.age|default('"..."')}}</div>
-	    <div>Sexe : {{user.gender|default('"..."')}}</div>
-	    <div>Numéro de Téléphone : {{user.phone_number|default('"..."')}}</div>
+		<div>Age : {{user.age|default('"..."')}}
+		</div>
+	    <div>Sexe : {{user.gender|default('"..."')}}
+	    </div>
+	    <div>Numéro de Téléphone : {{user.phone_number|default('"..."')}}
+	    </div>
 
 	</div>
 </div>

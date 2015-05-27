@@ -22,6 +22,7 @@ class ProductController extends AbstractBaseController {
 
 
     public function showSubscribeMode($request){
+        if(isset($request['request']['id'])){
         $conn = AbstractBaseController::createConn();
         $productModel = new product($conn);
         $product  = $productModel->getProductById($request['request']['id']);
@@ -34,7 +35,8 @@ class ProductController extends AbstractBaseController {
             'methode' => 'showProductPage',
             //'message' => 'productname : '.$product.' dont exist Table products'
             'id' => $product['id'],
-            ];
+           ];
+        }return 404;//////////////->
     }
 
     public function showProductAction($request) {

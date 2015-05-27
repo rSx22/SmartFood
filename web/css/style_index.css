@@ -4,12 +4,103 @@ a{
     color:#34A7C1;
 }
 
+.timez{
+width:15%;
+margin-right:4%;
+margin-left: 0;
+}
+.timezz{
+   min-width: 66px;
+}
+
+.listday .nava {
+    margin: 10px 10px;
+    padding: 10px 20px;
+    color:#4b9f78;
+}
+.listday .nava::before {
+    position: absolute;
+    top: 100%;
+    opacity: 1;
+    left: 0;
+    width: 100%;
+    height: 2px;
+    background: #fff;
+    content: '';
+    -webkit-transition: top 0.3s;
+    -moz-transition: top 0.3s;
+    transition: top 0.3s;
+}
+
+.listday .nava::after {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 2px;
+    height: 100%;
+    background: #fff;
+    content: '';
+    -webkit-transition: height 0.3s;
+    -moz-transition: height 0.3s;
+    transition: height 0.3s;
+}
+.listday{
+    margin-top: 70px;
+}
 
 
+nav a:hover{
+color:#4b9f78;
+}
+.buttonabo1 {
+    background-color: transparent;;
+    background-size: 100% 100%;
+    background-image: url("./../images/asset/aboperso.png");
+    height: 70px;
+    width: 50%;
+    min-width: 120px;
+    border: 0;
+    margin: 50px 0 0 25%; 
+    -moz-transition: all 1s ease;
+    -webkit-transition: all 1s ease;
+    -o-transition: all 1s ease;
+    transition: all 1s ease;
+}
+
+.buttonabo2 {
+    background-color: transparent;;
+    background-size: 100% 100%;
+    background-image: url("./../images/asset/abosemaine.png");
+    height: 70px;
+    width: 50%;
+    min-width: 120px;
+    border: 0;
+    margin: 50px 0 0 25%; 
+    -moz-transition: all 1s ease;
+    -webkit-transition: all 1s ease;
+    -o-transition: all 1s ease;
+    transition: all 1s ease;
+
+}
+.buttonabo3 {
+    background-color: transparent;;
+    background-size: 100% 100%;
+    background-image: url("./../images/asset/aboweekend.png");
+    height: 70px;
+    width: 50%;
+    min-width: 120px;
+    border: 0;
+    margin: 50px 0 0 25%; 
+    -moz-transition: all 1s ease;
+    -webkit-transition: all 1s ease;
+    -o-transition: all 1s ease;
+    transition: all 1s ease;
+
+}
 
 .firstetap{
     background-image: url("./../images/asset/firstetap.png");
-    background-size: 100% 90%;
+    background-size: 110% 90%;
     background-repeat: no-repeat;
 height: auto;
 width:25%;
@@ -19,7 +110,7 @@ float: left;
 }
 .secondetap{
     background-image: url("./../images/asset/secondetap.png");
-    background-size: 100% 90%;
+    background-size: 110% 90%;
     background-repeat: no-repeat;
 height: auto;
 width:25%;
@@ -29,7 +120,7 @@ margin-left:-50px;
 }
 .thirdetap{
     background-image: url("./../images/asset/thirdetap.png");
-    background-size: 100% 90%;
+    background-size: 110% 90%;
     background-repeat: no-repeat;
 height: auto;
 width:25%;
@@ -39,7 +130,7 @@ margin-left:-50px;
 }
 .fourthetap{
     background-image: url("./../images/asset/fourthetap.png");
-    background-size: 100% 90%;
+    background-size: 110% 90%;
     background-repeat: no-repeat;
 height: auto;
 width:25%;
@@ -235,6 +326,7 @@ display: none;
     padding-top: 8px;
     box-shadow:  -5px 0px 14px  #fff;
     border-radius: 10px;
+    display: inline;
 }
 .itemloglink a{
     color:  #4b9f78;
@@ -306,7 +398,6 @@ display: none;
 
 .bar2{height: 400px;
     width: 100%;
-
 }
 .black{
     font-size: 25px;
@@ -323,6 +414,8 @@ font-size: 25px;
 .helpsize{
     font-size: 15px;
  font-family: "BebasNeue Regular";
+ max-height: 250px;
+ overflow: hidden;
 }
 .barimg2{
     background-image: url("./../images/asset/tassethé.jpg");
@@ -353,6 +446,7 @@ margin-right: 40px;}
     background-size: 100% 100%;
     height:430px;
     width:100%;
+    margin-top: 15px;
 }
 .middd{height: 200px;}
 .undertitle{
@@ -971,6 +1065,21 @@ content:"Actualiser";
 
     }
 
+.subs{
+    background-color: #e8e3e9;
+    width:45%;
+    min-width: 230px;
+    height:400px;
+    display: inline-block; 
+    margin-top: 35px;
+    margin-left: 30%;
+    border-radius: 30px;
+}
+.scndstep{
+    display: none;
+    width:90%;
+    margin-left:5%;
+}
 
 @media screen and (max-width:620px) {
 .overflow {
@@ -993,7 +1102,12 @@ content:"Actualiser";
     background: -o-linear-gradient(rgba(255,255,255,0), rgba(255,255,255,1));
     background: linear-gradient(rgba(255,255,255,0), rgba(255,255,255,1));
 }
+.subs{
+    margin:35px 0 0 20%;
+    min-height: 420px;
+    height:100%;
 }
+
 @media screen and (max-width:511px) {
     .logoutlink{
         left:-120px;
@@ -1056,7 +1170,7 @@ content:"Actualiser";
     }
     .posx1{
     margin-top: 40px;
-}
+    }
     .itemloglink{
         width:40%;
         display: inline;
@@ -1075,15 +1189,22 @@ content:"Actualiser";
     .logoutlink{
         margin-right:-90px;
     }
-    .loglink{
-        bottom:40px;
+    .loglink{    
+        margin-top:-20px;
+    
+    }
+    .itemloglink{
+        width:40%;
+        display: inline;
+        bottom:30px;
+
     }
     .evenmorelittle{
         margin-top: 0px;
     }
     .btninscript {
         position: relative;
-        top:-30px;
+        top:0px;
     }
     .widthresize{
         margin: 5px auto auto auto;
