@@ -45,13 +45,9 @@
 
 		<div class="row bar1">
 		  	<div class="row top-buffer2">
-			  <div class="col-md-3 col-md-offset-2 top-buffer1 text-center" ><a  href ="{{url_path}}/newproject/web/index.php"><div class="logo" style ="width:200px;"></div></a>
-				
-
-
-
-
-
+			  <div class="col-md-3 col-md-offset-2 top-buffer1 text-center" >
+			  		<a href ="{{url_path}}/newproject/web/index.php">
+			  <div class="logo" style ="width:200px;"></div></a>
 			</div>
 
 
@@ -138,7 +134,10 @@
 
 	                    {% elseif (methode=='indexConnected' or  methode=='showProductPage' ) %}
 	                    {% include 'card/listCard.html.twig' %}
-	          
+ 
+						{% elseif methode=='addUserStep2' %}
+						{% include 'user/form_addUserStep2.html.twig' %}
+
 	                    {% else %}
 	                    {% include 'user/form_addUser.html.twig' %}
 	                    {% endif %}
@@ -147,35 +146,36 @@
             	</div>
 			{% endif %}
 		</div>
-		
 
-		<div class="">
-		</div>
-	<div class="row etap-bloc overflow">
-		<div class="col-md-12 text-center">
-			<div class="xxs text-center" style="min-width:400px;width:95%;margin-left: 12%;">
-			<div class="x1 firstetap">    
-				<div class="x2">
-					 </div>
-				</div>
-				<div class="x1 secondetap">    
-					<div class="x2">
-					 	</div>
-					</div>
-			<div class="x1 thirdetap">    
-				<div class="x2">
-				 	</div>
-				</div>
-			<div class="x1 fourthetap">    
-				<div class="x2">
-				 </div>
-			</div>
-			</div>
-		</div>
-	</div>
+		{#Etap Bloc#}
+
+	{#<div class="row etap-bloc overflow">#}
+		{#<div class="col-md-12 text-center">#}
+			{#<div class="xxs text-center" style="min-width:400px;width:95%;margin-left: 12%;">#}
+			{#<div class="x1 firstetap">#}
+				{#<div class="x2">#}
+					 {#</div>#}
+				{#</div>#}
+				{#<div class="x1 secondetap">#}
+					{#<div class="x2">#}
+					 	{#</div>#}
+					{#</div>#}
+			{#<div class="x1 thirdetap">#}
+				{#<div class="x2">#}
+				 	{#</div>#}
+				{#</div>#}
+			{#<div class="x1 fourthetap">#}
+				{#<div class="x2">#}
+				 {#</div>#}
+			{#</div>#}
+			{#</div>#}
+		{#</div>#}
+	{#</div>#}
 
 
-	{#Etap Bloc#}
+<div class="row">
+	<div class="img-etapp"></div>
+</div>
 
 
 	{% if  methode=='showProductPage' %}
@@ -189,33 +189,33 @@
 	<div class="row abon-bloc text-center">
 		<div class="abon-bloc-img">
 			<div class="row abon-bloc-desc">
-				<div class="col-md-1 col-md-offset-2 col-xs-1 col-xs-offset-2">
-					<div class="row abon-title">ABONNEMENT 1</div>
-					<div class="row abon-desc">Description blablbalba</div>
+				<div class="col-md-2 col-md-offset-2 col-xs-1 col-xs-offset-2">
+					<div class="row abon-title">UN JOUR</div>
+					<div class="row abon-desc">1 jour par semaine sauf week-end Midi/Soir</div>
 					<div class="row"><form method="POST" action="index.php?p=subscription&id=1">
 									 	<input type="hidden" name="p" value="subscription">
 									 	<input type="hidden" name="id" value="1">
-										<input type="submit" value="Découvrir" class="btnupdate large subscribereplace">
+										<input type="submit" value="Découvrir" class="abon-btn large subscribereplace">
 									</form>
 					</div>
 				</div>
-				<div class="col-md-1 col-md-offset-2 col-xs-1 col-xs-offset-2">
-					<div class="row abon-title">ABONNEMENT 2</div>
-					<div class="row abon-desc">Description blablbalba</div>
+				<div class="col-md-2 col-md-offset-1 col-xs-1 col-xs-offset-2">
+					<div class="row abon-title">WEEK-END</div>
+					<div class="row abon-desc">Le week-end midi/soir</div>
 					<div class="row"><form method="POST" action="index.php?p=subscription&id=2">
 									 	<input type="hidden" name="p" value="subscription">
 									 	<input type="hidden" name="id" value="2">
-										<input type="submit" value="Découvrir" class="btnupdate large subscribereplace">
+										<input type="submit" value="Découvrir" class="abon-btn large subscribereplace">
 									</form>
 					</div>
 				</div>
-				<div class="col-md-1 col-md-offset-2 col-xs-1 col-xs-offset-2">
-					<div class="row abon-title">ABONNEMENT 3</div>
-					<div class="row abon-desc">Description blablbalba</div>
+				<div class="col-md-2 col-md-offset-1 col-xs-1 col-xs-offset-2">
+					<div class="row abon-title">SEMAINE</div>
+					<div class="row abon-desc">5 jours par semaine Midi/soir</div>
 					<div class="row">	<form method="POST" action="index.php?p=subscription&id=3">
 										 	<input type="hidden" name="p" value="subscription">
 										 	<input type="hidden" name="id" value="3">
-											<input type="submit" value="Découvrir" class="btnupdate large subscribereplace">
+											<input type="submit" value="Découvrir" class="abon-btn large subscribereplace">
 										</form>
 					</div>
 				</div>
@@ -261,27 +261,31 @@
 
 		<div class="row last-meal-bloc">
 			<div class="row title-last-meal">MON DERNIER REPAS:</div>
-			<div class="row last-meal-lines">
-				<div class="col-md-1 col-md-offset-2 col-xs-1 col-xs-offset-1 last-meal-titles-like">Qualité:</div>
-				<div class="col-md-2 col-xs-2 col-xs-1 col-xs-offset-1 last-meal-choices-like slash"><img src="./../web/images/asset/smiley-sad.png" alt="smiley"> J'aime pas</div>
-				<div class="col-md-2 col-xs-1 last-meal-choices-like slash"><img src="./../web/images/asset/smiley-soso.png" alt="smiley"> Moyen</div>
-				<div class="col-md-2 col-xs-1 last-meal-choices-like slash"><img src="./../web/images/asset/smiley-happy.png" alt="smiley"> J'aime</div>
-				<div class="col-md-2 col-xs-1 last-meal-choices-like slash"><img src="./../web/images/asset/smiley-happy.png" alt="smiley"> J'aime beaucoup</div>
-			</div>
-			<div class="row last-meal-lines">
-				<div class="col-md-1 col-md-offset-2 col-xs-1 col-xs-offset-1 last-meal-titles-like">Nourrissant:</div>
-				<div class="col-md-2 col-xs-1 col-xs-1 col-xs-offset-1 last-meal-choices-like slash"><img src="./../web/images/asset/smiley-sad.png" alt="smiley"> Pas assez</div>
-				<div class="col-md-2 col-xs-1 last-meal-choices-like slash"><img src="./../web/images/asset/smiley-happy.png" alt="smiley"> Parfait</div>
-				<div class="col-md-2 col-xs-1 last-meal-choices-like slash"><img src="./../web/images/asset/smiley-soso.png" alt="smiley"> Trop consistant</div>
-			</div>
-			<div class="row last-meal-lines">
-				<div class="col-md-1 col-md-offset-2 col-xs-1 col-xs-offset-1 last-meal-titles-like">Varié:</div>
-				<div class="col-md-2 col-xs-2 col-xs-1 col-xs-offset-1 last-meal-choices-like slash"><img src="./../web/images/asset/smiley-sad.png" alt="smiley"> Pas assez</div>
-				<div class="col-md-2 col-xs-1 last-meal-choices-like slash"><img src="./../web/images/asset/smiley-soso.png" alt="smiley"> Assez</div>
-				<div class="col-md-2 col-xs-1 last-meal-choices-like slash"><img src="./../web/images/asset/smiley-happy.png" alt="smiley"> Parfait</div>
-				<div class="col-md-2 col-xs-1 last-meal-choices-like slash"><img src="./../web/images/asset/smiley-soso.png" alt="smiley"> Trop varié</div>
-			</div>
-
+			<form method="POST" action="index.php?p=rateLastMeal" class="last-meal-quality">
+				<div class="row last-meal-lines">
+					<div class="col-md-1 col-md-offset-2 col-xs-1 col-xs-offset-1 last-meal-titles-like">Qualité:</div>
+					<div class="col-md-2 col-xs-2 col-xs-1 col-xs-offset-1 last-meal-choices-like slash"><input type="radio" name="like" value="j'aime pas" {#class="radio-btn-like"#} id="sel1"><label for="sel1" class="label-like"> J'aime pas</label><img src="./../web/images/asset/smiley-sad.png" alt="smiley" class="smileys"></div>
+					<div class="col-md-2 col-xs-1 last-meal-choices-like slash"><input type="radio" name="like" value="moyen" class="radio-btn-like" id="sel2"><label for="sel2" class="label-like"> Moyen</label><img src="./../web/images/asset/smiley-soso.png" alt="smiley" class="smileys"></div>
+					<div class="col-md-2 col-xs-1 last-meal-choices-like slash"><input type="radio" name="like" value="j'aime" class="radio-btn-like" id="sel3"><label for="sel3" class="label-like"> J'aime</label><img src="./../web/images/asset/smiley-happy.png" alt="smiley" class="smileys"></div>
+					<div class="col-md-2 col-xs-1 last-meal-choices-like slash"><input type="radio" name="like" value="j'aime beaucoup" class="radio-btn-like" id="sel4"><label for="sel4" class="label-like"> J'aime beaucoup</label><img src="./../web/images/asset/smiley-happy.png" alt="smiley" class="smileys"></div>
+				</div>
+				<div class="row last-meal-lines">
+					<div class="col-md-1 col-md-offset-2 col-xs-1 col-xs-offset-1 last-meal-titles-like">Nourrissant:</div>
+					<div class="col-md-2 col-xs-1 col-xs-1 col-xs-offset-1 last-meal-choices-like slash"><input type="radio" name="quantity" value="pas assez" class="radio-btn-like" id="sel5"><label for="sel5" class="label-like"> Pas assez</label><img src="./../web/images/asset/smiley-sad.png" alt="smiley" class="smileys"></div>
+					<div class="col-md-2 col-xs-1 last-meal-choices-like slash"><input type="radio" name="quantity" value="parfait" class="radio-btn-like" id="sel6"><label for="sel6" class="label-like"> Parfait</label><img src="./../web/images/asset/smiley-happy.png" alt="smiley" class="smileys"></div>
+					<div class="col-md-2 col-xs-1 last-meal-choices-like slash"><input type="radio" name="quantity" value="trop" class="radio-btn-like" id="sel7"><label for="sel7" class="label-like"> Trop consistant</label><img src="./../web/images/asset/smiley-soso.png" alt="smiley" class="smileys"></div>
+				</div>
+				<div class="row last-meal-lines">
+					<div class="col-md-1 col-md-offset-2 col-xs-1 col-xs-offset-1 last-meal-titles-like">Varié:</div>
+					<div class="col-md-2 col-xs-2 col-xs-1 col-xs-offset-1 last-meal-choices-like slash"><input type="radio" name="variety" value="pas assez" class="radio-btn-like"  id="sel8"><label for="sel8" class="label-like"> Pas assez</label><img src="./../web/images/asset/smiley-sad.png" alt="smiley" class="smileys"></div>
+					<div class="col-md-2 col-xs-1 last-meal-choices-like slash"><input type="radio" name="variety" value="assez" class="radio-btn-like"  id="sel9"><label for="sel9" class="label-like"> Assez</label><img src="./../web/images/asset/smiley-soso.png" alt="smiley" class="smileys"></div>
+					<div class="col-md-2 col-xs-1 last-meal-choices-like slash"><input type="radio" name="variety" value="parfait" class="radio-btn-like" id="sel10"><label for="sel10" class="label-like"> Parfait</label><img src="./../web/images/asset/smiley-happy.png" alt="smiley" class="smileys"></div>
+					<div class="col-md-2 col-xs-1 last-meal-choices-like slash"><input type="radio" name="variety" value="trop" class="radio-btn-like" id="sel11"><label for="sel11" class="label-like"> Trop varié</label><img src="./../web/images/asset/smiley-soso.png" alt="smiley" class="smileys"></div>
+				</div>
+				<div class="row">
+					<input class="btn-like" type="submit" value="Valider">
+				</div>
+			</form>
 		</div>
 
 			{#Proposition#}

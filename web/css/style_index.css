@@ -3,6 +3,12 @@
 a{
     color:#34A7C1;
 }
+html, body {
+    max-width: 100%;
+    overflow-x: hidden;
+}
+.glow{
+text-shadow: #999999 1px 1px, #999999 -1px 1px, #999999 -1px -1px, #999999 1px -1px;}
 
 .timez{
 width:15%;
@@ -48,6 +54,12 @@ margin-left: 0;
     margin-top: 70px;
 }
 
+.question:before{
+      color: #ff4800;
+    content: "» ";
+    font-weight: bold;
+
+}
 
 nav a:hover{
 color:#4b9f78;
@@ -182,6 +194,7 @@ display: none;}
     -moz-border-radius:50%;
     -webkit-border-radius:50%;
     -khtml-border-radius: 50%;
+    background:#eee;
     text-align:center;
     position: relative;
 }
@@ -195,6 +208,9 @@ display: none;}
     font-size: 100%;
     overflow: hidden;
 }​
+.posx1{
+   
+}
 .xxs{
     height: 200px;
     width:80%;
@@ -278,6 +294,9 @@ display: none;
 
 #timename2{
     width: 300px;
+}
+.dayz:before{
+    content:"";
 }
 
 
@@ -380,6 +399,7 @@ display: none;
     margin-top: 100px;
 }
 
+
 .topbarr{
     background-image: url("./../images/asset/ardoise.png");
     background-size: 100% 100%;
@@ -446,7 +466,6 @@ margin-right: 40px;}
     background-size: 100% 100%;
     height:430px;
     width:100%;
-    margin-top: 15px;
 }
 .middd{height: 200px;}
 .undertitle{
@@ -652,6 +671,13 @@ margin-right: 40px;}
 .etap-bloc {
     background-color: #4b9f78;
 }
+
+.img-etapp {
+    background-image: url("./../images/asset/bannierre_ETAPES.png");
+    background-size: 100% 100%;
+    height: 220px;`
+
+}
 .circle1 {
     height: 200px;
     width: 200px;
@@ -697,14 +723,14 @@ margin-right: 40px;}
     font-family: "BebasNeue Regular";
     font-size: 24px;
     color: #ffffff;
-    margin-top: 373px;
+    margin-top: 280px;
     margin-left: 50px;
 
 }
 
 .abon-desc {
     font-family: topbarfont;
-    font-size: 21px;
+    font-size: 18px;
     color: #ffffff;
 }
 .abon-btn {
@@ -878,6 +904,10 @@ margin-right: 40px;}
     padding-left: 57px;
 }
 
+.smileys {
+    margin-left: 5px;
+}
+
 .last-meal-lines {
     font-family: topbarfont;
     color: #ffffff;
@@ -897,6 +927,25 @@ margin-right: 40px;}
 .last-meal-choices-like:hover {
     color: #4b9f78;
     cursor: pointer;
+}
+
+.radio-btn-like{
+    /*display: none;*/
+}
+.btn-like {
+    font-family: "BebasNeue Regular";
+    font-size: 16px;
+    background-color: #4b9f78;
+    height: 30px;
+    width: 100px;
+    border: 0;
+    color: #ffffff;
+    margin-top: 20px;
+}
+.label-like:hover {
+    color: #4b9f78;
+    cursor: pointer;
+
 }
 
     /*Proposition of the day*/
@@ -1096,6 +1145,7 @@ content:"Actualiser";
     left: 0;
     bottom: 0;
     /* lignes suivantes : dégradé vertical de blanc transparent vers blanc opaque (navigateurs supportant les dégradés CSS, navigateurs supportant les couleurs rgba */
+<<<<<<< HEAD
     background: -webkit-linear-gradient(rgba(255,255,255,0), rgba(255,255,255,1));
     background: -moz-linear-gradient(rgba(255,255,255,0), rgba(255,255,255,1));
     background: -ms-linear-gradient(rgba(255,255,255,0), rgba(255,255,255,1));
@@ -1106,6 +1156,14 @@ content:"Actualiser";
     margin:35px 0 0 20%;
     min-height: 420px;
     height:100%;
+=======
+    background: -webkit-linear-gradient(rgba(255,255,255,0), rgba(237,237,273,1));
+    background: -moz-linear-gradient(rgba(255,255,255,0), rgba(237,237,273,1));
+    background: -ms-linear-gradient(rgba(255,255,255,0), rgba(237,237,273,1));
+    background: -o-linear-gradient(rgba(255,255,255,0), rgba(237,237,273,1));
+    background: linear-gradient(rgba(255,255,255,0), rgba(237,237,273,1));
+    }
+>>>>>>> origin/indexBis
 }
 
 @media screen and (max-width:511px) {
@@ -1113,7 +1171,9 @@ content:"Actualiser";
         left:-120px;
         margin-top:30px;
     }
-
+    .abon-bloc {
+        height:350px;
+    }
     .etap-bloc{
         height:80px;
     }
@@ -1122,6 +1182,7 @@ content:"Actualiser";
     }
     .subscribereplace{
         display: none;
+
     }
     .x1 .x2 {
 
@@ -1153,6 +1214,9 @@ content:"Actualiser";
         margin-left: -10px;
         width:120px;
     }
+        .abon-bloc {
+        height:550px;
+    }
 }
 
 @media screen and (max-width:991px) {
@@ -1175,7 +1239,9 @@ content:"Actualiser";
         width:40%;
         display: inline;
         top:30px;
-
+    }
+    .barimg{
+        width:90%;
     }
     .bar1{
         height:160px;

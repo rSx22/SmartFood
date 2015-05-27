@@ -1,13 +1,17 @@
 $(function() {
     $('.rate-item').click(function() {
         $.ajax({
-            url : 'index.php?p=addAppreciation',
+            url : '?p=addAppreciation',
             type : 'POST',
             data : {appreciation: $(this).attr('data-like')},
-            dataType : 'json'
+            dataType : 'json',
+            success:function(data){
+                console.log(data);
+            },
+            error : function(data) {
+                console.log(data);
 
-
-
+            }
         });
     });
 });

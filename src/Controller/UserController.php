@@ -104,8 +104,9 @@ class UserController extends AbstractBaseController {
                                     $userAdd = $userModel->addUser($user['email_address'], $user['password'], $user['postal_code']); 
                                     
                                     return [
-                                    'view' => 'index.html.twig',
-                                    'message' => "Utilisateur enregistré", 
+                                        'view' => 'index.html.twig',
+                                        'methode' => 'addUserStep2',
+                                        'message' => "Utilisateur enregistré",
                                 ];
                                 }else{return [
                                     'view' => 'index.html.twig',
@@ -133,87 +134,131 @@ class UserController extends AbstractBaseController {
                 ];
                 }
     }
+    public function addUserStep2($request) {
+        if(isset($_SESSION['email_address'])){
+            if(!isset($request['request']['name'])){
+                return [
+                    'view' => 'index.html.twig',
+                    'methode' => 'addUserStep2',
+                    'message' => "Veuillez rentrer votre nom"
+                ];
+            }
+            elseif(!isset($request['request']['phone_number'])){
+                return [
+                    'view' => 'index.html.twig',
+                    'methode' => 'addUserStep2',
+                    'message' => "Veuillez rentrer votre numéro de téléphone"
+                ];
+            }
+            elseif(!isset($request['request']['address'])){
+                return [
+                    'view' => 'index.html.twig',
+                    'methode' => 'addUserStep2',
+                    'message' => "Veuillez rentrer votre addresse"
+                ];
+            }
 
-    public function addUserInfo($request) {
-            if(isset($_SESSION['email_address'])){
-
+            elseif(isset($request['request']['name']) && isset($request['request']['phone_number']) && isset($request['request']['address'])){
                 $conn = AbstractBaseController::createConn();
                 $userModel = new User($conn); // new Model for accessing db
                 $userExist = $userModel->chkUserByMail($_SESSION['email_address']); //cheqk if user logged still exist in db for updatee info
-                $userinfo = $userModel->getInfoByMail($_SESSION['email_address']);
+                $userStep2 = $userModel->addUserStep2($request['request']['name'], $request['request']['phone_number'], $request['request']['address'], $_SESSION['email_address']);
 
-                $exist = false;
-                    if(isset(glob ($_SERVER["DOCUMENT_ROOT"].'/newproject/web/images/avatar/'.$userinfo['id'].'.*')['0'])){
-                        $exist = true;
-                    }else{$exist=false;}
-                if( $userExist == '1'){ //then we can update info
-                    if( !empty( $request['request']) ) { 
+            }
+            return [
+                'view' => 'index.html.twig',
+                'methode' => 'addUserStep2',
+                'message' => "Inscription complète",
+            ];
+        }else{
+            return [
+                'view' => 'index.html.twig',
+                'methode' => 'addUser',
+                'message' => "Vous n'etes pas enregistré",
+            ];
+        }
+    }
 
-                        if(isset($request['request']['confirmswitch']) OR ($exist == false) ) {
-                             $upload_avatar = $this->addAvatar($request);
-                        }else{$upload_avatar ='';}
-                        $user = array(
-                                    'address' => '',
-                                    'gender' => '',
-                                    'city' => '',
-                                    'phone_number' => '',
-                                    'age' => '',
-                                    );
+    public function addUserInfo($request) {
+    if(isset($_SESSION['email_address'])){
 
-                        switch (true) {
-                                
-                            case ((isset($request['request']['city'])) && (preg_match('/[a-zéèêëàâîïôöûü-]+/i', $request['request']['city']))) :
-                                $user['city'] = $request['request']['city'];
+        $conn = AbstractBaseController::createConn();
+        $userModel = new User($conn); // new Model for accessing db
+        $userExist = $userModel->chkUserByMail($_SESSION['email_address']); //cheqk if user logged still exist in db for updatee info
+        $userinfo = $userModel->getInfoByMail($_SESSION['email_address']);
 
-                            case ((isset($request['request']['address'])) && (strlen(utf8_decode($request['request']['address'])) < 25 )) : 
-                                $user['address'] = $request['request']['address'];
+        $exist = false;
+        if(isset(glob ($_SERVER["DOCUMENT_ROOT"].'/newproject/web/images/avatar/'.$userinfo['id'].'.*')['0'])){
+            $exist = true;
+        }else{$exist=false;}
+        if( $userExist == '1'){ //then we can update info
+            if( !empty( $request['request']) ) {
 
-                            case (isset($request['request']['phone_number']) && (preg_match('/^(1\s*[-\/\.]?)?(\((\d{3})\)|(\d{3}))\s*[-\/\.]?\s*(\d{3})\s*[-\/\.]?\s*(\d{4})\s*(([xX]|[eE][xX][tT])\.?\s*(\d+))*$/', $request['request']['phone_number'] ))) : 
-                                $user['phone_number'] = $request['request']['phone_number'];    
-                                
-                            case (isset($request['request']['age'])): 
-                                if ($request['request']['age'] > 0 && $request['request']['age'] < 120 )  {
-                                     $user['age'] = $request['request']['age'];
-                                }
+                if(isset($request['request']['confirmswitch']) OR ($exist == false) ) {
+                    $upload_avatar = $this->addAvatar($request);
+                }else{$upload_avatar ='';}
+                $user = array(
+                    'address' => '',
+                    'gender' => '',
+                    'city' => '',
+                    'phone_number' => '',
+                    'age' => '',
+                );
 
-                            default:break;
-                        } 
-                        if(isset($request['request']['malefemaleswitch'])){
-                            $user['gender'] = 'Homme';
-                        }else{$user['gender'] = 'Femme';}
+                switch (true) {
 
-                        foreach ($user as $key => $value) {
-                            if($value!==''){
-                                $userAdd = $userModel->addinfo($key, $value, $_SESSION['email_address']); 
-                            }
+                    case ((isset($request['request']['city'])) && (preg_match('/[a-zéèêëàâîïôöûü-]+/i', $request['request']['city']))) :
+                        $user['city'] = $request['request']['city'];
+
+                    case ((isset($request['request']['address'])) && (strlen(utf8_decode($request['request']['address'])) < 25 )) :
+                        $user['address'] = $request['request']['address'];
+
+                    case (isset($request['request']['phone_number']) && (preg_match('/^(1\s*[-\/\.]?)?(\((\d{3})\)|(\d{3}))\s*[-\/\.]?\s*(\d{3})\s*[-\/\.]?\s*(\d{4})\s*(([xX]|[eE][xX][tT])\.?\s*(\d+))*$/', $request['request']['phone_number'] ))) :
+                        $user['phone_number'] = $request['request']['phone_number'];
+
+                    case (isset($request['request']['age'])):
+                        if ($request['request']['age'] > 0 && $request['request']['age'] < 120 )  {
+                            $user['age'] = $request['request']['age'];
                         }
-                        if(isset(glob ($_SERVER["DOCUMENT_ROOT"].'/newproject/web/images/avatar/'.$userinfo['id'].'.*')['0'])){
-                            $exist = true;
-                        }
-                        return [
-                        'view' => 'index.html.twig',
-                        'methode' => 'addUserInfo',
-                        'message' => "Informations mises à jour.".' '.$upload_avatar,
-                        'exist' => $exist,
-                        'user' => $user,
-                    ];
-                    }else{return [
-                        'view' => 'index.html.twig',
-                        'methode' => 'addUserInfo',
-                        'exist' => $exist,
-                        'user' => $userinfo,
-                        
-                        ];
+
+                    default:break;
+                }
+                if(isset($request['request']['malefemaleswitch'])){
+                    $user['gender'] = 'Homme';
+                }else{$user['gender'] = 'Femme';}
+
+                foreach ($user as $key => $value) {
+                    if($value!==''){
+                        $userAdd = $userModel->addinfo($key, $value, $_SESSION['email_address']);
                     }
                 }
-            }else{
-             return [
+                if(isset(glob ($_SERVER["DOCUMENT_ROOT"].'/newproject/web/images/avatar/'.$userinfo['id'].'.*')['0'])){
+                    $exist = true;
+                }
+                return [
                     'view' => 'index.html.twig',
-                    'methode' => 'loggedUser',
-                    'message' => "Vous n'etes pas enregistré",
+                    'methode' => 'addUserInfo',
+                    'message' => "Informations mises à jour.".' '.$upload_avatar,
+                    'exist' => $exist,
+                    'user' => $user,
                 ];
+            }else{return [
+                'view' => 'index.html.twig',
+                'methode' => 'addUserInfo',
+                'exist' => $exist,
+                'user' => $userinfo,
+
+            ];
             }
         }
+    }else{
+        return [
+            'view' => 'index.html.twig',
+            'methode' => 'loggedUser',
+            'message' => "Vous n'etes pas enregistré",
+        ];
+    }
+}
 
     public function deleteUser($request) {
         //check request content else show input view
