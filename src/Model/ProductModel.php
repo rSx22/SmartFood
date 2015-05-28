@@ -60,7 +60,7 @@ class Product
     }
 
     public function addProductInfo($var, $arg, $product){
-        $query = 'UPDATE products SET '.$var.'= ? WHERE name= ?';
+        $query = 'UPDATE products SET '.$this->conn->quote($var, \PDO::PARAM_STR).'= ? WHERE name= ?';
         $dbexec = $this->conn->prepare($query);
         $dbexec->bindValue(1, $arg);
         $dbexec->bindValue(2, $product);

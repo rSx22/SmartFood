@@ -20,9 +20,7 @@ session_start();
 
  $routes = $yaml->parse(file_get_contents('../app/config/routing.yml'));
 
-
 if(isset($_GET['p'])){
-
 	//$arrayVal = new Validator\arrayValidator();
 
 	if ( Validator\arrayValidator::keyExist($routes,$_GET['p']) ){
@@ -42,9 +40,7 @@ if(isset($_GET['p'])){
 
 		//ActionName, end name is ...Action
 		$action_name = $route_table[1];
-
 		$controller = new $controller_class();
-
 		//$Request can by an object
 		$request['request'] = &$_POST;
 		$request['query'] = &$_GET;
@@ -67,7 +63,7 @@ $twig->addExtension(new Twig_Extension_Debug());		//for debug to work
 if(isset($response['view'])){							//if i've got a response from controller then i show view asked from it
 	$template = $twig->loadTemplate($response['view']); // load view
 	unset($response['view']);							//unset unused view
-	if(isset($_SESSION['email_address'])){					//for user to see his profil name and profil picture if session is set
+	if(isset($_SESSION['email_address'])){				//for user to see his profil name and profil picture if session is set
 		$response['email_address'] = $_SESSION['email_address'] ;
 		$response['session'] = $_SESSION;
 		if(strlen($_SESSION['email_address']) > 16){

@@ -100,7 +100,7 @@ class User
     }
 
     public function addInfo($var, $arg, $user){
-        $query = 'UPDATE users SET '.$var.' = ? WHERE email_address = ? ';
+        $query = 'UPDATE users SET '.$this->conn->quote($var, \PDO::PARAM_STR).' = ? WHERE email_address = ? ';
 
         $dbexec = $this->conn->prepare($query);
        // $dbexec->bindValue(1, $var);
@@ -130,11 +130,15 @@ class User
 
     }
     
-    public function delUser($name){
-        $qb = 'DELETE FROM `users` WHERE email_address = ?';
+    public function delUser($email){
+
+        $qb = 'DELETE FROM `users` WHERE `id` = ?';
         $dbex = $this->conn->prepare($qb);
-        $dbex->bindValue(1, $name);
+        $dbex->bindValue(1, $email);
         $dbex->execute();
-        return $name;
+
+        return $email;
+
+
     }
 }

@@ -944,7 +944,7 @@ nav a:focus {
 /* Effect 21: borders slight translate */
 .cl-effect-21 a {
 	padding: 10px;
-	color: #237546;
+	color: #FFF;
 	font-weight: 700;
 	text-shadow: none;
 	-webkit-transition: color 0.3s;
@@ -985,7 +985,7 @@ nav a:focus {
 
 .cl-effect-21 a:hover,
 .cl-effect-21 a:focus {
-	color: #fff;
+	color: #4b9f78;
 }
 
 .cl-effect-21 a:hover::before,

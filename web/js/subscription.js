@@ -21,19 +21,29 @@ if ($(".bar2") != null) {
 }
 });
 
-$('.buttonabo1').click(doAbo1);
-$('.buttonabo2').click(doAbo2);
-$('.buttonabo3').click(doAbo3);
+var id = $('.abo').data('subid');
+var redirectid1;
+var redirectid2;
+	switch(id) {
+    case 1:
+        redirectid1=2;
+        redirectid2=3;
+        break;
+    case 2:
+        redirectid1=1;
+        redirectid2=3;
+        break;
+    case 3:
+        redirectid1=1;
+        redirectid2=2;
+        break;
+	} 
+$('.abo').click(doAbo);
+$('.aboelse1').click(change1);
+$('.aboelse2').click(change2);
 
-function doAbo1()
 
-{
-	$('.buttonabo2').css("opacity", "0");
-	$('.buttonabo3').css("opacity", "0");
-	$('.buttonabo1').css("margin-top", "0");
-	$('.buttonabo1').css("margin-top", "10%");
-}
-function doAbo2()
+function doAbo()
 {
 	$('.buttonabo2').unbind();
 	$('.buttonabo1').css({opacity: '0'},{duration:1000, queue:false});
@@ -73,7 +83,7 @@ function displayScndstep(){
 	$("#weekCal").weekLine({
 	dayLabels: ["Lundi", "Mardi", "Mercredi", "Jeudi", "Vendredi"],
  	});
- 		$( "#weekCal" ).mouseout(function() {
+ 		$( "#weekCal" ).click(function() {
  		doSelect();
  		});
 
@@ -88,8 +98,6 @@ function displayScndstep(){
 
 	$('#timepicker5').timepicker();
 
-
-	$('#btnSelect').click(doSelect);
 }
 
 function doSelect()
@@ -145,12 +153,19 @@ function doSelect()
 
 
 
-function doAbo3()
+function change1()
 {
-	$('.buttonabo1').css("opacity", "0");
-	$('.buttonabo2').css("opacity", "0");
-	$('.buttonabo3').css("margin-top", "10%");
+	window.location.replace('http://localhost/newproject/web/index.php?p=subscription&id='+redirectid1);
 }
+
+function change2()
+
+{
+	window.location.replace('http://localhost/newproject/web/index.php?p=subscription&id='+redirectid2);
+}
+
+
+
 $(window).bind('beforeunload', function(){
 $('body').fadeTo(100, 0.9);
 });

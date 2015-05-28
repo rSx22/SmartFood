@@ -205,8 +205,8 @@ class UserController extends AbstractBaseController {
                     'age' => '',
                 );
 
-                switch (true) {
-
+                switch (true) {     //Exec case if request is set
+                                    //usr can add info 1 by 1
                     case ((isset($request['request']['city'])) && (preg_match('/[a-zéèêëàâîïôöûü-]+/i', $request['request']['city']))) :
                         $user['city'] = $request['request']['city'];
 
@@ -227,7 +227,7 @@ class UserController extends AbstractBaseController {
                     $user['gender'] = 'Homme';
                 }else{$user['gender'] = 'Femme';}
 
-                foreach ($user as $key => $value) {
+                foreach ($user as $key => $value) { // update for each user info
                     if($value!==''){
                         $userAdd = $userModel->addinfo($key, $value, $_SESSION['email_address']);
                     }
@@ -261,9 +261,7 @@ class UserController extends AbstractBaseController {
 }
 
     public function deleteUser($request) {
-        //check request content else show input view
         if(isset($_SESSION['email_address']) ) { 
-
             $user =  $_SESSION['email_address'];
             $conn = AbstractBaseController::createConn();
             $userModel = new User($conn); // new Model for accessing db

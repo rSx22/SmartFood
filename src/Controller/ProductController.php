@@ -22,6 +22,9 @@ class ProductController extends AbstractBaseController {
 
 
     public function showSubscribeMode($request){
+        if(isset($request['query']['id'])) {
+            $request['request']['id'] = $request['query']['id'];
+        }
         if(isset($request['request']['id'])){
         $conn = AbstractBaseController::createConn();
         $productModel = new product($conn);
