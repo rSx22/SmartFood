@@ -64,95 +64,67 @@ margin-left: 0;
 nav a:hover{
 color:#4b9f78;
 }
-.buttonabo1 {
-    background-color: transparent;;
-    background-size: 100% 100%;
-    background-image: url("./../images/asset/aboperso.png");
+.buttonabo{
     height: 70px;
-    width: 50%;
-    min-width: 120px;
     border: 0;
-    margin: 50px 0 0 25%; 
+    margin: 40px 0 0 27%; 
+    line-height: 2.2;
     -moz-transition: all 1s ease;
     -webkit-transition: all 1s ease;
     -o-transition: all 1s ease;
     transition: all 1s ease;
+    text-align: center;
+    padding-top: 30px;
+}
+.buttonabo23{
+    margin: 5px 0 0 13%;
+    padding-top: 0px;
 }
 
-.buttonabo2 {
-    background-color: transparent;;
-    background-size: 100% 100%;
-    background-image: url("./../images/asset/abosemaine.png");
-    height: 70px;
-    width: 50%;
-    min-width: 120px;
-    border: 0;
-    margin: 50px 0 0 25%; 
-    -moz-transition: all 1s ease;
-    -webkit-transition: all 1s ease;
-    -o-transition: all 1s ease;
-    transition: all 1s ease;
-
-}
-.buttonabo3 {
-    background-color: transparent;;
-    background-size: 100% 100%;
-    background-image: url("./../images/asset/aboweekend.png");
-    height: 70px;
-    width: 50%;
-    min-width: 120px;
-    border: 0;
-    margin: 50px 0 0 25%; 
-    -moz-transition: all 1s ease;
-    -webkit-transition: all 1s ease;
-    -o-transition: all 1s ease;
-    transition: all 1s ease;
-
-}
 
 .firstetap{
     background-image: url("./../images/asset/firstetap.png");
     background-size: 110% 90%;
     background-repeat: no-repeat;
-height: auto;
-width:25%;
-min-width:60px;
-float: left;
+    height: auto;
+    width:25%;
+    min-width:60px;
+    float: left;
 
 }
 .secondetap{
     background-image: url("./../images/asset/secondetap.png");
     background-size: 110% 90%;
     background-repeat: no-repeat;
-height: auto;
-width:25%;
-min-width:60px;
-float: left;
-margin-left:-50px;
+    height: auto;
+    width:25%;
+    min-width:60px;
+    float: left;
+    margin-left:-50px;
 }
 .thirdetap{
     background-image: url("./../images/asset/thirdetap.png");
     background-size: 110% 90%;
     background-repeat: no-repeat;
-height: auto;
-width:25%;
-min-width:60px;
-float: left;
-margin-left:-50px;
+    height: auto;
+    width:25%;
+    min-width:60px;
+    float: left;
+    margin-left:-50px;
 }
 .fourthetap{
     background-image: url("./../images/asset/fourthetap.png");
     background-size: 110% 90%;
     background-repeat: no-repeat;
-height: auto;
-width:25%;
-min-width:60px;
-float: left;
-margin-left:-50px;
+    height: auto;
+    width:25%;
+    min-width:60px;
+    float: left;
+    margin-left:-50px;
 }
 
 .glow{
-text-shadow: #999999 1px 1px, #999999 -1px 1px, #999999 -1px -1px, #999999 1px -1px;}
+    text-shadow: #999999 1px 1px, #999999 -1px 1px, #999999 -1px -1px, #999999 1px -1px;}
 
 /*div{border:1px solid;}*/
 .emptycard{
@@ -194,7 +166,6 @@ display: none;}
     -moz-border-radius:50%;
     -webkit-border-radius:50%;
     -khtml-border-radius: 50%;
-    background:#eee;
     text-align:center;
     position: relative;
 }
@@ -434,7 +405,7 @@ font-size: 25px;
 .helpsize{
     font-size: 15px;
  font-family: "BebasNeue Regular";
- max-height: 250px;
+ max-height: 240px;
  overflow: hidden;
 }
 .barimg2{
@@ -484,7 +455,7 @@ margin-right: 40px;}
 .phrase{
     color: #f5f5ef;
     font-size: 30px;
-    padding-top: 30px;
+    padding-top: 45px;
     font-family: "Roboto";
 }
 .logoutlink{
@@ -1128,6 +1099,10 @@ content:"Actualiser";
     display: none;
     width:90%;
     margin-left:5%;
+    -moz-transition: all 1s ease;
+    -webkit-transition: all 1s ease;
+    -o-transition: all 1s ease;
+    transition: all 1s ease;
 }
 
 @media screen and (max-width:620px) {

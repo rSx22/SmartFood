@@ -30,14 +30,21 @@ class __TwigTemplate_b227e83caa343cb0617fbebf328ffe38046bfe2953743ec726c4ea3e190
 \t\t
 <div class=\"subs\">
 \t<div class=\"frststep\">
-\t\t<form>
 \t\t<nav class=\"cl-effect-21\">
-\t\t\t<a type=\"button\" class=\"buttonabo abo\"  data-subid=\"";
+\t\t\t<a type=\"button\" class=\"buttonabo aboelse1 buttonabo23\">";
+        // line 8
+        echo twig_escape_filter($this->env, (isset($context["id"]) ? $context["id"] : null), "html", null, true);
+        echo "</a>
+\t\t\t<a type=\"button\" class=\"buttonabo aboelse2 buttonabo23\">";
         // line 9
         echo twig_escape_filter($this->env, (isset($context["id"]) ? $context["id"] : null), "html", null, true);
-        echo "\">aaaa</a>
-\t\t\t<a type=\"button\" class=\"buttonabo aboelse1\">aa</a>
-\t\t\t<a type=\"button\" class=\"buttonabo aboelse2\">aa</a>
+        echo "</a>
+\t\t\t<a type=\"button\" class=\"buttonabo abo\"  data-subid=\"";
+        // line 10
+        echo twig_escape_filter($this->env, (isset($context["id"]) ? $context["id"] : null), "html", null, true);
+        echo "\">Casser la croûte : N#";
+        echo twig_escape_filter($this->env, (isset($context["id"]) ? $context["id"] : null), "html", null, true);
+        echo "</a>
 \t\t</nav>
 
 \t
@@ -46,54 +53,54 @@ class __TwigTemplate_b227e83caa343cb0617fbebf328ffe38046bfe2953743ec726c4ea3e190
 \t\t\t<div class=\"col-md-5 col-xs-4\">
 
 \t\t\t\t";
-        // line 19
+        // line 18
         if (($this->getAttribute((isset($context["product"]) ? $context["product"] : null), "path_image", []) != null)) {
-            // line 20
+            // line 19
             echo "
 \t\t\t\t<img src=\"";
-            // line 21
+            // line 20
             echo twig_escape_filter($this->env, (isset($context["url_path"]) ? $context["url_path"] : null), "html", null, true);
             echo "/newproject/web/";
             echo twig_escape_filter($this->env, $this->getAttribute((isset($context["product"]) ? $context["product"] : null), "path_image", []), "html", null, true);
             echo "\" style=\"width:100px;height:100px;\"> 
 \t\t\t\t";
         }
-        // line 23
+        // line 22
         echo "
 \t\t\t</div>
 \t\t\t<div class=\"col-md-6 col-xs-8\">
 \t\t\t\t<div class=\"col-md-6 col-xs-6\">
 \t\t\t\t\t<div>Nom : ";
-        // line 27
+        // line 26
         echo twig_escape_filter($this->env, $this->getAttribute((isset($context["product"]) ? $context["product"] : null), "name", []), "html", null, true);
         echo "</div>
 \t\t\t\t\t<div>Price : ";
-        // line 28
+        // line 27
         echo twig_escape_filter($this->env, $this->getAttribute((isset($context["product"]) ? $context["product"] : null), "price", []), "html", null, true);
         echo "</div>
 \t\t\t\t</div>
 \t\t\t\t<div class=\"col-md-6 col-xs-6\">
 \t\t\t\t\t<div>Description : ";
-        // line 31
+        // line 30
         echo twig_escape_filter($this->env, $this->getAttribute((isset($context["product"]) ? $context["product"] : null), "description", []), "html", null, true);
         echo "</div>
 \t\t\t\t\t<div>Indice Calorique : ";
-        // line 32
+        // line 31
         echo twig_escape_filter($this->env, $this->getAttribute((isset($context["product"]) ? $context["product"] : null), "kcal_ind", []), "html", null, true);
         echo "</div>
 \t\t\t\t</div>
 \t\t\t</div>
 \t\t\t";
-        // line 35
+        // line 34
         if (array_key_exists("email_address", $context)) {
-            // line 36
+            // line 35
             echo "
 \t\t\t<div class=\"row listday\">
 \t\t\t\t<div class=\"weekselec text-center\">
 \t\t\t\t\t<nav id=\"weekCal\"></nav>
-\t\t\t\t</div>
+\t\t\t</div>
 \t\t\t\t<button data-id=\"";
-            // line 41
+            // line 40
             echo twig_escape_filter($this->env, (isset($context["id"]) ? $context["id"] : null), "html", null, true);
             echo "\" id=\"btnSelect\">Valider</button>  <br>
 \t\t\t</div>
@@ -137,7 +144,7 @@ class __TwigTemplate_b227e83caa343cb0617fbebf328ffe38046bfe2953743ec726c4ea3e190
 \t\t\t\t    </div>
 \t\t\t\t  </div>
 \t\t\t\t<input type=\"submit\" value=\"Envoyer\" name=\"";
-            // line 82
+            // line 81
             echo twig_escape_filter($this->env, (isset($context["id"]) ? $context["id"] : null), "html", null, true);
             echo "\"  class=\"btnform\">
 
@@ -147,10 +154,10 @@ class __TwigTemplate_b227e83caa343cb0617fbebf328ffe38046bfe2953743ec726c4ea3e190
 \t\t\t</div>
 \t\t\t";
         }
-        // line 89
+        // line 88
         echo "
 \t\t\t";
-        // line 90
+        // line 89
         echo twig_escape_filter($this->env, (isset($context["message"]) ? $context["message"] : null), "html", null, true);
         echo "
 \t\t</div>
@@ -166,6 +173,6 @@ class __TwigTemplate_b227e83caa343cb0617fbebf328ffe38046bfe2953743ec726c4ea3e190
 
     public function getDebugInfo()
     {
-        return array (  154 => 90,  151 => 89,  141 => 82,  97 => 41,  90 => 36,  88 => 35,  82 => 32,  78 => 31,  72 => 28,  68 => 27,  62 => 23,  55 => 21,  52 => 20,  50 => 19,  37 => 9,  26 => 2,  20 => 1,);
+        return array (  161 => 89,  158 => 88,  148 => 81,  104 => 40,  97 => 35,  95 => 34,  89 => 31,  85 => 30,  79 => 27,  75 => 26,  69 => 22,  62 => 20,  59 => 19,  57 => 18,  44 => 10,  40 => 9,  36 => 8,  26 => 2,  20 => 1,);
     }
 }

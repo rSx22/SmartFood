@@ -38,6 +38,9 @@ var redirectid2;
         redirectid2=2;
         break;
 	} 
+
+$('.aboelse1').text('formule N#'+redirectid1);
+$('.aboelse2').text('formule N#'+redirectid2);
 $('.abo').click(doAbo);
 $('.aboelse1').click(change1);
 $('.aboelse2').click(change2);
@@ -45,10 +48,7 @@ $('.aboelse2').click(change2);
 
 function doAbo()
 {
-	$('.buttonabo2').unbind();
-	$('.buttonabo1').css({opacity: '0'},{duration:1000, queue:false});
-	$('.buttonabo2').css({opacity: '0'},{duration:1000, queue:false});	
-	$('.buttonabo3').css({opacity: '0'},{duration:1000, queue:false});
+	$('.abo').unbind();
 
 	movesub();
 	timeoutID = window.setTimeout(function() {displayAbo2(true);//true is a param not display true
@@ -56,8 +56,11 @@ function doAbo()
 
 }
 function movesub(){
+		$('.aboelse1').animate({opacity: '0'},{duration:500, queue:false});
+		$('.aboelse2').animate({opacity: '0'},{duration:500, queue:false});	
+		$('.abo').css('opacity', '0',{duration:1000, queue:false});	
 		$('.subs').animate({
-		width: '66%', height: '600px'
+		width: '63%', height: '600px'
 		}, { duration: 1000, queue: false }
 		);
 		$('.subs').animate({
@@ -66,20 +69,23 @@ function movesub(){
 		);
 }
 function displayAbo2(){
-		$('.buttonabo1').css("display", "none");
-		$('.buttonabo3').css("display", "none");
-		var height = $('.buttonabo1').outerHeight() - 40;
-
-		$('.buttonabo2').css({opacity: '1', marginTop:"40px"},{duration:800, queue:false});
-
-
-		timeoutID = window.setTimeout(function() {displayScndstep(true);//true is a param not display true
+		$(".scndstep").css("display", "inline-block");
+		$(".scndstep").css("opacity","0");
+		$('.buttonabo23').css({marginLeft: '15%'},{duration:1000, queue:false});
+		//$('.buttonabo2').css({opacity: '1', marginTop:"40px"},{duration:800, queue:false});
+		timeoutID2 = window.setTimeout(function() {displayScndstep(true);//true is a param not display true
 		},750);
 
 }
 function displayScndstep(){
-	$(".scndstep").css("display", "inline-block");
-	 $( "#btnSelect" ).css("visibility", "hidden");
+	$( ".abo" ).css("color", "#4b9f78");
+	$( ".buttonabo" ).css("marginLeft", "30%");
+	$( ".buttonabo23" ).css("marginLeft", "20%");
+	$('.abo').css({opacity: '1'},{duration:1000, queue:false});
+	$(".scndstep").css({opacity: '1'},{duration:1000, queue:false});
+	$('.aboelse1').css({opacity: '1'},{duration:1000, queue:false});
+	$('.aboelse2').css({opacity: '1'},{duration:1000, queue:false});
+	$( "#btnSelect" ).css("visibility", "hidden");
 	$("#weekCal").weekLine({
 	dayLabels: ["Lundi", "Mardi", "Mercredi", "Jeudi", "Vendredi"],
  	});
@@ -119,7 +125,6 @@ function doSelect()
 	if (arrdayz['0']!=""){
 		iterator= arrdayz.length;
 	}else{iterator=null;}
-
 
 	var subscriptionid = $('#btnSelect').data('id');
 	var dayNumber = 0;
