@@ -172,5 +172,15 @@ function change2()
 
 
 $(window).bind('beforeunload', function(){
-$('body').fadeTo(100, 0.9);
+	$('.zob').width("10%");
+
+	$('.barimg').ready(function() {
+	    $('.zob').width("30%");
+	});
+	$('.bottombarr').ready(function() {
+	    $('.zob').width("50%");
+	});
+	$('body').ready(function() {
+	    $('.zob').width("98%");
+	});
 });
