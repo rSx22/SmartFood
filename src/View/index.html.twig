@@ -35,13 +35,10 @@
 <title>{% block title %}Test Application{% endblock %}</title>
 <body style="background-color:#f5f5ef;">
 
- <div class="zobi">
   <div class="zob" role="progressbar" aria-valuenow="70"
   aria-valuemin="0" aria-valuemax="100">
     <span class="sr-only">70% Complete</span>
   </div>
-</div>
-
 <div class="container">
 	<div class="row text-center topbarr">
 		<div class="col-md-5 col-md-offset-1 barsize">
@@ -184,7 +181,11 @@
 
 	{% if  methode=='showProductPage' %}
 
+	<div class="pdctpage row">
+	
 	{% include 'product/product_page.html.twig' %}
+
+	</div>
 
 	{% elseif  methode!='showUser' %}
 

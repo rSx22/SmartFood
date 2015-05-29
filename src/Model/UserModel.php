@@ -100,7 +100,7 @@ class User
     }
 
     public function addInfo($var, $arg, $user){
-        $query = 'UPDATE users SET '.$this->conn->quote($var, \PDO::PARAM_STR).' = ? WHERE email_address = ? ';
+        $query = 'UPDATE users SET '.$var.' = ? WHERE email_address = ? ';
 
         $dbexec = $this->conn->prepare($query);
        // $dbexec->bindValue(1, $var);

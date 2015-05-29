@@ -71,7 +71,6 @@ function movesub(){
 function displayAbo2(){
 		$(".scndstep").css("display", "inline-block");
 		$(".scndstep").css("opacity","0");
-		$('.buttonabo23').css({marginLeft: '15%'},{duration:1000, queue:false});
 		//$('.buttonabo2').css({opacity: '1', marginTop:"40px"},{duration:800, queue:false});
 		timeoutID2 = window.setTimeout(function() {displayScndstep(true);//true is a param not display true
 		},750);
@@ -79,6 +78,7 @@ function displayAbo2(){
 }
 function displayScndstep(){
 	$( ".abo" ).css("color", "#4b9f78");
+	
 	$( ".buttonabo" ).css("marginLeft", "30%");
 	$( ".buttonabo23" ).css("marginLeft", "20%");
 	$('.abo').css({opacity: '1'},{duration:1000, queue:false});
